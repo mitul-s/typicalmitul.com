@@ -1,0 +1,15 @@
+// VARIABLES // 
+$primary-font: 'Product Sans', serif;
+$secondary-font: 'Questrial', sans-serif;
+
+$primary-color: #001427;
+$secondary-color: #2EC4B6;
+$black: #000000;
+$shell: #FAFFFA;
+$white: #fff;
+
+@mixin main-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+}

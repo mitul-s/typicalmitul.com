@@ -1,0 +1,57 @@
+.padding-none {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.cta {
+    padding: 60px 0;
+}
+
+.cta-main {
+        color: $white;
+        width: 300px;
+        max-height: 110px;
+        width: 100%;
+        margin-bottom: 30px;
+}
+
+.cta-content {
+    padding: 30px 40px;
+    height: 100%;
+    background-color: $primary-color;
+    font-size: 22px;
+    text-align: left;
+    color: #FFFFFF;
+    letter-spacing: -0.26px;
+    text-align: justify;
+    line-height: 30px;
+
+    p {
+        color: $white;
+    }
+
+}
+
+
+.joint-button {
+    background-color: $secondary-color;
+    font-size: 25px;
+    height: 100%;
+    display: table;
+    font-weight: 900;
+    transition: 300ms all;
+    text-align: center;
+    width: 100%;
+
+    &:hover {
+        background-color: $white;
+        border: 2px solid $secondary-color;
+        color: $secondary-color;
+        border-left-color: transparent;
+    }
+}
+
+.btn-center {
+    display: table-cell;
+    vertical-align: middle;
+}

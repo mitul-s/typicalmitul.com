@@ -1,0 +1,22 @@
+.tagline {
+    font-family: $primary-font;
+    mix-blend-mode: difference;
+    font-size: 100px;
+    color: $shell;
+    letter-spacing: -1.2px;
+    text-align: center;
+}
+
+.hero-content {
+    background-image: url(https://source.unsplash.com/random);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 80vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
