@@ -1,36 +1,27 @@
-    const gallery = document.querySelector('.gallery');
-    // const overlay = document.querySelector('.overlay');
-    // const overlayImage = overlay.querySelector('img');
-    // const overlayClose = overlay.querySelector('.close');
+// // Sticky header on scroll
+// $(document).scroll(function () {
+//   if ($(window).scrollTop() > 0) {
+//     $('body').addClass('fixed-nav');
+//   } else {
+//     $('body').removeClass('fixed-nav');
+//   }
+// });
 
-    function generateHTML([h, v]) {
-      return `
-        <div class="item h${h} v${v}">
-          <img src="images/${randomNumber(12)}.jpg">
-        </div>
-      `;
-    }
-    function randomNumber(limit) {
-      return Math.floor(Math.random() * limit) + 1;
-    }
+const brands = [
+  { image: "/images/logos/shopify_logo.svg" },
+  { image: "/images/logos/google_logo.svg" },
+  { image: "/images/logos/samsung_logo.svg" },
+  { image: "/images/logos/amdocs_logo.svg" },
+  { image: "/images/logos/500px_logo.svg" },
+  { image: "/images/logos/uber_logo.svg" },
+  { image: "/images/logos/amdocs_logo.svg" }
+]
 
-    // function handleClick(e) {
-    //   const src = e.currentTarget.querySelector('img').src;
-    //   overlayImage.src = src;
-    //   overlay.classList.add('open');
-    // }
 
-    // function close() {
-    //   overlay.classList.remove('open');
-    // }
+const element = document.querySelector('.brands-items');
 
-    const digits = Array.from({ length: 7 }, () => 
-      [randomNumber(4), randomNumber(4)]);
-
-    const html = digits.map(generateHTML).join('');
-    gallery.innerHTML = html;
-
-    // const items = document.querySelectorAll('.item');
-    // items.forEach(item => item.addEventListener('click', handleClick));
-
-    // overlayClose.addEventListener('click', close);
+element.innerHTML = `
+    ${brands.map(image => `
+        <img src="${image.image}" class="brand-logo">
+    `).join('')}
+`

@@ -1,5 +1,8 @@
 // VARIABLES // 
-$primary-font: 'Product Sans', serif;
+@import url(https://fonts.googleapis.com/css?family=Product+Sans);
+@import url(https://fonts.googleapis.com/css?family=Questrial&display=swap);
+
+$primary-font: 'Product Sans', sans-serif;
 $secondary-font: 'Questrial', sans-serif;
 
 $primary-color: #001427;
@@ -7,6 +10,9 @@ $secondary-color: #2EC4B6;
 $black: #000000;
 $shell: #FAFFFA;
 $white: #fff;
+
+// FONT // 
+$p-font-size: 18px;
 
 @mixin main-grid {
     display: grid;
