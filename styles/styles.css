@@ -373,6 +373,19 @@ input[type="password"], textarea {
   margin: 0 auto;
 }
 
+.underline {
+  height: 3px;
+  width: 20%;
+  background-color: #2EC4B6;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  margin-top: -10px;
+}
+
+h1, h2, h3 {
+  font-family: "Product Sans", sans-serif;
+}
+
 h2 {
   font-size: 42px;
 }
@@ -553,8 +566,8 @@ p {
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
-  -ms-grid-rows: (400px)[3];
-      grid-template-rows: repeat(3, 400px);
+  -ms-grid-rows: (300px)[3];
+      grid-template-rows: repeat(3, 300px);
   grid-gap: 1rem;
   grid-auto-flow: dense;
 }
@@ -564,20 +577,6 @@ p {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.contact-inner {
-  margin: 0 auto;
-  width: 50%;
-}
-
-.contact-form input, .contact-form textarea {
-  border: 1px solid transparent;
-  background: white;
-  margin-bottom: 15px;
-  width: 100%;
-  padding: 16px;
-  outline: none;
 }
 
 .brands .container {
@@ -627,6 +626,28 @@ p {
   opacity: 1;
   filter: grayscale(0%);
   -webkit-filter: grayscale(0%);
+}
+
+.contact {
+  margin-top: 100px;
+  padding: 50px 0;
+  background-image: url(https://source.unsplash.com/random);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.contact-inner {
+  margin: 0 auto;
+  width: 50%;
+  background-color: #fff;
+  padding: 40px;
+}
+
+.contact-form input, .contact-form textarea {
+  margin-bottom: 15px;
+  width: 100%;
+  padding: 16px;
+  outline: none;
 }
 
 .footer {

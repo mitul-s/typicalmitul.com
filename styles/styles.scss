@@ -8,8 +8,20 @@
     margin: 0 auto;
 }
 
+.underline {
+    height: 3px;
+    width: 20%;
+    background-color: $secondary-color;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    margin-top: -10px;
+}
 
-// FONT SIZING //
+// FONTS //
+h1, h2, h3 {
+    font-family: $primary-font;
+}
+
 h2 {
     font-size: 42px;
 }
@@ -169,7 +181,7 @@ p {
     display: grid;
     // grid-template-columns: repeat(auto-fit, minmax(160px, 3fr));
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(3, 400px);
+    grid-template-rows: repeat(3, 300px);
     grid-gap: 1rem;
     grid-auto-flow: dense;
 }
@@ -188,25 +200,6 @@ p {
 //     grid-column: span 3;
 //     grid-row: span 3;
 // }
-
-// CONTACT // 
-.contact-inner {
-    margin: 0 auto;
-    width: 50%;
-}
-
-.contact-form {
-    
-    input, textarea {
-        // border: 1px solid $secondary-color;
-        border: 1px solid transparent;
-        background: white;
-        margin-bottom: 15px;
-        width: 100%;
-        padding: 16px;
-        outline: none;
-    }
-}
 
 
 // BRANDS // 
@@ -254,6 +247,35 @@ p {
             filter: grayscale(0%);
             -webkit-filter: grayscale(0%);
         }
+    }
+}
+
+// CONTACT // 
+.contact {
+    margin-top: 100px;
+    padding: 50px 0;
+    background-image: url(https://source.unsplash.com/random);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.contact-inner {
+    margin: 0 auto;
+    width: 50%;
+    background-color: $white;
+    padding: 40px;
+}
+
+.contact-form {
+    
+    input, textarea {
+        // border: 1px solid $secondary-color;
+        // border: 1px solid transparent;
+        // background: white;
+        margin-bottom: 15px;
+        width: 100%;
+        padding: 16px;
+        outline: none;
     }
 }
 
