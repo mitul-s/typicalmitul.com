@@ -38,9 +38,8 @@
     
     <section class="navigation">
         <div class="container">
-            
             <div class="nav-inner">
-            <nav class="nav">
+                <nav class="nav">
                     <div class="nav-logo">
                         <a href="/">
                             <!-- <img src="/images/logo.svg" alt="Logo"> -->
@@ -62,12 +61,11 @@
                             Contact
                         </a>
                     </div>
-                </div>
-            </nav>
-
+                </nav>
+            </div>
         </div>
-    </section>
 
+    </section>
     <section class="about">
         <div class="container">
             <div class="about-inner text-center add-bottom">
@@ -114,19 +112,8 @@
             </div>
         </div>
     </section>
-
-    <div class="test spacing">
-
-    <section class="work add-bottom">
-        <div class="container">
-            <h2 class="add-bottom">Work</h2>
-            <!-- <div class="underline"></div> -->
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero obcaecati praesentium eaque fugit eius quas
-                distinctio perferendis, ducimus quos cupiditate consectetur sequi inventore eum veritatis rem non natus quia
-                dolorem? Voluptatem veritatis voluptate cum odit praesentium quos nobis explicabo iure.</p>
-        </div>
-    </section>
-
+    
+        
     <section class="services">
         <div class="container">
             <div class="services-inner">
@@ -162,13 +149,19 @@
         </div>
     </section>
 
-        <section class="photo-grid add-bottom">
-            <div class="container">
-                <div class="photos-2 photos">
-                    <!-- template literals -->
-                </div>
+    <section class="photo-grid add-bottom">
+        <div class="container">
+                        <div class="work add-bottom">
+                            <h2 class="add-bottom">Work</h2>
+                            <div class="underline add-bottom" style="margin: 0;"></div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt alias itaque ipsa officiis consequuntur
+                                laboriosam harum rem perspiciatis quo eligendi!</p>
+                        </div>
+            <div class="photos-2 photos">
+                <!-- template literals -->
             </div>
-        </section>
+        </div>
+    </section>
 
     <section class="cta">
         <div class="container">
@@ -189,9 +182,6 @@
         </div>
     </section>
 
-
-
-    </div>
 
     <section class="case spacing">
         <div class="container">
@@ -230,10 +220,10 @@
                                 <input type="email" placeholder="Email">
                             </div>
                         </div>
-                        <label for="subject">Subject</label>
-                        <input type="text" placeholder="Subject">
+                        <label for="subject" class="hidden">Subject</label>
+                        <input type="text" placeholder="Subject" class="hidden">
                         <label for="message">Message</label>
-                        <textarea name="message" id="" cols="30" rows="5"></textarea>
+                        <textarea name="message" id="" cols="30" rows="6"></textarea>
                         <button class="form-btn" type="submit">Send</button>
                     </form>
                 </div>
@@ -248,7 +238,7 @@
             <div class="footer-inner">
                 
                 <div class="footer-logo">
-                    <a href="#">Typical Mitul</a>
+                    <a href="#">TYPICAL MITUL</a>
                 </div>
 
                 <div class="footer-links">
@@ -285,6 +275,8 @@
             </div>
         </div>
     </section>
+
+    <div id="snackbar">No, no, no..</div>
 
 
 <script src="scripts/script.js"></script>

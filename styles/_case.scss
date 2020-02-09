@@ -3,29 +3,39 @@
     background-color: $black;
     color: $white;
     padding: 50px;
+
+    @media #{$mobile} {
+        display: block;
+    }
 }
 
 .case-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+    @media #{$mobile} {
+        margin-bottom: 25px;
+    }
 
     .case-testimonial {
-        font-size: $p-font-size + 9px;
+        font-size: $p-font-size + 7px;
         margin-bottom: 17px;
     }
 
     .case-name {
         font-weight: 900;
-        margin-bottom: 17px;
+        margin-bottom: 15px;
+        font-size: $p-font-size - 3px;
     }
 
     .case-logo {
         width: 7%;
         filter:invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
+
+        @media #{$mobile} {
+            width: 20%;
+        }
     }
     
-}
-
-.test {
-    background-color: whitesmoke;
-    // margin-top: -50px;
-    padding: 50px 0 50px 0;
 }

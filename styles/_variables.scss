@@ -18,8 +18,15 @@ $transition: all 180ms ease-out 0s;
 // FONT // 
 $p-font-size: 18px;
 
+// MEDIA QUERIES //
+$mobile: "only screen and (max-width: 580px)";
+$tablet: "only screen and (max-width: 991px)";
+
+
 @mixin main-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 5px;
 }
+
+
