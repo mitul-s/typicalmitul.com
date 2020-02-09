@@ -1,0 +1,31 @@
+.case-inner {
+    display: flex;
+    background-color: $black;
+    color: $white;
+    padding: 50px;
+}
+
+.case-text {
+
+    .case-testimonial {
+        font-size: $p-font-size + 9px;
+        margin-bottom: 17px;
+    }
+
+    .case-name {
+        font-weight: 900;
+        margin-bottom: 17px;
+    }
+
+    .case-logo {
+        width: 7%;
+        filter:invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
+    }
+    
+}
+
+.test {
+    background-color: whitesmoke;
+    // margin-top: -50px;
+    padding: 50px 0 50px 0;
+}

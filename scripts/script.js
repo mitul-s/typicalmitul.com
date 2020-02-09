@@ -1,11 +1,11 @@
-// // Sticky header on scroll
-// $(document).scroll(function () {
-//   if ($(window).scrollTop() > 0) {
-//     $('body').addClass('fixed-nav');
-//   } else {
-//     $('body').removeClass('fixed-nav');
-//   }
-// });
+// Sticky header on scroll
+$(document).scroll(function () {
+  if ($(window).scrollTop() > $('.hero').height()) {
+    $('body').addClass('fixed-nav');
+  } else {
+    $('body').removeClass('fixed-nav');
+  }
+});
 
 const brands = [
   { image: "/images/logos/shopify_logo.svg" },
@@ -17,11 +17,65 @@ const brands = [
   { image: "/images/logos/amdocs_logo.svg" }
 ]
 
+const brandsList = document.querySelector('.brands-items');
 
-const element = document.querySelector('.brands-items');
-
-element.innerHTML = `
+brandsList.innerHTML = `
     ${brands.map(image => `
         <img src="${image.image}" class="brand-logo">
     `).join('')}
 `
+
+
+const photoGrid = [
+  { image: "/images/grid/karen.jpg" },
+  { image: "/images/grid/rookery.jpg" },
+  { image: "/images/grid/shangri.jpg" },
+  { image: "/images/grid/yeshua.jpg" },
+  { image: "/images/grid/rookery.jpg" },
+  { image: "/images/grid/shangri.jpg" },
+  { image: "/images/grid/karen.jpg" },
+  { image: "/images/grid/yeshua.jpg" },
+  { image: "/images/grid/shangri.jpg" },
+  { image: "/images/grid/karen.jpg" },
+  { image: "/images/grid/rookery.jpg" },
+  { image: "/images/grid/yeshua.jpg" }
+]
+
+const photos = document.querySelector('.photos');
+
+
+photos.innerHTML = `
+    ${photoGrid.map(image => `
+    <div class="photo-item">
+        <img src="${image.image}" class="grid-photo" alt="">
+    </div>
+    `).join('')}
+`
+
+
+const photoGrid2 = [
+  { image: "/images/grid/karen.jpg" },
+  { image: "/images/grid/rookery.jpg" },
+  { image: "/images/grid/shangri.jpg" },
+]
+
+const photos2 = document.querySelector('.photos-2');
+
+photos2.innerHTML = `
+    ${photoGrid2.map(image => `
+    <div class="photo-item">
+        <img src="${image.image}" alt="">
+    </div>
+    `).join('')}
+`
+
+// let currentIndex = 1;
+// let totalCount = 5;
+
+// setInterval(function() {
+//   if(currentIndex > totalCount)
+//     currentIndex = 1;
+
+//     $('.hero-content').css('background-image', 'url(/images/hero/' + currentIndex++ + '.jpg)');
+// }, 5000);
+
