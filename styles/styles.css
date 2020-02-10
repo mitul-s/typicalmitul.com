@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Product+Sans);
 @import url(https://fonts.googleapis.com/css?family=Questrial&display=swap);
+@import url("/fonts/font/stylesheet.css");
 /* ===================================================================
  * # normalize
  * normalize.css v5.0.0 | MIT License | 
@@ -368,6 +369,10 @@ input[type="password"], textarea {
   font-family: "Questrial", sans-serif;
 }
 
+.case {
+  margin-top: 50px;
+}
+
 .case-inner {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -377,7 +382,7 @@ input[type="password"], textarea {
   padding: 50px;
 }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 580px), only screen and (max-width: 991px) {
   .case-inner {
     display: block;
   }
@@ -394,9 +399,10 @@ input[type="password"], textarea {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  margin-right: 25px;
 }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 580px), only screen and (max-width: 991px) {
   .case-text {
     margin-bottom: 25px;
   }
@@ -423,6 +429,41 @@ input[type="password"], textarea {
   .case-text .case-logo {
     width: 20%;
   }
+}
+
+.case-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: center;
+  width: 100%;
+}
+
+.img-test {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.1))), url(/images/grid/karen.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)), url(/images/grid/karen.jpg);
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  float: left;
+}
+
+.test {
+  position: absolute;
+  margin: 0;
+  width: 25%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 100;
+  -webkit-filter: invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
+          filter: invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
 }
 
 /* The snackbar - position it at the bottom and in the middle of the screen */
@@ -530,7 +571,7 @@ input[type="password"], textarea {
   height: 35px;
   min-width: 120px;
   padding: 0.5625rem 1.5625rem;
-  font-family: "Product Sans", sans-serif;
+  font-family: "Apercu Pro", sans-serif;
   font-weight: 900;
   font-size: 13px;
 }
@@ -550,11 +591,13 @@ input[type="password"], textarea {
 }
 
 h1, h2, h3 {
-  font-family: "Product Sans", sans-serif;
+  font-family: "Apercu Pro", sans-serif;
 }
 
 h2 {
   font-size: 42px;
+  letter-spacing: 0.3px;
+  font-weight: 600;
 }
 
 p {
@@ -589,7 +632,7 @@ p {
 }
 
 .tagline {
-  font-family: "Product Sans", sans-serif;
+  font-family: "Apercu Pro", sans-serif;
   font-size: 40px;
   color: #FAFFFA;
   letter-spacing: -1.2px;
@@ -757,6 +800,10 @@ p {
   margin-top: 25px;
 }
 
+.cta, .cta-2 {
+  margin-top: 50px;
+}
+
 .cta-wrap {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -891,6 +938,13 @@ p {
   }
 }
 
+@media only screen and (max-width: 991px) {
+  .services-grid {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .services-grid .services-callout {
   margin-right: 30px;
   display: -webkit-box;
@@ -922,7 +976,12 @@ p {
   background-color: #fff;
   border: 1px solid whitesmoke;
   border-radius: 0.25rem;
-  margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 580px) {
+  .services-grid .services-item {
+    margin-bottom: 15px;
+  }
 }
 
 .services-grid .services-item .services-item-img {
@@ -954,7 +1013,31 @@ p {
 
 .services-grid .services-item .services-item-text p {
   margin-bottom: 25px;
-  font-size: 14px;
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 991px) {
+  .services-grid .col-1 {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: 1 / 1 / 2 / 3;
+  }
+  .services-grid .col-2 {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .services-grid .col-3 {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-area: 2 / 2 / 3 / 3;
+  }
 }
 
 .contact {
@@ -973,7 +1056,7 @@ p {
   padding: 40px;
 }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 580px), only screen and (max-width: 991px) {
   .contact-inner {
     width: 100%;
   }
@@ -1040,7 +1123,7 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 80px 0;
+  padding: 40px 0;
   color: #fff;
   min-height: 100px;
   background-color: #001427;

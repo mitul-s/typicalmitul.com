@@ -62,7 +62,7 @@ const photos = document.querySelector('.photos');
 photos.innerHTML = `
     ${photoGrid.map(image => `
     <div class="photo-item">
-        <img src="${image.image}" class="grid-photo" alt="">
+      <img src="${image.image}" class="grid-photo" alt="">
     </div>
     `).join('')}
 `
@@ -89,15 +89,15 @@ const photoGrid2 = [
   { image: "/images/grid/shangri.jpg" },
 ]
 
-const photos2 = document.querySelector('.photos-2');
+// const photos2 = document.querySelector('.photos-2');
 
-photos2.innerHTML = `
-    ${photoGrid2.map(image => `
-    <div class="photo-item">
-        <img src="${image.image}" alt="">
-    </div>
-    `).join('')}
-`
+// photos2.innerHTML = `
+//     ${photoGrid2.map(image => `
+//     <div class="photo-item">
+//         <img src="${image.image}" alt="">
+//     </div>
+//     `).join('')}
+// `
 
 // let currentIndex = 1;
 // let totalCount = 5;

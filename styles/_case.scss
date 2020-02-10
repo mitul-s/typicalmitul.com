@@ -1,10 +1,14 @@
+.case {
+    margin-top: 50px;
+}
+
 .case-inner {
     display: flex;
     background-color: $black;
     color: $white;
     padding: 50px;
 
-    @media #{$mobile} {
+    @media #{$mobile}, #{$tablet} {
         display: block;
     }
 }
@@ -13,8 +17,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    margin-right: 25px;
     
-    @media #{$mobile} {
+    @media #{$mobile}, #{$tablet} {
         margin-bottom: 25px;
     }
 
@@ -38,4 +43,37 @@
         }
     }
     
+}
+
+.case-img {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+}
+
+.img-test {
+    background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0,0, 0.1)
+    ),
+    url(/images/grid/karen.jpg);
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    float: left;
+}
+
+.test {
+    position: absolute;
+    margin: 0;
+    width: 25%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+            filter:invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
 }
