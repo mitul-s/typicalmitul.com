@@ -602,18 +602,18 @@ h2 {
 
 p {
   font-size: 18px;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 @media only screen and (max-width: 580px) {
   .hero > .container {
-    width: 100%;
     margin-bottom: 50px;
   }
 }
 
 .hero-content {
-  background-image: url(https://source.unsplash.com/random);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7))), url(/images/hero/1.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7)), url(/images/hero/1.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -636,12 +636,6 @@ p {
   font-size: 40px;
   color: #FAFFFA;
   letter-spacing: -1.2px;
-}
-
-@media only screen and (max-width: 580px) {
-  .navigation {
-    display: none;
-  }
 }
 
 .nav {
@@ -730,7 +724,7 @@ p {
 }
 
 .about {
-  margin-top: 75px;
+  padding-top: 100px;
 }
 
 .about-inner {
@@ -744,12 +738,22 @@ p {
   }
 }
 
+.about-inner p {
+  font-size: 24px;
+}
+
 .brands {
-  margin-top: 25px;
+  margin-top: 50px;
 }
 
 .brands .container {
-  width: 50%;
+  width: 60%;
+}
+
+@media only screen and (max-width: 580px) {
+  .brands .container {
+    width: 85vw;
+  }
 }
 
 .brands .brands-caption {
@@ -780,6 +784,15 @@ p {
   max-width: 100%;
 }
 
+@media only screen and (max-width: 580px) {
+  .brands .brands-items {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .brands .brand-logo {
   -ms-grid-column-align: center;
       justify-self: center;
@@ -788,16 +801,20 @@ p {
   filter: grayscale(100%);
   opacity: 0.65;
   width: 10%;
+  -webkit-transition: all 180ms ease-out 0s;
+  transition: all 180ms ease-out 0s;
+}
+
+@media only screen and (max-width: 580px) {
+  .brands .brand-logo {
+    margin-bottom: 15px;
+  }
 }
 
 .brands .brand-logo:hover {
   opacity: 1;
   filter: grayscale(0%);
   -webkit-filter: grayscale(0%);
-}
-
-.cta {
-  margin-top: 25px;
 }
 
 .cta, .cta-2 {
@@ -832,6 +849,7 @@ p {
   padding: 40px;
   width: 80%;
   font-size: 18px;
+  line-height: 1.5;
 }
 
 @media only screen and (max-width: 580px), only screen and (max-width: 991px) {
@@ -859,6 +877,9 @@ p {
   border-left: none;
   -webkit-transition: all 180ms ease-out 0s;
   transition: all 180ms ease-out 0s;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 @media only screen and (max-width: 580px), only screen and (max-width: 991px) {
@@ -884,14 +905,24 @@ p {
   }
 }
 
+.photo-grid {
+  margin-top: 50px;
+}
+
 .photos {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(340px, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  grid-auto-rows: 340px;
   grid-gap: 1rem;
   grid-auto-flow: dense;
+}
+
+@media only screen and (max-width: 580px) {
+  .photos {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .photo-item > img {
@@ -910,16 +941,16 @@ p {
   opacity: 0.4;
 }
 
-.work-inner {
-  margin-bottom: 30px;
+.work p {
+  font-size: 24px;
 }
 
-.work-inner p {
-  margin-top: 15px;
+.work-photos-grid {
+  grid-auto-rows: 340px;
 }
 
 .services {
-  margin: 50px 0;
+  padding: 100px 0;
 }
 
 .services-grid {
@@ -965,11 +996,18 @@ p {
 
 .services-grid .services-callout p {
   margin-bottom: 20px;
-  font-size: 18px;
+  font-size: 19px;
 }
 
 .services-grid .services-callout a {
   font-weight: 900;
+  font-size: 15px;
+  -webkit-transition: all 180ms ease-out 0s;
+  transition: all 180ms ease-out 0s;
+}
+
+.services-grid .services-callout a:hover {
+  color: #001427;
 }
 
 .services-grid .services-item {
@@ -995,7 +1033,6 @@ p {
   border-left: 1px solid #e3e3e3;
   border-right: 1px solid #e3e3e3;
   border-top: 1px solid #e3e3e3;
-  background-image: url("https://source.unsplash.com/user/vadimsadovski/1600x900");
 }
 
 .services-grid .services-item .services-item-text {
@@ -1014,6 +1051,14 @@ p {
 .services-grid .services-item .services-item-text p {
   margin-bottom: 25px;
   font-size: 15px;
+}
+
+.services-item-img.pg {
+  background-image: url("/images/hero/2.jpg");
+}
+
+.services-item-img.li {
+  background-image: url("/images/hero/1.jpg");
 }
 
 @media only screen and (max-width: 991px) {
@@ -1171,16 +1216,23 @@ p {
 
 .footer-inner .footer-links .footer-link-title {
   font-weight: bold;
-  opacity: 0.7;
-  margin-bottom: 10px;
+  opacity: 0.5;
+  font-size: 10px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .footer-inner .footer-links .footer-list-item a {
-  opacity: 0.5;
+  display: block;
+  margin-bottom: 15px;
+  opacity: 0.8;
   -webkit-transition: all 180ms ease-out 0s;
   transition: all 180ms ease-out 0s;
   color: #fff;
   text-decoration: none;
+  font-size: 15px;
+  font-family: 'Product Sans';
 }
 
 .footer-inner .footer-links .footer-list-item a:hover {

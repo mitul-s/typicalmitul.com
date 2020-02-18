@@ -12,8 +12,9 @@
     
     
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
-
-    <!-- <script src="https://kit.fontawesome.com/ff60aba7df.js"></script> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>
 
 </head>
 
@@ -45,16 +46,16 @@
                     </div>
 
                     <div class="nav-items secondary-font">
-                        <a href="/" class="nav-item">
+                        <a href="#about" class="nav-item">
                             About
                         </a>
-                        <a href="/" class="nav-item">
+                        <a href="#services" class="nav-item">
                             Services
                         </a>
                         <a href="/" class="nav-item">
                             Shop
                         </a>
-                        <a href="/" class="nav-item">
+                        <a href="#contact" class="nav-item">
                             Contact
                         </a>
                     </div>
@@ -63,17 +64,18 @@
         </div>
 
     </section>
-    <section class="about">
+    <section class="about" id="about">
         <div class="container">
             <div class="about-inner text-center add-bottom">
                 <h2 class="about-title add-bottom">A little about me</h2>
                 <div class="underline"></div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum modi excepturi sapiente placeat dolorem aspernatur ipsam! Veritatis tempore quas inventore, reiciendis, id accusamus sunt rerum quidem maxime explicabo molestiae numquam!</p>
+                <p>Typical Mitul is a photographer based out of Toronto, Canada who focuses on defining memorable brand stories by capturing
+                photographs of urban architecture, portraits and products.</p>
             </div>
         </div>
     </section>
 
-    <section class="brands add-bottom">
+    <section class="brands">
         <div class="container">
             <div class="brands-list">
                 <p class="brands-caption text-center">CLIENT LIST</p>
@@ -84,19 +86,16 @@
         </div>
     </section>
     
-    <section class="cta add-bottom">
+    <section class="cta">
         <div class="container">
             
             <div class="cta-wrap">
                 <div class="cta-text">
                     <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et enim dolores eligendi totam vitae rerum consectetur alias?</h3>
-                </div>
-
-                <div class="cta-btn">
-                    <a href="#">
-                        Shop Now
-                    </a>
-                </div>
+                </div>    
+                <a href="#"  class="cta-btn">
+                    Shop Now
+                </a>
             </div>
 
         </div>
@@ -111,7 +110,7 @@
     </section>
     
         
-    <section class="services">
+    <section class="services" id="services">
         <div class="container">
             <div class="services-inner">
                 <!-- <h2>Services</h2> -->
@@ -122,7 +121,7 @@
                         <p><a href="#">Get in touch ➜</a></p>
                     </div>
                     <div class="services-item col-2">
-                        <div class="services-item-img">
+                        <div class="services-item-img pg">
                             <!-- <img src="https://source.unsplash.com/user/vadimsadovski/1600x900" alt=""> -->
                         </div>
                         <div class="services-item-text">
@@ -132,7 +131,7 @@
                         </div>
                     </div>
                     <div class="services-item col-3">
-                        <div class="services-item-img">
+                        <div class="services-item-img li">
                             <!-- <img src="https://source.unsplash.com/user/vadimsadovski/1600x900" alt=""> -->
                         </div>
                         <div class="services-item-text">
@@ -146,15 +145,17 @@
         </div>
     </section>
 
-    <section class="photo-grid add-bottom">
+    <section class="work add-bottom">
         <div class="container">
-                        <div class="work add-bottom">
-                            <h2 class="add-bottom">Work</h2>
-                            <div class="underline add-bottom" style="margin: 0;"></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt alias itaque ipsa officiis consequuntur
-                                laboriosam harum rem perspiciatis quo eligendi!</p>
-                        </div>
-            <div class="photos-2 photos">
+            
+            <div class="work-inner add-bottom">
+                <h2 class="add-bottom">Work</h2>
+                <div class="underline add-bottom" style="margin: 0;"></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt alias itaque ipsa officiis consequuntur
+                    laboriosam harum rem perspiciatis quo eligendi!</p>
+            </div>
+
+            <div class="work-photos-grid photos">
                 <div class="photo-item">
                     <div class="img-test">
                         <img src="/images/logos/google_logo.svg" alt="" class="test">
@@ -171,25 +172,7 @@
                     </div>                    
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section class="cta cta-2">
-        <div class="container">
-    
-            <div class="cta-wrap">
-                <div class="cta-text">
-                    <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et enim dolores eligendi totam vitae rerum
-                        consectetur alias?</h3>
-                </div>
-    
-                <div class="cta-btn">
-                    <a href="#">
-                        Shop Now
-                    </a>
-                </div>
-            </div>
-    
         </div>
     </section>
 
@@ -211,7 +194,24 @@
         </div>
     </section>
 
-    <section class="contact">
+
+    <section class="cta cta-2">
+        <div class="container">
+    
+            <div class="cta-wrap">
+                <div class="cta-text">
+                    <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et enim dolores eligendi totam vitae rerum
+                        consectetur alias?</h3>
+                </div>
+                <a href="#" class="cta-btn">
+                    Shop Now
+                </a>
+            </div>
+    
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
         <div class="container">
             <div class="contact-inner">
                 <div class="contact-text-content text-left">
@@ -253,16 +253,16 @@
                 </div>
 
                 <div class="footer-links">
-                    <h4 class="footer-link-title">Contact</h4>
+                    <h4 class="footer-link-title">Pages</h4>
                     <ul class="footer-list">
                         <li class="footer-list-item">
-                            <a href="#">Email me</a>
+                            <a href="mailto:mitulxshah@gmail.com">About Me</a>
                         </li>
                         <li class="footer-list-item">
-                            <a href="#">Hire me</a>
+                            <a href="#">Work with Me</a>
                         </li>
                         <li class="footer-list-item">
-                            <a href="#"></a>
+                            <a href="#">Send an email</a>
                         </li>
                     </ul>
                 </div>
@@ -271,13 +271,13 @@
                     <h4 class="footer-link-title">Socials</h4>
                     <ul class="footer-list">
                         <li class="footer-list-item">
-                            <a href="#">Instagram</a>
+                            <a href="https://instagram.com/typicalmitul" target="_blank">Instagram</a>
                         </li>
                         <li class="footer-list-item">
-                            <a href="#">Twitter</a>
+                            <a href="https://twitter.com/typicalmitul" target="_blank">Twitter</a>
                         </li>
                         <li class="footer-list-item">
-                            <a href="#">500px</a>
+                            <a href="https://500px.com/typicalmitul" target="_blank">500px</a>
                         </li>
                     </ul>
                 </div>
@@ -289,7 +289,18 @@
 
     <div id="snackbar">No, no, no..</div>
 
-
 <script src="scripts/script.js"></script>
+<script>
+    
+    const lightbox = GLightbox({
+        // openEffect: "fade",
+        slideEffect: "fade",
+        closeButton: false
+    });
+
+    var scroll = new SmoothScroll('a[href*="#"]');
+    
+</script>
+
 </body>
 </html>

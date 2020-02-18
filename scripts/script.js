@@ -25,35 +25,21 @@ brandsList.innerHTML = `
     `).join('')}
 `
 
-
-// const photoGrid = [
-//   { image: "/images/grid/karen.jpg" },
-//   { image: "/images/grid/rookery.jpg" },
-//   { image: "/images/grid/shangri.jpg" },
-//   { image: "/images/grid/yeshua.jpg" },
-//   { image: "/images/grid/rookery.jpg" },
-//   { image: "/images/grid/shangri.jpg" },
-//   { image: "/images/grid/karen.jpg" },
-//   { image: "/images/grid/yeshua.jpg" },
-//   { image: "/images/grid/shangri.jpg" },
-//   { image: "/images/grid/karen.jpg" },
-//   { image: "/images/grid/rookery.jpg" },
-//   { image: "/images/grid/yeshua.jpg" }
-// ]
-
 const photoGrid = [
-  { image: "/images/1.jpg" },
-  { image: "/images/12.jpg" },
-  { image: "/images/3.jpg" },
-  { image: "/images/4.jpg" },
-  { image: "/images/5.jpg" },
-  { image: "/images/6.jpg" },
-  { image: "/images/7.jpg" },
-  { image: "/images/8.jpg" },
-  { image: "/images/9.jpg" },
-  { image: "/images/10.jpg" },
-  { image: "/images/11.jpg" },
-  { image: "/images/12.jpg" }
+  { image: "/images/grid/portfolio_10.jpg",
+    alt: "Looking up at skyscarpers in Toronto"
+  },
+  { image: "/images/grid/portfolio_11.jpg" },
+  { image: "/images/grid/portfolio_06.jpg" },
+  { image: "/images/grid/portfolio_11.jpg" },
+  { image: "/images/grid/portfolio_06.jpg" },
+  { image: "/images/grid/portfolio_06.jpg" },
+  { image: "/images/grid/portfolio_13.jpg" },
+  { image: "/images/grid/portfolio_14.jpg" },
+  { image: "/images/grid/portfolio_15.jpg" },
+  { image: "/images/grid/portfolio_05.jpg" },
+  { image: "/images/grid/portfolio_06.jpg" },
+  { image: "/images/grid/portfolio_09.jpg" }
 ]
 
 const photos = document.querySelector('.photos');
@@ -61,43 +47,32 @@ const photos = document.querySelector('.photos');
 
 photos.innerHTML = `
     ${photoGrid.map(image => `
-    <div class="photo-item">
-      <img src="${image.image}" class="grid-photo" alt="">
-    </div>
+    
+      <a href="${image.image}" class="photo-item glightbox">
+        <img src="${image.image}" class="grid-photo" alt="${image.alt}">
+      </a>
+    
     `).join('')}
-`
+`  
+
+  // < div class="photo-item" >
+  //   <img src="${image.image}" class="grid-photo" alt="${image.alt}">
+  //   </div>
 
 // Image Protection //
 // Select all displayed photos
-const image = document.querySelectorAll(".grid-photo");
+const gridImage = document.querySelectorAll(".grid-photo");
 var snackbar = document.getElementById('snackbar');
 
 // Loop through nodeList and disable right click & drag
-for (let i = 0; i < image.length; i++) {
-  image[i].setAttribute("draggable", false);
-  image[i].addEventListener("contextmenu", function (event) {
+for (let i = 0; i < gridImage.length; i++) {
+  gridImage[i].setAttribute("draggable", false);
+  gridImage[i].addEventListener("contextmenu", function (event) {
     snackbar.className = "show";
     setTimeout(function () { snackbar.className = snackbar.className.replace("show", ""); }, 3000);
     event.preventDefault();
   });
 }
-
-
-const photoGrid2 = [
-  { image: "/images/grid/karen.jpg" },
-  { image: "/images/grid/rookery.jpg" },
-  { image: "/images/grid/shangri.jpg" },
-]
-
-// const photos2 = document.querySelector('.photos-2');
-
-// photos2.innerHTML = `
-//     ${photoGrid2.map(image => `
-//     <div class="photo-item">
-//         <img src="${image.image}" alt="">
-//     </div>
-//     `).join('')}
-// `
 
 // let currentIndex = 1;
 // let totalCount = 5;

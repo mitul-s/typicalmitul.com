@@ -7,6 +7,7 @@
     background-color: $black;
     color: $white;
     padding: 50px;
+    // width: 85%;
 
     @media #{$mobile}, #{$tablet} {
         display: block;
@@ -52,6 +53,10 @@
     width: 100%;
 }
 
+
+
+
+
 .img-test {
     background: 
     linear-gradient(
@@ -75,5 +80,5 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
-            filter:invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
+    filter:invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
 }
