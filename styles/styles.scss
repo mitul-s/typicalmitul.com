@@ -71,6 +71,7 @@ h2 {
 p {
     font-size: $p-font-size;
     line-height: 1.5;
+    color: rgb(51, 51, 51);
 
     @media #{$mobile} {
         font-size: 10px;

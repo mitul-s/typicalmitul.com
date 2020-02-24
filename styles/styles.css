@@ -241,7 +241,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: none;
-  font-family: "Questrial", sans-serif;
+  font-family: "Product Sans", sans-serif;
 }
 
 body, input, button {
@@ -366,7 +366,7 @@ input[type="password"], textarea {
 }
 
 .secondary-font {
-  font-family: "Questrial", sans-serif;
+  font-family: "Product Sans", sans-serif;
 }
 
 .no-margin {
@@ -419,6 +419,7 @@ input[type="password"], textarea {
 .case-text .case-testimonial {
   font-size: 34px;
   margin-bottom: 17px;
+  color: #fff !important;
 }
 
 @media only screen and (max-width: 680px) {
@@ -430,6 +431,7 @@ input[type="password"], textarea {
 .case-text .case-name {
   font-weight: 900;
   font-size: 15px;
+  color: #fff !important;
 }
 
 .case-text .case-logo {
@@ -602,6 +604,7 @@ h2 {
 p {
   font-size: 18px;
   line-height: 1.5;
+  color: #333333;
 }
 
 @media only screen and (max-width: 680px) {

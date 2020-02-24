@@ -33,6 +33,7 @@
     .case-testimonial {
         font-size: $big-p + 10px;
         margin-bottom: 17px;
+        color: $white !important;
      
         @media #{$mobile} {
             font-size: $p-font-size;
@@ -42,6 +43,7 @@
     .case-name {
         font-weight: 900;
         font-size: $p-font-size - 3px;
+        color: $white !important;
     }
 
     .case-logo {
