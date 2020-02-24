@@ -369,6 +369,10 @@ input[type="password"], textarea {
   font-family: "Questrial", sans-serif;
 }
 
+.no-margin {
+  margin-right: 0px !important;
+}
+
 .case {
   margin-top: 50px;
 }
@@ -377,14 +381,15 @@ input[type="password"], textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #000000;
+  background-color: #276EF1;
   color: #fff;
   padding: 50px;
 }
 
-@media only screen and (max-width: 580px), only screen and (max-width: 991px) {
+@media only screen and (max-width: 680px), only screen and (max-width: 991px) {
   .case-inner {
     display: block;
+    padding: 40px 25px;
   }
 }
 
@@ -399,35 +404,43 @@ input[type="password"], textarea {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  margin-right: 25px;
 }
 
-@media only screen and (max-width: 580px), only screen and (max-width: 991px) {
+@media only screen and (max-width: 680px), only screen and (max-width: 991px) {
   .case-text {
-    margin-bottom: 25px;
+    margin-right: 0;
   }
 }
 
+.case-text .subtitle, .case-text .brands .brands-caption, .brands .case-text .brands-caption, .case-text .services-grid .services-callout a, .services-grid .services-callout .case-text a {
+  color: #000000;
+}
+
 .case-text .case-testimonial {
-  font-size: 25px;
+  font-size: 34px;
   margin-bottom: 17px;
+}
+
+@media only screen and (max-width: 680px) {
+  .case-text .case-testimonial {
+    font-size: 18px;
+  }
 }
 
 .case-text .case-name {
   font-weight: 900;
-  margin-bottom: 15px;
   font-size: 15px;
 }
 
 .case-text .case-logo {
-  width: 7%;
+  width: 100px;
   -webkit-filter: invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
           filter: invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
 }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 680px) {
   .case-text .case-logo {
-    width: 20%;
+    width: 50px;
   }
 }
 
@@ -439,31 +452,6 @@ input[type="password"], textarea {
       align-self: center;
   justify-self: center;
   width: 100%;
-}
-
-.img-test {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.1))), url(/images/hero/1.jpg);
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)), url(/images/hero/1.jpg);
-  background-size: cover;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  float: left;
-}
-
-.test {
-  position: absolute;
-  margin: 0;
-  width: 25%;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  z-index: 100;
-  -webkit-filter: invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
-          filter: invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
 }
 
 /* The snackbar - position it at the bottom and in the middle of the screen */
@@ -554,13 +542,24 @@ input[type="password"], textarea {
   margin: 0 auto;
 }
 
+@media only screen and (max-width: 680px) {
+  .container {
+    width: 90vw;
+  }
+}
+
 .underline {
-  height: 3px;
-  width: 20%;
+  height: 3.5px;
+  width: 25%;
   background-color: #2EC4B6;
   margin: 0 auto;
   margin-bottom: 25px;
-  margin-top: -10px;
+}
+
+@media only screen and (max-width: 680px) {
+  .underline {
+    margin-left: 0;
+  }
 }
 
 .btn, .contact-form .form-btn {
@@ -605,9 +604,9 @@ p {
   line-height: 1.5;
 }
 
-@media only screen and (max-width: 580px) {
-  .hero > .container {
-    margin-bottom: 50px;
+@media only screen and (max-width: 680px) {
+  p {
+    font-size: 10px;
   }
 }
 
@@ -675,6 +674,12 @@ p {
   padding: 10px 0;
 }
 
+@media only screen and (max-width: 680px) {
+  .nav-logo {
+    display: none;
+  }
+}
+
 .nav-logo img {
   height: 34px;
 }
@@ -697,6 +702,14 @@ p {
   padding: 10px 0;
   -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
+}
+
+@media only screen and (max-width: 680px) {
+  .nav-items .nav-item {
+    text-align: center;
+    margin-right: 25px;
+    margin-left: 0;
+  }
 }
 
 .nav-items .nav-item,
@@ -732,9 +745,10 @@ p {
   margin: 0 auto;
 }
 
-@media only screen and (max-width: 580px), only screen and (max-width: 991px) {
+@media only screen and (max-width: 680px), only screen and (max-width: 991px) {
   .about-inner {
-    width: 90%;
+    width: 100%;
+    text-align: left;
   }
 }
 
@@ -742,17 +756,23 @@ p {
   font-size: 24px;
 }
 
+@media only screen and (max-width: 680px) {
+  .about-inner p {
+    font-size: 18px;
+  }
+}
+
 .brands {
   margin-top: 50px;
 }
 
 .brands .container {
-  width: 60%;
+  width: 75%;
 }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 680px) {
   .brands .container {
-    width: 85vw;
+    width: 90vw;
   }
 }
 
@@ -760,7 +780,14 @@ p {
   font-size: 10px;
   font-weight: 900;
   color: grey;
-  margin-bottom: -20px;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 680px) {
+  .brands .brands-caption {
+    margin-top: 50px;
+    text-align: left;
+  }
 }
 
 .brands .brands-items {
@@ -771,9 +798,9 @@ p {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -784,30 +811,32 @@ p {
   max-width: 100%;
 }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 680px) {
   .brands .brands-items {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px 20px;
   }
 }
 
 .brands .brand-logo {
   -ms-grid-column-align: center;
       justify-self: center;
-  max-width: 150px;
+  max-width: 100px;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
   opacity: 0.65;
-  width: 10%;
   -webkit-transition: all 180ms ease-out 0s;
   transition: all 180ms ease-out 0s;
 }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 680px) {
   .brands .brand-logo {
-    margin-bottom: 15px;
+    max-width: 65px;
+    margin-bottom: 7px;
+    justify-self: flex-start;
   }
 }
 
@@ -831,7 +860,7 @@ p {
   width: 100%;
 }
 
-@media only screen and (max-width: 580px), only screen and (max-width: 991px) {
+@media only screen and (max-width: 680px), only screen and (max-width: 991px) {
   .cta-wrap {
     display: block;
   }
@@ -852,7 +881,7 @@ p {
   line-height: 1.5;
 }
 
-@media only screen and (max-width: 580px), only screen and (max-width: 991px) {
+@media only screen and (max-width: 680px), only screen and (max-width: 991px) {
   .cta-wrap .cta-text {
     width: 100%;
     margin-bottom: 15px;
@@ -882,7 +911,7 @@ p {
   text-transform: uppercase;
 }
 
-@media only screen and (max-width: 580px), only screen and (max-width: 991px) {
+@media only screen and (max-width: 680px), only screen and (max-width: 991px) {
   .cta-wrap .cta-btn {
     display: block;
     width: 100%;
@@ -899,7 +928,7 @@ p {
   border-left: none;
 }
 
-@media only screen and (max-width: 580px), only screen and (max-width: 991px) {
+@media only screen and (max-width: 680px), only screen and (max-width: 991px) {
   .cta-wrap .cta-btn:hover {
     border-left: 2px solid #001427;
   }
@@ -912,16 +941,17 @@ p {
 .photos {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(340px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  -ms-grid-columns: (minmax(420px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
   grid-gap: 1rem;
   grid-auto-flow: dense;
 }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 680px) {
   .photos {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2px;
   }
 }
 
@@ -945,8 +975,79 @@ p {
   font-size: 24px;
 }
 
+@media only screen and (max-width: 680px) {
+  .work p {
+    font-size: 18px;
+  }
+}
+
 .work-photos-grid {
   grid-auto-rows: 340px;
+}
+
+@media only screen and (max-width: 680px) {
+  .work-photos-grid {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
+}
+
+.work-photos-grid .work-img-inner {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.1))), url(/images/hero/1.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)), url(/images/hero/1.jpg);
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  float: left;
+  -webkit-transition: all 180ms ease-out 0s;
+  transition: all 180ms ease-out 0s;
+}
+
+.work-photos-grid .work-img-inner:hover {
+  background: whitesmoke;
+}
+
+.work-photos-grid .hidden-text {
+  opacity: 0;
+  color: #000000;
+  padding: 25px;
+}
+
+.work-photos-grid .hidden-text:hover {
+  opacity: 1;
+}
+
+.work-img-inner:hover > .work-logo {
+  display: none;
+}
+
+.work-logo {
+  position: absolute;
+  margin: 0;
+  width: 25%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 100;
+  -webkit-filter: invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
+          filter: invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
+}
+
+.hidden-center {
+  position: absolute;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 100;
 }
 
 .services {
@@ -963,9 +1064,10 @@ p {
   grid-gap: 1rem;
 }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 680px) {
   .services-grid {
     display: block;
+    padding: 40px 25px;
   }
 }
 
@@ -1016,7 +1118,7 @@ p {
   border-radius: 0.25rem;
 }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 680px) {
   .services-grid .services-item {
     margin-bottom: 15px;
   }
@@ -1054,7 +1156,7 @@ p {
 }
 
 .services-item-img.pg {
-  background-image: url("/images/hero/2.jpg");
+  background-image: url("/images/hero/1.jpg");
 }
 
 .services-item-img.li {
@@ -1086,7 +1188,7 @@ p {
 }
 
 .contact {
-  margin-top: 100px;
+  margin-top: 150px;
   padding: 50px 0;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(https://source.unsplash.com/random);
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://source.unsplash.com/random);
@@ -1101,7 +1203,7 @@ p {
   padding: 40px;
 }
 
-@media only screen and (max-width: 580px), only screen and (max-width: 991px) {
+@media only screen and (max-width: 680px), only screen and (max-width: 991px) {
   .contact-inner {
     width: 100%;
   }
@@ -1144,6 +1246,18 @@ p {
   overflow: hidden;
 }
 
+.contact-form .form-btn {
+  -webkit-transition: all 180ms ease-out 0s;
+  transition: all 180ms ease-out 0s;
+}
+
+.contact-form .form-btn:hover {
+  background-color: #fff;
+  border: 1px solid #2EC4B6;
+  color: #2EC4B6;
+  cursor: pointer;
+}
+
 .form-inner {
   display: -ms-grid;
   display: grid;
@@ -1152,7 +1266,7 @@ p {
   grid-gap: 15px;
 }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 680px) {
   .form-inner {
     display: block;
   }
@@ -1181,7 +1295,7 @@ p {
   display: flex;
 }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 680px) {
   .footer-inner {
     display: block;
     text-align: center;
@@ -1196,7 +1310,7 @@ p {
   font-size: 1.5rem;
 }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 680px) {
   .footer-inner .footer-logo {
     width: 100%;
     margin-bottom: 25px;
@@ -1207,7 +1321,7 @@ p {
   width: 20%;
 }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 680px) {
   .footer-inner .footer-links {
     width: 100%;
     margin-bottom: 25px;

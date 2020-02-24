@@ -4,13 +4,14 @@
 
 .case-inner {
     display: flex;
-    background-color: $black;
+    background-color: #276EF1;
     color: $white;
     padding: 50px;
     // width: 85%;
 
     @media #{$mobile}, #{$tablet} {
         display: block;
+        padding: 40px 25px;
     }
 }
 
@@ -18,29 +19,37 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin-right: 25px;
+    // margin-right: 25px;
     
     @media #{$mobile}, #{$tablet} {
-        margin-bottom: 25px;
+        // margin-bottom: 30px;
+        margin-right: 0;
+    }
+
+    .subtitle {
+        color: $black;
     }
 
     .case-testimonial {
-        font-size: $p-font-size + 7px;
+        font-size: $big-p + 10px;
         margin-bottom: 17px;
+     
+        @media #{$mobile} {
+            font-size: $p-font-size;
+        }
     }
 
     .case-name {
         font-weight: 900;
-        margin-bottom: 15px;
         font-size: $p-font-size - 3px;
     }
 
     .case-logo {
-        width: 7%;
+        width: 100px;
         filter:invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
 
         @media #{$mobile} {
-            width: 20%;
+            width: 50px;
         }
     }
     
@@ -51,34 +60,4 @@
     align-self: center;
     justify-self: center;
     width: 100%;
-}
-
-
-
-
-
-.img-test {
-    background: 
-    linear-gradient(
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0,0, 0.1)
-    ),
-    url(/images/hero/1.jpg);
-    background-size: cover;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    float: left;
-}
-
-.test {
-    position: absolute;
-    margin: 0;
-    width: 25%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 100;
-    filter:invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
 }
