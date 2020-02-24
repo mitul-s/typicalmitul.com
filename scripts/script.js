@@ -31,6 +31,22 @@ const photoGrid = [
     alt: "Looking up at skyscarpers in Toronto"
   },
   { image: "/images/grid/portfolio_11.jpg" },
+  { image: "/images/grid/rookery.jpg" },
+  { image: "/images/grid/rookery.jpg" },
+  { image: "/images/grid/rookery.jpg" },
+  { image: "/images/grid/rookery.jpg" },
+  { image: "/images/grid/rookery.jpg" },
+  { image: "/images/grid/rookery.jpg" },
+  { image: "/images/grid/rookery.jpg" },
+  { image: "/images/grid/rookery.jpg" },
+  { image: "/images/grid/rookery.jpg" },
+  { image: "/images/grid/rookery.jpg" },
+  { image: "/images/grid/rookery.jpg" },
+  { image: "/images/grid/rookery.jpg" },
+  { image: "/images/grid/rookery.jpg" },
+  { image: "/images/grid/rookery.jpg" },
+  { image: "/images/grid/rookery.jpg" },
+  { image: "/images/grid/rookery.jpg" },
   { image: "/images/grid/portfolio_06.jpg" },
   { image: "/images/grid/portfolio_11.jpg" },
   { image: "/images/grid/portfolio_06.jpg" },
@@ -50,7 +66,7 @@ photos.innerHTML = `
     ${photoGrid.map(image => `
     
       <a href="${image.image}" class="photo-item glightbox">
-        <img src="${image.image}" class="grid-photo" alt="${image.alt}">
+        <img src="${image.image}" data-src="${image.image}" class="grid-photo lazyload" alt="${image.alt}">
       </a>
     
     `).join('')}
