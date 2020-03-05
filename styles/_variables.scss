@@ -2,10 +2,13 @@
 @import url(https://fonts.googleapis.com/css?family=Product+Sans);
 @import url(https://fonts.googleapis.com/css?family=Questrial&display=swap);
 @import url("/fonts/font/stylesheet.css");
+@import url("/node_modules/circular-std/dist/index.css");
 
 
 $primary-font: 'Apercu Pro', sans-serif;
-$secondary-font: 'Product Sans', sans-serif;
+// $secondary-font: 'Product Sans', sans-serif;
+$secondary-font: 'CircularStd', sans-serif;
+$logo-font: 'Questrial', serif;
 
 $primary-color: #001427;
 $secondary-color: #2EC4B6;

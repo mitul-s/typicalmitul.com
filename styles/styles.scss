@@ -383,7 +383,7 @@ p {
 .photos {
     display: grid;
     // grid-template-columns: 1fr 1fr 1fr;
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     // grid-auto-rows: 340px;
     grid-gap: 1rem;
     grid-auto-flow: dense;
@@ -581,6 +581,7 @@ p {
             border-left:1px solid #e3e3e3;
             border-right:1px solid #e3e3e3;
             border-bottom:1px solid #e3e3e3;
+            max-height: 200px;
 
             h1 {
                 margin: 25px 0;
@@ -725,8 +726,7 @@ p {
     .footer-logo {
         margin: 0;
         width: 60%;
-        font-weight: bold;
-        font-size: 1.5rem;
+        font-size: $p-font-size + 10px;
         // letter-spacing: 5px;
 
         @media #{$mobile} {

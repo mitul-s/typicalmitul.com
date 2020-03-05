@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Product+Sans);
 @import url(https://fonts.googleapis.com/css?family=Questrial&display=swap);
 @import url("/fonts/font/stylesheet.css");
+@import url("/node_modules/circular-std/dist/index.css");
 /* ===================================================================
  * # normalize
  * normalize.css v5.0.0 | MIT License | 
@@ -241,7 +242,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: none;
-  font-family: "Product Sans", sans-serif;
+  font-family: "CircularStd", sans-serif;
 }
 
 body, input, button {
@@ -366,11 +367,15 @@ input[type="password"], textarea {
 }
 
 .secondary-font {
-  font-family: "Product Sans", sans-serif;
+  font-family: "CircularStd", sans-serif;
 }
 
 .no-margin {
   margin-right: 0px !important;
+}
+
+.logo-font {
+  font-family: "Questrial", serif;
 }
 
 .case {
@@ -944,8 +949,8 @@ p {
 .photos {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(420px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  -ms-grid-columns: (minmax(400px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 1rem;
   grid-auto-flow: dense;
 }
@@ -1147,6 +1152,7 @@ p {
   border-left: 1px solid #e3e3e3;
   border-right: 1px solid #e3e3e3;
   border-bottom: 1px solid #e3e3e3;
+  max-height: 200px;
 }
 
 .services-grid .services-item .services-item-text h1 {
@@ -1309,8 +1315,7 @@ p {
 .footer-inner .footer-logo {
   margin: 0;
   width: 60%;
-  font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 28px;
 }
 
 @media only screen and (max-width: 680px) {
