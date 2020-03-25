@@ -32,15 +32,15 @@ const photoGrid = [
   },
   { image: "/images/grid/portfolio_11.jpg" },
   { image: "/images/grid/portfolio_06.jpg" },
-  { image: "/images/grid/portfolio_11.jpg" },
-  { image: "/images/grid/portfolio_06.jpg" },
-  { image: "/images/grid/portfolio_06.jpg" },
+  { image: "/images/grid/portfolio_03.jpg" },
+  { image: "/images/grid/portfolio_07.jpg" },
+  { image: "/images/grid/portfolio_20.jpg" },
   { image: "/images/grid/portfolio_13.jpg" },
-  { image: "/images/grid/portfolio_14.jpg" },
+  { image: "/images/grid/portfolio_22.jpg" },
   { image: "/images/grid/portfolio_15.jpg" },
   { image: "/images/grid/portfolio_05.jpg" },
-  { image: "/images/grid/portfolio_06.jpg" },
-  { image: "/images/grid/portfolio_09.jpg" }
+  { image: "/images/grid/portfolio_09.jpg" },
+  { image: "/images/grid/portfolio_21.jpg" }
 ]
 
 const photos = document.querySelector('.photos');

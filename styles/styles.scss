@@ -23,7 +23,7 @@
     margin-bottom: 25px;
     // margin-top: -10px;
 
-    @media #{$mobile} {
+    @media #{$mobile}, #{$tablet} {
         margin-left: 0;   
     }
 
@@ -243,7 +243,7 @@ p {
     .container {
         width: 75%;
         
-        @media #{$mobile} {
+        @media #{$mobile}, #{$tablet} {
             width: 90vw;
         }
 
@@ -272,7 +272,7 @@ p {
         flex-direction: row;
         max-width: 100%;
 
-        @media #{$mobile} {
+        @media #{$mobile}, #{$tablet} {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             grid-gap: 30px 20px;
@@ -388,7 +388,7 @@ p {
     grid-gap: 1rem;
     grid-auto-flow: dense;
 
-    @media #{$mobile} {
+    @media #{$mobile}, #{$tablet} {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 2px;
     }
@@ -426,7 +426,7 @@ p {
         font-size: $big-p;
 
         @media #{$mobile} {
-            font-size: $p-font-size;
+        font-size: $p-font-size;
         }
     }
     
@@ -436,18 +436,12 @@ p {
     // display: grid;
     grid-auto-rows: 340px;
 
-    @media #{$mobile} {
+    @media #{$mobile}, #{$tablet} {
         grid-template-columns: 1fr;
         grid-gap: 1rem;
     }
     
     .work-img-inner {
-        background: 
-            linear-gradient(
-            rgba(0, 0, 0, 0.6),
-            rgba(0, 0,0, 0.1)
-            ),
-            url(/images/hero/1.jpg);
         background-size: cover;
         position: relative;
         width: 100%;
@@ -467,6 +461,12 @@ p {
         opacity: 0;
         color: $black;
         padding: 25px;
+        text-align: center;
+
+        h2 {
+            margin-bottom: 25px;
+            font-size: $big-p;
+        }
         
         &:hover {
             opacity: 1;
@@ -479,6 +479,26 @@ p {
     display:none;
 }
 
+
+.uber-bg {
+    background: 
+        linear-gradient(
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0,0, 0.6)
+        ),
+        url(/images/other/Uber_Cover.jpg);
+}
+
+.shopify-bg {
+    background: 
+            linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0,0, 0.6)
+            ),
+            url(/images/other/Shopify_Cover.jpg);
+}
+
+
 .work-logo {
     position: absolute;
     margin: 0;
@@ -487,7 +507,7 @@ p {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
-    filter:invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
+    // filter:invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
 }
 
 .hidden-center {
@@ -597,8 +617,8 @@ p {
 
 }
 
-.services-item-img.pg {background-image: url('/images/hero/1.jpg');}
-.services-item-img.li {background-image: url('/images/hero/1.jpg');}
+.services-item-img.pg {background-image: url('/images/other/OfficeMock.jpg');}
+.services-item-img.li {background-image: url('/images/other/OfficeMock.jpg');}
 
 @media #{$tablet} {
     .services-grid {
@@ -621,7 +641,7 @@ p {
     background-image: linear-gradient(
       rgba(0, 0, 0, 0.5), 
       rgba(0, 0, 0, 0.5)
-    ), url(https://source.unsplash.com/random);
+    ), url(/images/other/Footer_Cover.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }

@@ -391,7 +391,7 @@ input[type="password"], textarea {
   padding: 50px;
 }
 
-@media only screen and (max-width: 680px), only screen and (max-width: 991px) {
+@media only screen and (max-width: 710px), only screen and (max-width: 950px) {
   .case-inner {
     display: block;
     padding: 40px 25px;
@@ -411,7 +411,7 @@ input[type="password"], textarea {
           justify-content: space-evenly;
 }
 
-@media only screen and (max-width: 680px), only screen and (max-width: 991px) {
+@media only screen and (max-width: 710px), only screen and (max-width: 950px) {
   .case-text {
     margin-right: 0;
   }
@@ -427,7 +427,7 @@ input[type="password"], textarea {
   color: #fff !important;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px) {
   .case-text .case-testimonial {
     font-size: 18px;
   }
@@ -445,7 +445,7 @@ input[type="password"], textarea {
           filter: invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px) {
   .case-text .case-logo {
     width: 50px;
   }
@@ -549,7 +549,7 @@ input[type="password"], textarea {
   margin: 0 auto;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px) {
   .container {
     width: 90vw;
   }
@@ -563,7 +563,7 @@ input[type="password"], textarea {
   margin-bottom: 25px;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px), only screen and (max-width: 950px) {
   .underline {
     margin-left: 0;
   }
@@ -612,7 +612,7 @@ p {
   color: #333333;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px) {
   p {
     font-size: 10px;
   }
@@ -682,7 +682,7 @@ p {
   padding: 10px 0;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px) {
   .nav-logo {
     display: none;
   }
@@ -712,7 +712,7 @@ p {
   transition: opacity 0.2s;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px) {
   .nav-items .nav-item {
     text-align: center;
     margin-right: 25px;
@@ -753,7 +753,7 @@ p {
   margin: 0 auto;
 }
 
-@media only screen and (max-width: 680px), only screen and (max-width: 991px) {
+@media only screen and (max-width: 710px), only screen and (max-width: 950px) {
   .about-inner {
     width: 100%;
     text-align: left;
@@ -764,7 +764,7 @@ p {
   font-size: 24px;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px) {
   .about-inner p {
     font-size: 18px;
   }
@@ -778,7 +778,7 @@ p {
   width: 75%;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px), only screen and (max-width: 950px) {
   .brands .container {
     width: 90vw;
   }
@@ -791,7 +791,7 @@ p {
   margin-bottom: 10px;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px) {
   .brands .brands-caption {
     margin-top: 50px;
     text-align: left;
@@ -819,7 +819,7 @@ p {
   max-width: 100%;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px), only screen and (max-width: 950px) {
   .brands .brands-items {
     display: -ms-grid;
     display: grid;
@@ -840,7 +840,7 @@ p {
   transition: all 180ms ease-out 0s;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px) {
   .brands .brand-logo {
     max-width: 65px;
     margin-bottom: 7px;
@@ -868,7 +868,7 @@ p {
   width: 100%;
 }
 
-@media only screen and (max-width: 680px), only screen and (max-width: 991px) {
+@media only screen and (max-width: 710px), only screen and (max-width: 950px) {
   .cta-wrap {
     display: block;
   }
@@ -889,7 +889,7 @@ p {
   line-height: 1.5;
 }
 
-@media only screen and (max-width: 680px), only screen and (max-width: 991px) {
+@media only screen and (max-width: 710px), only screen and (max-width: 950px) {
   .cta-wrap .cta-text {
     width: 100%;
     margin-bottom: 15px;
@@ -919,7 +919,7 @@ p {
   text-transform: uppercase;
 }
 
-@media only screen and (max-width: 680px), only screen and (max-width: 991px) {
+@media only screen and (max-width: 710px), only screen and (max-width: 950px) {
   .cta-wrap .cta-btn {
     display: block;
     width: 100%;
@@ -936,7 +936,7 @@ p {
   border-left: none;
 }
 
-@media only screen and (max-width: 680px), only screen and (max-width: 991px) {
+@media only screen and (max-width: 710px), only screen and (max-width: 950px) {
   .cta-wrap .cta-btn:hover {
     border-left: 2px solid #001427;
   }
@@ -955,7 +955,7 @@ p {
   grid-auto-flow: dense;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px), only screen and (max-width: 950px) {
   .photos {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
@@ -983,7 +983,7 @@ p {
   font-size: 24px;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px) {
   .work p {
     font-size: 18px;
   }
@@ -993,7 +993,7 @@ p {
   grid-auto-rows: 340px;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px), only screen and (max-width: 950px) {
   .work-photos-grid {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
@@ -1002,8 +1002,6 @@ p {
 }
 
 .work-photos-grid .work-img-inner {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.1))), url(/images/hero/1.jpg);
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)), url(/images/hero/1.jpg);
   background-size: cover;
   position: relative;
   width: 100%;
@@ -1023,6 +1021,12 @@ p {
   opacity: 0;
   color: #000000;
   padding: 25px;
+  text-align: center;
+}
+
+.work-photos-grid .hidden-text h2 {
+  margin-bottom: 25px;
+  font-size: 24px;
 }
 
 .work-photos-grid .hidden-text:hover {
@@ -1031,6 +1035,16 @@ p {
 
 .work-img-inner:hover > .work-logo {
   display: none;
+}
+
+.uber-bg {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url(/images/other/Uber_Cover.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/images/other/Uber_Cover.jpg);
+}
+
+.shopify-bg {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url(/images/other/Shopify_Cover.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/images/other/Shopify_Cover.jpg);
 }
 
 .work-logo {
@@ -1042,8 +1056,6 @@ p {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   z-index: 100;
-  -webkit-filter: invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
-          filter: invert(97%) sepia(100%) saturate(13%) hue-rotate(196deg) brightness(103%) contrast(103%);
 }
 
 .hidden-center {
@@ -1072,14 +1084,14 @@ p {
   grid-gap: 1rem;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px) {
   .services-grid {
     display: block;
     padding: 40px 25px;
   }
 }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 950px) {
   .services-grid {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
@@ -1126,7 +1138,7 @@ p {
   border-radius: 0.25rem;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px) {
   .services-grid .services-item {
     margin-bottom: 15px;
   }
@@ -1165,14 +1177,14 @@ p {
 }
 
 .services-item-img.pg {
-  background-image: url("/images/hero/1.jpg");
+  background-image: url("/images/other/OfficeMock.jpg");
 }
 
 .services-item-img.li {
-  background-image: url("/images/hero/1.jpg");
+  background-image: url("/images/other/OfficeMock.jpg");
 }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 950px) {
   .services-grid .col-1 {
     -ms-grid-row: 1;
     -ms-grid-row-span: 1;
@@ -1199,8 +1211,8 @@ p {
 .contact {
   margin-top: 150px;
   padding: 50px 0;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(https://source.unsplash.com/random);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://source.unsplash.com/random);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(/images/other/Footer_Cover.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images/other/Footer_Cover.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -1212,7 +1224,7 @@ p {
   padding: 40px;
 }
 
-@media only screen and (max-width: 680px), only screen and (max-width: 991px) {
+@media only screen and (max-width: 710px), only screen and (max-width: 950px) {
   .contact-inner {
     width: 100%;
   }
@@ -1275,7 +1287,7 @@ p {
   grid-gap: 15px;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px) {
   .form-inner {
     display: block;
   }
@@ -1304,7 +1316,7 @@ p {
   display: flex;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px) {
   .footer-inner {
     display: block;
     text-align: center;
@@ -1318,7 +1330,7 @@ p {
   font-size: 28px;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px) {
   .footer-inner .footer-logo {
     width: 100%;
     margin-bottom: 25px;
@@ -1329,7 +1341,7 @@ p {
   width: 20%;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 710px) {
   .footer-inner .footer-links {
     width: 100%;
     margin-bottom: 25px;
