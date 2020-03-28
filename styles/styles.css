@@ -1165,6 +1165,7 @@ p {
   border-right: 1px solid #e3e3e3;
   border-bottom: 1px solid #e3e3e3;
   max-height: 200px;
+  padding-bottom: 20px;
 }
 
 .services-grid .services-item .services-item-text h1 {
@@ -1177,11 +1178,11 @@ p {
 }
 
 .services-item-img.pg {
-  background-image: url("/images/other/OfficeMock.jpg");
+  background-image: url("/images/other/camera.jpg");
 }
 
 .services-item-img.li {
-  background-image: url("/images/other/OfficeMock.jpg");
+  background-image: url("/images/other/MockupCar_lowres.jpg");
 }
 
 @media only screen and (max-width: 950px) {
