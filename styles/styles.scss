@@ -453,6 +453,7 @@ p {
 
         &:hover {
             background: whitesmoke;
+            // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
         }
 
     }
@@ -464,8 +465,16 @@ p {
         text-align: center;
 
         h2 {
-            margin-bottom: 25px;
+            margin: 25px 0;
             font-size: $big-p;
+            text-align: left;
+            color: $primary-color;
+        }
+
+        p {
+            text-align: left;
+            font-size: $p-font-size;
+            font-family: $secondary-font;
         }
         
         &:hover {
@@ -496,6 +505,15 @@ p {
             rgba(0, 0,0, 0.6)
             ),
             url(/images/other/Shopify_Cover.jpg);
+}
+
+.delta-bg {
+    background: 
+            linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0,0, 0.6)
+            ),
+            url(/images/other/delta_cover.jpg);
 }
 
 

@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Product+Sans);
 @import url(https://fonts.googleapis.com/css?family=Questrial&display=swap);
 @import url("/fonts/font/stylesheet.css");
 @import url("/node_modules/circular-std/dist/index.css");
@@ -469,13 +468,13 @@ input[type="password"], textarea {
   /* Set a default minimum width */
   margin-left: -125px;
   /* Divide value of min-width by 2 */
-  background-color: #333;
+  background-color: #001427;
   /* Black background color */
   color: #fff;
   /* White text color */
   text-align: center;
   /* Centered text */
-  border-radius: 2px;
+  border-radius: 5px;
   /* Rounded borders */
   padding: 16px;
   /* Padding */
@@ -1025,8 +1024,16 @@ p {
 }
 
 .work-photos-grid .hidden-text h2 {
-  margin-bottom: 25px;
+  margin: 25px 0;
   font-size: 24px;
+  text-align: left;
+  color: #001427;
+}
+
+.work-photos-grid .hidden-text p {
+  text-align: left;
+  font-size: 18px;
+  font-family: "CircularStd", sans-serif;
 }
 
 .work-photos-grid .hidden-text:hover {
@@ -1045,6 +1052,11 @@ p {
 .shopify-bg {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url(/images/other/Shopify_Cover.jpg);
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/images/other/Shopify_Cover.jpg);
+}
+
+.delta-bg {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url(/images/other/delta_cover.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/images/other/delta_cover.jpg);
 }
 
 .work-logo {
