@@ -8,14 +8,30 @@
 // });
 
 const brands = [
-  { image: "/images/logos/shopify_logo.svg" },
-  { image: "/images/logos/google_logo.svg" },
-  { image: "/images/logos/samsung_logo.svg" },
-  { image: "/images/logos/dbrand_logo.svg" },
-  { image: "/images/logos/amdocs_logo.svg" },
-  { image: "/images/logos/500px_logo.svg" },
-  { image: "/images/logos/uber_logo.svg" },
-  { image: "/images/logos/lg_logo.svg" }
+  { image: "/images/logos/shopify_logo.svg",
+    alt: "Shopify brand logo"
+  },
+  { image: "/images/logos/google_logo.svg",
+    alt: "Google brand logo"
+  },
+  { image: "/images/logos/samsung_logo.svg",
+    alt: "Samsung brand logo"
+  },
+  { image: "/images/logos/dbrand_logo.svg",
+    alt: "dbrand logo"
+  },
+  { image: "/images/logos/amdocs_logo.svg",
+    alt: "Amdocs logo"
+  },
+  { image: "/images/logos/500px_logo.svg",
+    alt: "500px logo"
+  },
+  { image: "/images/logos/uber_logo.svg",
+    alt: "Uber logo"
+  },
+  { image: "/images/logos/lg_logo.svg",
+    alt: "LG Electronics logo"
+  }
 ]
 
 const brandsList = document.querySelector('.brands-items');
