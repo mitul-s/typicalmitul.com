@@ -745,6 +745,7 @@ p {
 
 .nav-item.shop-btn {
   background-color: #5340ff;
+  background-color: #5340ff;
   color: #fff;
   padding-left: 20px;
   padding-right: 20px;
@@ -755,8 +756,10 @@ p {
 @media only screen and (max-width: 710px) {
   .nav-item.shop-btn {
     background-color: transparent;
-    color: #001427;
+    color: #000000;
     border: none;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 
@@ -771,7 +774,7 @@ p {
 @media only screen and (max-width: 710px) {
   .nav-item.shop-btn:hover {
     background-color: transparent;
-    color: #001427;
+    color: #000000;
     border: none;
   }
 }
