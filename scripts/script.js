@@ -7,6 +7,21 @@
 //   }
 // });
 
+const nav = document.querySelector("#navigation");
+const navTop = nav.offsetTop;
+
+function fixedNav() {
+  if (window.scrollY >= navTop) {
+    document.body.style.paddingTop = '90px';
+    document.body.classList.add('fixed-nav');
+  } else {
+    document.body.style.paddingTop = 0;
+    document.body.classList.remove('fixed-nav');
+  }
+}
+
+window.addEventListener('scroll', fixedNav);
+
 const brands = [
   { image: "/images/logos/shopify_logo.svg",
     alt: "Shopify brand logo"

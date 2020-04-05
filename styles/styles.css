@@ -557,7 +557,7 @@ input[type="password"], textarea {
 .underline {
   height: 3.5px;
   width: 25%;
-  background-color: #2EC4B6;
+  background-color: #5340ff;
   margin: 0 auto;
   margin-bottom: 25px;
 }
@@ -569,9 +569,9 @@ input[type="password"], textarea {
 }
 
 .btn, .contact-form .form-btn {
-  background-color: #2EC4B6;
+  background-color: #5340ff;
   color: #fff;
-  border: 1px solid #2EC4B6;
+  border: 1px solid #5340ff;
   border-radius: 2px;
   height: 35px;
   min-width: 120px;
@@ -587,7 +587,7 @@ input[type="password"], textarea {
 
 .subtitle, .brands .brands-caption, .services-grid .services-callout a {
   text-transform: uppercase;
-  color: #2EC4B6;
+  color: #5340ff;
   letter-spacing: 1.4px;
 }
 
@@ -733,7 +733,7 @@ p {
   bottom: 0;
   left: 0;
   width: 0%;
-  background: #2EC4B6;
+  background: #5340ff;
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
 }
@@ -741,6 +741,49 @@ p {
 .nav-items .nav-item:hover:after,
 .nav-items .nav-item:visited:hover:after {
   width: 100%;
+}
+
+.nav-item.shop-btn {
+  background-color: #5340ff;
+  color: #fff;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid #5340ff;
+  border-radius: 2px;
+}
+
+@media only screen and (max-width: 710px) {
+  .nav-item.shop-btn {
+    background-color: transparent;
+    color: #001427;
+    border: none;
+  }
+}
+
+.nav-item.shop-btn:hover {
+  background-color: #fff;
+  color: #5340ff;
+  border: 1px solid #5340ff;
+  -webkit-transition: all 180ms ease-out 0s;
+  transition: all 180ms ease-out 0s;
+}
+
+@media only screen and (max-width: 710px) {
+  .nav-item.shop-btn:hover {
+    background-color: transparent;
+    color: #001427;
+    border: none;
+  }
+}
+
+.nav-item.shop-btn:after {
+  display: none;
+}
+
+.fixed-nav nav .container {
+  position: fixed;
+  -webkit-box-shadow: 0 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .about {
@@ -896,7 +939,7 @@ p {
 }
 
 .cta-wrap .cta-btn {
-  background-color: #2EC4B6;
+  background-color: #5340ff;
   color: #fff;
   font-size: 18px;
   display: -webkit-box;
@@ -909,7 +952,7 @@ p {
       -ms-flex-pack: center;
           justify-content: center;
   width: 20%;
-  border: 2px solid #2EC4B6;
+  border: 2px solid #5340ff;
   border-left: none;
   -webkit-transition: all 180ms ease-out 0s;
   transition: all 180ms ease-out 0s;
@@ -924,7 +967,7 @@ p {
     width: 100%;
     padding: 25px;
     text-align: center;
-    border-left: 2px solid #2EC4B6;
+    border-left: 2px solid #5340ff;
   }
 }
 
@@ -1266,7 +1309,7 @@ p {
 }
 
 .contact-form input:focus, .contact-form textarea:focus {
-  border-color: #2EC4B6;
+  border-color: #5340ff;
 }
 
 .contact-form label {
@@ -1287,8 +1330,8 @@ p {
 
 .contact-form .form-btn:hover {
   background-color: #fff;
-  border: 1px solid #2EC4B6;
-  color: #2EC4B6;
+  border: 1px solid #5340ff;
+  color: #5340ff;
   cursor: pointer;
 }
 
