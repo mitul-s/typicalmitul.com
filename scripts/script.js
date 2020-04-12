@@ -58,40 +58,40 @@ brandsList.innerHTML = `
 `
 
 const photoGrid = [
-  { image: "/images/grid/portfolio_10.jpg",
+  { image: "/images/grid/portfolio_10.webp",
     alt: "Looking up at skyscarpers in Toronto on a rainy day"
   },
-  { image: "/images/grid/portfolio_11.jpg",
+  { image: "/images/grid/portfolio_11.webp",
     alt: "An old school cadillac contrasting against the Los Angeles Sky."
   },
-  { image: "/images/grid/portfolio_06.jpg",
+  { image: "/images/grid/portfolio_06.webp",
     alt: "Looking down on an empty Times Square during the middle of the night"
   },
-  { image: "/images/grid/portfolio_03.jpg",
+  { image: "/images/grid/portfolio_03.webp",
     alt: "The iconic Rookery spiral staircase in Chicago"
   },
-  { image: "/images/grid/portfolio_07.jpg",
+  { image: "/images/grid/portfolio_07.webp",
     alt: "A symmetrical photo of a subway track in New York"
   },
-  { image: "/images/grid/portfolio_20.jpg",
+  { image: "/images/grid/portfolio_20.webp",
     alt: "Overlooking a subway track towards the Trump Tower in Chicago"
   },
-  { image: "/images/grid/portfolio_13.jpg",
+  { image: "/images/grid/portfolio_13.webp",
     alt: "Looking up in Toronto's financial district"
   },
-  { image: "/images/grid/portfolio_22.jpg",
+  { image: "/images/grid/portfolio_22.webp",
     alt: "The CN Tower above the clouds"
   },
-  { image: "/images/grid/portfolio_15.jpg",
+  { image: "/images/grid/portfolio_15.webp",
     alt: "Light trails of Chicago's expressway"
   },
-  { image: "/images/grid/portfolio_05.jpg",
+  { image: "/images/grid/portfolio_05.webp",
     alt: "A camera looking up at New York City's Oculus"
   },
-  { image: "/images/grid/portfolio_09.jpg",
+  { image: "/images/grid/portfolio_09.webp",
     alt: "Cityscape of New York City"
   },
-  { image: "/images/grid/portfolio_21.jpg",
+  { image: "/images/grid/portfolio_21.webp",
     alt: "A contrasting photo of a model in light against harsh shadows"
   }
 ]
