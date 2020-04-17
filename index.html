@@ -8,14 +8,10 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon/favicon.ico" />
-
-    
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon/favicon.ico" />    
     
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
-    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>
 
 <script>
     window['_fs_debug'] = false;
@@ -91,7 +87,7 @@
                         <a href="#contact" class="nav-item">
                             Contact
                         </a>
-                        <a href="https://shop.typicalmitul.com" target="_blank" class="nav-item shop-btn no-margin">
+                        <a href="https://shop.typicalmitul.com" target="_blank" rel="noopener" class="nav-item shop-btn no-margin">
                             Shop
                         </a>
                     </div>
@@ -129,7 +125,7 @@
                 <div class="cta-text">
                     <h3>Decorate your space with quality photography! You can purchase limited-quantity lustre paper poster prints by visiting the shop today.</h3>
                 </div>    
-                <a href="https://shop.typicalmitul.com" target="_blank"  class="cta-btn">
+                <a href="https://shop.typicalmitul.com" target="_blank"  class="cta-btn" rel="noopener">
                     Shop Now
                 </a>
             </div>
@@ -252,7 +248,7 @@
                 <div class="cta-text">
                     <h3>Your place is not complete without photography. Purchase some limited-quantity prints today in various poster sizes.</h3>
                 </div>
-                <a href="https://shop.typicalmitul.com" target="_blank" class="cta-btn">
+                <a href="https://shop.typicalmitul.com" target="_blank" class="cta-btn" rel="noopener">
                     Shop Now
                 </a>
             </div>
@@ -273,17 +269,17 @@
                         <div class="form-inner">
                             <div class="input-wrap">
                                 <label for="name">Name</label>
-                                <input type="text" name="name" placeholder="Name">
+                                <input type="text" name="name" placeholder="Name" id="name">
                             </div>
                             <div class="input-wrap">
                                 <label for="email">Email Address</label>
-                                <input type="email" name="email" placeholder="Email">
+                                <input type="email" name="email" placeholder="Email" id="email">
                             </div>
                         </div>
-                        <label for="subject" class="hidden">Subject</label>
-                        <input type="text" placeholder="Subject" class="hidden">
+                        <label for="subject" class="hidden" id="subject">Subject</label>
+                        <input type="text" placeholder="Subject" name="subject" class="hidden">
                         <label for="message">Message</label>
-                        <textarea name="message" id="" cols="30" rows="6"></textarea>
+                        <textarea name="message" id="message" cols="30" rows="6"></textarea>
                         <button class="form-btn" type="submit">Send</button>
                     </form>
                 </div>
@@ -308,7 +304,7 @@
                             <a href="#about">About Me</a>
                         </li>
                         <li class="footer-list-item">
-                            <a href="https://shop.typicalmitul.com" target="_blank">Visit Shop</a>
+                            <a href="https://shop.typicalmitul.com" target="_blank" rel="noopener">Visit Shop</a>
                         </li>
                         <li class="footer-list-item">
                             <a href="mailto:typicalmitul@gmail.com">Get in touch</a>
@@ -320,13 +316,13 @@
                     <h4 class="footer-link-title">Socials</h4>
                     <ul class="footer-list">
                         <li class="footer-list-item">
-                            <a href="https://instagram.com/typicalmitul" target="_blank">Instagram</a>
+                            <a href="https://instagram.com/typicalmitul" target="_blank" rel="noopener">Instagram</a>
                         </li>
                         <li class="footer-list-item">
-                            <a href="https://twitter.com/typicalmitul" target="_blank">Twitter</a>
+                            <a href="https://twitter.com/typicalmitul" target="_blank" rel="noopener">Twitter</a>
                         </li>
                         <li class="footer-list-item">
-                            <a href="https://500px.com/typicalmitul" target="_blank">500px</a>
+                            <a href="https://500px.com/typicalmitul" target="_blank" rel="noopener">500px</a>
                         </li>
                     </ul>
                 </div>
@@ -339,6 +335,8 @@
     <div id="snackbar">If you'd like to download or license a photo – email me or send a chat!</div>
 
 <script src="scripts/script.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>
 <script>
     
     const lightbox = GLightbox({

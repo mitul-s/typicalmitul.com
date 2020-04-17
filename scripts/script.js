@@ -53,7 +53,7 @@ const brandsList = document.querySelector('.brands-items');
 
 brandsList.innerHTML = `
     ${brands.map(image => `
-        <img src="${image.image}" class="brand-logo">
+        <img src="${image.image}" class="brand-logo" alt="${image.alt}">
     `).join('')}
 `
 

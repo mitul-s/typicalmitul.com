@@ -832,7 +832,7 @@ p {
 .brands .brands-caption {
   font-size: 10px;
   font-weight: 900;
-  color: grey;
+  color: #47525d;
   margin-bottom: 10px;
 }
 
@@ -1091,8 +1091,8 @@ p {
 }
 
 .uber-bg {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url(/images/other/Uber_Cover.jpg);
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/images/other/Uber_Cover.jpg);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url(/images/other/uber_cover.webp);
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/images/other/uber_cover.webp);
 }
 
 .shopify-bg {
@@ -1101,8 +1101,8 @@ p {
 }
 
 .delta-bg {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url(/images/other/delta_cover.jpg);
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/images/other/delta_cover.jpg);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url(/images/other/delta_cover.webp);
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/images/other/delta_cover.webp);
 }
 
 .work-logo {
@@ -1236,7 +1236,7 @@ p {
 }
 
 .services-item-img.pg {
-  background-image: url("/images/other/camera.jpg");
+  background-image: url("/images/other/camera.webp");
 }
 
 .services-item-img.li {

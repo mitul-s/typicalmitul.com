@@ -294,7 +294,7 @@ p {
         @extend .subtitle;
         font-size: 10px;
         font-weight: 900;
-        color: grey;
+        color: #47525d;
         margin-bottom: 10px;
 
         @media #{$mobile} {
@@ -536,7 +536,7 @@ p {
         rgba(0, 0, 0, 0.6),
         rgba(0, 0,0, 0.6)
         ),
-        url(/images/other/Uber_Cover.jpg);
+        url(/images/other/uber_cover.webp);
 }
 
 .shopify-bg {
@@ -554,7 +554,7 @@ p {
             rgba(0, 0, 0, 0.6),
             rgba(0, 0,0, 0.6)
             ),
-            url(/images/other/delta_cover.jpg);
+            url(/images/other/delta_cover.webp);
 }
 
 
@@ -677,7 +677,7 @@ p {
 
 }
 
-.services-item-img.pg {background-image: url('/images/other/camera.jpg');}
+.services-item-img.pg {background-image: url('/images/other/camera.webp');}
 .services-item-img.li {background-image: url('/images/other/MockupCar_lowres.jpg');}
 
 @media #{$tablet} {
