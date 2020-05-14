@@ -1036,6 +1036,8 @@ p {
 
 .work-photos-grid {
   grid-auto-rows: 340px;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
 }
 
 @media only screen and (max-width: 710px), only screen and (max-width: 950px) {

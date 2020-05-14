@@ -476,6 +476,7 @@ p {
 .work-photos-grid {
     // display: grid;
     grid-auto-rows: 340px;
+    grid-template-columns: 1fr 1fr 1fr;
 
     @media #{$mobile}, #{$tablet} {
         grid-template-columns: 1fr;
