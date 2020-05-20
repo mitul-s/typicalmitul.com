@@ -8,6 +8,7 @@
 .container {
     width: 85vw;
     margin: 0 auto;
+    max-width: 1600px;
 
     @media #{$mobile} {
         width: 90vw;
@@ -334,11 +335,11 @@ p {
             justify-self: flex-start;
         }
 
-        &:hover {
-            opacity: 1;
-            filter: grayscale(0%);
-            -webkit-filter: grayscale(0%);
-        }
+        // &:hover {
+        //     opacity: 1;
+        //     filter: grayscale(0%);
+        //     -webkit-filter: grayscale(0%);
+        // }
     }
 }
 
@@ -709,7 +710,7 @@ p {
 
 .contact-inner {
     margin: 0 auto;
-    width: 50%;
+    width: 65%;
     background-color: $white;
     padding: 40px;
 
@@ -742,6 +743,7 @@ p {
         padding: 16px;
         outline: none;
         transition: border-color 0.3s cubic-bezier(0.694, 0.0482, 0.335, 1) 0s;
+        font-size: 1.3rem;
 
         &:focus {
             border-color: $secondary-color;

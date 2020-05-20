@@ -377,6 +377,10 @@ input[type="password"], textarea {
   font-family: "Questrial", serif;
 }
 
+.secondary-color {
+  color: #5340ff;
+}
+
 .case {
   margin-top: 50px;
 }
@@ -546,6 +550,7 @@ input[type="password"], textarea {
 .container {
   width: 85vw;
   margin: 0 auto;
+  max-width: 1600px;
 }
 
 @media only screen and (max-width: 710px) {
@@ -891,12 +896,6 @@ p {
     margin-bottom: 7px;
     justify-self: flex-start;
   }
-}
-
-.brands .brand-logo:hover {
-  opacity: 1;
-  filter: grayscale(0%);
-  -webkit-filter: grayscale(0%);
 }
 
 .cta, .cta-2 {
@@ -1280,7 +1279,7 @@ p {
 
 .contact-inner {
   margin: 0 auto;
-  width: 50%;
+  width: 65%;
   background-color: #fff;
   padding: 40px;
 }
@@ -1311,6 +1310,7 @@ p {
   outline: none;
   -webkit-transition: border-color 0.3s cubic-bezier(0.694, 0.0482, 0.335, 1) 0s;
   transition: border-color 0.3s cubic-bezier(0.694, 0.0482, 0.335, 1) 0s;
+  font-size: 1.3rem;
 }
 
 .contact-form input:focus, .contact-form textarea:focus {
