@@ -669,8 +669,9 @@ p {
   transition: border-bottom 0.3s ease-out;
 }
 
-.nav .nav-inner {
-  width: 100%;
+.nav-inner {
+  width: 85vw;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -790,8 +791,12 @@ p {
 
 .fixed-nav nav .container {
   position: fixed;
-  -webkit-box-shadow: 0 5px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 5px rgba(0, 0, 0, 0.1);
+  background-color: #FAFFFA;
+}
+
+#navigation > .container {
+  width: 100vw;
+  background-color: #FAFFFA;
 }
 
 .about {
@@ -1427,7 +1432,6 @@ p {
   color: #fff;
   text-decoration: none;
   font-size: 15px;
-  font-family: 'Product Sans';
 }
 
 .footer-inner .footer-links .footer-list-item a:hover {

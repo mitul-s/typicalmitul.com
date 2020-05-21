@@ -134,15 +134,16 @@ p {
     border-bottom: 1px solid rgba(252, 251, 250, 0);
     transition: border-bottom 0.3s ease-out;
     
+}
 
-    .nav-inner {
-        width: 100%;
-        // max-width: 1220px;
-        // padding: 0 40px;
-        display: flex;
-        align-items: center;
-    }
-
+.nav-inner {
+    // width: 100%;
+    width: 85vw;
+    margin: 0 auto;
+    // max-width: 1220px;
+    // padding: 0 40px;
+    display: flex;
+    align-items: center;
 }
 
 .nav-logo {
@@ -243,10 +244,14 @@ p {
 }
 
 .fixed-nav nav .container {
-	position: fixed;
-	box-shadow: 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    background-color: $shell;
 }
 
+#navigation > .container {
+    width: 100vw;
+    background-color: $shell;
+}
 
 // ABOUT //
 .about {
@@ -844,7 +849,6 @@ p {
             color: $white;
             text-decoration: none;
             font-size: $p-font-size - 3px;
-            font-family: 'Product Sans';
 
             &:hover {
                 opacity: 1;
