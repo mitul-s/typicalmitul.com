@@ -133,18 +133,21 @@ p {
     background-color: $shell;
     border-bottom: 1px solid rgba(252, 251, 250, 0);
     transition: border-bottom 0.3s ease-out;
+
+    .nav-inner {
+        width: 100%;
+        // max-width: 1220px;
+        // padding: 0 40px;
+        display: flex;
+        align-items: center;
+    }
     
 }
 
-.nav-inner {
-    // width: 100%;
-    width: 85vw;
-    margin: 0 auto;
-    // max-width: 1220px;
-    // padding: 0 40px;
-    display: flex;
-    align-items: center;
-}
+// .nav-bg {
+//     width: 100vw;
+//     background-color: $secondary-color;
+// }
 
 .nav-logo {
     flex: 1;
@@ -245,13 +248,14 @@ p {
 
 .fixed-nav nav .container {
     position: fixed;
+    width: 85vw;
     background-color: $shell;
 }
 
-#navigation > .container {
-    width: 100vw;
-    background-color: $shell;
-}
+// #navigation .container {
+//     // width: 85vw;
+//     background-color: $shell;
+// }
 
 // ABOUT //
 .about {

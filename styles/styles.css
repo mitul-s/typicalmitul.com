@@ -669,9 +669,8 @@ p {
   transition: border-bottom 0.3s ease-out;
 }
 
-.nav-inner {
-  width: 85vw;
-  margin: 0 auto;
+.nav .nav-inner {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -791,11 +790,7 @@ p {
 
 .fixed-nav nav .container {
   position: fixed;
-  background-color: #FAFFFA;
-}
-
-#navigation > .container {
-  width: 100vw;
+  width: 85vw;
   background-color: #FAFFFA;
 }
 
