@@ -1,6 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Questrial&display=swap);
+@import url("https://fonts.googleapis.com/css2?family=Questrial&family=Cabin&display=swap");
 @import url("/fonts/font/stylesheet.css");
-@import url("/node_modules/circular-std/dist/index.css");
 /* ===================================================================
  * # normalize
  * normalize.css v5.0.0 | MIT License | 
@@ -241,7 +240,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: none;
-  font-family: "CircularStd", sans-serif;
+  font-family: "Cabin", sans-serif;
 }
 
 body, input, button {
@@ -366,7 +365,7 @@ input[type="password"], textarea {
 }
 
 .secondary-font {
-  font-family: "CircularStd", sans-serif;
+  font-family: "Cabin", sans-serif;
 }
 
 .no-margin {
@@ -1081,7 +1080,7 @@ p {
 .work-photos-grid .hidden-text p {
   text-align: left;
   font-size: 18px;
-  font-family: "CircularStd", sans-serif;
+  font-family: "Cabin", sans-serif;
 }
 
 .work-photos-grid .hidden-text:hover {
