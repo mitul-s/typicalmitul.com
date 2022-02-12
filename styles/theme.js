@@ -12,6 +12,11 @@ const styles = {
 
 const theme = extendTheme({
     styles,
+    colors: {
+        core: {
+            yellow: "#EEFF00",
+        },
+    },
     fonts: {
         body: "Helvetica",
     }
