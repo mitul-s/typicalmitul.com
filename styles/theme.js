@@ -13,8 +13,9 @@ const styles = {
 const theme = extendTheme({
     styles,
     colors: {
-        core: {
-            yellow: "#EEFF00",
+        c: {
+            yolk: "#EEFF00",
+            eggshell: "#FAFAFA",
         },
     },
     fonts: {
