@@ -2,8 +2,10 @@ import { HStack, Flex, Box, Link, Grid, Text } from "@chakra-ui/react";
 
 const Navigation = () => {
   return (
-    <Box border="1px solid black">
+    <Box>
       <HStack
+        borderTop={"1px solid"}
+        borderColor={"core.eggshell"}
         justifyContent="space-between"
         width="full"
         spacing={4}
@@ -12,39 +14,71 @@ const Navigation = () => {
         letterSpacing={-0.5}
         px={4}
       >
-        <Link fontSize={16}>Typical Mitul</Link>
+        <Link fontSize={18}>Typical Mitul</Link>
         <HStack>
-          <Link fontSize={16}>About</Link>
-          <Link fontSize={16}>Gear</Link>
-          <Link fontSize={16}>Work</Link>
-          <Link fontSize={16}>Contact</Link>
+          <Link className="nav-link">About</Link>
+          <Link className="nav-link">Gear</Link>
+          <Link className="nav-link">Work</Link>
+          <Link className="nav-link">Contact</Link>
         </HStack>
       </HStack>
       <Box
-        bg="core.yellow"
+        bg="c.yolk"
         color="black"
         textTransform="uppercase"
         // border="1px solid white"
         py={2}
       >
-        <HStack className="marquee">
-          <Text fontSize={12}>Available for Work</Text>
-          <Text fontSize={12}>Available for Work</Text>
-          <Text fontSize={12}>Available for Work</Text>
-          <Text fontSize={12}>Available for Work</Text>
-          <Text fontSize={12}>Available for Work</Text>
-          <Text fontSize={12}>Available for Work</Text>
-          <Text fontSize={12}>Available for Work</Text>
-          <Text fontSize={12}>Available for Work</Text>
-          <Text fontSize={12}>Available for Work</Text>
-          <Text fontSize={12}>Available for Work</Text>
-          <Text fontSize={12}>Available for Work</Text>
-          <Text fontSize={12}>Available for Work</Text>
-          <Text fontSize={12}>Available for Work</Text>
-          <Text fontSize={12}>Available for Work</Text>
-          <Text fontSize={12}>Available for Work</Text>
-          <Text fontSize={12}>Available for Work</Text>
-        </HStack>
+        <Box className="marquee">
+          <Text willChange={"transform"} fontSize={12} fontWeight={300}>
+            Available for Work
+          </Text>
+          <Text willChange={"transform"} fontSize={12} fontWeight={300}>
+            Available for Work
+          </Text>
+          <Text willChange={"transform"} fontSize={12} fontWeight={300}>
+            Available for Work
+          </Text>
+          <Text willChange={"transform"} fontSize={12} fontWeight={300}>
+            Available for Work
+          </Text>
+          <Text willChange={"transform"} fontSize={12} fontWeight={300}>
+            Available for Work
+          </Text>
+          <Text willChange={"transform"} fontSize={12} fontWeight={300}>
+            Available for Work
+          </Text>
+          <Text willChange={"transform"} fontSize={12} fontWeight={300}>
+            Available for Work
+          </Text>
+          <Text willChange={"transform"} fontSize={12} fontWeight={300}>
+            Available for Work
+          </Text>
+          <Text willChange={"transform"} fontSize={12} fontWeight={300}>
+            Available for Work
+          </Text>
+          <Text willChange={"transform"} fontSize={12} fontWeight={300}>
+            Available for Work
+          </Text>
+          <Text willChange={"transform"} fontSize={12} fontWeight={300}>
+            Available for Work
+          </Text>
+          <Text willChange={"transform"} fontSize={12} fontWeight={300}>
+            Available for Work
+          </Text>
+          <Text willChange={"transform"} fontSize={12} fontWeight={300}>
+            Available for Work
+          </Text>
+          <Text willChange={"transform"} fontSize={12} fontWeight={300}>
+            Available for Work
+          </Text>
+          <Text willChange={"transform"} fontSize={12} fontWeight={300}>
+            Available for Work
+          </Text>
+          <Text willChange={"transform"} fontSize={12} fontWeight={300}>
+            Available for Work
+          </Text>
+        </Box>
       </Box>
     </Box>
   );
@@ -52,11 +86,9 @@ const Navigation = () => {
 
 export default function Shell({ children }) {
     return (
-      <Box height="100%" bg="black" color="white">
+      <Box minHeight="100%" bg="black" display={"flex"} flexDirection="column" color="white">
         <Navigation />
-        <Box minHeight="100%" bg="black" display={"flex"} flexDirection="column">
           {children}
-        </Box>
         {/* <Box height="10%">This is a footer</Box> */}
       </Box>
     );
