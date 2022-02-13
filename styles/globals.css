@@ -15,6 +15,7 @@
 */
 html, body, #__next {
   height: 100%;
+  font-family: 'GT America', sans-serif;
 }
 /*
   Typographic tweaks!
@@ -51,8 +52,44 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
+/* .text-shadow-white {
+  -webkit-text-stroke: 1px white;
+} */
+
+
+.nav-link {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+  text-decoration: none !important;
+}
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    top: 12px;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform .4s cubic-bezier(.86,0,.07,1);
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+
+.text-shadow-white {
+  -webkit-text-stroke: 1px black;
+}
+
 .marquee {
   flex: 0 0 auto;
+  gap: 8px;
   min-width: 100%;
   z-index: 1;
   display: flex;
@@ -63,9 +100,9 @@ p, h1, h2, h3, h4, h5, h6 {
   /* animation-direction: left; */
 }
 
-/* .marquee > div {
+.marquee > p {
   animation: scroll 8s linear infinite;
-} */
+}
 
  @keyframes scroll {
   0% {
@@ -75,4 +112,17 @@ p, h1, h2, h3, h4, h5, h6 {
   100% {
     transform: translate(-100%, 0);
   }
+}
+
+/* https://seek-oss.github.io/capsize/ */
+.capsize::before {
+  content: "";
+  margin-bottom: -0.30em;
+  display: table;
+}
+
+.capsize::after {
+  content: "";
+  margin-top: -0.10em;
+  display: table;
 }
