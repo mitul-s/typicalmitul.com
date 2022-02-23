@@ -1,6 +1,5 @@
 {
-  "name": "typicalmitul",
-  "version": "0.1.0",
+  "name": "tm_v5",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,16 +8,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.6.5",
-    "@emotion/react": "^11",
-    "@emotion/styled": "^11",
-    "framer-motion": "^4",
-    "next": "11.0.1",
+    "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "eslint": "7.31.0",
-    "eslint-config-next": "11.0.1"
+    "autoprefixer": "^10.4.2",
+    "eslint": "8.9.0",
+    "eslint-config-next": "12.1.0",
+    "postcss": "^8.4.6",
+    "tailwindcss": "^3.0.23"
   }
 }
