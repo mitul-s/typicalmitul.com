@@ -11,7 +11,8 @@ html, body, #__next {
 }
 
 body {
-  @apply bg-eggshell;
+  @apply bg-eggshell text-dark;
+  font-size: 18px;
 }
 
 /* html,
@@ -33,6 +34,12 @@ a {
   text-decoration: none;
 }
 
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+
 
 .grid-container {
   display: grid;
@@ -45,5 +52,38 @@ a {
 
 .grid-item {
   width: 1px;
-  background-color: black;
+  background-color: gray;
+}
+
+
+.marquee-container {
+    overflow-x: hidden !important;
+  display: flex !important;
+  flex-direction: row !important;
+  position: relative;
+  width: 100%;
+}
+
+.marquee-item {
+  flex: 0 0 auto;
+  min-width: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  animation: marquee 20s linear infinite;
+}
+
+
+.content, .overlay {
+  grid-area: 1/1;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
