@@ -15,6 +15,7 @@ module.exports = {
       colors: {
         yolk: "#CCFF00",
         eggshell: "#F8F8F8",
+        dark: "#030303",
       },
     },
   },
