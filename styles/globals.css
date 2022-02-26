@@ -55,7 +55,6 @@ img, picture, video, canvas, svg {
   background-color: gray;
 }
 
-
 .marquee-container {
     overflow-x: hidden !important;
   display: flex !important;
