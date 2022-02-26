@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { Navigation, ButtonLink, Heading, Marquee, Section } from '@/components/index';
+import { Navigation, ButtonLink, Heading, Marquee, Section } from '@components';
 import NextLink from "next/link";
 
 const Hero = () => {
@@ -101,11 +101,18 @@ const CallToAction = () => {
 const ScrollArea = () => {
   return (
     <div className="relative grid h-full grid-cols-2 gap-4">
-      <div className="sticky w-full py-12 h-fit grow-1 basis-12 top-4">
-        <Heading as="h3">Work</Heading>
-        <p>Something about my services</p>
+      <div className="sticky top-0 w-full h-screen py-12 grow-1">
+        <div className='flex flex-col justify-between h-full'>
+          <Heading as="h3">Work</Heading>
+          <p className="text-3xl">
+            So I started from scratch. I made another, then another. And by the
+            end of the semester, by like box number five, I had built this
+            thing. You should have seen it. It was insane. I mean, I built it
+            out of Peruvian walnut with inlaid zebrawood.
+          </p>
+        </div>
       </div>
-      <div className="flex flex-col gap-y-12">
+      <div className="flex flex-col py-3 gap-y-3">
         <div className="w-full border border-black rounded h-96 bg-slate-100"></div>
         <div className="w-full border border-black rounded h-96 bg-slate-100"></div>
         <div className="w-full border border-black rounded h-96 bg-slate-100"></div>
