@@ -1,3 +1,34 @@
+import { motion } from "framer-motion";
+
+const marqueeVariants = {
+    animate: {
+      x: [0, -1036],
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 25,
+          ease: "linear",
+        },
+      },
+    },
+  };
+
+export const Marquee2 = () => {
+ return (
+   <>
+     <div className="relative w-full max-w-full py-1 my-2 overflow-x-hidden rounded bg-yolk">
+       <motion.div
+         className="uppercase whitespace-nowrap"
+         variants={marqueeVariants}
+         animate="animate"
+       >
+         {[...Array(20)].map((e, i) => <span className="mx-1 tracking-tight" key={i}>Available for work</span>)}
+       </motion.div>
+     </div>
+   </>
+ );
+}
 
 
 const Marquee = () => {
