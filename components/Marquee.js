@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 
 const marqueeVariants = {
     animate: {
-      x: [0, -1036],
+      x: [0, -1000],
       transition: {
         x: {
           repeat: Infinity,
           repeatType: "loop",
-          duration: 25,
+          duration: 50,
           ease: "linear",
         },
       },
@@ -17,13 +17,13 @@ const marqueeVariants = {
 export const Marquee = () => {
  return (
    <>
-     <div className="w-full max-w-full py-1.5 my-2 overflow-x-hidden rounded bg-yolk">
+     <div className="py-1.5 my-2 overflow-x-hidden rounded bg-yolk inline-block pointer-events-none relative w-full">
        <motion.div
-         className="space-x-1.5 tracking-tight uppercase cursor-default select-none whitespace-nowrap will-change-transform"
+         className="w-full space-x-4 tracking-tight uppercase whitespace-nowrap will-change-transform"
          variants={marqueeVariants}
          animate="animate"
        >
-         {[...Array(20)].map((e, i) => (
+         {[...Array(10)].map((e, i) => (
            <span key={i}>Available for work</span>
          ))}
        </motion.div>
