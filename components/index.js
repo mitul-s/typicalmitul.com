@@ -3,6 +3,7 @@ import Section from "@/components/Section";
 import Marquee from "@/components/Marquee";
 import { Button, ButtonLink } from "@/components/Button";
 import Heading from "@/components/Heading";
+import Link from "@/components/Link";
 
 export {
     Navigation,
@@ -11,4 +12,5 @@ export {
     ButtonLink,
     Heading,
     Button,
+    Link,
 }
