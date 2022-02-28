@@ -15,6 +15,7 @@ const Section = ({ hasGuidingLines, padding, isFullHeight, children }) => {
 
     const sectionClasses = classnames({
       "h-full": isFullHeight,
+      "relative": !isFullHeight,
     });
 
     const contentClasses = classnames({
