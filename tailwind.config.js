@@ -13,6 +13,9 @@ module.exports = {
       sans: ["ABC Monument Grotesk Unlicensed Trial", "Inter", "sans-serif"],
     },
     extend: {
+      aspectRatio: {
+        "3/2": "2 / 2",
+      },
       colors: {
         yolk: "#CCFF00",
         eggshell: "#F8F8F8",
