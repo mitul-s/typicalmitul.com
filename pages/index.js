@@ -1,9 +1,10 @@
 import Head from 'next/head'
-import Image from 'next/image'
+// import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { Navigation, ButtonLink, Heading, Marquee, Section } from '@components';
-import { Marquee2 } from '@/components/Marquee';
+import Image from '@/components/Image';
 import NextLink from "next/link";
+import NextImage from "next/image";
 
 const Hero = () => {
   return (
@@ -20,6 +21,8 @@ const Hero = () => {
 
 let us =
   "https://images.unsplash.com/photo-1645389776527-43c47e909550?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80";
+  let us2 =
+    "https://images.unsplash.com/photo-1646075900858-6e813f664593";
 
 const About = () => {
   return (
@@ -52,16 +55,43 @@ const About = () => {
 
 const Photos = () => {
   return (
-    <div className="grid h-full grid-rows-2 mb-4 gap-x-6 gap-y-2 sm:grid-cols-2">
-      <div className="rounded bg-black/25 h-96"></div>
-      <div className="rounded bg-black/25 h-96"></div>
-      <div className="flex w-full col-span-2 overflow-auto gap-x-2">
-        <div className="max-w-xs overflow-hidden rounded w-96">
-          <img
-            src="https://images.unsplash.com/photo-1645642175398-5dada10d4951?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-            className="object-contain"
-            alt="photo"
-          />
+    <div className="grid h-full grid-rows-2 mx-4 mb-4 gap-x-6 gap-y-2 sm:grid-cols-2">
+      <div className="relative w-full h-96">
+        <NextImage src={us2} layout="fill" objectFit="cover" />
+      </div>
+      <div className="relative w-full h-96">
+        <NextImage src={us2} layout="fill" objectFit="cover" />
+      </div>
+      <div
+        className="grid grid-flow-col col-span-2 -mx-4 overflow-x-scroll gap-x-2"
+        style={{
+          gridTemplateColumns: "auto",
+          gridTemplateRows: "minmax(150px, 1fr)",
+        }}
+      >
+        <div className="relative overflow-hidden rounded min-w-max w-[32rem] ml-4">
+          <NextImage src={us2} layout="fill" objectFit="cover" />
+        </div>
+        <div className="relative overflow-hidden rounded min-w-max w-96">
+          <NextImage src={us2} layout="fill" objectFit="cover" />
+        </div>
+        <div className="relative overflow-hidden rounded min-w-max w-96">
+          <NextImage src={us2} layout="fill" objectFit="cover" />
+        </div>
+        <div className="relative overflow-hidden rounded min-w-max w-96">
+          <NextImage src={us2} layout="fill" objectFit="cover" />
+        </div>
+        <div className="relative overflow-hidden rounded min-w-max w-96">
+          <NextImage src={us2} layout="fill" objectFit="cover" />
+        </div>
+        <div className="relative overflow-hidden rounded min-w-max w-96">
+          <NextImage src={us2} layout="fill" objectFit="cover" />
+        </div>
+        <div className="relative overflow-hidden rounded min-w-max w-96">
+          <NextImage src={us2} layout="fill" objectFit="cover" />
+        </div>
+        <div className="relative mr-4 overflow-hidden rounded min-w-max w-96">
+          <NextImage src={us2} layout="fill" objectFit="cover" />
         </div>
       </div>
     </div>
@@ -72,7 +102,7 @@ const Break = () => {
   return (
     <>
       <div className="grid w-full">
-        <div className="flex justify-between px-4 mt-px -mr-px font-light cursor-default select-none text-dark/50 text-7xl overlay">
+        <div className="flex justify-between px-4 mt-px -mr-px font-light cursor-default select-none text-dark/25 text-7xl overlay">
           <span className='aspect-square'>+</span>
           <span className='aspect-square'>+</span>
           <span className='aspect-square'>+</span>
@@ -133,16 +163,49 @@ const ScrollArea = () => {
         </div>
       </div>
       <div className="flex flex-col pt-12 pb-6 gap-y-3">
-        <div className="w-full border rounded shadow-sm border-stone-light h-96 bg-dark"></div>
-        <div className="w-full border rounded shadow-sm border-stone-light h-96 bg-dark"></div>
-        <div className="w-full border rounded shadow-sm border-stone-light h-96 bg-dark"></div>
-        <div className="w-full border rounded shadow-sm border-stone-light h-96 bg-dark"></div>
-        <div className="w-full border rounded shadow-sm border-stone-light h-96 bg-dark"></div>
-        <div className="w-full border rounded shadow-sm border-stone-light h-96 bg-dark"></div>
+        <Image src={us2} alt="" />
+        <Image src={us2} alt="" />
+        <Image src={us2} alt="" />
+        <Image src={us2} alt="" />
+        <Image src={us2} alt="" />
+        <Image src={us2} alt="" />
+        <Image src={us2} alt="" />
       </div>
     </div>
   );
 }
+
+
+const Contact = () => {
+  return (
+    <form className="flex flex-col justify-end w-full py-6 h-96">
+      <div className='w-full'>
+        <label className='sr-only' htmlFor='email'>Email</label>
+        <input className='w-full py-2 text-3xl bg-transparent border-b border-dark/25' id='email' name='email' placeholder="What's your email?" />
+      </div>
+      <div className='w-full'>
+        <label className='sr-only' htmlFor='email'>Email</label>
+        <textarea className='w-full py-2 text-3xl bg-transparent border-b border-dark/25' id='email' name='email' placeholder="What's on your mind?" />
+      </div>
+      <button className='w-full py-4 rounded bg-yolk'>Submit</button>
+    </form>
+  );
+}
+
+const Footer = () => {
+  return (
+    <footer className="border-t border-dark">
+      <div className="flex justify-between px-4 py-2 font-medium uppercase">
+        <div className="space-x-4">
+          <a className="">Instagram</a>
+          <a className="">Twitter</a>
+        </div>
+        <a>Contact</a>
+      </div>
+    </footer>
+  );
+}
+
 
 export default function Home() {
   return (
@@ -160,7 +223,7 @@ export default function Home() {
       <Section padding={false}>
         <Break />
       </Section>
-      <Section>
+      <Section padding={false}>
         <Photos />
         <NextLink href="/photos" passHref>
           <ButtonLink>
@@ -177,6 +240,12 @@ export default function Home() {
       </Section>
       <Section>
         <Break />
+      </Section>
+      <Section>
+        <Contact />
+      </Section>
+      <Section padding={false}>
+        <Footer />
       </Section>
     </>
   );
