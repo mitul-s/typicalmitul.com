@@ -17,7 +17,8 @@ module.exports = {
         "3/2": "2 / 2",
       },
       colors: {
-        yolk: "#CCFF00",
+        // yolk: "#CCFF00",
+        yolk: "#0EFC5F",
         eggshell: "#F8F8F8",
         stone: {
           DEFAULT: "#A4A4A4",
