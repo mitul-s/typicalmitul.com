@@ -5,6 +5,7 @@ import { Navigation, ButtonLink, Heading, Marquee, Section } from '@components';
 import Image from '@/components/Image';
 import NextLink from "next/link";
 import NextImage from "next/image";
+import { Root, Trigger, Content } from "@radix-ui/react-tooltip";
 
 const Hero = () => {
   return (
@@ -34,17 +35,25 @@ const About = () => {
           <h2 className="text-dark">About</h2>
         </div>
         <div>
-          <p className="mb-4 text-5xl tracking-tight">
-            Typical<sup>*</sup> Mitul is a photographer based in Toronto, Canada
-            dedicated to defining <b className="">thoughtful</b>{" "}
-            and <b className="">memorable experiences</b> through
-            every capture.
-          </p>
-          <p className="mb-8 font-normal text-stone">
-            Every moment, every capture and everything you can think of. Every
-            moment, every capture and everything you can think of. Every moment,
-            every capture and everything you can think of.
-          </p>
+          <Root>
+            <p className="mb-4 text-5xl tracking-tight">
+              Typical
+              <Trigger>
+                <sup className="text-stone">*</sup>
+              </Trigger>
+              <Content className='text-xs px-1 py-0.5 border rounded bg-yolk border-dark'>
+                No, thats not my real name.
+              </Content>
+              Mitul is a photographer based in Toronto, Canada dedicated to
+              defining <b className="">thoughtful</b> and{" "}
+              <b className="">memorable experiences</b> through every capture.
+            </p>
+            <p className="mb-8 font-normal text-stone">
+              Every moment, every capture and everything you can think of. Every
+              moment, every capture and everything you can think of. Every
+              moment, every capture and everything you can think of.
+            </p>
+          </Root>
           <NextLink href="/about" passHref>
             <ButtonLink>
               <span>Learn more</span>
