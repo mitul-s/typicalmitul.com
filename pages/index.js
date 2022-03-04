@@ -8,11 +8,11 @@ import NextImage from "next/image";
 
 const Hero = () => {
   return (
-    <div className="grid h-full border border-black rounded bg-yolk">
+    <div className="grid h-full border rounded border-dark bg-yolk">
       <div className="p-2 h-[90%] content">
         <div className="h-full rounded-sm bg-gray-300 border border-[#cbd6e0]"></div>
       </div>
-      <h2 className="text-center place-self-center overlay text-[144px] font-[900] leading-none tracking-tighter">
+      <h2 className="flex justify-center items-end overlay text-[144px] font-[900] leading-none tracking-tighter">
         CHASING LIFE
       </h2>
     </div>
@@ -28,24 +28,33 @@ const About = () => {
   return (
     <div className="grid h-full grid-cols-2 gap-x-12">
       <div className="flex flex-col justify-between">
-        <Heading as="h2">About</Heading>
+        {/* <Heading as="h2">About</Heading> */}
+        <div className="flex items-center leading-none uppercase gap-x-2">
+          <span className="w-2.5 h-2.5 rounded bg-yolk border border-dark -mt-0.5" />
+          <h2 className="text-dark">About</h2>
+        </div>
         <div>
-          <p className="mb-8 text-4xl tracking-tight">
-            So I started from scratch. I made another, then another. And by the
-            end of the semester, by like box number five, I had built this
-            thing. You should have seen it. It was insane. I mean, I built it
-            out of Peruvian walnut with inlaid zebrawood.
+          <p className="mb-4 text-5xl tracking-tight">
+            Typical<sup>*</sup> Mitul is a photographer based in Toronto, Canada
+            dedicated to defining <b className="">thoughtful</b>{" "}
+            and <b className="">memorable experiences</b> through
+            every capture.
+          </p>
+          <p className="mb-8 font-normal text-stone">
+            Every moment, every capture and everything you can think of. Every
+            moment, every capture and everything you can think of. Every moment,
+            every capture and everything you can think of.
           </p>
           <NextLink href="/about" passHref>
             <ButtonLink>
-              <span>Get to know me or something</span>
+              <span>Learn more</span>
               <span>-&gt;</span>
             </ButtonLink>
           </NextLink>
         </div>
       </div>
       <div>
-        <div className="w-full h-[90vh] transition duration-1000 rounded shadow-none hover:scale-[1.003] hover:-translate-y-0.5 bg-black/25 hover:shadow-xl hover:shadow-yolk/25 overflow-hidden">
+        <div className="w-full h-[90vh] transition duration-1000 rounded shadow-none hover:scale-[1.003] hover:-translate-y-0.5 bg-black/25 hover:shadow-xl hover:shadow-yolk/25 overflow-hidden border border-stone">
           <img src={us} alt="About" className="object-cover" />
         </div>
       </div>
@@ -105,14 +114,14 @@ const Break = () => {
   return (
     <>
       <div className="grid w-full">
-        <div className="flex justify-between px-4 mt-px -mr-px font-light cursor-default select-none text-dark/25 text-7xl overlay">
+        <hr className="self-center content border-stone"></hr>
+        <div className="flex justify-between px-4 mt-px -mr-px font-light cursor-default select-none text-stone text-7xl overlay">
           <span className='aspect-square'>+</span>
           <span className='aspect-square'>+</span>
           <span className='aspect-square'>+</span>
           <span className='aspect-square'>+</span>
           <span className='aspect-square'>+</span>
         </div>
-        <hr className="self-center content border-dark/10"></hr>
       </div>
     </>
   );
@@ -142,7 +151,11 @@ const ScrollArea = () => {
     <div className="relative grid h-full grid-cols-2 gap-4">
       <div className="sticky top-0 w-full h-screen pt-12 pb-6 grow-1">
         <div className="flex flex-col justify-between h-full">
-          <Heading as="h3">Work</Heading>
+          <div className="flex items-center leading-none uppercase gap-x-2">
+            <span className="w-2.5 h-2.5 rounded bg-yolk border border-dark -mt-0.5" />
+            <h2 className="text-dark">Work</h2>
+          </div>
+          {/* <Heading as="h3">Work</Heading> */}
           <div>
             <p className="text-3xl">
               So I started from scratch. I made another, then another. And by
@@ -215,24 +228,22 @@ export default function Home() {
     <div className="relative min-h-full">
       <div className="absolute w-full h-full">
         <div className="grid-container">
-          <div className="!bg-transparent grid-item"></div>
+          <div className="grid-item first:bg-transparent"></div>
           <div className="grid-item"></div>
         </div>
       </div>
       <Navigation />
       <main className="relative">
-        <section className="px-4 hero">
+        <section className="px-4">
           <Marquee />
-          <div className='mb-6'
-          style={{
-            height: "calc(100vh - 8rem)",
-          }}>
+          <div className="mb-6 hero-image">
             <Hero />
           </div>
         </section>
-        <Section>
+        {/* <div className="w-full h-px bg-dark/50"></div> */}
+        <section className="mx-4 my-6">
           <About />
-        </Section>
+        </section>
         <Section padding={false}>
           <Break />
         </Section>
