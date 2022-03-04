@@ -1,7 +1,7 @@
 import React from "react"
 import { motion } from "framer-motion"
 let baseClasses =
-  "inline-block w-full font-medium text-left uppercase border border-transparent rounded bg-yolk transition-all hover:rounded-full hover:bg-dark hover:border-yolk hover:text-white overflow-hidden";
+  "inline-block w-full font-medium text-left uppercase border border-dark rounded bg-yolk transition-all hover:rounded-full hover:bg-dark hover:border-yolk hover:text-white overflow-hidden";
 
 export const ButtonLink = React.forwardRef(({ href, children }, ref) => {
   return (
