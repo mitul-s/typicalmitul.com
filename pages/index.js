@@ -8,8 +8,8 @@ import NextImage from "next/image";
 
 const Hero = () => {
   return (
-    <div className="h-[85%] border border-black bg-yolk rounded grid">
-      <div className="h-[90%] p-2 content">
+    <div className="grid h-full border border-black rounded bg-yolk">
+      <div className="p-2 h-[90%] content">
         <div className="h-full rounded-sm bg-gray-300 border border-[#cbd6e0]"></div>
       </div>
       <h2 className="text-center place-self-center overlay text-[144px] font-[900] leading-none tracking-tighter">
@@ -28,7 +28,7 @@ const About = () => {
   return (
     <div className="grid h-full grid-cols-2 gap-x-12">
       <div className="flex flex-col justify-between">
-        <Heading as="h2">Work</Heading>
+        <Heading as="h2">About</Heading>
         <div>
           <p className="mb-8 text-4xl tracking-tight">
             So I started from scratch. I made another, then another. And by the
@@ -56,13 +56,16 @@ const About = () => {
 const Photos = () => {
   return (
     <div className="grid h-full grid-rows-2 mx-4 mb-4 gap-x-6 gap-y-2 sm:grid-cols-2">
-      <div className="relative w-full h-96">
+      <div className="relative w-full h-full">
         <NextImage src={us2} layout="fill" objectFit="cover" />
       </div>
-      <div className="relative w-full h-96">
+      <div className="relative w-full h-full">
         <NextImage src={us2} layout="fill" objectFit="cover" />
       </div>
-      <div
+      <div>
+        Hello
+      </div>
+      {/* <div
         className="grid grid-flow-col col-span-2 -mx-4 overflow-x-scroll gap-x-2"
         style={{
           gridTemplateColumns: "auto",
@@ -93,7 +96,7 @@ const Photos = () => {
         <div className="relative mr-4 overflow-hidden rounded min-w-max w-96">
           <NextImage src={us2} layout="fill" objectFit="cover" />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
@@ -209,44 +212,55 @@ const Footer = () => {
 
 export default function Home() {
   return (
-    <>
-      <Section padding={false}>
-        <Navigation />
-      </Section>
-      <Section isFullHeight={true}>
-        <Marquee />
-        <Hero />
-      </Section>
-      <Section isFullHeight={true}>
-        <About />
-      </Section>
-      <Section padding={false}>
-        <Break />
-      </Section>
-      <Section padding={false}>
-        <Photos />
-        <NextLink href="/photos" passHref>
-          <ButtonLink>
-            <span>See more</span>
-            <span>-&gt;</span>
-          </ButtonLink>
-        </NextLink>
-      </Section>
-      <Section className="relative">
-        <ScrollArea />
-      </Section>
-      <Section>
-        <CallToAction />
-      </Section>
-      <Section>
-        <Break />
-      </Section>
-      <Section>
-        <Contact />
-      </Section>
-      <Section padding={false}>
-        <Footer />
-      </Section>
-    </>
+    <div className="relative min-h-full">
+      <div className="absolute w-full h-full">
+        <div className="grid-container">
+          <div className="!bg-transparent grid-item"></div>
+          <div className="grid-item"></div>
+        </div>
+      </div>
+      <Navigation />
+      <main className="relative">
+        <section className="px-4 hero">
+          <Marquee />
+          <div className='mb-6'
+          style={{
+            height: "calc(100vh - 8rem)",
+          }}>
+            <Hero />
+          </div>
+        </section>
+        <Section>
+          <About />
+        </Section>
+        <Section padding={false}>
+          <Break />
+        </Section>
+        <Section padding={false}>
+          <Photos />
+          <NextLink href="/photos" passHref>
+            <ButtonLink>
+              <span>See more</span>
+              <span>-&gt;</span>
+            </ButtonLink>
+          </NextLink>
+        </Section>
+        <Section className="relative">
+          <ScrollArea />
+        </Section>
+        <Section>
+          <CallToAction />
+        </Section>
+        <Section>
+          <Break />
+        </Section>
+        <Section>
+          <Contact />
+        </Section>
+        <Section padding={false}>
+          <Footer />
+        </Section>
+      </main>
+    </div>
   );
 }
