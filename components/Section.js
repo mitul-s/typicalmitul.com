@@ -11,24 +11,26 @@ const GuidingLines = () => (
 
 
 
-const Section = ({ hasGuidingLines, padding, isFullHeight, children }) => {
+const Section = ({ hasGuidingLines, padding, classes, isFullHeight, children  }) => {
 
-    const sectionClasses = classnames({
-      "h-full": isFullHeight,
-      "relative": !isFullHeight,
-    });
+    // const sectionClasses = classnames({
+    //   // "h-full": isFullHeight,
+    //   "min-h-full": isFullHeight,
+    //   "relative": true,
+    //   // "relative": !isFullHeight,
+    // });
 
     const contentClasses = classnames({
       "relative z-10": true,
       "px-4": padding === undefined,
-      "h-full": isFullHeight,
+      // "h-full": isFullHeight,
     });
 
   return (
-    <section className={sectionClasses}>
-      {!hasGuidingLines ? <GuidingLines /> : null}
-      <div className={contentClasses}>{children}</div>
-    </section>
+    <>
+      {/* {!hasGuidingLines ? <GuidingLines /> : null} */}
+      <div className={`${contentClasses} ${classes}`}>{children}</div>
+    </>
   );
 };
 
