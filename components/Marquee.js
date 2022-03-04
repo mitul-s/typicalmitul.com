@@ -17,7 +17,7 @@ const marqueeVariants = {
 export const Marquee = () => {
  return (
    <>
-     <div className="py-1.5 my-2 overflow-x-hidden rounded bg-yolk inline-block pointer-events-none relative w-full">
+     <div className="py-1.5 my-2 overflow-x-hidden rounded bg-yolk pointer-events-none relative w-full">
        <motion.div
          className="w-full space-x-4 tracking-tight uppercase whitespace-nowrap will-change-transform"
          variants={marqueeVariants}
