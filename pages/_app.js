@@ -1,11 +1,11 @@
 import '../styles/globals.css'
-import { Provider } from "@radix-ui/react-tooltip";
+import * as Tooltip from "@radix-ui/react-tooltip";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Provider>
+    <Tooltip.Provider>
       <Component {...pageProps} />
-    </Provider>
+    </Tooltip.Provider>
   );
 }
 

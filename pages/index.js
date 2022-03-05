@@ -5,7 +5,7 @@ import { Navigation, ButtonLink, Heading, Marquee, Section } from '@components';
 import Image from '@/components/Image';
 import NextLink from "next/link";
 import NextImage from "next/image";
-import { Root, Trigger, Content } from "@radix-ui/react-tooltip";
+import { Root as TooltipRoot, Trigger as TooltipTrigger, Content as TooltipContent } from "@radix-ui/react-tooltip";
 
 const Hero = () => {
   return (
@@ -24,6 +24,7 @@ let us =
   "https://images.unsplash.com/photo-1645389776527-43c47e909550?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80";
   let us2 =
     "https://images.unsplash.com/photo-1646075900858-6e813f664593";
+      let us3 ="https://images.unsplash.com/photo-1643068485255-15bb6c3727da";
 
 const About = () => {
   return (
@@ -35,25 +36,28 @@ const About = () => {
           <h2 className="text-dark">About</h2>
         </div>
         <div>
-          <Root>
-            <p className="mb-4 text-5xl tracking-tight">
+          <TooltipRoot delayDuration={0}>
+            <p className="mb-4 text-4xl tracking-tight">
               Typical
-              <Trigger>
-                <sup className="text-stone">*</sup>
-              </Trigger>
-              <Content className='text-xs px-1 py-0.5 border rounded bg-yolk border-dark'>
-                No, thats not my real name.
-              </Content>
+              <TooltipTrigger>
+                <p className="text-stone">*</p>
+              </TooltipTrigger>
+              <TooltipContent
+                side="top"
+                className="text-xs px-1.5 py-1 rounded-sm shadow bg-dark text-eggshell leading-none"
+              >
+                yeah, not actually my first name
+              </TooltipContent>
               Mitul is a photographer based in Toronto, Canada dedicated to
               defining <b className="">thoughtful</b> and{" "}
               <b className="">memorable experiences</b> through every capture.
             </p>
-            <p className="mb-8 font-normal text-stone">
+            {/* <p className="mb-8 font-normal text-stone">
               Every moment, every capture and everything you can think of. Every
               moment, every capture and everything you can think of. Every
               moment, every capture and everything you can think of.
-            </p>
-          </Root>
+            </p> */}
+          </TooltipRoot>
           <NextLink href="/about" passHref>
             <ButtonLink>
               <span>Learn more</span>
@@ -64,7 +68,7 @@ const About = () => {
       </div>
       <div>
         <div className="w-full h-[90vh] transition duration-1000 rounded shadow-none hover:scale-[1.003] hover:-translate-y-0.5 bg-black/25 hover:shadow-xl hover:shadow-yolk/25 overflow-hidden border border-stone">
-          <img src={us} alt="About" className="object-cover" />
+          <img src={us} alt="About" className="object-cover w-full h-full" />
         </div>
       </div>
     </div>
@@ -73,49 +77,33 @@ const About = () => {
 
 const Photos = () => {
   return (
-    <div className="grid h-full grid-rows-2 mx-4 mb-4 gap-x-6 gap-y-2 sm:grid-cols-2">
-      <div className="relative w-full h-full">
-        <NextImage src={us2} layout="fill" objectFit="cover" />
+    <>
+      <div className="grid h-full mb-4 gap-x-6 gap-y-2 sm:grid-cols-2">
+        <div className="relative w-full h-full border rounded shadow-sm border-stone">
+          <NextImage src={us3} layout="fill" objectFit="cover" />
+        </div>
+        <div className="relative w-full h-full border rounded shadow-sm border-stone">
+          <NextImage src={us2} layout="fill" objectFit="cover" />
+        </div>
       </div>
-      <div className="relative w-full h-full">
-        <NextImage src={us2} layout="fill" objectFit="cover" />
+      <div className="flex h-screen col-span-2 overflow-auto">
+        <div className="relative w-full h-full border rounded shadow-sm border-stone shrink-0 grow">
+          <NextImage src={us3} layout="fill" objectFit="cover" />
+        </div>
+        <div className="relative w-full h-full border rounded shadow-sm border-stone shrink-0 grow">
+          <NextImage src={us2} layout="fill" objectFit="cover" />
+        </div>
+        <div className="relative w-full h-full border rounded shadow-sm border-stone grow shrink-0">
+          <NextImage src={us2} layout="fill" objectFit="cover" />
+        </div>
+        <div className="relative w-full h-full border rounded shadow-sm border-stone grow shrink-0">
+          <NextImage src={us2} layout="fill" objectFit="cover" />
+        </div>
+        <div className="relative w-full h-full border rounded shadow-sm border-stone grow shrink-0">
+          <NextImage src={us2} layout="fill" objectFit="cover" />
+        </div>
       </div>
-      <div>
-        Hello
-      </div>
-      {/* <div
-        className="grid grid-flow-col col-span-2 -mx-4 overflow-x-scroll gap-x-2"
-        style={{
-          gridTemplateColumns: "auto",
-          gridTemplateRows: "minmax(150px, 1fr)",
-        }}
-      >
-        <div className="relative overflow-hidden rounded min-w-max w-[32rem] ml-4">
-          <NextImage src={us2} layout="fill" objectFit="cover" />
-        </div>
-        <div className="relative overflow-hidden rounded min-w-max w-96">
-          <NextImage src={us2} layout="fill" objectFit="cover" />
-        </div>
-        <div className="relative overflow-hidden rounded min-w-max w-96">
-          <NextImage src={us2} layout="fill" objectFit="cover" />
-        </div>
-        <div className="relative overflow-hidden rounded min-w-max w-96">
-          <NextImage src={us2} layout="fill" objectFit="cover" />
-        </div>
-        <div className="relative overflow-hidden rounded min-w-max w-96">
-          <NextImage src={us2} layout="fill" objectFit="cover" />
-        </div>
-        <div className="relative overflow-hidden rounded min-w-max w-96">
-          <NextImage src={us2} layout="fill" objectFit="cover" />
-        </div>
-        <div className="relative overflow-hidden rounded min-w-max w-96">
-          <NextImage src={us2} layout="fill" objectFit="cover" />
-        </div>
-        <div className="relative mr-4 overflow-hidden rounded min-w-max w-96">
-          <NextImage src={us2} layout="fill" objectFit="cover" />
-        </div>
-      </div> */}
-    </div>
+    </>
   );
 }
 
@@ -256,7 +244,7 @@ export default function Home() {
         <Section padding={false}>
           <Break />
         </Section>
-        <Section padding={false}>
+        <section className='h-screen px-4'>
           <Photos />
           <NextLink href="/photos" passHref>
             <ButtonLink>
@@ -264,10 +252,10 @@ export default function Home() {
               <span>-&gt;</span>
             </ButtonLink>
           </NextLink>
-        </Section>
-        <Section className="relative">
+        </section>
+        <section className='px-4'>
           <ScrollArea />
-        </Section>
+        </section>
         <Section>
           <CallToAction />
         </Section>
