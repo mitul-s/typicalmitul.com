@@ -8,6 +8,9 @@
             "@components": [
                 "components/index"
             ],
+            "@/sections/*": [
+                "components/sections/*"
+            ],
         }
     }
 }
