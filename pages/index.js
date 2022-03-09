@@ -1,84 +1,23 @@
-import Head from 'next/head'
+import Head from "next/head";
 // import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import { Navigation, ButtonLink, Heading, Marquee, Section } from '@components';
-import Image from '@/components/Image';
+import styles from "../styles/Home.module.css";
+import { Navigation, ButtonLink, Heading, Marquee, Section } from "@components";
+import Hero from "@/sections/Hero";
+import About from "@/sections/About";
+import Footer from "@/sections/Footer";
+import Image from "@/components/Image";
 import NextLink from "next/link";
 import NextImage from "next/image";
-import { Root as TooltipRoot, Trigger as TooltipTrigger, Content as TooltipContent } from "@radix-ui/react-tooltip";
-
-const Hero = () => {
-  return (
-    <div className="grid h-full border rounded border-dark bg-yolk">
-      <div className="p-2 h-[90%] content">
-        <div className="h-full rounded-sm bg-gray-300 border border-[#cbd6e0]"></div>
-      </div>
-      <h2 className="flex justify-center items-end overlay text-[144px] font-[900] leading-none tracking-tighter">
-        CHASING LIFE
-      </h2>
-    </div>
-  );
-}
 
 let us =
   "https://images.unsplash.com/photo-1645389776527-43c47e909550?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80";
-  let us2 =
-    "https://images.unsplash.com/photo-1646075900858-6e813f664593";
-      let us3 ="https://images.unsplash.com/photo-1643068485255-15bb6c3727da";
-
-const About = () => {
-  return (
-    <div className="grid h-full grid-cols-2 gap-x-12">
-      <div className="flex flex-col justify-between">
-        {/* <Heading as="h2">About</Heading> */}
-        <div className="flex items-center leading-none uppercase gap-x-2">
-          <span className="w-2.5 h-2.5 rounded bg-yolk border border-dark -mt-0.5" />
-          <h2 className="text-dark">About</h2>
-        </div>
-        <div>
-          <TooltipRoot delayDuration={0}>
-            <p className="mb-4 text-4xl tracking-tight">
-              Typical
-              <TooltipTrigger>
-                <p className="text-stone">*</p>
-              </TooltipTrigger>
-              <TooltipContent
-                side="top"
-                className="text-xs px-1.5 py-1 rounded-sm shadow bg-dark text-eggshell leading-none"
-              >
-                yeah, not actually my first name
-              </TooltipContent>
-              Mitul is a photographer based in Toronto, Canada dedicated to
-              defining <b className="">thoughtful</b> and{" "}
-              <b className="">memorable experiences</b> through every capture.
-            </p>
-            {/* <p className="mb-8 font-normal text-stone">
-              Every moment, every capture and everything you can think of. Every
-              moment, every capture and everything you can think of. Every
-              moment, every capture and everything you can think of.
-            </p> */}
-          </TooltipRoot>
-          <NextLink href="/about" passHref>
-            <ButtonLink>
-              <span>Learn more</span>
-              <span>-&gt;</span>
-            </ButtonLink>
-          </NextLink>
-        </div>
-      </div>
-      <div>
-        <div className="w-full h-[90vh] transition duration-1000 rounded shadow-none hover:scale-[1.003] hover:-translate-y-0.5 bg-black/25 hover:shadow-xl hover:shadow-yolk/25 overflow-hidden border border-stone">
-          <img src={us} alt="About" className="object-cover w-full h-full" />
-        </div>
-      </div>
-    </div>
-  );
-}
+let us2 = "https://images.unsplash.com/photo-1646075900858-6e813f664593";
+let us3 = "https://images.unsplash.com/photo-1643068485255-15bb6c3727da";
 
 const Photos = () => {
   return (
     <>
-      <div className="grid h-full mb-4 gap-x-6 gap-y-2 sm:grid-cols-2">
+      <div className="grid h-[90vh] mb-4 gap-x-6 gap-y-2 sm:grid-cols-2 px-4">
         <div className="relative w-full h-full border rounded shadow-sm border-stone">
           <NextImage src={us3} layout="fill" objectFit="cover" />
         </div>
@@ -86,8 +25,8 @@ const Photos = () => {
           <NextImage src={us2} layout="fill" objectFit="cover" />
         </div>
       </div>
-      <div className="flex h-screen col-span-2 overflow-auto">
-        <div className="relative w-full h-full border rounded shadow-sm border-stone shrink-0 grow">
+      <div className="flex col-span-2 overflow-auto h-[50vh] pl-4 pr-4 gap-x-6">
+        <div className="relative w-1/2 h-full border rounded shadow-sm border-stone shrink-0 grow">
           <NextImage src={us3} layout="fill" objectFit="cover" />
         </div>
         <div className="relative w-full h-full border rounded shadow-sm border-stone shrink-0 grow">
@@ -105,7 +44,7 @@ const Photos = () => {
       </div>
     </>
   );
-}
+};
 
 const Break = () => {
   return (
@@ -113,16 +52,16 @@ const Break = () => {
       <div className="grid w-full">
         <hr className="self-center content border-stone"></hr>
         <div className="flex justify-between px-4 mt-px -mr-px font-light cursor-default select-none text-stone text-7xl overlay">
-          <span className='aspect-square'>+</span>
-          <span className='aspect-square'>+</span>
-          <span className='aspect-square'>+</span>
-          <span className='aspect-square'>+</span>
-          <span className='aspect-square'>+</span>
+          <span className="aspect-square bg-eggshell">+</span>
+          <span className="aspect-square bg-eggshell">+</span>
+          <span className="aspect-square bg-eggshell">+</span>
+          <span className="aspect-square bg-eggshell">+</span>
+          <span className="aspect-square bg-eggshell">+</span>
         </div>
       </div>
     </>
   );
-}
+};
 
 const CallToAction = () => {
   return (
@@ -141,7 +80,7 @@ const CallToAction = () => {
       </div>
     </div>
   );
-}
+};
 
 const ScrollArea = () => {
   return (
@@ -186,39 +125,37 @@ const ScrollArea = () => {
       </div>
     </div>
   );
-}
-
+};
 
 const Contact = () => {
   return (
     <form className="flex flex-col justify-end w-full py-6 h-96">
-      <div className='w-full'>
-        <label className='sr-only' htmlFor='email'>Email</label>
-        <input className='w-full py-2 text-3xl bg-transparent border-b border-dark/25' id='email' name='email' placeholder="What's your email?" />
+      <div className="w-full">
+        <label className="sr-only" htmlFor="email">
+          Email
+        </label>
+        <input
+          className="w-full py-2 text-3xl bg-transparent border-b border-dark/25"
+          id="email"
+          name="email"
+          placeholder="What's your email?"
+        />
       </div>
-      <div className='w-full'>
-        <label className='sr-only' htmlFor='email'>Email</label>
-        <textarea className='w-full py-2 text-3xl bg-transparent border-b border-dark/25' id='email' name='email' placeholder="What's on your mind?" />
+      <div className="w-full">
+        <label className="sr-only" htmlFor="email">
+          Email
+        </label>
+        <textarea
+          className="w-full py-2 text-3xl bg-transparent border-b border-dark/25"
+          id="email"
+          name="email"
+          placeholder="What's on your mind?"
+        />
       </div>
-      <button className='w-full py-4 rounded bg-yolk'>Submit</button>
+      <button className="w-full py-4 rounded bg-yolk">Submit</button>
     </form>
   );
-}
-
-const Footer = () => {
-  return (
-    <footer className="border-t border-dark">
-      <div className="flex justify-between px-4 py-2 font-medium uppercase">
-        <div className="space-x-4">
-          <a className="">Instagram</a>
-          <a className="">Twitter</a>
-        </div>
-        <a>Contact</a>
-      </div>
-    </footer>
-  );
-}
-
+};
 
 export default function Home() {
   return (
@@ -244,7 +181,7 @@ export default function Home() {
         <Section padding={false}>
           <Break />
         </Section>
-        <section className='h-screen px-4'>
+        <section className="min-h-full">
           <Photos />
           <NextLink href="/photos" passHref>
             <ButtonLink>
@@ -253,7 +190,7 @@ export default function Home() {
             </ButtonLink>
           </NextLink>
         </section>
-        <section className='px-4'>
+        <section className="px-4">
           <ScrollArea />
         </section>
         <Section>
