@@ -85,7 +85,6 @@ body {
   
 }
 
-
 .grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -102,4 +101,38 @@ body {
 .content,
 .overlay {
   grid-area: 1/1;
+}
+
+.marquee {
+    @apply py-1.5 my-2 overflow-x-hidden rounded bg-yolk relative w-full;
+    --offset: calc(2 * theme('fontSize.base'));
+    --move-initial: calc(-25% + var(--offset));
+    --move-final: calc(-50% + var(--offset));
+}
+
+.marquee__inner {
+    width: fit-content;
+    display: flex;
+    position: relative;
+    transform: translate3d(var(--move-initial), 0, 0);
+    animation: marquee 20s linear infinite;
+    /* animation-play-state: paused; */
+}
+
+.marquee span {
+    @apply w-full mx-2 tracking-tight uppercase whitespace-nowrap will-change-transform;
+}
+
+/* .marquee:hover .marquee__inner {
+    animation-play-state: running;
+} */
+
+@keyframes marquee {
+    0% {
+        transform: translate3d(var(--move-initial), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(var(--move-final), 0, 0);
+    }
 }
