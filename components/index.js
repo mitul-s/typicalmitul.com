@@ -4,6 +4,7 @@ import Marquee from "@/components/Marquee";
 import { Button, ButtonLink } from "@/components/Button";
 import Heading from "@/components/Heading";
 import Link from "@/components/Link";
+import Tooltip from "@/components/Tooltip";
 
 export {
     Navigation,
@@ -13,4 +14,5 @@ export {
     Heading,
     Button,
     Link,
+    Tooltip,
 }
