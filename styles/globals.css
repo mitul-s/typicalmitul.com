@@ -2,20 +2,141 @@
 @tailwind components;
 @tailwind utilities;
 
+#root,
+#__next {
+  isolation: isolate;
+}
+
 html,
+body,
+#__next {
+  height: 100%;
+}
+
 body {
-  padding: 0;
-  margin: 0;
+  @apply bg-eggshell text-dark;
+  font-size: 18px;
+}
+
+::selection {
+  @apply bg-yolk/50;
+}
+
+/* html,
+body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
+} */
 
 * {
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+@layer utilities {
+  .hero-image {
+    height: calc(100vh - theme('spacing.32'));
+  }
+}
+
+@layer components {
+
+  .link {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .link::after {
+    content: "";
+    position: absolute;
+    width: 95%;
+    transform: scaleX(0);
+    height: 1px;
+    top: 110%;
+    left: 2.5%;;
+    transform-origin: bottom right;
+    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+    @apply bg-dark;
+  }
+
+  .link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  position: relative;
+  max-width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.grid-item {
+  @apply w-px bg-stone;
+}
+
+.content,
+.overlay {
+  grid-area: 1/1;
+}
+
+.marquee {
+    @apply py-1.5 my-2 overflow-x-hidden rounded bg-yolk relative w-full;
+    --offset: calc(2 * theme('fontSize.base'));
+    --move-initial: calc(-25% + var(--offset));
+    --move-final: calc(-50% + var(--offset));
+}
+
+.marquee__inner {
+    width: fit-content;
+    display: flex;
+    position: relative;
+    transform: translate3d(var(--move-initial), 0, 0);
+    animation: marquee 20s linear infinite;
+    /* animation-play-state: paused; */
+}
+
+.marquee span {
+    @apply w-full mx-2 tracking-tight uppercase whitespace-nowrap will-change-transform;
+}
+
+/* .marquee:hover .marquee__inner {
+    animation-play-state: running;
+} */
+
+@keyframes marquee {
+    0% {
+        transform: translate3d(var(--move-initial), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(var(--move-final), 0, 0);
+    }
+}
