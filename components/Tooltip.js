@@ -10,7 +10,7 @@ const Tooltip = ({ text, children }) => {
       <TooltipTrigger>{children}</TooltipTrigger>
       <TooltipContent
         side="top"
-        className="text-xs px-1.5 py-1 rounded-sm shadow bg-dark text-eggshell leading-none"
+        className="text-xs px-1.5 py-1 rounded-sm shadow bg-dark text-eggshell leading-none tooltip-animation"
       >
         {text}
       </TooltipContent>

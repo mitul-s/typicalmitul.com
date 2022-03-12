@@ -140,3 +140,15 @@ body {
         transform: translate3d(var(--move-final), 0, 0);
     }
 }
+
+
+.tooltip-animation {
+  transform-origin: var(--radix-tooltip-content-transform-origin);
+  transition: .2s ease;
+  animation: scale-in 200ms ease forwards;
+};
+
+@keyframes scale-in {
+  0% { opacity: 0; transform: scale(0.4); };
+  100% { opacity: 1; transform: scale(1); };
+};
