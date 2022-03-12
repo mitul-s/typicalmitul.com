@@ -17,8 +17,8 @@ const About = () => {
 
         <p className="mb-4 text-4xl tracking-tight xl:text-5xl">
           Typical
-          <Tooltip text="yeah, not actually my first name">
-            <div className="text-stone">*</div>
+          <Tooltip text="Not actually my first name">
+            <span className="font-light text-yolk">*</span>
           </Tooltip>
           Mitul is a photographer based in Toronto, Canada dedicated to defining{" "}
           <b className="">thoughtful</b> and{" "}
