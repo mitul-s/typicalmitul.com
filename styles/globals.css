@@ -38,6 +38,12 @@ body {
   box-sizing: border-box;
 }
 
+.hero-heading {
+  -webkit-text-stroke: 1px black;
+  -webkit-text-fill-color: white;
+}
+
+
 @layer base {
   a {
     color: inherit;
@@ -57,6 +63,9 @@ body {
 @layer utilities {
   .hero-image {
     height: calc(100vh - theme('spacing.32'));
+  }
+  .focus-state {
+    @apply outline-none focus:ring-yolk focus:ring-2 focus:ring-offset-2;
   }
 }
 
@@ -87,19 +96,6 @@ body {
     transform-origin: bottom left;
   }
   
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  position: relative;
-  max-width: 100%;
-  height: 100%;
-  margin: 0 auto;
-}
-
-.grid-item {
-  @apply w-px bg-stone;
 }
 
 .content,
@@ -152,3 +148,5 @@ body {
   0% { opacity: 0; transform: scale(0.4); };
   100% { opacity: 1; transform: scale(1); };
 };
+
+
