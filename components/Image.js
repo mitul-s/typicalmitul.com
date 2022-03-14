@@ -1,7 +1,8 @@
 import NextImage from 'next/image';
 
-const Image = ({ src, alt, ...props }) => (
-  <div className="relative w-full overflow-hidden rounded aspect-[3/2] border border-stone-light shadow transition-all hover:-translate-y-0.5 hover:scale-[1.003] hover:shadow-yolk">
+const Image = ({ src, alt, vertical, ...props }) => (
+  <div className={`relative w-full overflow-hidden rounded border border-stone-light shadow transition-all hover:-translate-y-0.5 hover:scale-[1.003] hover:shadow-yolk 
+                  ${vertical ? "aspect-[2/3]" : "aspect-[3/2]"}`}>
     <NextImage {...props} src={src} alt={alt} layout="fill" objectFit="cover" />
   </div>
 );
