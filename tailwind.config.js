@@ -7,14 +7,23 @@ module.exports = {
     borderRadius: {
       DEFAULT: "5px",
       sm: "4px",
+      md: "6px",
+      lg: "12px",
       full: "50px",
     },
     fontFamily: {
       sans: ["ABC Monument Grotesk Unlicensed Trial", "Inter", "sans-serif"],
     },
     extend: {
+      zIndex: {
+        "-1": "-1",
+      },
+      spacing: {
+        yeat: "0.625rem",
+      },
       aspectRatio: {
-        "3/2": "2 / 2",
+        "3/2": "3 / 2",
+        "2/3": "2 / 3",
       },
       colors: {
         // yolk: "#CCFF00",
