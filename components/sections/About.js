@@ -1,6 +1,6 @@
 import { ButtonLink, Tooltip } from "@components";
 import NextLink from "next/link";
-import NextImage from "next/image";
+import { Image } from "@/components/Image";
 
 let us =
   "https://images.unsplash.com/photo-1645389776527-43c47e909550?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80";
@@ -13,7 +13,7 @@ const About = () => {
     <div className="grid h-full grid-cols-2 py-6 gap-x-12">
       <div className="flex flex-col justify-end">
         <div className="flex items-center mb-auto leading-none uppercase gap-x-2">
-          <span className="w-2.5 h-2.5 rounded bg-yolk border border-dark -mt-0.5" />
+          <span className="w-2.5 h-2.5 rounded-full bg-yolk border border-dark -mt-0.5" />
           <h2 className="text-dark">About</h2>
         </div>
 
@@ -34,11 +34,17 @@ const About = () => {
           </ButtonLink>
         </NextLink>
       </div>
-        <div className="relative group w-full h-[90vh] transition duration-500 rounded shadow hover:shadow-xl hover:border-yolk hover:shadow-yolk/50 overflow-hidden border border-stone cursor-pointer">
-          <NextImage src={me} alt="me" layout="fill" objectFit="cover" className="transition duration-500 hover:scale-[1.02]"/>
-        </div>
+        <Image src={me} alt="" height="h-real-screen" pointer/>
     </div>
   );
 };
 
 export default About;
+
+
+// for any future reference 
+{
+  /* <div className="relative group w-full h-[90vh] transition duration-500 rounded-lg shadow hover:shadow-xl hover:border-yolk hover:shadow-yolk/50 overflow-hidden border border-stone cursor-pointer">
+          <NextImage src={me} alt="me" layout="fill" objectFit="cover" className="transition duration-500 hover:scale-[1.02]"/>
+        </div> */
+}
