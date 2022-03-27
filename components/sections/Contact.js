@@ -38,7 +38,7 @@ const CopyEmailButton = () => {
 const Contact = () => {
     return (
       <div className="h-screen p-4">
-        <div className="flex flex-col justify-between w-full h-full p-4 rounded bg-dark">
+        <div className="flex flex-col justify-between w-full h-full p-4 rounded-lg bg-dark">
           <div>
             <div className="flex items-center mt-2 mb-4 leading-none uppercase gap-x-2">
               <span className="w-2.5 h-2.5 rounded bg-yolk border border-dark -mt-0.5" />
@@ -46,39 +46,49 @@ const Contact = () => {
             </div>
             <div className="w-full h-px bg-eggshell"></div>
           </div>
-          <div className="flex flex-col items-center justify-center">
-            <form className="flex flex-col self-end justify-end w-1/2 w-full h-full py-6 gap-y-6">
-              <div className="w-full">
-                <label className="sr-only" htmlFor="email">
-                  Email
-                </label>
-                <input
-                  className="w-full py-2 transition duration-300 bg-transparent border-b rounded outline-none text-7xl border-dark/25 focus:border-yolk focus"
-                  id="email"
-                  name="email"
-                  placeholder="What's your email?"
-                />
+          <div className="flex w-full h-full py-6 gap-x-6">
+            <div className="flex flex-col justify-start w-full h-full text-eggshell ">
+              <div className="text-5xl">
+                Get in touch with <br />a <i>quick</i> email.
               </div>
-              <div className="w-full">
-                <label className="text-eggshell" htmlFor="email">
-                  Email
-                </label>
-                <textarea
-                  rows={4}
-                  //   className="w-full py-2 transition duration-300 bg-transparent border-b rounded outline-none text-7xl border-dark/25 focus:border-yolk"
-                  className="w-full p-4 text-white transition-all border rounded-sm outline-none focus:shadow-xl focus:shadow-yolk bg-dark border-yolk focus:border-transparent focus:bg-transparent"
-                  resize="none"
-                  id="email"
-                  name="email"
-                  placeholder="What's on your mind?"
-                />
+              
+              <div className="flex flex-col items-center justify-center w-full h-full">
+                <form className="flex flex-col self-end justify-end w-full h-full gap-y-6">
+                  <div className="w-full">
+                    <label className="sr-only" htmlFor="email">
+                      Email
+                    </label>
+                    <input
+                      className="w-full p-4 text-5xl leading-none transition duration-300 bg-transparent rounded focus:outline-none focus:ring-2 ring-yolk text-eggshell focus:shadow-md focus:shadow-yolk"
+                      id="email"
+                      name="email"
+                      placeholder="What's your email?"
+                    />
+                    <div className="w-full h-px bg-yolk"></div>
+                  </div>
+                  <div className="flex flex-col w-full">
+                    <label className="sr-only text-eggshell" htmlFor="email">
+                      Your Message
+                    </label>
+                    <textarea
+                      rows={4}
+                      //   className="w-full py-2 transition duration-300 bg-transparent border-b rounded outline-none text-7xl border-dark/25 focus:border-yolk"
+                      className="w-full p-4 text-5xl transition duration-300 bg-transparent rounded focus:outline-none focus:ring-2 ring-yolk text-eggshell focus:shadow-md focus:shadow-yolk"
+                      resize="none"
+                      id="email"
+                      name="email"
+                      placeholder="What's on your mind?"
+                    />
+                    <div className="w-full h-px bg-yolk"></div>
+                  </div>
+                  <button className="py-4 transition-all duration-500 border rounded outline-none focus:shadow-md text-yolk bg-dark border-yolk hover:bg-yolk/25 shadow-yolk focus:bg-yolk/25">
+                    Submit
+                  </button>
+                </form>
               </div>
-              <button className="w-full py-4 border rounded text-yolk bg-dark border-yolk">
-                Submit
-              </button>
-            </form>
+            </div>
           </div>
-          <Marquee />
+          {/* <Marquee /> */}
         </div>
       </div>
     );
