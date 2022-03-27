@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+   --gutter: 16px;
+}
+
 #root,
 #__next {
   isolation: isolate;
@@ -38,6 +42,12 @@ body {
   box-sizing: border-box;
 }
 
+.hero-heading {
+  -webkit-text-stroke: 1px black;
+  -webkit-text-fill-color: white;
+}
+
+
 @layer base {
   a {
     color: inherit;
@@ -56,12 +66,21 @@ body {
 
 @layer utilities {
   .hero-image {
-    height: calc(100vh - theme('spacing.32'));
+    height: calc(100vh - theme('spacing.8'));
   }
+  .h-real-screen {
+    height: calc(100vh - theme('spacing.8'));
+  }
+  .focus-state {
+    @apply outline-none focus:ring-yolk focus:ring-2;
+  }
+  .content, .overlay {
+    grid-area: 1/1;
+  }
+
 }
 
 @layer components {
-
   .link {
     display: inline-block;
     position: relative;
@@ -86,26 +105,79 @@ body {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
+
+  .glow::after {
+    @apply content-[''] absolute -z-1 transition-all duration-1000 opacity-0 bottom-0 top-1 left-1.5 right-1.5;
+  }
+
+  .glow:hover::after {
+    @apply bg-yolk opacity-60 rounded-sm blur-xl;
+  }
   
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  position: relative;
-  max-width: 100%;
-  height: 100%;
-  margin: 0 auto;
+ .photo-grid-item:nth-child(1) {
+	 grid-column: 1 / span 3;
+	 grid-row: 1;
+   @apply aspect-3/2;
+}
+.photo-grid-item:nth-child(2) {
+	 grid-column: 4 / span 3;
+	 grid-row: 1;
+   @apply aspect-3/2;
 }
 
-.grid-item {
-  @apply w-px bg-stone;
+.photo-grid-item:nth-child(3) {
+	 grid-column: 1 / span 2;
+	 grid-row: 2;
+   height: 50vh;
 }
 
-.content,
-.overlay {
-  grid-area: 1/1;
+.photo-grid-item:nth-child(4) {
+	 grid-column: 3 / span 2;
+	 grid-row: 2;
+   height: 50vh;
 }
+.photo-grid-item:nth-child(5) {
+	 grid-column: 5 / span 2;
+	 grid-row: 2;
+   height: 50vh;
+}
+
+.photo-grid-item:nth-child(6) {
+	 grid-column: 1 / span 4;
+	 grid-row: 3;
+   height: 70vh;
+}
+.photo-grid-item:nth-child(7) {
+	 grid-column: 5 / span 2;
+	 grid-row: 3;
+   height: 70vh;
+}
+ 
+
+/* .tooltip-animation[data-state="instant-open"] {
+  transform-origin: var(--radix-tooltip-content-transform-origin);
+  transition: .2s ease;
+  animation: scale-in 200ms ease forwards;
+}; */
+
+.tooltip-animation {
+  transform-origin: var(--radix-tooltip-content-transform-origin);
+  transition: .2s ease;
+  animation: scale-in 200ms ease forwards;
+};
+
+@keyframes scale-in {
+  0% { opacity: 0; transform: scale(0.4); };
+  100% { opacity: 1; transform: scale(1); };
+};
+
+@keyframes scale-out {
+  0% { opacity: 1; transform: scale(1); };
+  100% { opacity: 0; transform: scale(0.4); };
+};
+
 
 .marquee {
     @apply py-1.5 my-2 overflow-x-hidden rounded bg-yolk relative w-full;
@@ -140,3 +212,5 @@ body {
         transform: translate3d(var(--move-final), 0, 0);
     }
 }
+
+
