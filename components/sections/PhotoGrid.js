@@ -89,10 +89,8 @@ const PhotoGrid = () => {
           Seee more
         </div> */}
       </div>
-      {/* remove this div!! */}
-      <div className="flex shadow mt-yeat">
-        <ButtonLink>See More</ButtonLink>
-      </div>
+      <div className="mt-yeat"></div>
+      <ButtonLink>See More</ButtonLink>
     </>
   );
 };
