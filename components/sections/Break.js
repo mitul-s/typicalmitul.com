@@ -2,11 +2,8 @@ import { Plus } from "phosphor-react";
 import { motion } from "framer-motion";
 import React from "react";
 
-const PlusWrapper = React.forwardRef((props, ref) => (
-  <Plus ref={ref} {...props} />
-));
-PlusWrapper.displayName = "PlusWrapper";
-const MotionPlusIcon = motion(PlusWrapper);
+
+const MotionPlusIcon = motion(Plus);
 const PlusIcon = () => {
   return (
     <MotionPlusIcon
