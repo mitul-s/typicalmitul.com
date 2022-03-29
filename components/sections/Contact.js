@@ -34,17 +34,26 @@ const CopyEmailButton = () => {
     );
 }
 
+const Contact3 = () => {
+
+    return (
+        <div>
+          Contact
+        </div>
+    );  
+}
+
 
 const Contact = () => {
     return (
       <div className="h-screen p-4">
-        <div className="flex flex-col justify-between w-full h-full p-4 rounded-lg bg-dark">
+        <div className="flex flex-col justify-between w-full h-full p-4 rounded-lg">
           <div>
             <div className="flex items-center mt-2 mb-4 leading-none uppercase gap-x-2">
               <span className="w-2.5 h-2.5 rounded bg-yolk border border-dark -mt-0.5" />
-              <h2 className="uppercase text-eggshell">Say hello</h2>
+              <h2 className="uppercase text-dark">Say hello</h2>
             </div>
-            <div className="w-full h-px bg-eggshell"></div>
+            <div className="w-full h-px bg-dark"></div>
           </div>
           <div className="flex w-full h-full py-6 gap-x-6">
             <div className="flex flex-col justify-start w-full h-full text-eggshell ">
@@ -135,4 +144,4 @@ const Contact2 = () => {
 };
 
 
-export default Contact;
+export default Contact3;
