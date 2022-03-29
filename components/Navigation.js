@@ -5,7 +5,7 @@ import NextLink from "next/link";
 import { AnimateSharedLayout, motion, useViewportScroll } from "framer-motion";
 
 
-const navLinks = () => [
+const navLinks = [
   { title: "Home", href: "/" },
   { title: "About", href: "/about" },
   { title: "Work", href: "/work" },
@@ -50,19 +50,26 @@ const Navigation = () => {
           className="fixed p-1 leading-none bg-white border rounded-full shadow-md bottom-12 border-dark w-fit"
         >
           <ul className="flex gap-x-0.5 text-base leading-none">
-            {navLinks().map((link, index) => (
+            {navLinks.map((link, index) => (
               <li key={index} className="grid">
                 <NextLink href={link.href} passHref>
-                  <a
+                  <motion.a
+                  whileTap={{
+                    scale: 0.9,
+                    transition: {
+                        type: "spring",
+                        duration: 0.15,
+                    }
+                  }}
                     className={clsx(
-                      "inline-block px-5 py-3 border border-transparent rounded-full transition-all content text-dark",
+                      "inline-block px-5 py-3 border border-transparent rounded-full content text-dark transition-colors duration-250",
                       {
                         "hover:border-dark/50": router.pathname !== link.href,
                       }
                     )}
                   >
                     {link.title}
-                  </a>
+                  </motion.a>
                 </NextLink>
                 {router.pathname === link.href && (
                   <motion.div
