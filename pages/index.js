@@ -27,8 +27,8 @@ let ph =
 
 const CallToAction = () => {
   return (
-    <div className="grid grid-cols-4 py-12 gap-x-2">
-      <div className="col-span-3 py-12 space-y-12 bg-white rounded px-11">
+    <div className="grid grid-cols-4 gap-x-2">
+      <div className="col-span-6 px-24 py-12 space-y-12 bg-white border-4 rounded border-yolk">
         <h3 className="text-3xl font-bold uppercase">Uber</h3>
         <blockquote className="text-5xl max-w-prose">
           &quot;We worked with Mitul to build an exhibit featuring employee
@@ -37,22 +37,24 @@ const CallToAction = () => {
         </blockquote>
         <p>Nicole Korb</p>
       </div>
-      <div className="flex items-center justify-center rounded bg-yolk">
+      {/* <div className="flex items-center justify-center rounded bg-yolk">
         &rarr;
-      </div>
+      </div> */}
     </div>
   );
+};
+
+const variants = {
+  hidden: { opacity: 0, x: -200, y: 0 },
+  enter: { opacity: 1, x: 0, y: 0 },
+  exit: { opacity: 0, x: 0, y: -100 },
 };
 
 
 export default function Home() {
   return (
-    <div className="relative min-h-full">
-      <GuidingLines />
-      <Navigation />
       <main className="relative">
         <section className="p-4">
-          {/* <Marquee /> */}
           <div className="mb-6 hero-image">
             <Hero />
           </div>
@@ -67,18 +69,13 @@ export default function Home() {
         <Break />
         <section className="px-4">
           <Work />
-        </section>
-        <Section>
           <CallToAction />
-        </Section>
+        </section>
         <Break />
         <section className="min-h-full">
           <Contact />
         </section>
-        <section>
           <Footer />
-        </section>
       </main>
-    </div>
   );
 }
