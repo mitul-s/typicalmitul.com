@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 import { arrowVariants } from "../constants";
 import { MotionArrowUpRight } from "../constants";
 let baseClasses =
-  "inline-block w-full font-medium text-left uppercase border border-dark rounded-lg bg-yolk transition-all hover:rounded-full hover:bg-dark hover:border-yolk hover:text-white overflow-hidden";
+  "inline-block w-full font-medium text-left uppercase border border-dark rounded-lg bg-yolk transition-all hover:bg-dark hover:border-yolk hover:text-white overflow-hidden";
 
 export const GlowButton = ({ children, ...props }) => {
   return (
@@ -24,23 +24,10 @@ export const GlowButton = ({ children, ...props }) => {
 
 
 
-export const ButtonLink = React.forwardRef(({ href, children }, ref) => {
+export const ButtonLink = React.forwardRef(({ href, className, children }, ref) => {
   return (
-    <a href={href} className={baseClasses} ref={ref}>
-      <motion.span
-        whileHover={{
-          x: [0, 1036],
-          transition: {
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 25,
-              ease: "linear",
-            },
-          },
-        }}
-        className="flex justify-between w-full h-full p-4"
-      >
+    <a className={baseClasses} ref={ref}>
+      <motion.span className="flex justify-between w-full h-full p-4">
         {children}
       </motion.span>
     </a>
