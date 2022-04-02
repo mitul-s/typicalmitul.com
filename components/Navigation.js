@@ -8,7 +8,7 @@ import { AnimateSharedLayout, motion, useViewportScroll } from "framer-motion";
 const navLinks = [
   { title: "Home", href: "/" },
   { title: "About", href: "/about" },
-  { title: "Work", href: "/work" },
+  { title: "Gear", href: "/gear" },
   { title: "Contact", href: "/contact" },
 ];
 
@@ -55,7 +55,7 @@ const Navigation = () => {
                 <NextLink href={link.href} passHref>
                   <motion.a
                   whileTap={{
-                    scale: 0.9,
+                    scale: 0.95,
                     transition: {
                         type: "spring",
                         duration: 0.15,
