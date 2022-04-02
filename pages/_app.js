@@ -1,7 +1,8 @@
 import '../styles/globals.css'
 import * as Tooltip from "@radix-ui/react-tooltip";
 import GuidingLines from '@/components/GuidingLines';
-import { Navigation } from '../components';
+import  Navigation  from '@/components/Navigation';
+import Footer from "@/sections/Footer"
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -11,6 +12,7 @@ function MyApp({ Component, pageProps }) {
           <GuidingLines />
           <Navigation />
           <Component {...pageProps} />
+          <Footer />
         </div>
       </Tooltip.Provider>
     </>
