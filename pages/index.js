@@ -75,7 +75,6 @@ export default function Home() {
         <section className="min-h-full">
           <Contact />
         </section>
-          <Footer />
       </main>
   );
 }
