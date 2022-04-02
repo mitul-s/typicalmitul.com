@@ -130,18 +130,21 @@ body {
 .photo-grid-item:nth-child(3) {
 	 grid-column: 1 / span 2;
 	 grid-row: 2;
-   height: 50vh;
+   @apply aspect-square;
+   /* height: 50vh; */
 }
 
 .photo-grid-item:nth-child(4) {
 	 grid-column: 3 / span 2;
 	 grid-row: 2;
-   height: 50vh;
+   @apply aspect-square;
+   /* height: 50vh; */
 }
 .photo-grid-item:nth-child(5) {
 	 grid-column: 5 / span 2;
 	 grid-row: 2;
-   height: 50vh;
+   @apply aspect-square;
+   /* height: 50vh; */
 }
 
 .photo-grid-item:nth-child(6) {
