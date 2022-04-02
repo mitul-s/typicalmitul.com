@@ -9,7 +9,7 @@ const PlusIcon = () => {
     <MotionPlusIcon
       whileHover={{ rotate: 90 }}
       size={32}
-      className="rounded-full bg-eggshell last:absolute last:top-0 last:-right-8"
+      className="rounded-full bg-eggshell last:absolute last:top-0 last:-right-8 even:invisible md:even:visible"
     />
   );
 };
