@@ -10,9 +10,15 @@ let me = "https://res.cloudinary.com/dcf2075hg/image/upload/v1647146312/Typical%
 
 const About = () => {
   return (
-    <div className="grid h-full grid-cols-2 py-6 gap-x-12">
+    <div className="grid h-full py-6 gap-x-12 gap-y-6 md:grid-cols-2">
+      <Image
+        src={me}
+        alt=""
+        height="aspect-square md:h-real-screen md:order-last"
+        pointer
+      />
       <div className="flex flex-col justify-end">
-        <div className="flex items-center mb-auto leading-none uppercase gap-x-2">
+        <div className="flex items-center mb-6 leading-none uppercase gap-x-2 md:mb-auto">
           <span className="w-2.5 h-2.5 rounded-full bg-yolk border border-dark -mt-0.5" />
           <h2 className="text-dark">About</h2>
         </div>
@@ -34,7 +40,12 @@ const About = () => {
           </ButtonLink>
         </NextLink>
       </div>
-        <Image src={me} alt="" height="h-real-screen" pointer/>
+      {/* <NextLink href="/about" passHref>
+        <ButtonLink className="hidden">
+          <span>Learn more</span>
+          <span>-&gt;</span>
+        </ButtonLink>
+      </NextLink> */}
     </div>
   );
 };
