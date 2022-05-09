@@ -1,4 +1,5 @@
 import { Button, Tooltip, Marquee, Image } from "@components";
+import { ArrowRight } from "phosphor-react";
 import NextLink from "next/link";
 
 let us =
@@ -40,7 +41,7 @@ const About = () => {
             <Button asChild>
               <a>
                 <span>Learn more</span>
-                <span>-&gt;</span>
+                <ArrowRight />
               </a>
             </Button>
           </NextLink>
