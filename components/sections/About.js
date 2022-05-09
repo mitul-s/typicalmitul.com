@@ -1,4 +1,4 @@
-import { ButtonLink, Tooltip, Marquee, Image } from "@components";
+import { Button, Tooltip, Marquee, Image } from "@components";
 import NextLink from "next/link";
 
 let us =
@@ -37,18 +37,14 @@ const About = () => {
             capture.
           </p>
           <NextLink href="/about" passHref>
-            <ButtonLink>
-              <span>Learn more</span>
-              <span>-&gt;</span>
-            </ButtonLink>
+            <Button asChild>
+              <a>
+                <span>Learn more</span>
+                <span>-&gt;</span>
+              </a>
+            </Button>
           </NextLink>
         </div>
-        {/* <NextLink href="/about" passHref>
-        <ButtonLink className="hidden">
-          <span>Learn more</span>
-          <span>-&gt;</span>
-        </ButtonLink>
-      </NextLink> */}
       </div>
     </>
   );
