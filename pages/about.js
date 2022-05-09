@@ -33,58 +33,28 @@ const Button = ({ children, ...props }) => {
 export default function About() {
   return (
     <main className="relative">
-      <section className="flex flex-col items-center justify-around w-1/3 h-full mx-auto mt-24 gap-y-2">
-        <div>
-          <h1 className="text-3xl text-center uppercase">About</h1>
-          <h2>This is a few words long</h2>
-        </div>
-        <div className="w-full bg-gray-100 border rounded aspect-3/2"></div>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis
-          egestas pretium aenean pharetra. Orci eu lobortis elementum nibh
-          tellus molestie. Vulputate dignissim suspendisse in est. Vel pharetra
-          vel turpis nunc. Malesuada nunc vel risus commodo. Nisi vitae suscipit
-          tellus mauris. Posuere morbi leo urna molestie at elementum eu. Urna
-          duis convallis convallis tellus. Urna molestie at elementum eu. Nunc
-          sed blandit libero volutpat.
-        </p>
+    <div className="grid grid-cols-2 px-4 gap-x-12">
+      <section className="">
+          <div>
+            <h1 className="text-3xl uppercase">About</h1>
+            <h2>This is a few words long</h2>
+          </div>
+          <div className="w-full bg-gray-100 border rounded aspect-3/2"></div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis
+            egestas pretium aenean pharetra. Orci eu lobortis elementum nibh
+            tellus molestie. Vulputate dignissim suspendisse in est. Vel
+            pharetra vel turpis nunc. Malesuada nunc vel risus commodo. Nisi
+            vitae suscipit tellus mauris. Posuere morbi leo urna molestie at
+            elementum eu. Urna duis convallis convallis tellus. Urna molestie at
+            elementum eu. Nunc sed blandit libero volutpat.
+          </p>
       </section>
       <section className="flex w-1/3">
         <h2 className="text-xl">Client History</h2>
       </section>
+      </div>
     </main>
   );
 }
-
-
-/* export default function About() {
-    return (
-      <main className="relative px-4 py-12 mt-24">
-        <div className="flex items-start mb-12 leading-none gap-x-yeat">
-          <div className="flex items-center gap-x-yeat">
-            <span className="w-6 h-6 border rounded-full bg-yolk border-dark"></span>
-            <h2 className="text-6xl uppercase">About</h2>
-          </div>
-          <p className="max-w-xs mt-2">
-            A collection of things I use frequently throughout my day and stuff.
-          </p>
-        </div>
-        <section className="grid min-h-[50vh] grid-cols-2 gap-x-4">
-          <div className="h-full bg-gray-200 border rounded shadow border-yolk shadow-yolk">
-            Image
-          </div>
-          <div>
-            <h2 className="text-2xl font-medium">Typical Mitul</h2>
-            <p className="mt-4 text-3xl">
-              I'm a photographer based out of Toronto, Canada, with a primary focus on capturing the ever-changing landscapes of metropolitan cities.
-              <br/>
-              <br/>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas pretium aenean pharetra. Orci eu lobortis elementum nibh tellus molestie. Vulputate dignissim suspendisse in est. Vel pharetra vel turpis nunc. Malesuada nunc vel risus commodo. Nisi vitae suscipit tellus mauris. Posuere morbi leo urna molestie at elementum eu. Urna duis convallis convallis tellus. Urna molestie at elementum eu. Nunc sed blandit libero volutpat.
-            </p>
-            <button className="p-1.5 rounded bg-yolk">Get in touch</button>
-          </div>
-        </section>
-      </main>
-    );
-} */
