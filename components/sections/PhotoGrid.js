@@ -44,8 +44,7 @@ const images = [
 ];
 
 import * as React from "react";
-import { ButtonLink } from "../Button";
-import Image from "@/components/Image";
+import { Button, Image } from "@components";
 
 const transition = {
   type: "spring",
@@ -64,7 +63,7 @@ const PhotoGrid = () => {
         ))}
       </div>
       <div className="mt-yeat"></div>
-      <ButtonLink>See More</ButtonLink>
+      <Button>See More</Button>
     </>
   );
 };
