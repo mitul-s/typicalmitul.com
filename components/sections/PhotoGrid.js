@@ -36,11 +36,15 @@ const images = [
     src: "https://mitul.ca/media/photos/6.webp",
     alt: "me",
   },
+  {
+    key: 8,
+    src: "https://mitul.ca/media/photos/6.webp",
+    alt: "me",
+  },
 ];
 
 import * as React from "react";
-import NextImage from "next/image"
-import { ButtonLink } from "../Button";
+import { Button, Image } from "@components";
 
 const transition = {
   type: "spring",
@@ -48,51 +52,18 @@ const transition = {
   stiffness: 120,
 };
 
-// export const Image = ({ src }) => {
-//   const [isOpen, setOpen] = useState(false);
-      
-
-//   return (
-//     <div className={`image-container ${isOpen ? "open" : ""}`}>
-//       <motion.div
-//         animate={{ opacity: isOpen ? 1 : 0 }}
-//         transition={transition}
-//         className="shade"
-//         onClick={() => setOpen(false)}
-//       />
-//       <motion.img
-//         src={src}
-//         alt="Bimhuis in Amsterdam"
-//         onClick={() => setOpen(!isOpen)}
-//         layout
-//         transition={transition}
-//       />
-//     </div>
-//   );
-// };
 
 
 const PhotoGrid = () => {
-  const [selectedId, setSelectedId] = React.useState(null);
   return (
     <>
-      <div className="grid h-auto grid-cols-6 gap-yeat">
+      <div className="grid h-auto grid-cols-2 sm:grid-cols-6 gap-yeat sm-g">
         {images.map((image) => (
-          <div
-            key={image.key}
-            className={`relative w-full overflow-hidden rounded-lg border border-stone shadow hover:ring hover:ring-yolk/50 transition-all group-hover:shadow-yolk group-hover:blur group-hover:brightness-50 duration-500 photo-grid-item`}
-          >
-            <NextImage src={image.src} layout="fill" objectFit="cover" />
-          </div>
+          <Image src={image.src} className="photo-grid-item" key={image.key} alt={image.alt} />
         ))}
-        {/* <div className="grid col-span-2 border rounded-lg border-yolk bg-stone place-content-center">
-          Seee more
-        </div> */}
       </div>
-      {/* remove this div!! */}
-      <div className="flex shadow mt-yeat">
-        <ButtonLink>See More</ButtonLink>
-      </div>
+      <div className="mt-yeat"></div>
+      <Button>See More</Button>
     </>
   );
 };

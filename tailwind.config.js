@@ -8,13 +8,16 @@ module.exports = {
       DEFAULT: "5px",
       sm: "4px",
       md: "6px",
-      lg: "12px",
+      lg: "5px",
       full: "50px",
     },
     fontFamily: {
-      sans: ["ABC Monument Grotesk Unlicensed Trial", "Inter", "sans-serif"],
+      sans: ["TestFoundersGrotesk-Regular", "Inter", "sans-serif"],
     },
     extend: {
+      transitionDuration: {
+        "250": "250ms",
+      },
       zIndex: {
         "-1": "-1",
       },

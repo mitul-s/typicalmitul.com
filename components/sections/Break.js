@@ -2,17 +2,14 @@ import { Plus } from "phosphor-react";
 import { motion } from "framer-motion";
 import React from "react";
 
-const PlusWrapper = React.forwardRef((props, ref) => (
-  <Plus ref={ref} {...props} />
-));
-PlusWrapper.displayName = "PlusWrapper";
-const MotionPlusIcon = motion(PlusWrapper);
+
+const MotionPlusIcon = motion(Plus);
 const PlusIcon = () => {
   return (
     <MotionPlusIcon
       whileHover={{ rotate: 90 }}
       size={32}
-      className="rounded-full bg-eggshell last:absolute last:top-0 last:-right-8"
+      className="rounded-full bg-eggshell last:absolute last:top-0 last:-right-8 even:invisible md:even:visible"
     />
   );
 };

@@ -1,5 +1,3 @@
-// import classnames from "classnames";
-
 const GuidingLines = () => (
   <div className="absolute w-full h-full">
     <div className="grid-container">
