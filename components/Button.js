@@ -2,6 +2,8 @@ import React from "react"
 import { motion } from "framer-motion"
 import { arrowVariants } from "../constants";
 import { MotionArrowUpRight } from "../constants";
+import { Slot } from "@radix-ui/react-slot";
+
 let baseClasses =
   "inline-block w-full font-medium text-left uppercase border border-dark rounded-lg bg-yolk transition-all hover:bg-dark hover:border-yolk hover:text-white overflow-hidden";
 
@@ -22,25 +24,15 @@ export const GlowButton = ({ children, ...props }) => {
 };
 
 
-
-
-export const ButtonLink = React.forwardRef(({ href, className, children }, ref) => {
+export const Button = React.forwardRef(({ asChild, children, ...props }, ref) => {
+  const Component = asChild ? Slot : "button";
   return (
-    <a className={baseClasses} ref={ref} href={href}>
-      <motion.span className="flex justify-between w-full h-full p-4">
-        {children}
-      </motion.span>
-    </a>
+    <Component className={`${baseClasses} flex justify-between w-full p-4`} ref={ref} asChild={asChild} {...props}>
+      {children}
+    </Component>
   );
 });
 
-ButtonLink.displayName = "ButtonLink";
+Button.displayName = "Button";
 
-export const Button = ({ children }) => {
-  return (
-    <button className={baseClasses}>
-      {children}
-    </button>
-  );
-};
-
+export default Button;
