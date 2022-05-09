@@ -1,6 +1,12 @@
 import NextImage from "next/image";
 import clsx from "clsx";
 
+const DialogImage = () => {
+  
+}
+
+
+
 export const Image = ({
   src,
   alt,
@@ -45,24 +51,5 @@ export const Image = ({
     </div>
   );
 };
-
-// const Image = ({ src, alt, vertical, overlay, ...props }) => {
-
-//   return (
-//     <div
-//       className={`relative w-full overflow-hidden rounded border border-yolk shadow transition-all group-hover:shadow-yolk group-hover:blur group-hover:brightness-50 duration-500
-//                   ${vertical ? "aspect-2/3" : "aspect-3/2"}
-//                   ${overlay ? "content" : ""}`}
-//     >
-//       <NextImage
-//         {...props}
-//         src={src}
-//         alt={alt}
-//         layout="fill"
-//         objectFit="cover"
-//       />
-//     </div>
-//   );
-// };
 
 export default Image;

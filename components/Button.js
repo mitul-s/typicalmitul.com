@@ -26,7 +26,7 @@ export const GlowButton = ({ children, ...props }) => {
 
 export const ButtonLink = React.forwardRef(({ href, className, children }, ref) => {
   return (
-    <a className={baseClasses} ref={ref}>
+    <a className={baseClasses} ref={ref} href={href}>
       <motion.span className="flex justify-between w-full h-full p-4">
         {children}
       </motion.span>

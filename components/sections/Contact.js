@@ -1,147 +1,103 @@
 import { useState } from "react";
-import Marquee from "../Marquee";
+import { Text } from "@components";
+import useCopyToClipboard from "../../hooks/useCopyToClipboard";
 
 const CopyEmailButton = () => {
-    const [text, setText] = useState("Send me a message");
-    const [copied, setCopied] = useState(false);
-    
-    const copyEmail = () => {
-        navigator.clipboard.writeText('typicalmitul@gmail.com');
-        setCopied(true);
+  const [text, setText] = useState("Send me a message");
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText("typicalmitul@gmail.com");
+    setCopied(true);
+    setText("Copied!");
+  };
+
+  const resetText = () => {
+    if (copied) {
+      setTimeout(() => {
         setText("Copied!");
-    };
-
-    const resetText = () => {
-        if (copied) {
-            setTimeout(() => {
-                setText("Copied!"); 
-            }, 5000);
-        } else {
-            setText("Send me a message");
-        }
-        setCopied(false);
+      }, 5000);
+    } else {
+      setText("Send me a message");
     }
+    setCopied(false);
+  };
 
-    return (
-      <button
-        onMouseOver={() => setText("Copy email?")}
-        onMouseOut={resetText}
-        onClick={copyEmail}
-        className="mt-2 text-3xl uppercase"
-      >
-     {text}
-      </button>
-    );
-}
-
-const Contact4 = () => {
-
-    return (
-        <div>
-          Contact
-        </div>
-    );  
-}
-
-
-const Contact = () => {
-    return (
-      <div className="h-screen p-4">
-        <div className="flex flex-col justify-between w-full h-full p-4 rounded-lg bg-dark">
-          <div>
-            <div className="flex items-center mt-2 mb-4 leading-none uppercase gap-x-2">
-              <span className="w-2.5 h-2.5 rounded bg-yolk border border-dark -mt-0.5" />
-              <h2 className="uppercase text-eggshell">Say hello</h2>
-            </div>
-            <div className="w-full h-px bg-dark"></div>
-          </div>
-          <div className="flex w-full h-full py-6 gap-x-6">
-            <div className="flex flex-col justify-start w-full h-full text-eggshell ">
-              <div className="text-5xl">
-                Get in touch with <br />a <i>quick</i> email.
-              </div>
-              
-              <div className="flex flex-col items-center justify-center w-full h-full">
-                <form className="flex flex-col self-end justify-end w-full h-full gap-y-6">
-                  <div className="w-full">
-                    <label className="sr-only" htmlFor="email">
-                      Email
-                    </label>
-                    <input
-                      className="w-full p-4 text-5xl leading-none transition duration-300 bg-transparent rounded focus:outline-none focus:ring-2 ring-yolk text-eggshell focus:shadow-md focus:shadow-yolk"
-                      id="email"
-                      name="email"
-                      placeholder="What's your email?"
-                    />
-                    <div className="w-full h-px bg-yolk"></div>
-                  </div>
-                  <div className="flex flex-col w-full">
-                    <label className="sr-only text-eggshell" htmlFor="email">
-                      Your Message
-                    </label>
-                    <textarea
-                      rows={4}
-                      //   className="w-full py-2 transition duration-300 bg-transparent border-b rounded outline-none text-7xl border-dark/25 focus:border-yolk"
-                      className="w-full p-4 text-5xl transition duration-300 bg-transparent rounded focus:outline-none focus:ring-2 ring-yolk text-eggshell focus:shadow-md focus:shadow-yolk"
-                      resize="none"
-                      id="email"
-                      name="email"
-                      placeholder="What's on your mind?"
-                    />
-                    <div className="w-full h-px bg-yolk"></div>
-                  </div>
-                  <button className="py-4 transition-all duration-500 border rounded outline-none focus:shadow-md text-yolk bg-dark border-yolk hover:bg-yolk/25 shadow-yolk focus:bg-yolk/25">
-                    Submit
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-          {/* <Marquee /> */}
-        </div>
-      </div>
-    );
-}
-
-const Contact2 = () => {
   return (
-    <div>
-      <div className="flex items-center mb-auto leading-none uppercase gap-x-2">
-        <span className="w-2.5 h-2.5 rounded bg-yolk border border-dark -mt-0.5" />
-        <h2 className="text-dark">Contact</h2>
-      </div>
-      {/* <CopyEmailButton /> */}
-      <form className="flex flex-col justify-end w-full h-full py-6 gap-y-6">
-        <div className="w-full">
-          <label className="sr-only" htmlFor="email">
-            Email
-          </label>
-          <input
-            className="w-full py-2 transition duration-300 bg-transparent border-b rounded outline-none text-7xl border-dark/25 focus:border-yolk"
-            id="email"
-            name="email"
-            placeholder="What's your email?"
-          />
-        </div>
-        <div className="w-full">
-          <label className="sr-only" htmlFor="email">
-            Email
-          </label>
-          <textarea
-            rows={4}
-            className="w-full py-2 transition duration-300 bg-transparent border-b rounded outline-none text-7xl border-dark/25 focus:border-yolk"
-            id="email"
-            name="email"
-            placeholder="What's on your mind?"
-          />
-        </div>
-        <button className="w-full py-4 border rounded bg-yolk border-dark">
-          Submit
-        </button>
-      </form>
+    <button
+      onMouseOver={() => setText("Copy email?")}
+      onMouseOut={resetText}
+      onClick={copyEmail}
+      className="mt-2 text-3xl uppercase"
+    >
+      {text}
+    </button>
+  );
+};
+
+const Field = ({ label, children }) => {
+  return (
+    <div className="flex flex-col gap-y-1">
+      <label className="text-sm font-medium uppercase">{label}</label>
+      {children}
     </div>
   );
 };
 
+const Contact = () => {
+  const [value, copy] = useCopyToClipboard();
+
+  return (
+    <>
+      <div className="" style={{ height: "85vh" }}>
+        <div className="grid w-full h-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12">
+          <div className="flex flex-col p-4 mt-4 gap-y-6">
+            <div className="flex items-center leading-none uppercase gap-x-2">
+              <span className="w-2.5 h-2.5 rounded bg-yolk border border-dark -mt-0.5" />
+              <h2>Contact</h2>
+            </div>
+            <Text>
+              Well, the way they make shows is, they make one show. That show's
+              called a pilot. Then they show that show to the people who make
+              shows, and on the strength of that one show they decide if they're
+              going to make more shows.
+            </Text>
+          </div>
+          <div className="pl-4 md:pl-0 md:place-self-center">
+            <div className="text-sm uppercase text-dark/50">
+              {value ? "Copied!" : "Click to copy ⬎"}
+            </div>
+            <button
+              className="text-3xl rounded p-1.5 w-fit bg-yolk transition duration-250 hover:bg-yolk/50"
+              onClick={() => copy("hey@typicalmitul.com")}
+            >
+              hey@typicalmitul.com
+            </button>
+          </div>
+          <div className="flex flex-col justify-end col-span-1 p-4 md:pl-4 md:border-l">
+            <form className="grid w-full grid-flow-row gap-4 ">
+              <Field label="Email Address">
+                <input
+                  className="px-2 py-2 transition border rounded text-md bg-eggshell focus:bg-white focus-state placeholder:text-dark/50"
+                  placeholder="What's your email address?"
+                />
+              </Field>
+              <Field label="Message">
+                <textarea
+                  className="px-2 py-2 transition border rounded text-md bg-eggshell focus:bg-white focus-state placeholder:text-dark/50"
+                  placeholder="What's your message?"
+                  rows={4}
+                />
+              </Field>
+              <button className="p-1.5 rounded bg-yolk text-dark text-xl">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default Contact;

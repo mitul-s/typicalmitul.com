@@ -12,7 +12,7 @@ module.exports = {
       full: "50px",
     },
     fontFamily: {
-      sans: ["ABC Monument Grotesk Unlicensed Trial", "Inter", "sans-serif"],
+      sans: ["TestFoundersGrotesk-Regular", "Inter", "sans-serif"],
     },
     extend: {
       transitionDuration: {

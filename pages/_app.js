@@ -12,7 +12,6 @@ function MyApp({ Component, pageProps }) {
           <GuidingLines />
           <Navigation />
           <Component {...pageProps} />
-          <Footer />
         </div>
       </Tooltip.Provider>
     </>

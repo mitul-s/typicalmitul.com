@@ -1,5 +1,5 @@
 import NextImage from "next/image";
-import Marquee from "../Marquee";
+
 let us3 =
   "https://res.cloudinary.com/dcf2075hg/image/upload/v1647147142/Typical%20Mitul/Test/IMG_1448_mjrtnf.jpg";
 

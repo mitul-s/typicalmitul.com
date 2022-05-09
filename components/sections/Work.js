@@ -1,5 +1,6 @@
-import Image from "@/components/Image";
+import { Text, Image } from "@components";
 import { GlowButton } from "../Button";
+
 let us =
   "https://images.unsplash.com/photo-1645389776527-43c47e909550?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80";
 let us2 = "https://images.unsplash.com/photo-1647089490719-d539f4041119";
@@ -48,12 +49,13 @@ const ColumnOne = () => (
         <h2 className="text-dark">Work</h2>
       </div>
       <div>
-        <p className="text-3xl">
+        <Text className="text-3xl">
+          Throughout the years, I have had the pleasure of working with countless
           So I started from scratch. I made another, then another. And by the
           end of the semester, by like box number five, I had built this thing.
           You should have seen it. It was insane. I mean, I built it out of
           Peruvian walnut with inlaid zebrawood.
-        </p>
+        </Text>
         <p className="w-2/3 mt-6 text-md text-dark/50">
           Photography is my craft. From brand shoots to non-exclusive licensing,
           I’m able to provide creative pieces that work for you.
@@ -99,7 +101,7 @@ const ImageLayout = ({ src }) => (
 
 const Work = () => {
   return (
-    <div className="relative grid h-full grid-cols-2 gap-4">
+    <div className="relative grid h-full grid-cols-1 gap-4 sm:grid-cols-2">
       <ColumnOne />
 
       <div className="flex flex-col pt-6 pb-6 gap-y-3">

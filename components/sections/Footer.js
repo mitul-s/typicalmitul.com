@@ -61,7 +61,7 @@ export const Footer2 = () => {
   };
 
   return (
-    <footer className="px-4 border py-yeat border-t-dark">
+    <footer className="px-4 border py-yeat border-t-stone">
       <div className="w-full text-sm uppercase md:flex gap-x-yeat">
         <div className="flex justify-between w-full md:justify-start md:w-1/2 gap-x-4">
           <div>Typical Mitul</div>
