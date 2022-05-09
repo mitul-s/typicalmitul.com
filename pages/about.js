@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "phosphor-react";
 import { motion } from "framer-motion"
+import Break from "@/components/sections/Break";
 
 const arrowVariants = {
   initial: {
@@ -33,27 +34,24 @@ const Button = ({ children, ...props }) => {
 export default function About() {
   return (
     <main className="relative">
-    <div className="grid grid-cols-2 px-4 gap-x-12">
-      <section className="">
-          <div>
-            <h1 className="text-3xl uppercase">About</h1>
-            <h2>This is a few words long</h2>
+      <div className="grid px-6 md:px-4 md:grid-cols-2 gap-x-12">
+        <section className="flex flex-col gap-y-4 py-yeat">
+          <div className="flex items-center gap-x-yeat">
+            <span className="w-6 h-6 border rounded-full bg-yolk border-dark shrink-0"></span>
+            <h1 className="text-6xl uppercase">About</h1>
           </div>
           <div className="w-full bg-gray-100 border rounded aspect-3/2"></div>
-          <p>
+          <p className="text-3xl">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis
             egestas pretium aenean pharetra. Orci eu lobortis elementum nibh
             tellus molestie. Vulputate dignissim suspendisse in est. Vel
-            pharetra vel turpis nunc. Malesuada nunc vel risus commodo. Nisi
-            vitae suscipit tellus mauris. Posuere morbi leo urna molestie at
-            elementum eu. Urna duis convallis convallis tellus. Urna molestie at
-            elementum eu. Nunc sed blandit libero volutpat.
+            pharetra vel turpis nunc.
           </p>
-      </section>
-      <section className="flex w-1/3">
-        <h2 className="text-xl">Client History</h2>
-      </section>
+        </section>
+        <section className="flex w-1/3">
+          <h2 className="text-xl">Client History</h2>
+        </section>
       </div>
     </main>
   );
