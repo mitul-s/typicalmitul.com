@@ -8,8 +8,8 @@ import { AnimateSharedLayout, motion, useViewportScroll } from "framer-motion";
 const navLinks = [
   { title: "Home", href: "/" },
   { title: "About", href: "/about" },
-  { title: "Gear", href: "/gear" },
-  { title: "Contact", href: "/contact" },
+  // { title: "Gear", href: "/gear" },
+  // { title: "Contact", href: "/contact" },
 ];
 
 const Navigation = () => {
