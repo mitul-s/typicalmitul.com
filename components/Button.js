@@ -5,7 +5,7 @@ import { MotionArrowUpRight } from "../constants";
 import { Slot } from "@radix-ui/react-slot";
 
 let baseClasses =
-  "inline-block w-full font-medium text-left uppercase border border-dark rounded-lg bg-yolk transition-all hover:bg-dark hover:border-yolk hover:text-white overflow-hidden";
+  "w-full font-medium text-left uppercase border border-dark rounded-lg bg-yolk transition-all hover:bg-dark hover:border-yolk hover:text-white overflow-hidden";
 
 export const GlowButton = ({ children, ...props }) => {
   return (
@@ -27,7 +27,7 @@ export const GlowButton = ({ children, ...props }) => {
 export const Button = React.forwardRef(({ asChild, children, ...props }, ref) => {
   const Component = asChild ? Slot : "button";
   return (
-    <Component className={`${baseClasses} flex justify-between w-full p-4`} ref={ref} asChild={asChild} {...props}>
+    <Component className={`${baseClasses} flex items-center justify-between p-4`} ref={ref} asChild={asChild} {...props}>
       {children}
     </Component>
   );
