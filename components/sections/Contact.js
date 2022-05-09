@@ -57,10 +57,10 @@ const Contact = () => {
               <h2>Contact</h2>
             </div>
             <Text>
-              Well, the way they make shows is, they make one show. That show's
-              called a pilot. Then they show that show to the people who make
-              shows, and on the strength of that one show they decide if they're
-              going to make more shows.
+              Well, the way they make shows is, they make one show. That
+              show&apos;s called a pilot. Then they show that show to the people
+              who make shows, and on the strength of that one show they decide
+              if they&apos;re going to make more shows.
             </Text>
           </div>
           <div className="pl-4 md:pl-0 md:place-self-center">

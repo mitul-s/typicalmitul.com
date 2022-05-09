@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { motion } from "framer-motion";
 import { arrowVariants } from "../../constants";
 import { MotionArrowUpRight } from "../../constants";
-import { ArrowRight } from "phosphor-react";
+import { ArrowRight, ArrowUpRight } from "phosphor-react";
 
 
 const links = [

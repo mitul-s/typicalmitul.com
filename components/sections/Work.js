@@ -50,15 +50,15 @@ const ColumnOne = () => (
       </div>
       <div>
         <Text className="text-3xl">
-          Throughout the years, I have had the pleasure of working with countless
-          So I started from scratch. I made another, then another. And by the
-          end of the semester, by like box number five, I had built this thing.
-          You should have seen it. It was insane. I mean, I built it out of
-          Peruvian walnut with inlaid zebrawood.
+          Throughout the years, I have had the pleasure of working with
+          countless So I started from scratch. I made another, then another. And
+          by the end of the semester, by like box number five, I had built this
+          thing. You should have seen it. It was insane. I mean, I built it out
+          of Peruvian walnut with inlaid zebrawood.
         </Text>
         <p className="w-2/3 mt-6 text-md text-dark/50">
           Photography is my craft. From brand shoots to non-exclusive licensing,
-          I’m able to provide creative pieces that work for you.
+          I&apos;m able to provide creative pieces that work for you.
         </p>
         <div className="flex mt-4 gap-x-1">
           <div className="flex items-center justify-center w-1/2 px-6 py-4 border rounded border-dark">
@@ -79,7 +79,8 @@ const ImageLayout = ({ src }) => (
       src={src}
       alt=""
       hasOverlay
-      className="group-hover:brightness-50 group-hover:scale-[1.05]" />
+      className="group-hover:brightness-50 group-hover:scale-[1.05]"
+    />
     <div className="relative w-full h-full transition duration-500 border rounded-lg overlay border-stone group-hover:backdrop-blur-md">
       <div className="flex items-center justify-center h-full transition duration-700 group-hover:-translate-y-12 group-hover:opacity-0">
         <ShopifyLogo />
@@ -89,10 +90,11 @@ const ImageLayout = ({ src }) => (
       </div>
       <div className="absolute w-full max-w-lg text-center text-white transition-all duration-700 -translate-x-1/2 opacity-0 group-hover:-translate-y-1/2 top-1/2 left-1/2 group-hover:opacity-100">
         I figured I could cut classes for the rest of the semester and he
-        couldn't flunk me as long as I, you know, made the thing. So I finished
-        it in a couple days. And it looked pretty lame, but it worked. You know,
-        for putting in or whatnot. So when I showed it to Mr. Pike for my grade,
-        he looked at it and said: 'Is that the best you can do?'
+        couldn&apos;t flunk me as long as I, you know, made the thing. So I
+        finished it in a couple days. And it looked pretty lame, but it worked.
+        You know, for putting in or whatnot. So when I showed it to Mr. Pike for
+        my grade, he looked at it and said: &apos;Is that the best you can
+        do?&apos;
       </div>
     </div>
   </div>
