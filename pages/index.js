@@ -7,26 +7,30 @@ import Hero from "@/sections/Hero";
 import Work from "@/sections/Work";
 import CallToAction from "@/sections/CallToAction";
 
+const Section = ({ className, children }) => {
+  return <section className={`px-6 md:px-4 ${className}`}>{children}</section>;
+};
+
 export default function Home() {
   return (
     <main className="relative">
-      <section className="p-4">
+      <Section className="py-3">
         <div className="mb-6 hero-image">
           <Hero />
         </div>
-      </section>
-      <section className="mx-4">
+      </Section>
+      <Section>
         <About />
-      </section>
+      </Section>
       <Break />
-      <section className="h-auto px-4">
+      <section className="h-auto px-6 md:px-4">
         <PhotoGrid />
       </section>
       <Break />
-      <section className="px-4">
+      <Section>
         <Work />
-      </section>
-        <CallToAction />
+      </Section>
+      <CallToAction />
       {/* <Break /> */}
       <section className="min-h-full">
         <Contact />

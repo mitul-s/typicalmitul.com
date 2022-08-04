@@ -49,21 +49,18 @@ const Contact = () => {
 
   return (
     <>
-      <div className="" style={{ height: "85vh" }}>
+      <div style={{ height: "85vh" }}>
         <div className="grid w-full h-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12">
-          <div className="flex flex-col p-4 mt-4 gap-y-6">
+          <div className="flex flex-col p-6 mt-4 md:p-4 gap-y-6">
             <div className="flex items-center leading-none uppercase gap-x-2">
               <span className="w-2.5 h-2.5 rounded bg-yolk border border-dark -mt-0.5" />
               <h2>Contact</h2>
             </div>
             <Text>
-              Well, the way they make shows is, they make one show. That
-              show&apos;s called a pilot. Then they show that show to the people
-              who make shows, and on the strength of that one show they decide
-              if they&apos;re going to make more shows.
+              {`Let's talk! I'd love to hear from you and work together. I'm open to all inquires. Shoot over any questions you may have and I'll get back to you as soon as I can.`}
             </Text>
           </div>
-          <div className="pl-4 md:pl-0 md:place-self-center">
+          <div className="pl-6 md:pl-0 md:place-self-center">
             <div className="text-sm uppercase text-dark/50">
               {value ? "Copied!" : "Click to copy ⬎"}
             </div>
@@ -74,7 +71,7 @@ const Contact = () => {
               hey@typicalmitul.com
             </button>
           </div>
-          <div className="flex flex-col justify-end col-span-1 p-4 md:pl-4 md:border-l">
+          <div className="flex flex-col justify-end col-span-1 p-6 md:pl-4 md:border-l">
             <form className="grid w-full grid-flow-row gap-4 ">
               <Field label="Email Address">
                 <input
@@ -89,7 +86,7 @@ const Contact = () => {
                   rows={4}
                 />
               </Field>
-              <button className="p-1.5 rounded bg-yolk text-dark text-xl">
+              <button className="p-1.5 rounded bg-yolk hover:bg-yolk/50 transition text-dark text-xl">
                 Submit
               </button>
             </form>

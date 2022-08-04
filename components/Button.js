@@ -27,7 +27,7 @@ export const GlowButton = ({ children, ...props }) => {
 export const Button = React.forwardRef(({ asChild, children, ...props }, ref) => {
   const Component = asChild ? Slot : "button";
   return (
-    <Component className={`${baseClasses} flex items-center justify-between p-4`} ref={ref} asChild={asChild} {...props}>
+    <Component className={`${baseClasses} flex items-center justify-between p-4 `} ref={ref} asChild={asChild} {...props}>
       {children}
     </Component>
   );

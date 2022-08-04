@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "phosphor-react";
 import { motion } from "framer-motion"
-import Break from "@/components/sections/Break";
+import { Break, Text } from "@components";
 
 const arrowVariants = {
   initial: {
@@ -41,13 +41,13 @@ export default function About() {
             <h1 className="text-6xl uppercase">About</h1>
           </div>
           <div className="w-full bg-gray-100 border rounded aspect-3/2"></div>
-          <p className="text-3xl">
+          <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis
             egestas pretium aenean pharetra. Orci eu lobortis elementum nibh
             tellus molestie. Vulputate dignissim suspendisse in est. Vel
             pharetra vel turpis nunc.
-          </p>
+          </Text>
         </section>
         <section className="flex w-1/3">
           <h2 className="text-xl">Client History</h2>
