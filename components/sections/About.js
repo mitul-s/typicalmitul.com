@@ -27,7 +27,7 @@ const About = () => {
             <h2 className="text-dark">About</h2>
           </div>
 
-          <p className="mb-4 text-4xl tracking-tight xl:text-5xl">
+          <p className="mb-4 text-2xl xl:text-5xl">
             Typical
             <Tooltip text="No, not actually my first name">
               <span className="font-light text-stone">*</span>

@@ -81,6 +81,9 @@ body {
   .overlay {
     grid-area: 1/1;
   }
+  .auto-cols-custom {
+    grid-auto-columns: calc(100% - 10rem);
+  }
 }
 
 @layer components {

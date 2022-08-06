@@ -12,14 +12,9 @@ let ph2 =
 let ph3 =
   "https://res.cloudinary.com/dcf2075hg/image/upload/v1647147132/Typical%20Mitul/Test/IMG_7893_cntower_print_men3lj.jpg";
 
-
-  const ShopifyLogo = () => {
-    return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={215}
-      height={61}
-      fill="none">
+const ShopifyLogo = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={215} height={61} fill="none">
       <path
         d="M46.376 11.553a.582.582 0 0 0-.526-.489c-.218-.018-4.49-.083-4.49-.083s-3.572-3.47-3.925-3.822c-.353-.353-1.042-.247-1.31-.167-.003.002-.67.208-1.794.556a12.581 12.581 0 0 0-.86-2.11c-1.27-2.427-3.134-3.71-5.384-3.714h-.009c-.156 0-.31.015-.467.028a6.88 6.88 0 0 0-.203-.234c-.98-1.05-2.238-1.56-3.744-1.515-2.906.083-5.801 2.182-8.148 5.91-1.652 2.624-2.908 5.92-3.264 8.472-3.338 1.034-5.672 1.756-5.723 1.773-1.685.529-1.738.58-1.958 2.169C4.408 19.527 0 53.61 0 53.61L36.94 60l16.01-3.98s-6.533-44.164-6.574-44.467ZM32.48 8.121l-2.866.887c-.022-1.471-.196-3.519-.882-5.288 2.205.418 3.29 2.913 3.748 4.401Zm-4.799 1.486-6.167 1.91c.596-2.282 1.726-4.555 3.114-6.044.516-.555 1.239-1.172 2.095-1.525.803 1.678.978 4.053.958 5.66Zm-3.96-7.67c.683-.015 1.257.135 1.748.458-.786.408-1.545.994-2.257 1.758-1.846 1.98-3.261 5.055-3.825 8.021-1.76.545-3.481 1.079-5.066 1.568 1-4.669 4.914-11.675 9.4-11.805Z"
         fill="#95BF47"
@@ -37,35 +32,33 @@ let ph3 =
         fill="#fff"
       />
     </svg>
-    );
-  }
-
+  );
+};
 
 const ColumnOne = () => (
-  <div className="sticky top-0 w-full h-screen pt-6 pb-6 grow-1">
+  <div className="w-full pt-6 pb-6 md:pr-8 max-w-prose grow">
     <div className="flex flex-col justify-between h-full">
-      <div className="flex items-center leading-none uppercase gap-x-2">
-        <span className="w-2.5 h-2.5 rounded bg-yolk border border-dark -mt-0.5" />
-        <h2 className="text-dark">Work</h2>
-      </div>
       <div>
-        <Text className="text-3xl">
+        <Text>
           Throughout the years, I have had the pleasure of working with
           countless So I started from scratch. I made another, then another. And
           by the end of the semester, by like box number five, I had built this
           thing. You should have seen it. It was insane. I mean, I built it out
           of Peruvian walnut with inlaid zebrawood.
         </Text>
-        <p className="w-2/3 mt-6 text-md text-dark/50">
+        <p className="w-full mt-6 sm:w-2/3 text-md text-dark/50">
           Photography is my craft. From brand shoots to non-exclusive licensing,
           I&apos;m able to provide creative pieces that work for you.
         </p>
         <div className="flex mt-4 gap-x-1">
-          <div className="flex items-center justify-center w-1/2 px-6 py-4 border rounded border-dark">
+          <div className="flex items-center justify-center px-2.5 py-1 text-sm rounded-full sm:px-4 sm:py-2 text-dark/75 bg-dark/10 sm:text-base">
             Photography
           </div>
-          <div className="flex items-center justify-center w-1/2 px-6 py-4 border rounded border-dark">
+          <div className="flex items-center justify-center px-2.5 py-1 text-sm rounded-full sm:px-4 sm:py-2 text-dark/75 bg-dark/10 sm:text-base">
             Licensing
+          </div>
+          <div className="flex items-center justify-center px-2.5 py-1 text-sm rounded-full sm:px-4 sm:py-2 text-dark/75 bg-dark/10 sm:text-base">
+            Branding
           </div>
         </div>
       </div>
@@ -73,46 +66,27 @@ const ColumnOne = () => (
   </div>
 );
 
-const ImageLayout = ({ src }) => (
-  <div className="grid w-full overflow-hidden transition-all duration-500 rounded-lg shadow group">
-    <Image
-      src={src}
-      alt=""
-      hasOverlay
-      className="group-hover:brightness-50 group-hover:scale-[1.05]"
-    />
-    <div className="relative w-full h-full transition duration-500 border rounded-lg overlay border-stone group-hover:backdrop-blur-md">
-      <div className="flex items-center justify-center h-full transition duration-700 group-hover:-translate-y-12 group-hover:opacity-0">
-        <ShopifyLogo />
-      </div>
-      <div className="absolute right-4 bottom-6">
-        <GlowButton />
-      </div>
-      <div className="absolute w-full max-w-lg text-center text-white transition-all duration-700 -translate-x-1/2 opacity-0 group-hover:-translate-y-1/2 top-1/2 left-1/2 group-hover:opacity-100">
-        I figured I could cut classes for the rest of the semester and he
-        couldn&apos;t flunk me as long as I, you know, made the thing. So I
-        finished it in a couple days. And it looked pretty lame, but it worked.
-        You know, for putting in or whatnot. So when I showed it to Mr. Pike for
-        my grade, he looked at it and said: &apos;Is that the best you can
-        do?&apos;
-      </div>
+const ImageLayout = ({ src }) => {
+  return (
+    <div className="overflow-hidden border rounded h-fit border-stone first:ml-6 last:mr-6 sm:first:ml-0 sm:last:mr-0">
+      <img src={src} className="object-cover aspect-square" />
     </div>
-  </div>
-);
-
+  );
+}
 
 const Work = () => {
   return (
-    <div className="relative grid h-full grid-cols-1 gap-4 sm:grid-cols-2">
-      <ColumnOne />
-
-      <div className="flex flex-col pt-6 pb-6 gap-y-3">
+    <div className="relative grid h-full grid-cols-1 gap-4 sm:grid-cols-1 isolate">
+      <div className="flex items-center leading-none uppercase gap-x-2">
+        <span className="w-2.5 h-2.5 rounded bg-yolk border border-dark -mt-0.5" />
+        <h2 className="text-dark">Work</h2>
+      </div>
+      <div className="grid grid-flow-col -mx-6 overflow-x-auto gap-x-yeat auto-cols-custom md:auto-cols-auto sm:mx-0">
         <ImageLayout src={ph3} />
         <ImageLayout src={ph} />
         <ImageLayout src={us2} />
-        {/* <Image src={ph} alt="" />
-        <Image src={us2} alt="" /> */}
       </div>
+      <ColumnOne />
     </div>
   );
 };

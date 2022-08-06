@@ -12,11 +12,16 @@ module.exports = {
       full: "50px",
     },
     fontFamily: {
-      sans: ["TestFoundersGrotesk-Regular", "Inter", "sans-serif"],
+      sans: [
+        "PPNeueMontreal-Medium",
+        "TestFoundersGrotesk-Regular",
+        "Inter",
+        "sans-serif",
+      ],
     },
     extend: {
       transitionDuration: {
-        "250": "250ms",
+        250: "250ms",
       },
       zIndex: {
         "-1": "-1",
