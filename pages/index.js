@@ -31,7 +31,7 @@ export default function Home() {
         <Work />
       </Section>
       <CallToAction />
-      {/* <Break /> */}
+      <Break />
       <section className="min-h-full">
         <Contact />
       </section>
