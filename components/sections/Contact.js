@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { Text } from "@components";
 import useCopyToClipboard from "../../hooks/useCopyToClipboard";
 
@@ -44,6 +45,79 @@ const Field = ({ label, children }) => {
   );
 };
 
+
+
+
+
+
+
+
+
+
+
+const Form = () => {
+const [state, handleSubmit] = useForm("moqbabyl");
+const [inputs, setInputs] = useState({
+  email: "",
+  message: "",
+});
+
+ const handleOnChange = (e) => {
+   e.persist();
+   setInputs((prev) => ({
+     ...prev,
+     [e.target.id]: e.target.value,
+   }));
+ };
+if (state.succeeded) {
+  return <p>Thanks for joining!</p>;
+}
+
+
+
+  return (
+    <div>
+      <form className="grid w-full grid-flow-row gap-4" onSubmit={handleSubmit}>
+        <Field label="Email Address">
+          <input
+            className="px-2 py-2 transition border rounded text-md bg-eggshell focus:bg-white focus-state placeholder:text-dark/50"
+            placeholder="What's your email address?"
+            id="email"
+            type="email"
+            name="email"
+            onChange={handleOnChange}
+            required
+            value={inputs.email}
+          />
+        </Field>
+        <Field label="Message">
+          <textarea
+            className="px-2 py-2 transition border rounded text-md bg-eggshell focus:bg-white focus-state placeholder:text-dark/50"
+            placeholder="What's your message?"
+            rows={4}
+            id="message"
+            name="message"
+            onChange={handleOnChange}
+            required
+            value={inputs.message}
+          />
+        </Field>
+        <button
+          type="submit"
+          disabled={state.submitting}
+          className="p-1.5 rounded bg-yolk hover:bg-yolk/50 transition text-dark text-xl"
+        >
+          Send
+        </button>
+      </form>
+    </div>
+  );
+}
+
+
+
+
+
 const Contact = () => {
   const [value, copy] = useCopyToClipboard();
 
@@ -51,7 +125,7 @@ const Contact = () => {
     <>
       <div style={{ height: "85vh" }}>
         <div className="grid w-full h-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12">
-          <div className="flex flex-col p-6 mt-4 md:p-4 gap-y-6">
+          <div className="flex flex-col px-6 md:px-4 gap-y-6">
             <div className="flex items-center leading-none uppercase gap-x-2">
               <span className="w-2.5 h-2.5 rounded bg-yolk border border-dark -mt-0.5" />
               <h2>Contact</h2>
@@ -72,24 +146,7 @@ const Contact = () => {
             </button>
           </div>
           <div className="flex flex-col justify-end col-span-1 p-6 md:pl-4 md:border-l">
-            <form className="grid w-full grid-flow-row gap-4 ">
-              <Field label="Email Address">
-                <input
-                  className="px-2 py-2 transition border rounded text-md bg-eggshell focus:bg-white focus-state placeholder:text-dark/50"
-                  placeholder="What's your email address?"
-                />
-              </Field>
-              <Field label="Message">
-                <textarea
-                  className="px-2 py-2 transition border rounded text-md bg-eggshell focus:bg-white focus-state placeholder:text-dark/50"
-                  placeholder="What's your message?"
-                  rows={4}
-                />
-              </Field>
-              <button className="p-1.5 rounded bg-yolk hover:bg-yolk/50 transition text-dark text-xl">
-                Submit
-              </button>
-            </form>
+            <Form />
           </div>
         </div>
       </div>
