@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import clsx from "clsx";
 import NextLink from "next/link";
-import { AnimateSharedLayout, motion, useViewportScroll } from "framer-motion";
+import { motion, useViewportScroll } from "framer-motion";
 
 
 const navLinks = [
   { title: "Home", href: "/" },
   { title: "About", href: "/about" },
   // { title: "Gear", href: "/gear" },
-  // { title: "Contact", href: "/contact" },
+  { title: "Contact", href: "/contact" },
 ];
 
 const Navigation = () => {
@@ -42,7 +42,7 @@ const Navigation = () => {
 
   return (
     <div className="relative z-40 flex items-center justify-center w-full h-full isolate">
-      <AnimateSharedLayout>
+      
         <motion.nav
           variants={variants}
           animate={hidden ? "hidden" : "visible"}
@@ -83,7 +83,6 @@ const Navigation = () => {
             ))}
           </ul>
         </motion.nav>
-      </AnimateSharedLayout>
     </div>
   );
 };
