@@ -36,12 +36,8 @@ const ShopifyLogo = () => {
 };
 
 const ColumnOne = () => (
-  <div className="w-full h-screen pt-6 pb-6 grow-1">
+  <div className="w-full pt-6 pb-6 md:pr-8 max-w-prose grow">
     <div className="flex flex-col justify-between h-full">
-      <div className="flex items-center leading-none uppercase gap-x-2">
-        <span className="w-2.5 h-2.5 rounded bg-yolk border border-dark -mt-0.5" />
-        <h2 className="text-dark">Work</h2>
-      </div>
       <div>
         <Text>
           Throughout the years, I have had the pleasure of working with
@@ -55,13 +51,13 @@ const ColumnOne = () => (
           I&apos;m able to provide creative pieces that work for you.
         </p>
         <div className="flex mt-4 gap-x-1">
-          <div className="flex items-center justify-center px-4 py-2 rounded-full text-dark/75 bg-dark/10">
+          <div className="flex items-center justify-center px-2.5 py-1 text-sm rounded-full sm:px-4 sm:py-2 text-dark/75 bg-dark/10 sm:text-base">
             Photography
           </div>
-          <div className="flex items-center justify-center px-4 py-2 rounded-full text-dark/75 bg-dark/10">
+          <div className="flex items-center justify-center px-2.5 py-1 text-sm rounded-full sm:px-4 sm:py-2 text-dark/75 bg-dark/10 sm:text-base">
             Licensing
           </div>
-          <div className="flex items-center justify-center px-4 py-2 rounded-full text-dark/75 bg-dark/10">
+          <div className="flex items-center justify-center px-2.5 py-1 text-sm rounded-full sm:px-4 sm:py-2 text-dark/75 bg-dark/10 sm:text-base">
             Branding
           </div>
         </div>
@@ -72,67 +68,25 @@ const ColumnOne = () => (
 
 const ImageLayout = ({ src }) => {
   return (
-    <div
-      className="grid border rounded overflow-clip grow bg-dark/50 border-stone"
-      style={{
-        backgroundImage: `url(${src})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <div className="relative flex items-center justify-center w-full h-full text-white bg-dark/50">
-        yo
-        <div className="absolute bottom-4 right-4 text-dark">
-          <GlowButton></GlowButton>
-        </div>
-      </div>
+    <div className="overflow-hidden border rounded h-fit border-stone first:ml-6 last:mr-6 sm:first:ml-0 sm:last:mr-0">
+      <img src={src} className="object-cover aspect-square" />
     </div>
   );
-};
-
-// const ImageLayout = () => {
-//   return (
-//     <div className="w-full h-full px-4 pt-4 first:-mr-2 first:pl-4 last:pr-4 shrink-0">
-//       <div className="w-full h-full border rounded shrink-0 bg-dark border-yolk">
-//         Hello
-//       </div>
-//     </div>
-//   );
-// }
-
-// const ImageLayout = ({ src, caption, link }) => (
-//   <div className="grid w-full overflow-hidden transition-all duration-500 rounded-lg shadow group">
-//     <Image
-//       src={src}
-//       alt=""
-//       hasOverlay
-//       className="group-hover:brightness-50 group-hover:scale-[1.05]"
-//     />
-//     <div className="relative w-full h-full transition duration-500 border rounded-lg overlay border-stone group-hover:backdrop-blur-md">
-//       <div className="flex items-center justify-center h-full transition duration-700 group-hover:-translate-y-12 group-hover:opacity-0">
-//         <ShopifyLogo />
-//       </div>
-//       <div className="absolute right-4 bottom-6">
-//         <GlowButton />
-//       </div>
-//       <div className="absolute w-full max-w-sm text-center text-white transition-all duration-700 -translate-x-1/2 opacity-0 md:text-xl md:max-w-lg group-hover:-translate-y-1/2 top-1/2 left-1/2 group-hover:opacity-100">
-//         I figured I could cut classes for the rest of the semester and he
-//         couldn&apos;t flunk me as long as I, you know, made the thing. So I
-//         finished it in a couple days.
-//       </div>
-//     </div>
-//   </div>
-// );
+}
 
 const Work = () => {
   return (
-    <div className="relative grid h-full grid-cols-1 gap-4 sm:grid-cols-2 isolate">
-      <ColumnOne />
-      <div className="flex flex-col h-screen gap-y-yeat">
+    <div className="relative grid h-full grid-cols-1 gap-4 sm:grid-cols-1 isolate">
+      <div className="flex items-center leading-none uppercase gap-x-2">
+        <span className="w-2.5 h-2.5 rounded bg-yolk border border-dark -mt-0.5" />
+        <h2 className="text-dark">Work</h2>
+      </div>
+      <div className="grid grid-flow-col -mx-6 overflow-x-auto gap-x-yeat auto-cols-custom md:auto-cols-auto sm:mx-0">
         <ImageLayout src={ph3} />
         <ImageLayout src={ph} />
         <ImageLayout src={us2} />
       </div>
+      <ColumnOne />
     </div>
   );
 };
