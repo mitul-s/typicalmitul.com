@@ -1,5 +1,4 @@
 import Navigation from "@/components/Navigation";
-import Section from "@/components/Section";
 import Marquee from "@/components/Marquee";
 import Button from "@/components/Button";
 import Heading from "@/components/Heading";
@@ -18,7 +17,6 @@ export {
   Link,
   Marquee,
   Navigation,
-  Section,
   Sheet,
   Text,
   Tooltip,
