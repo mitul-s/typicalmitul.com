@@ -9,7 +9,7 @@ const navLinks = [
   { title: "Home", href: "/" },
   { title: "About", href: "/about" },
   // { title: "Gear", href: "/gear" },
-  { title: "Contact", href: "/contact" },
+  // { title: "Contact", href: "/contact" },
 ];
 
 const Navigation = () => {
@@ -47,7 +47,7 @@ const Navigation = () => {
           variants={variants}
           animate={hidden ? "hidden" : "visible"}
           transition={{ ease: [0.1, 0.25, 0.3, 1], duration: 0.35 }}
-          className="fixed p-1 leading-none bg-white border rounded-full shadow-md bottom-12 border-dark w-fit"
+          className="fixed p-1 leading-none bg-white border rounded-full shadow-md bottom-6 md:bottom-12 border-dark w-fit"
         >
           <ul className="flex gap-x-0.5 text-base leading-none">
             {navLinks.map((link, index) => (
