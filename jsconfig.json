@@ -11,6 +11,9 @@
             "@/sections/*": [
                 "components/sections/*"
             ],
+            "@/hooks/*": [
+                "hooks/*"
+            ],
         }
     }
 }
