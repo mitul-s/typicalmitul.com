@@ -696,6 +696,11 @@
   optionalDependencies:
     "fsevents" "~2.3.2"
 
+"class-variance-authority@^0.2.3":
+  "integrity" "sha512-q3VGDidOOFp5yqNpUljA8L6N78gdOPhP5oeFJPaGRnCAPRmyAw65qo+Kw2WVfKq9uiR1de7HzlcvTN871Gks/g=="
+  "resolved" "https://registry.npmjs.org/class-variance-authority/-/class-variance-authority-0.2.3.tgz"
+  "version" "0.2.3"
+
 "clsx@^1.1.1":
   "integrity" "sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA=="
   "resolved" "https://registry.npmjs.org/clsx/-/clsx-1.1.1.tgz"
