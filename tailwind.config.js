@@ -14,12 +14,15 @@ module.exports = {
     fontFamily: {
       sans: [
         "PPNeueMontreal-Medium",
-        "TestFoundersGrotesk-Regular",
         "Inter",
         "sans-serif",
       ],
     },
     extend: {
+      fontFamily: {
+        "mtl-bold": ["PPNeueMontreal-Bold"],
+        "mtl-medium": ["PPNeueMontreal-Medium"],
+      },
       transitionDuration: {
         250: "250ms",
       },
