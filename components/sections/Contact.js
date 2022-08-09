@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
-import { Text } from "@components";
+import { Text, Button } from "@components";
 import useCopyToClipboard from "../../hooks/useCopyToClipboard";
+import { ArrowRight } from "phosphor-react";
 
 const CopyEmailButton = () => {
   const [text, setText] = useState("Send me a message");
@@ -102,13 +103,15 @@ if (state.succeeded) {
             value={inputs.message}
           />
         </Field>
-        <button
+        <Button
           type="submit"
           disabled={state.submitting}
-          className="p-1.5 rounded bg-yolk hover:bg-yolk/50 transition text-dark text-xl"
+          // className="p-1.5 rounded bg-yolk hover:bg-yolk/50 transition text-dark text-xl"
+          className="items-center"
         >
           Send
-        </button>
+          <ArrowRight />
+        </Button>
       </form>
     </div>
   );
@@ -124,7 +127,7 @@ const Contact = () => {
   return (
     <>
       <div style={{ height: "85vh" }}>
-        <div className="grid w-full h-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12">
+        <div className="grid w-full h-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8">
           <div className="flex flex-col px-6 md:px-4 gap-y-6">
             <div className="flex items-center leading-none uppercase gap-x-2">
               <span className="w-2.5 h-2.5 rounded bg-yolk border border-dark -mt-0.5" />
@@ -134,18 +137,18 @@ const Contact = () => {
               {`Let's talk! I'd love to hear from you and work together. I'm open to all inquires. Shoot over any questions you may have and I'll get back to you as soon as I can.`}
             </Text>
           </div>
-          <div className="pl-6 md:pl-0 md:place-self-center">
+          <div className="pl-6 md:pl-0 lg:place-self-center">
             <div className="text-sm uppercase text-dark/50">
               {value ? "Copied!" : "Click to copy ⬎"}
             </div>
-            <button
-              className="text-3xl rounded p-1.5 w-fit bg-yolk transition duration-250 hover:bg-yolk/50"
+            <Button
+              className="py-1.5 text-lg normal-case md:text-2xl"
               onClick={() => copy("hey@typicalmitul.com")}
             >
               hey@typicalmitul.com
-            </button>
+            </Button>
           </div>
-          <div className="flex flex-col justify-end col-span-1 p-6 md:pl-4 md:border-l">
+          <div className="flex flex-col justify-end col-span-1 p-6 -mt-10 md:pl-4 md:border-l">
             <Form />
           </div>
         </div>

@@ -45,6 +45,29 @@ const oppositeVariants = {
 
 
 
+const Footer4 = () => {
+  const Item = ({ children }) => (
+    <li className="underline underline-offset-2">
+      <a href="#">{children}</a>
+    </li>
+  );
+  return (
+    <footer className="grid-cols-2 px-6 py-6 text-sm border-t md:text-lg border-stone md:px-4 md:grid">
+      {/* <div>
+      Typicalmitul
+    </div> */}
+      <ul className="flex justify-start gap-x-2">
+        <Item>Twitter</Item>
+        <Item>Instagram</Item>
+        <Item>Mail</Item>
+      </ul>
+    </footer>
+  );
+}
+
+
+export {Footer4};
+
 export const Footer2 = () => {
   const [text, setText] = useState("Copy email?");
   const [copied, setCopied] = useState(false);

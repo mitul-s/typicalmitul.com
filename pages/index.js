@@ -6,36 +6,40 @@ import Footer from "@/sections/Footer";
 import Hero from "@/sections/Hero";
 import Work from "@/sections/Work";
 import CallToAction from "@/sections/CallToAction";
+import { Footer4 } from "@/sections/Footer";
+
+import Script from "next/script";
 
 const Section = ({ className, children }) => {
   return <section className={`px-6 md:px-4 ${className}`}>{children}</section>;
 };
 
 export default function Home() {
+
   return (
-    <main className="relative">
-      <Section className="py-3">
-        <div className="mb-6 hero-image">
-          <Hero />
-        </div>
-      </Section>
-      <Section>
-        <About />
-      </Section>
-      <Break />
-      <section className="h-auto px-6 md:px-4">
-        <PhotoGrid />
-      </section>
-      <Break />
-      <Section>
-        <Work />
-      </Section>
-      <CallToAction />
-      <Break />
-      <section className="min-h-full">
-        <Contact />
-      </section>
-      <Footer />
-    </main>
+    <>
+      <Script src="/getHeight.js"></Script>
+      <main className="relative">
+        <Hero />
+        <Section>
+          <About />
+        </Section>
+        <Break />
+        <section className="h-auto px-6 md:px-4">
+          <PhotoGrid />
+        </section>
+        <Break />
+        <Section>
+          <Work />
+        </Section>
+        <CallToAction />
+        <Break />
+        <section className="min-h-full">
+          <Contact />
+        </section>
+        {/* <Footer /> */}
+        <Footer4 />
+      </main>
+    </>
   );
 }

@@ -8,8 +8,7 @@ const PlusIcon = () => {
   return (
     <MotionPlusIcon
       whileHover={{ rotate: 90 }}
-      size={32}
-      className="rounded-full bg-eggshell last:absolute last:top-0 last:-right-8 even:invisible md:even:visible"
+      className="w-6 h-6 rounded-full sm:w-8 sm:h-8 bg-eggshell last:absolute last:top-0 last:-right-6 sm:last:-right-8 even:invisible md:even:visible"
     />
   );
 };
@@ -17,7 +16,7 @@ const PlusIcon = () => {
 const Break = () => (
   <div className="grid w-full px-4 py-6">
     <hr className="self-center content border-stone"></hr>
-    <div className="relative grid w-full h-full max-w-full grid-cols-4 grid-rows-1 pl-px my-0 -mx-4 overlay">
+    <div className="relative grid w-full h-full max-w-full grid-cols-4 grid-rows-1 pl-px my-0 -mx-3 sm:-mx-4 overlay">
       <PlusIcon />
       <PlusIcon />
       <PlusIcon />

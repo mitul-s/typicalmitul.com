@@ -65,8 +65,9 @@ body {
 }
 
 @layer utilities {
-  .hero-image {
-    height: calc(100vh - theme("spacing.8"));
+  .hero {
+    height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
   }
   .h-real-screen {
     height: calc(100vh - theme("spacing.8")));
@@ -118,6 +119,9 @@ body {
 
   .glow:hover::after {
     @apply bg-yolk opacity-60 rounded-sm blur-xl;
+  }
+  .button {
+    @apply flex items-center transition rounded sm:p-4 sm:text-lg text-sm p-2.5 justify-between border uppercase;
   }
 }
 

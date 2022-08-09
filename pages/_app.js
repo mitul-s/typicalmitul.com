@@ -1,4 +1,6 @@
+import '../styles/fonts.css'
 import '../styles/globals.css'
+
 import * as Tooltip from "@radix-ui/react-tooltip";
 import GuidingLines from '@/components/GuidingLines';
 import  Navigation  from '@/components/Navigation';

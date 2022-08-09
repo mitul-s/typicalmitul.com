@@ -1,4 +1,4 @@
-
+import { ArrowRight } from "phosphor-react";
 
 const images = [
   {
@@ -52,18 +52,24 @@ const transition = {
   stiffness: 120,
 };
 
-
-
 const PhotoGrid = () => {
   return (
     <>
       <div className="grid h-auto grid-cols-2 sm:grid-cols-6 gap-yeat sm-g">
         {images.map((image) => (
-          <Image src={image.src} className="photo-grid-item" key={image.key} alt={image.alt} />
+          <Image
+            src={image.src}
+            className="photo-grid-item"
+            key={image.key}
+            alt={image.alt}
+          />
         ))}
       </div>
       <div className="mt-yeat"></div>
-      <Button>See More</Button>
+      <Button fullWidth asAnchor>
+        See More
+        <ArrowRight weight="bold" />
+      </Button>
     </>
   );
 };

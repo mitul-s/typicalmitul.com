@@ -1,27 +1,42 @@
 import NextImage from "next/image";
+import { motion } from "framer-motion";
+import { useIsSmall } from "@/hooks/useBreakpoint";
 
 let us3 =
   "https://res.cloudinary.com/dcf2075hg/image/upload/v1647147142/Typical%20Mitul/Test/IMG_1448_mjrtnf.jpg";
 
 const Hero = () => {
+  const isSmall = useIsSmall();
   return (
-    <div className="grid h-full rounded-lg sm:shadow sm:bg-yolk sm:ring-2 ring-offset-4 ring-yolk shadow-yolk isolate">
-      <div className="h-full sm:p-0.5 content">
-        <div className="relative h-full p-1 overflow-hidden rounded-lg">
+    <motion.section
+      className="w-screen hero"
+      layout
+      animate={{ padding: isSmall ? 24 : `16px 24px` }}
+      transition={{ delay: 0.4, duration: 0.8 }}
+    >
+      <div className="grid h-full rounded isolate md:ring-2 ring-offset-4 ring-yolk md:shadow shadow-yolk">
+        <div className="z-10 flex items-center justify-center overlay">
+          <h1 className="-mt-4 text-3xl text-center text-white md:text-6xl font-mtl-bold">
+            Capturing the world <br /> and chasing life
+          </h1>
+        </div>
+        <motion.div
+          className="relative flex items-center justify-center w-full h-full overflow-hidden content brightness-50"
+          layout
+          animate={{ borderRadius: "8px" }}
+          transition={{ delay: 0.3, duration: 0.7 }}
+        >
           <NextImage
-            src={us3}
-            alt="me"
+            src={
+              "https://res.cloudinary.com/dcf2075hg/image/upload/v1647147142/Typical%20Mitul/Test/IMG_1448_mjrtnf.jpg"
+            }
             layout="fill"
             objectFit="cover"
-            className="brightness-75"
+            alt="me"
           />
-          {/* <div className="h-full rounded-sm bg-gray-300 border border-[#cbd6e0]"></div> */}
-        </div>
+        </motion.div>
       </div>
-      <h2 className="font-medium text-white flex justify-center text-center items-center overlay text-4xl md:text-[72px] leading-none -mt-4 z-10">
-        Capturing the world <br /> and chasing life
-      </h2>
-    </div>
+    </motion.section>
   );
 };
 

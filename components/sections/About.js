@@ -11,7 +11,7 @@ let me = "https://res.cloudinary.com/dcf2075hg/image/upload/v1647146312/Typical%
 const About = () => {
   return (
     <>
-      <div className="grid h-full grid-cols-1 py-6 gap-x-12 gap-y-6 md:grid-cols-2">
+      <div className="grid h-full grid-cols-1 sm:pt-6 gap-x-12 gap-y-6 md:grid-cols-2">
         <div className="flex flex-col gap-y-2 md:order-last">
           <Marquee />
           <Image
@@ -33,16 +33,14 @@ const About = () => {
               <span className="font-light text-stone">*</span>
             </Tooltip>
             Mitul is a photographer based in Toronto, Canada dedicated to
-            defining <b className="font-bold">thoughtful</b> and{" "}
-            <b className="font-bold">memorable experiences</b> through every
+            defining <b className="font-mtl-bold">thoughtful</b> and{" "}
+            <b className="font-mtl-bold">memorable experiences</b> through every
             capture.
           </p>
           <NextLink href="/about" passHref>
-            <Button asChild>
-              <a>
-                <span>Learn more</span>
-                <ArrowRight />
-              </a>
+            <Button asAnchor>
+              <span>Learn more</span>
+              <ArrowRight />
             </Button>
           </NextLink>
         </div>

@@ -1,5 +1,6 @@
 import { Text, Image } from "@components";
 import { GlowButton } from "../Button";
+import NextImage from "next/image";
 
 let us =
   "https://images.unsplash.com/photo-1645389776527-43c47e909550?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80";
@@ -12,9 +13,9 @@ let ph2 =
 let ph3 =
   "https://res.cloudinary.com/dcf2075hg/image/upload/v1647147132/Typical%20Mitul/Test/IMG_7893_cntower_print_men3lj.jpg";
 
-const ShopifyLogo = () => {
+const ShopifyLogo = ({ className }) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={215} height={61} fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" width={215} height={61} fill="none" className={className}>
       <path
         d="M46.376 11.553a.582.582 0 0 0-.526-.489c-.218-.018-4.49-.083-4.49-.083s-3.572-3.47-3.925-3.822c-.353-.353-1.042-.247-1.31-.167-.003.002-.67.208-1.794.556a12.581 12.581 0 0 0-.86-2.11c-1.27-2.427-3.134-3.71-5.384-3.714h-.009c-.156 0-.31.015-.467.028a6.88 6.88 0 0 0-.203-.234c-.98-1.05-2.238-1.56-3.744-1.515-2.906.083-5.801 2.182-8.148 5.91-1.652 2.624-2.908 5.92-3.264 8.472-3.338 1.034-5.672 1.756-5.723 1.773-1.685.529-1.738.58-1.958 2.169C4.408 19.527 0 53.61 0 53.61L36.94 60l16.01-3.98s-6.533-44.164-6.574-44.467ZM32.48 8.121l-2.866.887c-.022-1.471-.196-3.519-.882-5.288 2.205.418 3.29 2.913 3.748 4.401Zm-4.799 1.486-6.167 1.91c.596-2.282 1.726-4.555 3.114-6.044.516-.555 1.239-1.172 2.095-1.525.803 1.678.978 4.053.958 5.66Zm-3.96-7.67c.683-.015 1.257.135 1.748.458-.786.408-1.545.994-2.257 1.758-1.846 1.98-3.261 5.055-3.825 8.021-1.76.545-3.481 1.079-5.066 1.568 1-4.669 4.914-11.675 9.4-11.805Z"
         fill="#95BF47"
@@ -42,9 +43,7 @@ const ColumnOne = () => (
         <Text>
           Throughout the years, I have had the pleasure of working with
           countless So I started from scratch. I made another, then another. And
-          by the end of the semester, by like box number five, I had built this
-          thing. You should have seen it. It was insane. I mean, I built it out
-          of Peruvian walnut with inlaid zebrawood.
+          by the end of the semester. It was insane.
         </Text>
         <p className="w-full mt-6 sm:w-2/3 text-md text-dark/50">
           Photography is my craft. From brand shoots to non-exclusive licensing,
@@ -68,8 +67,17 @@ const ColumnOne = () => (
 
 const ImageLayout = ({ src }) => {
   return (
-    <div className="overflow-hidden border rounded h-fit border-stone first:ml-6 last:mr-6 sm:first:ml-0 sm:last:mr-0">
-      <img src={src} className="object-cover aspect-square" />
+    <div className="grid overflow-hidden border rounded h-fit border-stone first:ml-6 last:mr-6 sm:first:ml-0 sm:last:mr-0 isolate">
+      <div className="z-10 flex flex-col items-center justify-center text-white gap-y-4 -mt-yeat overlay">
+        {/* <ShopifyLogo /> */}
+        <div>Shopify</div>
+        <p className="px-6 text-sm text-center sm:px-0 sm:max-w-xs sm:text-lg">
+          Captured stuff everywhere doing lots of things and stuff
+        </p>
+      </div>
+      <div className="scale-[101.5%] content brightness-75 aspect-square blur-[2px]">
+        <NextImage layout="fill" src={src} className="object-cover" />
+      </div>
     </div>
   );
 }
