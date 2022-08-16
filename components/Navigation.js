@@ -47,7 +47,7 @@ const Navigation = () => {
           variants={variants}
           animate={hidden ? "hidden" : "visible"}
           transition={{ ease: [0.1, 0.25, 0.3, 1], duration: 0.35 }}
-          className="fixed p-1 leading-none bg-white border rounded-full shadow-md bottom-6 md:bottom-12 border-dark w-fit"
+          className="fixed p-1 leading-none border rounded-full shadow-md bg-eggshell bottom-6 md:bottom-12 border-dark w-fit"
         >
           <ul className="flex gap-x-0.5 text-base leading-none">
             {navLinks.map((link, index) => (
@@ -64,7 +64,7 @@ const Navigation = () => {
                     className={clsx(
                       "inline-block px-5 py-3 border border-transparent rounded-full content text-dark transition-colors duration-250",
                       {
-                        "hover:border-dark/50": router.pathname !== link.href,
+                        "betterhover:hover:border-dark/50": router.pathname !== link.href,
                       }
                     )}
                   >

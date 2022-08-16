@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 
+
 const useCopyToClipboard = (text, notifyTimeout = 2500) => {
   
   const [copyStatus, setCopyStatus] = useState(null);
@@ -13,7 +14,7 @@ const useCopyToClipboard = (text, notifyTimeout = 2500) => {
 
   useEffect(() => {
     if (copyStatus === false) {
-      return false;
+      return;
     }
 
     const timeoutId = setTimeout(

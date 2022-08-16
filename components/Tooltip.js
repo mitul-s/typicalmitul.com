@@ -6,7 +6,7 @@ import {
 
 const Tooltip = ({ text, children }) => {
   return (
-    <TooltipRoot delayDuration={350}>
+    <TooltipRoot delayDuration={0}>
       <TooltipTrigger>{children}</TooltipTrigger>
       <TooltipContent
         side="top"

@@ -12,13 +12,12 @@ module.exports = {
       full: "50px",
     },
     fontFamily: {
-      sans: [
-        "PPNeueMontreal-Medium",
-        "Inter",
-        "sans-serif",
-      ],
+      sans: ["PPNeueMontreal-Medium", "Inter", "sans-serif"],
     },
     extend: {
+      screens: {
+        betterhover: { raw: "(hover: hover)" },
+      },
       fontFamily: {
         "mtl-bold": ["PPNeueMontreal-Bold"],
         "mtl-medium": ["PPNeueMontreal-Medium"],

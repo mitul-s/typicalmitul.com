@@ -1,9 +1,5 @@
-const Text = ({ children }) => {
-    return (
-        <p className="text-2xl">
-            {children}
-        </p>
-    )
+const Text = ({ children, className }) => {
+    return <p className={`text-2xl ${className}`}>{children}</p>;
 }
 
 export default Text;

@@ -54,7 +54,7 @@ export default About;
 
 // for any future reference 
 {
-  /* <div className="relative group w-full h-[90vh] transition duration-500 rounded-lg shadow hover:shadow-xl hover:border-yolk hover:shadow-yolk/50 overflow-hidden border border-stone cursor-pointer">
-          <NextImage src={me} alt="me" layout="fill" objectFit="cover" className="transition duration-500 hover:scale-[1.02]"/>
+  /* <div className="relative group w-full h-[90vh] transition duration-500 rounded-lg shadow betterhover:hover:shadow-xl betterhover:hover:border-yolk betterhover:hover:shadow-yolk/50 overflow-hidden border border-stone cursor-pointer">
+          <NextImage src={me} alt="me" layout="fill" objectFit="cover" className="transition duration-500 betterhover:hover:scale-[1.02]"/>
         </div> */
 }

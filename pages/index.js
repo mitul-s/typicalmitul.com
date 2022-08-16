@@ -6,7 +6,6 @@ import Footer from "@/sections/Footer";
 import Hero from "@/sections/Hero";
 import Work from "@/sections/Work";
 import CallToAction from "@/sections/CallToAction";
-import { Footer4 } from "@/sections/Footer";
 
 import Script from "next/script";
 
@@ -37,8 +36,7 @@ export default function Home() {
         <section className="min-h-full">
           <Contact />
         </section>
-        {/* <Footer /> */}
-        <Footer4 />
+        <Footer />
       </main>
     </>
   );

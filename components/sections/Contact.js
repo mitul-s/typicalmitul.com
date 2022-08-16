@@ -1,41 +1,8 @@
 import { useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { Text, Button } from "@components";
-import useCopyToClipboard from "../../hooks/useCopyToClipboard";
+import useCopyToClipboard from "@/hooks/useCopyToClipboard";
 import { ArrowRight } from "phosphor-react";
-
-const CopyEmailButton = () => {
-  const [text, setText] = useState("Send me a message");
-  const [copied, setCopied] = useState(false);
-
-  const copyEmail = () => {
-    navigator.clipboard.writeText("typicalmitul@gmail.com");
-    setCopied(true);
-    setText("Copied!");
-  };
-
-  const resetText = () => {
-    if (copied) {
-      setTimeout(() => {
-        setText("Copied!");
-      }, 5000);
-    } else {
-      setText("Send me a message");
-    }
-    setCopied(false);
-  };
-
-  return (
-    <button
-      onMouseOver={() => setText("Copy email?")}
-      onMouseOut={resetText}
-      onClick={copyEmail}
-      className="mt-2 text-3xl uppercase"
-    >
-      {text}
-    </button>
-  );
-};
 
 const Field = ({ label, children }) => {
   return (
@@ -46,35 +13,23 @@ const Field = ({ label, children }) => {
   );
 };
 
-
-
-
-
-
-
-
-
-
-
 const Form = () => {
-const [state, handleSubmit] = useForm("moqbabyl");
-const [inputs, setInputs] = useState({
-  email: "",
-  message: "",
-});
+  const [state, handleSubmit] = useForm("moqbabyl");
+  const [inputs, setInputs] = useState({
+    email: "",
+    message: "",
+  });
 
- const handleOnChange = (e) => {
-   e.persist();
-   setInputs((prev) => ({
-     ...prev,
-     [e.target.id]: e.target.value,
-   }));
- };
-if (state.succeeded) {
-  return <p>Thanks for joining!</p>;
-}
-
-
+  const handleOnChange = (e) => {
+    e.persist();
+    setInputs((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value,
+    }));
+  };
+  if (state.succeeded) {
+    return <p>Thanks for joining!</p>;
+  }
 
   return (
     <div>
@@ -106,7 +61,7 @@ if (state.succeeded) {
         <Button
           type="submit"
           disabled={state.submitting}
-          // className="p-1.5 rounded bg-yolk hover:bg-yolk/50 transition text-dark text-xl"
+          // className="p-1.5 rounded bg-yolk betterhover:hover:bg-yolk/50 transition text-dark text-xl"
           className="items-center"
         >
           Send
@@ -115,14 +70,11 @@ if (state.succeeded) {
       </form>
     </div>
   );
-}
-
-
-
-
+};
 
 const Contact = () => {
-  const [value, copy] = useCopyToClipboard();
+  
+  const [value, copy] = useCopyToClipboard("typicalmitul@gmail.com");
 
   return (
     <>
@@ -143,9 +95,9 @@ const Contact = () => {
             </div>
             <Button
               className="py-1.5 text-lg normal-case md:text-2xl"
-              onClick={() => copy("hey@typicalmitul.com")}
+              onClick={copy}
             >
-              hey@typicalmitul.com
+              typicalmitul@gmail.com
             </Button>
           </div>
           <div className="flex flex-col justify-end col-span-1 p-6 -mt-10 md:pl-4 md:border-l">

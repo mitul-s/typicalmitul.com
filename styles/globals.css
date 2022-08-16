@@ -87,32 +87,30 @@ body {
   }
 }
 
-@layer components {
-  .link {
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-    line-height: 1;
-  }
+.better-underline {
+  transition: all 0.2s ease-out 0s;
+}
 
-  .link::after {
-    content: "";
+.better-underline:hover {
+  transition-duration: 200ms;
+  background-color: theme("colors.yolk");
+}
+
+.better-underline:after {
+    transition: inherit;
+    pointer-events: none;
     position: absolute;
-    width: 95%;
-    transform: scaleX(0);
-    height: 1px;
-    top: 110%;
-    left: 2.5%;
-    transform-origin: bottom right;
-    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
-    @apply bg-dark;
+    content: "";
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 6px;
+    height: 2px;
+    background: theme("colors.yolk");
+    opacity: 1;
   }
 
-  .link:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-
+@layer components {
   .glow::after {
     @apply content-[''] absolute -z-1 transition-all duration-1000 opacity-0 bottom-0 top-1 left-1.5 right-1.5;
   }

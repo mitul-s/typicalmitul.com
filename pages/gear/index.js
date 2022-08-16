@@ -6,8 +6,8 @@ import Sheet from "@/components/Sheet";
 const Item = () => {
     return (
       <div className="p-2 text-left text-white rounded aspect-square bg-dark">
-        <div className="h-full p-24 transition duration-500 border rounded-lg shadow-xl border-stone-light hover:border-yolk bg-eggshell hover:bg-dark/25 group">
-          <div className="relative h-full overflow-hidden transition-all duration-300 aspect-auto group-hover:-translate-y-3">
+        <div className="h-full p-24 transition duration-500 border rounded-lg shadow-xl border-stone-light betterhover:hover:border-yolk bg-eggshell betterhover:hover:bg-dark/25 group">
+          <div className="relative h-full overflow-hidden transition-all duration-300 aspect-auto group-betterhover:hover:-translate-y-3">
             <NextImage
               src="https://www.dpreview.com/files/p/E~products/sony_a7c/shots/09450c195d7145258b1e20315d03069e.png"
               layout="fill"

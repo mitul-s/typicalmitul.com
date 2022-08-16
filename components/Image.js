@@ -1,11 +1,6 @@
 import NextImage from "next/image";
 import clsx from "clsx";
 
-const DialogImage = () => {
-  
-}
-
-
 
 export const Image = ({
   src,
@@ -24,7 +19,7 @@ export const Image = ({
   return (
     <div
       className={clsx(
-        "relative w-full overflow-hidden rounded-lg transition-all border shadow hover:shadow-xl hover:shadow-yolk/50 duration-500 hover:border-yolk",
+        "relative w-full overflow-hidden rounded-lg transition-all border shadow betterhover:hover:shadow-xl betterhover:hover:shadow-yolk/50 duration-500 betterhover:hover:border-yolk",
         {
           content: hasOverlay,
           "border-yolk": border === "yolk",
@@ -45,7 +40,7 @@ export const Image = ({
         layout="fill"
         objectFit="cover"
         className={clsx({
-          "transition duration-500 hover:scale-[1.03]": !hasScale,
+          "transition duration-500 betterhover:hover:scale-[1.03]": !hasScale,
         })}
       />
     </div>
