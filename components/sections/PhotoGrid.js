@@ -3,8 +3,8 @@ import { ArrowRight } from "phosphor-react";
 const images = [
   {
     key: 1,
-    src: "https://mitul.ca/media/photos/about/2.jpg",
-    alt: "me",
+    src: "/images/la.jpg",
+    alt: "Old school Cadillac parked on a sunny LA day",
   },
   {
     key: 2,
@@ -13,8 +13,8 @@ const images = [
   },
   {
     key: 3,
-    src: "https://mitul.ca/media/photos/about/3.jpg",
-    alt: "me",
+    src: "/images/lookup.jpg",
+    alt: "Looking up at golden lights in Toronto's financial district",
   },
   {
     key: 4,
@@ -33,8 +33,8 @@ const images = [
   },
   {
     key: 7,
-    src: "https://mitul.ca/media/photos/6.webp",
-    alt: "me",
+    src: "/images/tower_clouds.jpg",
+    alt: "The CN Tower appearing above the clouds",
   },
   {
     key: 8,
@@ -45,12 +45,6 @@ const images = [
 
 import * as React from "react";
 import { Button, Image } from "@components";
-
-const transition = {
-  type: "spring",
-  damping: 25,
-  stiffness: 120,
-};
 
 const PhotoGrid = () => {
   return (
@@ -66,10 +60,11 @@ const PhotoGrid = () => {
         ))}
       </div>
       <div className="mt-yeat"></div>
-      <Button fullWidth asAnchor>
+      {/* To do */}
+      {/* <Button fullWidth asAnchor>
         See More
         <ArrowRight weight="bold" />
-      </Button>
+      </Button> */}
     </>
   );
 };
