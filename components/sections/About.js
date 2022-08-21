@@ -2,12 +2,6 @@ import { Button, Tooltip, Marquee, Image } from "@components";
 import { ArrowRight } from "phosphor-react";
 import NextLink from "next/link";
 
-let us =
-  "https://images.unsplash.com/photo-1645389776527-43c47e909550?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80";
-let us2 = "https://images.unsplash.com/photo-1646075900858-6e813f664593";
-let us3 = "https://images.unsplash.com/photo-1643068485255-15bb6c3727da";
-let me = "https://res.cloudinary.com/dcf2075hg/image/upload/v1647146312/Typical%20Mitul/self_final_pot_pjxrct.jpg";
-
 const About = () => {
   return (
     <>
@@ -15,10 +9,9 @@ const About = () => {
         <div className="flex flex-col gap-y-2 md:order-last">
           <Marquee />
           <Image
-            src={me}
-            alt=""
+            src="/images/idx_me.jpg"
+            alt="Photo of myself"
             height="md:order-first aspect-square md:h-img"
-            pointer
           />
         </div>
         <div className="flex flex-col justify-end">
@@ -50,11 +43,3 @@ const About = () => {
 };
 
 export default About;
-
-
-// for any future reference 
-{
-  /* <div className="relative group w-full h-[90vh] transition duration-500 rounded-lg shadow betterhover:hover:shadow-xl betterhover:hover:border-yolk betterhover:hover:shadow-yolk/50 overflow-hidden border border-stone cursor-pointer">
-          <NextImage src={me} alt="me" layout="fill" objectFit="cover" className="transition duration-500 betterhover:hover:scale-[1.02]"/>
-        </div> */
-}

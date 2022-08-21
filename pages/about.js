@@ -64,9 +64,9 @@ const ClientHistory = () => (
   <div className="mt-6">
     <SectionTitle>Client History</SectionTitle>
     <ul
-      className="grid gap-4 pt-2 md:text-4xl whitespace-nowrap"
+      className="grid gap-4 pt-2 md:text-3xl whitespace-nowrap"
       style={{
-        gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+        gridTemplateColumns: "repeat(auto-fill, minmax(175px, 1fr))",
       }}
     >
       {clients.map((client, index) => (
