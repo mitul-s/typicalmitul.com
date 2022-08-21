@@ -17,9 +17,9 @@ const ShopifyLogo = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={215}
-      height={61}
-      fill="none"
+      // width={215}
+      // height={61}
+      // fill=""
       className={className}
     >
       <path
@@ -76,15 +76,16 @@ const ColumnOne = () => {
   );
 };
 
-const ImageLayout = ({ src }) => {
+const ImageLayout = ({ logo, src, className }) => {
   return (
     <div className="grid overflow-hidden border rounded h-fit border-stone first:ml-6 last:mr-6 sm:first:ml-0 sm:last:mr-0 isolate">
       <div className="z-10 flex flex-col items-center justify-center text-white gap-y-4 -mt-yeat overlay">
-        {/* <ShopifyLogo /> */}
-        <div>Shopify</div>
-        <p className="px-6 text-sm text-center sm:px-0 sm:max-w-xs sm:text-lg">
-          Captured stuff everywhere doing lots of things and stuff
-        </p>
+        <div className={`relative w-40 h-40 overflow-hidden ${className}`}>
+          <NextImage layout="fill" objectFit="contain" src={logo} />
+        </div>
+        {/* <p className="px-6 text-sm text-center sm:px-0 sm:max-w-xs sm:text-lg">
+          Burst by Shopify is a platform to download beautiful copyright-free images. I worked with them as one of the first contributors to the platform, and have now noticed my photos be used by brands around the world.
+        </p> */}
       </div>
       <div className="scale-[101.5%] content brightness-75 aspect-square blur-[2px]">
         <NextImage layout="fill" src={src} className="object-cover" />
@@ -101,9 +102,9 @@ const Work = () => {
         <h2 className="text-dark">Work</h2>
       </div>
       <div className="grid grid-flow-col -mx-6 overflow-x-auto gap-x-yeat auto-cols-custom md:auto-cols-auto sm:mx-0">
-        <ImageLayout src={ph3} />
-        <ImageLayout src={ph} />
-        <ImageLayout src={us2} />
+        <ImageLayout src={ph3} logo="/images/logos/shopify.png" />
+        <ImageLayout src={ph} logo="/images/logos/uber.png" />
+        <ImageLayout src={us2} logo="/images/logos/delta.png" className="brightness-0 invert" />
       </div>
       <ColumnOne />
     </div>
