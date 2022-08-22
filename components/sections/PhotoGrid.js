@@ -53,6 +53,7 @@ const PhotoGrid = () => {
             key={image.key}
             alt={image.alt}
             quality={50}
+            priority
             // placeholder="blur"
           />
         ))}
