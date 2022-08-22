@@ -28,7 +28,7 @@ const Form = () => {
     }));
   };
   if (state.succeeded) {
-    return <p>Thanks for joining!</p>;
+    return <p>Thank you! I will get back to you soon.</p>;
   }
 
   return (
