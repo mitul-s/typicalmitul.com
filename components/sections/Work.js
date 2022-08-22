@@ -1,5 +1,4 @@
-import { Text, Image } from "@components";
-import { GlowButton } from "../Button";
+import { Text } from "@components";
 import NextImage from "next/image";
 
 let us =

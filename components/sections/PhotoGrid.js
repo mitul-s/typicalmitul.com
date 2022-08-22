@@ -1,5 +1,3 @@
-import { ArrowRight } from "phosphor-react";
-
 const images = [
   {
     key: 1,
@@ -38,12 +36,10 @@ const images = [
   },
   {
     key: 8,
-    src: "https://mitul.ca/media/photos/6.webp",
+    src: "https://mitul.ca/media/photos/4.webp",
     alt: "me",
   },
 ];
-
-import * as React from "react";
 import { Button, Image } from "@components";
 
 const PhotoGrid = () => {
@@ -56,6 +52,7 @@ const PhotoGrid = () => {
             className="photo-grid-item"
             key={image.key}
             alt={image.alt}
+            quality={50}
             // placeholder="blur"
           />
         ))}
