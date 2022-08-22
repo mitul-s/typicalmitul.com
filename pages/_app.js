@@ -5,8 +5,15 @@ import * as Tooltip from "@radix-ui/react-tooltip";
 import GuidingLines from '@/components/GuidingLines';
 import  Navigation  from '@/components/Navigation';
 import Footer from "@/sections/Footer"
+import splitbee from "@splitbee/web";
+import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }) {
+
+  useEffect = (() => {
+    splitbee.init();
+  }, [])
+
   return (
     <>
       <Tooltip.Provider>
