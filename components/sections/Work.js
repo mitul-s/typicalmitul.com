@@ -60,7 +60,9 @@ const ImageLayout = ({ logo, src, className }) => {
         </p> */}
       </div>
       <div className="scale-[101.5%] content brightness-75 aspect-square blur-[2px]">
-        <NextImage placeholder="blur" layout="fill" src={src} className="object-cover" />
+        <NextImage 
+          // placeholder="blur" 
+          layout="fill" src={src} className="object-cover" />
       </div>
     </div>
   );

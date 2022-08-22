@@ -56,7 +56,7 @@ const PhotoGrid = () => {
             className="photo-grid-item"
             key={image.key}
             alt={image.alt}
-            placeholder="blur"
+            // placeholder="blur"
           />
         ))}
       </div>
