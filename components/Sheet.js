@@ -1,14 +1,10 @@
-import React from "react"
+import React from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion";
 import { X } from "phosphor-react";
 
-const Sheet = ({ children }) => {
-const [ open, setOpen ] = React.useState(false);
-  
-return (
-  <Dialog.Root onOpenChange={(e) => setOpen(e)}>
-    <Dialog.Trigger>{children}</Dialog.Trigger>
+const SheetContent = ({ open, children }) => {
+  return (
     <AnimatePresence>
       {open && (
         <Dialog.Portal forceMount>
@@ -30,20 +26,25 @@ return (
                 exit={{ x: "100%" }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="flex items-center justify-between">
-                <h2>Sony A7C</h2>
-                  <Dialog.Close className="p-1 transition duration-300 rounded betterhover:hover:bg-yolk">
-                    <X size={24} />
-                  </Dialog.Close>
-                </div>
+                <Dialog.Close className="p-1 transition duration-300 rounded betterhover:hover:bg-yolk">
+                  <X size={24} />
+                </Dialog.Close>
+                {children}
               </motion.div>
             </div>
           </Dialog.Content>
         </Dialog.Portal>
       )}
     </AnimatePresence>
-  </Dialog.Root>
-);
+  );
 };
 
-export default Sheet;
+const SheetTrigger = ({ children }) => {
+  return <Dialog.Trigger>{children}</Dialog.Trigger>;
+};
+
+const Sheet = ({ open, onOpenChange, children, ...props }) => {
+  return (<Dialog.Root open={open} onOpenChange={onOpenChange} {...props}>{children}</Dialog.Root>);
+};
+
+export { Sheet, SheetTrigger, SheetContent };
