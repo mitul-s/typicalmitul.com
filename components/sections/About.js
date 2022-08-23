@@ -32,7 +32,7 @@ const About = () => {
           </p>
           <NextLink href="/about" passHref>
             <Button asAnchor>
-              <span>Learn more</span>
+              <span>Get to know me</span>
               <ArrowRight />
             </Button>
           </NextLink>
