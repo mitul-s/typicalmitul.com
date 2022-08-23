@@ -31,21 +31,21 @@ const notables = [
 const AboutText = () => (
   <div className="flex rounded">
     <div className="flex flex-col gap-4 max-w-prose">
-      <Text>
+      <p className="text-lg sm:text-2xl">
         {`Photography has been part of my daily life for the past 6 years. With a natural instinct to explore the world around me, I’ve built the skill to capture cityscapes, architecture, and urban environments in a new light.`}
-      </Text>
+      </p>
 
-      <Text className="text-xl">
+      <p className="text-lg sm:text-2xl">
         I try to use photography to prove that life is worth chasing. By working
         with various brands, large and small, I’ve built the versatility to tell
         a story through a variety of photography styles ranging from lifestyle,
         concerts, to corporate events.
-      </Text>
-      <Text className="text-xl">
+      </p>
+      <p className="text-lg sm:text-2xl">
         I’m always excited to continue pushing myself and seeing what stories I
         can tell with my camera.
-      </Text>
-      <Text className="text-xl">
+      </p>
+      <p className="text-lg sm:text-2xl">
         Thank you for taking the time to visit my portfolio. If you’re
         interested in working together,{" "}
         <a
@@ -55,7 +55,7 @@ const AboutText = () => (
           shoot me an email
         </a>{" "}
         and I’ll get back to you.
-      </Text>
+      </p>
     </div>
   </div>
 );
