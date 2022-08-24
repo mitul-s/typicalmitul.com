@@ -3,6 +3,7 @@ import { useForm, ValidationError } from "@formspree/react";
 import { Text, Button } from "@components";
 import useCopyToClipboard from "@/hooks/useCopyToClipboard";
 import { ArrowRight } from "phosphor-react";
+import { Sheet, SheetTrigger, SheetContent } from "@/components/Sheet";
 
 const Field = ({ label, children }) => {
   return (
@@ -72,6 +73,17 @@ const Form = () => {
   );
 };
 
+const ContactDialog = ({ open, onOpenChange, children, ...props }) => {
+  return (
+    <Sheet open={open} onOpenChange={onOpenChange} {...props}>
+      <SheetTrigger>{children}</SheetTrigger>
+      <SheetContent open={open}>
+      <Form />
+      </SheetContent>
+    </Sheet>
+  );
+};
+
 const Contact = () => {
   
   const [value, copy] = useCopyToClipboard("typicalmitul@gmail.com");
@@ -109,4 +121,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export { Contact, ContactDialog };
