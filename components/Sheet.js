@@ -3,6 +3,12 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "phosphor-react";
 
+const SheetContext = React.createContext();
+const SheetProvider = (props) => {
+  const [open, setOpen] = React.useState(false);
+  return <SheetContext.Provider value={{ open, setOpen }} {...props} />;
+};
+
 const SheetContent = ({ open, children }) => {
   return (
     <AnimatePresence>
@@ -10,7 +16,7 @@ const SheetContent = ({ open, children }) => {
         <Dialog.Portal forceMount>
           <Dialog.Overlay forceMount asChild>
             <motion.div
-              className="fixed inset-0 bg-black/25"
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -26,8 +32,19 @@ const SheetContent = ({ open, children }) => {
                 exit={{ x: "100%" }}
                 transition={{ duration: 0.5 }}
               >
-                <Dialog.Close className="p-1 transition duration-300 rounded betterhover:hover:bg-yolk">
-                  <X size={24} />
+                <Dialog.Close asChild>
+                  <motion.button
+                    className="absolute p-1 transition-colors rounded text-stone betterhover:hover:text-dark top-4 right-4"
+                    whileTap={{
+                      scale: 0.85,
+                      transition: {
+                        type: "spring",
+                        duration: 0.15,
+                      },
+                    }}
+                  >
+                    <X size={24} weight="bold" />
+                  </motion.button>
                 </Dialog.Close>
                 {children}
               </motion.div>
@@ -40,11 +57,11 @@ const SheetContent = ({ open, children }) => {
 };
 
 const SheetTrigger = ({ children }) => {
-  return <Dialog.Trigger>{children}</Dialog.Trigger>;
+  return <Dialog.Trigger asChild>{children}</Dialog.Trigger>;
 };
 
 const Sheet = ({ open, onOpenChange, children, ...props }) => {
   return (<Dialog.Root open={open} onOpenChange={onOpenChange} {...props}>{children}</Dialog.Root>);
 };
 
-export { Sheet, SheetTrigger, SheetContent };
+export { Sheet, SheetTrigger, SheetContent, SheetContext, SheetProvider };
