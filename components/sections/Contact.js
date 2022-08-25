@@ -3,16 +3,39 @@ import { useForm, ValidationError } from "@formspree/react";
 import { Text, Button } from "@components";
 import useCopyToClipboard from "@/hooks/useCopyToClipboard";
 import { ArrowRight } from "phosphor-react";
+import { Input, TextArea } from "@/components/Field";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/Sheet";
 
-const Field = ({ label, children }) => {
+const NotSure = () => {
   return (
-    <div className="flex flex-col gap-y-1">
-      <label className="text-sm font-medium uppercase">{label}</label>
-      {children}
+    <div className="mt-auto mb-4">
+      {/* <div className="text-stone">Other places:</div> */}
+      <div className="flex gap-x-2">
+        <a
+          href=""
+          target="_blank"
+          className="border bg-eggshell rounded px-2 py-1.5 shadow-sm transition betterhover:hover:bg-yolk/20 betterhover:hover:border-yolk betterhover:hover:shadow"
+        >
+          Twitter
+        </a>
+        <a
+          href=""
+          target="_blank"
+          className="border bg-eggshell rounded px-2 py-1.5 shadow-sm transition betterhover:hover:bg-yolk/20 betterhover:hover:border-yolk betterhover:hover:shadow"
+        >
+          Instagram
+        </a>
+        <a
+          href=""
+          target="_blank"
+          className="border bg-eggshell rounded px-2 py-1.5 shadow-sm transition betterhover:hover:bg-yolk/20 betterhover:hover:border-yolk betterhover:hover:shadow"
+        >
+          Mail
+        </a>
+      </div>
     </div>
   );
-};
+}
 
 const Form = () => {
   const [state, handleSubmit] = useForm("moqbabyl");
@@ -28,41 +51,39 @@ const Form = () => {
       [e.target.id]: e.target.value,
     }));
   };
+
   if (state.succeeded) {
     return <p>Thank you! I will get back to you soon.</p>;
   }
 
   return (
     <div>
-      <form className="grid w-full grid-flow-row gap-4" onSubmit={handleSubmit}>
-        <Field label="Email Address">
-          <input
-            className="px-2 py-2 transition border rounded text-md bg-eggshell focus:bg-white focus-state placeholder:text-dark/50"
-            placeholder="What's your email address?"
-            id="email"
-            type="email"
-            name="email"
-            onChange={handleOnChange}
-            required
-            value={inputs.email}
-          />
-        </Field>
-        <Field label="Message">
-          <textarea
-            className="px-2 py-2 transition border rounded text-md bg-eggshell focus:bg-white focus-state placeholder:text-dark/50"
-            placeholder="What's your message?"
-            rows={4}
-            id="message"
-            name="message"
-            onChange={handleOnChange}
-            required
-            value={inputs.message}
-          />
-        </Field>
+      <form className="grid w-full grid-flow-row gap-4" name="contact" onSubmit={handleSubmit}>
+        <Input
+          label="Your email"
+          placeholder="Email Address"
+          name="email"
+          error={state.errors}
+          type="email"
+          onChange={handleOnChange}
+          value={inputs.email}
+          id="email"
+          spellCheck={false}
+          autoComplete="email"
+        />
+        <TextArea
+          label="Your message"
+          placeholder="Leave me your thoughts..."
+          name="message"
+          id="message"
+          // error={state.errors}
+          value={inputs.message}
+          onChange={handleOnChange}
+          rows={4}
+        />
         <Button
           type="submit"
           disabled={state.submitting}
-          // className="p-1.5 rounded bg-yolk betterhover:hover:bg-yolk/50 transition text-dark text-xl"
           className="items-center"
         >
           Send
@@ -78,7 +99,12 @@ const ContactDialog = ({ open, onOpenChange, children, ...props }) => {
     <Sheet open={open} onOpenChange={onOpenChange} {...props}>
       <SheetTrigger>{children}</SheetTrigger>
       <SheetContent open={open}>
-      <Form />
+        <div className="flex flex-col w-full h-full">
+          <h2 className="text-2xl uppercase">Get in touch</h2>
+          <div className="mt-auto">
+            <Form />
+          </div>
+        </div>
       </SheetContent>
     </Sheet>
   );
