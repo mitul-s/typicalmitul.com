@@ -1,24 +1,23 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import clsx from "clsx";
 import NextLink from "next/link";
 import { motion, useViewportScroll } from "framer-motion";
-
+import { ContactDialog } from "@/sections/Contact";
+import { SheetContext } from "@/components/Sheet";
 
 const navLinks = [
-  { title: "Home", href: "/" },
-  { title: "About", href: "/about" },
+  { id: 1, title: "Home", href: "/" },
+  { id: 2, title: "About", href: "/about" },
   // { title: "Gear", href: "/gear" },
-  // { title: "Contact", href: "/contact" },
 ];
 
 const Navigation = () => {
   const router = useRouter();
-  
+
   /** this hook gets the scroll y-axis **/
   const { scrollY } = useViewportScroll();
   const [hidden, setHidden] = useState(false);
-
 
   function update() {
     if (scrollY.current < scrollY?.prev) {
@@ -40,9 +39,13 @@ const Navigation = () => {
     hidden: { opacity: 0, y: 25, scale: 0.8 },
   };
 
+  const { open, setOpen } = React.useContext(SheetContext);
+
   return (
-    <div className="relative z-40 flex items-center justify-center w-full h-full isolate">
-      
+    <>
+      <ContactDialog open={open} onOpenChange={setOpen} />
+
+      <div className="relative z-40 flex items-center justify-center w-full h-full isolate">
         <motion.nav
           variants={variants}
           animate={hidden ? "hidden" : "visible"}
@@ -50,21 +53,22 @@ const Navigation = () => {
           className="fixed p-1 leading-none border rounded-full shadow-md bg-eggshell bottom-6 md:bottom-12 border-dark w-fit"
         >
           <ul className="flex gap-x-0.5 text-base leading-none">
-            {navLinks.map((link, index) => (
-              <li key={index} className="grid">
-                <NextLink href={link.href} passHref>
+            {navLinks.map(link => (
+              <li key={link.id} className="grid">
+                <NextLink href={link.href} passHref as={link.as}>
                   <motion.a
-                  whileTap={{
-                    scale: 0.95,
-                    transition: {
+                    whileTap={{
+                      scale: 0.95,
+                      transition: {
                         type: "spring",
                         duration: 0.15,
-                    }
-                  }}
+                      },
+                    }}
                     className={clsx(
                       "inline-block px-5 py-3 border border-transparent rounded-full content text-dark transition-colors duration-250",
                       {
-                        "betterhover:hover:border-dark/50": router.pathname !== link.href,
+                        "betterhover:hover:border-dark/50":
+                          router.pathname !== link.href,
                       }
                     )}
                   >
@@ -76,14 +80,48 @@ const Navigation = () => {
                     layoutId="navItem"
                     className="inline-block px-5 py-3 border border-transparent rounded-full shadow bg-dark overlay invert mix-blend-difference"
                     animate
-                    transition={{ type: "spring", ease: "circInOut", bounce: 0.16, duration: 0.85 }}
+                    transition={{
+                      type: "spring",
+                      ease: "circInOut",
+                      bounce: 0.16,
+                      duration: 0.85,
+                    }}
                   />
                 )}
               </li>
             ))}
+            <li className="grid">
+              <motion.button
+                onClick={() => setOpen(true)}
+                whileTap={{
+                  scale: 0.95,
+                  transition: {
+                    type: "spring",
+                    duration: 0.15,
+                  },
+                }}
+                className="inline-block px-5 py-3 transition-colors border border-transparent rounded-full content text-dark duration-250 betterhover:hover:border-dark/50"
+              >
+                Contact
+              </motion.button>
+              {open && (
+                <motion.div
+                  layoutId="navItem"
+                  className="inline-block px-5 py-3 border border-transparent rounded-full shadow bg-dark overlay invert mix-blend-difference"
+                  animate
+                  transition={{
+                    type: "spring",
+                    ease: "circInOut",
+                    bounce: 0.16,
+                    duration: 0.85,
+                  }}
+                />
+              )}
+            </li>
           </ul>
         </motion.nav>
-    </div>
+      </div>
+    </>
   );
 };
 

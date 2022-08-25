@@ -1,5 +1,5 @@
 import NextImage from "next/image"
-import Sheet from "@/components/Sheet";
+// import Sheet from "@/components/Sheet";
 
 // before:absolute before:content-[''] before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:w-32 before:h-12 before:bg-yolk before:blur-2xl
 
@@ -40,9 +40,9 @@ export default function Gear() {
               should be 2 lines long.
             </div>
           </div>
-          <Sheet>
+          {/* <Sheet>
             <Item />
-          </Sheet>
+          </Sheet> */}
           <Item />
           <Item />
           <Item />

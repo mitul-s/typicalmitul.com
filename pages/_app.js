@@ -1,12 +1,12 @@
 import '../styles/fonts.css'
 import '../styles/globals.css'
 
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+import { TooltipProvider } from "@radix-ui/react-tooltip";
+import { SheetProvider } from "@/components/Sheet"
+
 import NextHeadSeo from "next-head-seo";
 import splitbee from "@splitbee/web";
-import * as Tooltip from "@radix-ui/react-tooltip";
-import GuidingLines from '@/components/GuidingLines';
-import  Navigation  from '@/components/Navigation';
 
 const MyApp = ({ Component, pageProps }) => {
 
@@ -24,13 +24,11 @@ const MyApp = ({ Component, pageProps }) => {
           site: "@typicalmitul",
         }}
       />
-      <Tooltip.Provider>
-        <div className="relative min-h-full">
-          <GuidingLines />
-          <Navigation />
+      <TooltipProvider>
+        <SheetProvider>
           <Component {...pageProps} />
-        </div>
-      </Tooltip.Provider>
+        </SheetProvider>
+      </TooltipProvider>
     </>
   );
 }

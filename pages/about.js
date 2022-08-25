@@ -1,5 +1,6 @@
 import { Text, Button, Image } from "@components";
 import { ArrowUp, ArrowUpRight } from "phosphor-react";
+import Layout from "@/components/Layout";
 
 const clients = [
   "Shopify",
@@ -101,16 +102,17 @@ export default function About() {
     "https://res.cloudinary.com/dcf2075hg/image/upload/v1647146312/Typical%20Mitul/self_final_pot_pjxrct.jpg";
 
   return (
-    <main className="relative pb-20">
-      <div className="flex items-center px-6 md:px-4 gap-x-yeat">
-        <span className="w-6 h-6 border rounded-full bg-yolk border-dark shrink-0"></span>
-        <h1 className="text-5xl uppercase">About</h1>
-      </div>
-      <div className="grid px-6 gap-x-12 gap-y-4 md:px-4 md:grid-cols-2">
-        <Image src={me} alt="Photo of myself" priority />
-        <section className="flex flex-col gap-y-4">
-          <AboutText />
-          <hr className="-mb-1" />
+    <Layout>
+      <main className="relative pb-20">
+        <div className="flex items-center px-6 md:px-4 gap-x-yeat">
+          <span className="w-6 h-6 border rounded-full bg-yolk border-dark shrink-0"></span>
+          <h1 className="text-5xl uppercase">About</h1>
+        </div>
+        <div className="grid px-6 gap-x-12 gap-y-4 md:px-4 md:grid-cols-2">
+          <Image src={me} alt="Photo of myself" priority />
+          <section className="flex flex-col gap-y-4">
+            <AboutText />
+            <hr className="-mb-1" />
             <div className="md:col-start-2">
               <SectionTitle>Notable</SectionTitle>
               <div
@@ -123,7 +125,7 @@ export default function About() {
                   <Button
                     key={index}
                     href={notable.href}
-                    asAnchor 
+                    asAnchor
                     className="bg-eggshell normal-case border-stone px-1 py-1.5 "
                   >
                     {notable.title}
@@ -133,8 +135,9 @@ export default function About() {
               </div>
               <ClientHistory />
             </div>
-        </section>
-      </div>
-    </main>
+          </section>
+        </div>
+      </main>
+    </Layout>
   );
 }

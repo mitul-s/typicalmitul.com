@@ -33,6 +33,10 @@ const button = cva(["button"], {
         "border-dark",
         "betterhover:hover:bg-yolk/75",
         "font-medium",
+        "outline-none",
+        "focus:ring-4",
+        // "hover:focus:ring-yolk/50",
+        // "focus:ring-blue/50",
       ],
     },
     fullWidth: {
