@@ -12,8 +12,8 @@ export default function Layout({ children }) {
       <Navigation />
       <div
         className={cx(
-          "min-h-full will-change-transform transition-all duration-1000",
-          open && "-translate-x-4"
+          "min-h-full will-change-transform transition-all duration-1000 sm:translate-x-0",
+          open && "sm:-translate-x-4"
         )}
       >
         <GuidingLines />
