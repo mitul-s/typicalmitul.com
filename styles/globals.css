@@ -5,6 +5,8 @@
 :root {
   --gutter: 16px;
   --marquee-height: theme("spacing.7");
+  --marquee-height-mobile: theme("spacing.5");
+  
 }
 
 #root,
@@ -219,9 +221,10 @@ body {
   width: fit-content;
   display: flex;
   position: relative;
-  height: var(--marquee-height);
+  /* height: var(--marquee-height); */
   transform: translate3d(var(--move-initial), 0, 0);
   animation: marquee 20s linear infinite;
+  @apply sm:text-lg text-sm h-[var(--marquee-height-mobile)] sm:h-[var(--marquee-height)];
   /* animation-play-state: paused; */
 }
 
