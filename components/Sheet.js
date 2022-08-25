@@ -24,9 +24,9 @@ const SheetContent = ({ open, children }) => {
             />
           </Dialog.Overlay>
           <Dialog.Content forceMount>
-            <div className="fixed top-0 right-0 h-full p-yeat">
+            <div className="fixed top-0 right-0 w-full h-full p-yeat sm:w-auto">
               <motion.div
-                className="h-full p-4 bg-white border rounded-lg shadow w-96 border-dark"
+                className="w-full h-full p-4 bg-white border rounded-lg shadow sm:w-96 border-dark"
                 initial={{ x: "100%" }}
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
