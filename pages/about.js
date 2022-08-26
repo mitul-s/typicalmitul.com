@@ -1,6 +1,9 @@
+import React from 'react'
+import { SheetContext } from '@/components/Sheet';
 import { Text, Button, Image } from "@components";
 import { ArrowUp, ArrowUpRight } from "phosphor-react";
 import Layout from "@/components/Layout";
+import { ContactDialog } from "@/components/sections/Contact";
 
 const clients = [
   "Shopify",
@@ -61,7 +64,7 @@ const AboutText = () => (
   </div>
 );
 
-const ClientHistory = () => (
+const ClientHistory = ({ setOpen }) => (
   <div className="mt-6">
     <SectionTitle>Client History</SectionTitle>
     <ul
@@ -82,6 +85,7 @@ const ClientHistory = () => (
         <Button
           fullWidth
           className="text-lg normal-case h-max bg-eggshell border-stone"
+          onClick={() => setOpen(true)}
         >
           + you next?
         </Button>
@@ -98,18 +102,19 @@ const SectionTitle = ({ children }) => (
 );
 
 export default function About() {
-  let me =
-    "https://res.cloudinary.com/dcf2075hg/image/upload/v1647146312/Typical%20Mitul/self_final_pot_pjxrct.jpg";
+    
+    const { open, setOpen } = React.useContext(SheetContext);
 
   return (
     <Layout>
+      <ContactDialog open={open} onOpenChange={setOpen} />
       <main className="relative pb-20">
         <div className="flex items-center px-6 md:px-4 gap-x-yeat">
           <span className="w-6 h-6 border rounded-full bg-yolk border-dark shrink-0"></span>
           <h1 className="text-5xl uppercase">About</h1>
         </div>
         <div className="grid px-6 gap-x-12 gap-y-4 md:px-4 md:grid-cols-2">
-          <Image src={me} alt="Photo of myself" priority />
+          <Image src="/images/idx_me.jpg" alt="Photo of myself" priority />
           <section className="flex flex-col gap-y-4">
             <AboutText />
             <hr className="-mb-1" />
@@ -133,7 +138,7 @@ export default function About() {
                   </Button>
                 ))}
               </div>
-              <ClientHistory />
+              <ClientHistory setOpen={setOpen} />
             </div>
           </section>
         </div>
