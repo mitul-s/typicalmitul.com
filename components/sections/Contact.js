@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
-import { Text, Button } from "@components";
+import { Text, Button, Heading } from "@components";
 import useCopyToClipboard from "@/hooks/useCopyToClipboard";
 import { ArrowRight } from "phosphor-react";
 import { Input, TextArea } from "@/components/Field";
@@ -58,9 +58,13 @@ const Form = () => {
 
   return (
     <div>
-      <form className="grid w-full grid-flow-row gap-4" name="contact" onSubmit={handleSubmit}>
+      <form
+        className="grid w-full grid-flow-row gap-4"
+        name="contact"
+        onSubmit={handleSubmit}
+      >
         <Input
-          label="Your email"
+          label="Email Address"
           placeholder="Email Address"
           name="email"
           error={state.errors}
@@ -72,7 +76,7 @@ const Form = () => {
           autoComplete="email"
         />
         <TextArea
-          label="Your message"
+          label="Message"
           placeholder="Leave me your thoughts..."
           name="message"
           id="message"
@@ -100,7 +104,7 @@ const ContactDialog = ({ open, onOpenChange, children, ...props }) => {
       <SheetTrigger>{children}</SheetTrigger>
       <SheetContent open={open}>
         <div className="flex flex-col w-full h-full">
-          <h2 className="text-2xl uppercase">Get in touch</h2>
+          <Heading className="text-2xl uppercase">Get in touch</Heading>
           <div className="mt-auto">
             <Form />
           </div>

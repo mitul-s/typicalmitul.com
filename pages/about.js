@@ -1,6 +1,6 @@
 import React from 'react'
 import { SheetContext } from '@/components/Sheet';
-import { Text, Button, Image } from "@components";
+import { Text, Button, Image, Heading } from "@components";
 import { ArrowUp, ArrowUpRight } from "phosphor-react";
 import Layout from "@/components/Layout";
 import { ContactDialog } from "@/components/sections/Contact";
@@ -66,7 +66,7 @@ const AboutText = () => (
 
 const ClientHistory = ({ setOpen }) => (
   <div className="mt-6">
-    <SectionTitle>Client History</SectionTitle>
+    <Heading>Client History</Heading>
     <ul
       className="grid gap-4 pt-2 md:text-3xl whitespace-nowrap"
       style={{
@@ -94,12 +94,6 @@ const ClientHistory = ({ setOpen }) => (
   </div>
 );
 
-const SectionTitle = ({ children }) => (
-  <div className="flex items-center my-2 leading-none uppercase gap-x-2">
-    <span className="w-2.5 h-2.5 rounded bg-yolk border border-dark -mt-0.5" />
-    <h2 className="text-dark">{children}</h2>
-  </div>
-);
 
 export default function About() {
     
@@ -119,7 +113,7 @@ export default function About() {
             <AboutText />
             <hr className="-mb-1" />
             <div className="md:col-start-2">
-              <SectionTitle>Notable</SectionTitle>
+              <Heading>Notable</Heading>
               <div
                 className="grid gap-2 pt-2 whitespace-nowrap"
                 style={{
