@@ -47,21 +47,21 @@ const ColumnOne = () => {
   );
 };
 
-const ImageLayout = ({ logo, src, className }) => {
+const ImageLayout = ({ logo, src, logoAlt, alt, className }) => {
   return (
     <div className="grid overflow-hidden border rounded h-fit border-stone first:ml-6 last:mr-6 sm:first:ml-0 sm:last:mr-0 isolate">
       <div className="z-10 flex flex-col items-center justify-center text-white gap-y-4 -mt-yeat overlay">
         <div className={`relative w-28 h-28 sm:w-40 sm:h-40 overflow-hidden ${className}`}>
-          <NextImage layout="fill" objectFit="contain" src={logo} />
+          <NextImage layout="fill" objectFit="contain" src={logo} alt={logoAlt} />
         </div>
-        {/* <p className="px-6 text-sm text-center sm:px-0 sm:max-w-xs sm:text-lg">
-          Burst by Shopify is a platform to download beautiful copyright-free images. I worked with them as one of the first contributors to the platform, and have now noticed my photos be used by brands around the world.
-        </p> */}
       </div>
       <div className="scale-[101.5%] content brightness-75 aspect-square blur-[2px]">
         <NextImage 
           // placeholder="blur" 
-          layout="fill" src={src} className="object-cover" />
+          layout="fill" 
+          src={src}
+          alt={alt}
+          className="object-cover" />
       </div>
     </div>
   );
@@ -75,9 +75,9 @@ const Work = () => {
         <h2 className="text-dark">Work</h2>
       </div>
       <div className="grid grid-flow-col -mx-6 overflow-x-auto gap-x-yeat auto-cols-custom md:auto-cols-auto sm:mx-0">
-        <ImageLayout src={ph3} logo="/images/logos/shopify.png" />
-        <ImageLayout src={ph} logo="/images/logos/uber.png" />
-        <ImageLayout src={us2} logo="/images/logos/delta.png" className="brightness-0 invert" />
+        <ImageLayout src={ph3} alt="" logoAlt="Shopify logo"  logo="/images/logos/shopify.png" />
+        <ImageLayout src={ph}  alt="" logoAlt="Uber logo" logo="/images/logos/uber.png" />
+        <ImageLayout src={us2} alt="" logoAlt="Delta Hotels logo"  logo="/images/logos/delta.png" className="brightness-0 invert" />
       </div>
       <ColumnOne />
     </div>
