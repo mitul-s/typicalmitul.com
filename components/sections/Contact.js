@@ -139,7 +139,7 @@ const Contact = () => {
               className="py-1.5 text-lg normal-case md:text-2xl"
               onClick={copy}
             >
-              typicalmitul@gmail.com
+              typicalmitul<span className="hidden">null</span>@gmail.com
             </Button>
           </div>
           <div className="flex flex-col justify-end col-span-1 p-6 -mt-10 md:pl-4 md:border-l">
