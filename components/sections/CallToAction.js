@@ -6,8 +6,7 @@ const CallToAction = () => {
       <div
         className="px-4 py-4 sm:py-8 rounded text-eggshell md:py-12 md:px-12 bg-[#276EF0] shadow shadow-[#276EF0]"
         style={{
-          backgroundImage:
-            "linear-gradient(to right, #276EF0, rgba(0, 0, 0, 0)), url(/noise.svg);",
+          backgroundImage: "linear-gradient(to right, #276EF0, rgba(0, 0, 0, 0)), url(/noise.svg)",
         }}
       >
         <div className="flex flex-col max-w-6xl gap-y-6 md:gap-y-12">
