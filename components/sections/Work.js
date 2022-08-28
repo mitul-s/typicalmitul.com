@@ -1,17 +1,8 @@
 import { Text } from "@components";
 import NextImage from "next/image";
-
-let us =
-  "https://images.unsplash.com/photo-1645389776527-43c47e909550?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80";
-let us2 = "https://images.unsplash.com/photo-1647089490719-d539f4041119";
-let us3 = "https://images.unsplash.com/photo-1643068485255-15bb6c3727da";
-let ph =
-  "https://res.cloudinary.com/dcf2075hg/image/upload/v1647147195/Typical%20Mitul/Test/RainyJays_ovyisq.jpg";
-let ph2 =
-  "https://res.cloudinary.com/dcf2075hg/image/upload/v1647147216/Typical%20Mitul/Test/Karen_ifcimd.jpg";
-let ph3 =
-  "https://res.cloudinary.com/dcf2075hg/image/upload/v1647147132/Typical%20Mitul/Test/IMG_7893_cntower_print_men3lj.jpg";
-
+import delta from "../../public/images/delta.jpg";
+import uber_team from "../../public/images/uber_team.jpg";
+import shopify from "../../public/images/shopify.jpg";
 
 const ColumnOne = () => {
 
@@ -55,7 +46,7 @@ const ImageLayout = ({ logo, src, logoAlt, alt, className }) => {
           <NextImage layout="fill" objectFit="contain" src={logo} alt={logoAlt} />
         </div>
       </div>
-      <div className="scale-[101.5%] content brightness-75 aspect-square blur-[2px]">
+      <div className="scale-[101.5%] content brightness-50 aspect-square blur-[3px]">
         <NextImage 
           // placeholder="blur" 
           layout="fill" 
@@ -75,9 +66,9 @@ const Work = () => {
         <h2 className="text-dark">Work</h2>
       </div>
       <div className="grid grid-flow-col -mx-6 overflow-x-auto gap-x-yeat auto-cols-custom md:auto-cols-auto sm:mx-0">
-        <ImageLayout src={ph3} alt="" logoAlt="Shopify logo"  logo="/images/logos/shopify.png" />
-        <ImageLayout src={ph}  alt="" logoAlt="Uber logo" logo="/images/logos/uber.png" />
-        <ImageLayout src={us2} alt="" logoAlt="Delta Hotels logo"  logo="/images/logos/delta.png" className="brightness-0 invert" />
+        <ImageLayout src={shopify} alt="" logoAlt="Shopify logo"  logo="/images/logos/shopify.png" />
+        <ImageLayout src={uber_team}  alt="" logoAlt="Uber logo" logo="/images/logos/uber.png" />
+        <ImageLayout src={delta} alt="" logoAlt="Delta Hotels logo"  logo="/images/logos/delta.png" className="brightness-0 invert" />
       </div>
       <ColumnOne />
     </div>
