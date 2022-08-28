@@ -1,46 +1,56 @@
+import { Button, Image } from "@components";
+import lookup from "../../public/images/lookup.jpg";
+import tower_clouds from "../../public/images/tower_clouds.jpg";
+import la from "../../public/images/la.jpg";
+import karen from "../../public/images/karen.jpg";
+import nyc_ts from "../../public/images/nyc_ts.jpg";
+import grid_light from "../../public/images/grid_light.jpg"
+import cn_shangri from "../../public/images/cn_shangri.jpg";
+import jay_lookup from "../../public/images/jay_lookup.jpg";
+import walker from "../../public/images/walker.jpg";
+
 const images = [
   {
     key: 1,
-    src: "/images/la.jpg",
+    src: la,
     alt: "Old school Cadillac parked on a sunny LA day",
   },
   {
     key: 2,
-    src: "https://mitul.ca/media/photos/about/1.jpg",
+    src: jay_lookup,
     alt: "me",
   },
   {
     key: 3,
-    src: "/images/lookup.jpg",
+    src: lookup,
     alt: "Looking up at golden lights in Toronto's financial district",
   },
   {
     key: 4,
-    src: "https://mitul.ca/media/photos/about/4.jpg",
+    src: nyc_ts,
     alt: "me",
   },
   {
     key: 5,
-    src: "https://mitul.ca/media/photos/3.webp",
+    src: grid_light,
     alt: "me",
   },
   {
     key: 6,
-    src: "https://mitul.ca/media/photos/about/5.jpg",
+    src: karen,
     alt: "me",
   },
   {
     key: 7,
-    src: "/images/tower_clouds.jpg",
+    src: tower_clouds,
     alt: "The CN Tower appearing above the clouds",
   },
   {
     key: 8,
-    src: "https://mitul.ca/media/photos/4.webp",
+    src: walker,
     alt: "me",
   },
 ];
-import { Button, Image } from "@components";
 
 const PhotoGrid = () => {
   return (
