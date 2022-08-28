@@ -136,7 +136,7 @@ const Contact = () => {
               {value ? "Copied!" : "Click to copy ⬎"}
             </div>
             <Button
-              className="py-1.5 text-lg normal-case md:text-2xl"
+              className="sm:py-1.5 text-lg normal-case md:text-2xl"
               onClick={copy}
             >
               typicalmitul<span className="hidden">null</span>@gmail.com
