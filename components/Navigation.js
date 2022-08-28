@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import clsx from "clsx";
 import NextLink from "next/link";
-import { motion, useViewportScroll } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import { ContactDialog } from "@/sections/Contact";
 import { SheetContext } from "@/components/Sheet";
 
@@ -16,7 +16,7 @@ const Navigation = () => {
   const router = useRouter();
 
   /** this hook gets the scroll y-axis **/
-  const { scrollY } = useViewportScroll();
+  const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
 
   function update() {

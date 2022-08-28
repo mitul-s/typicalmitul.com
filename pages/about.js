@@ -4,6 +4,7 @@ import { Text, Button, Image, Heading } from "@components";
 import { ArrowUp, ArrowUpRight } from "phosphor-react";
 import Layout from "@/components/Layout";
 import { ContactDialog } from "@/components/sections/Contact";
+import { NextSeo } from 'next-seo';
 
 const clients = [
   "Shopify",
@@ -100,43 +101,47 @@ export default function About() {
     const { open, setOpen } = React.useContext(SheetContext);
 
   return (
-    <Layout>
-      <ContactDialog open={open} onOpenChange={setOpen} />
-      <main className="relative pb-20">
-        <div className="flex items-center px-6 md:px-4 gap-x-yeat">
-          <span className="w-6 h-6 border rounded-full bg-yolk border-dark shrink-0"></span>
-          <h1 className="text-5xl uppercase">About</h1>
-        </div>
-        <div className="grid px-6 gap-x-12 gap-y-4 md:px-4 md:grid-cols-2">
-          <Image src="/images/idx_me.jpg" alt="Photo of myself" priority />
-          <section className="flex flex-col gap-y-4">
-            <AboutText />
-            <hr className="-mb-1" />
-            <div className="md:col-start-2">
-              <Heading>Notable</Heading>
-              <div
-                className="grid gap-2 pt-2 whitespace-nowrap"
-                style={{
-                  gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
-                }}
-              >
-                {notables.map((notable, index) => (
-                  <Button
-                    key={index}
-                    href={notable.href}
-                    asAnchor
-                    className="bg-eggshell normal-case border-stone px-1 py-1.5 "
-                  >
-                    {notable.title}
-                    <ArrowUpRight />
-                  </Button>
-                ))}
+    <>
+      <NextSeo title="About" canonical="https://typicalmitul.com/about" />
+      <Layout>
+        <ContactDialog open={open} onOpenChange={setOpen} />
+        <main className="relative pb-20">
+          <div className="flex items-center px-6 md:px-4 gap-x-yeat">
+            <span className="w-6 h-6 border rounded-full bg-yolk border-dark shrink-0"></span>
+            <h1 className="text-5xl uppercase">About</h1>
+          </div>
+          <div className="grid px-6 gap-x-12 gap-y-4 md:px-4 md:grid-cols-2">
+            <Image src="/images/idx_me.jpg" alt="Photo of myself" priority />
+            <section className="flex flex-col gap-y-4">
+              <AboutText />
+              <hr className="-mb-1" />
+              <div className="md:col-start-2">
+                <Heading>Notable</Heading>
+                <div
+                  className="grid gap-2 pt-2 whitespace-nowrap"
+                  style={{
+                    gridTemplateColumns:
+                      "repeat(auto-fill, minmax(150px, 1fr))",
+                  }}
+                >
+                  {notables.map((notable, index) => (
+                    <Button
+                      key={index}
+                      href={notable.href}
+                      asAnchor
+                      className="bg-eggshell normal-case border-stone px-1 py-1.5 "
+                    >
+                      {notable.title}
+                      <ArrowUpRight />
+                    </Button>
+                  ))}
+                </div>
+                <ClientHistory setOpen={setOpen} />
               </div>
-              <ClientHistory setOpen={setOpen} />
-            </div>
-          </section>
-        </div>
-      </main>
-    </Layout>
+            </section>
+          </div>
+        </main>
+      </Layout>
+    </>
   );
 }
