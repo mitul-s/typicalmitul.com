@@ -1,6 +1,7 @@
 import NextImage from "next/image";
 import { motion } from "framer-motion";
 import { useIsSmall } from "@/hooks/useBreakpoint";
+import nyc_lookdown from "../../public/images/nyc_lookdown.jpg";
 
 const Hero = () => {
   
@@ -31,10 +32,8 @@ const Hero = () => {
           transition={{ delay: 1.2, duration: 0.7 }}
         >
           <NextImage
-            src="/images/nyc_lookdown.jpg"
+            src={nyc_lookdown}
             priority
-            layout="fill"
-            objectFit="cover"
             alt="Looking down on the streets in NYC"
           />
         </motion.div>
