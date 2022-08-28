@@ -38,7 +38,7 @@ const NotSure = () => {
 }
 
 const Form = () => {
-  const [state, handleSubmit] = useForm("moqbabyl");
+  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORM);
   const [inputs, setInputs] = useState({
     email: "",
     message: "",
