@@ -5,6 +5,8 @@ import NextLink from "next/link";
 import { motion, useScroll } from "framer-motion";
 import { ContactDialog } from "@/sections/Contact";
 import { SheetContext } from "@/components/Sheet";
+import splitbee from "@splitbee/web";
+import { LinuxLogo } from "phosphor-react";
 
 const navLinks = [
   { id: 1, title: "Home", href: "/" },
@@ -53,10 +55,16 @@ const Navigation = () => {
           className="fixed p-1 leading-none border rounded-full shadow-md bg-eggshell bottom-6 md:bottom-12 border-dark w-fit"
         >
           <ul className="flex gap-x-0.5 text-base leading-none">
-            {navLinks.map(link => (
+            {navLinks.map((link) => (
               <li key={link.id} className="grid">
-                <NextLink href={link.href} passHref as={link.as}>
+                <NextLink href={link.href} passHref>
                   <motion.a
+                    onClick={() =>
+                      splitbee.track("Navigate", {
+                        destination: link.title,
+                        locationFrom: router.pathname,
+                      })
+                    }
                     whileTap={{
                       scale: 0.95,
                       transition: {
@@ -92,7 +100,13 @@ const Navigation = () => {
             ))}
             <li className="grid">
               <motion.button
-                onClick={() => setOpen(true)}
+                onClick={() => {
+                  setOpen(true);
+                  splitbee.track("Navigate", {
+                    destination: "Contact Dialog",
+                    locationFrom: router.pathname,
+                  });
+                }}
                 whileTap={{
                   scale: 0.95,
                   transition: {

@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@formspree/react": "^2.3.0",
-    "@radix-ui/react-dialog": "^0.1.7",
+    "@radix-ui/react-dialog": "^1.0.0",
     "@radix-ui/react-tooltip": "^0.1.7",
     "@splitbee/web": "^0.3.0",
     "class-variance-authority": "^0.2.3",
@@ -19,7 +19,8 @@
     "next-seo": "^5.5.0",
     "phosphor-react": "^1.4.1",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "tailwindcss-radix": "^2.5.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",
