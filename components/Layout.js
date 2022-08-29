@@ -7,6 +7,7 @@ import React from "react";
 export default function Layout({ children }) {
   const { open } = React.useContext(SheetContext);
 
+  // There's a weird bug on about page where height of guiding lines doesn't become full due to translate?
   return (
     <div className="relative min-h-full">
       <Navigation />
