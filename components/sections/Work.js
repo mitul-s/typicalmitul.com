@@ -40,7 +40,7 @@ const ColumnOne = () => {
 
 const ImageLayout = ({ logo, src, logoAlt, alt, className }) => {
   return (
-    <div className="grid overflow-hidden border rounded h-fit border-stone first:ml-6 last:mr-6 sm:first:ml-0 sm:last:mr-0 isolate">
+    <div className="grid overflow-hidden border rounded h-fit border-stone sm:first:ml-0 sm:last:mr-0 isolate">
       <div className="z-10 flex flex-col items-center justify-center text-white gap-y-4 -mt-yeat overlay">
         <div className={`relative w-28 h-28 sm:w-40 sm:h-40 overflow-hidden ${className}`}>
           <NextImage layout="fill" objectFit="contain" src={logo} alt={logoAlt} />
@@ -65,7 +65,7 @@ const Work = () => {
         <span className="w-2.5 h-2.5 rounded bg-yolk border border-dark -mt-0.5" />
         <h2 className="text-dark">Work</h2>
       </div>
-      <div className="grid grid-flow-col -mx-6 overflow-x-auto gap-x-yeat auto-cols-custom md:auto-cols-auto sm:mx-0">
+      <div className="grid grid-flow-col pl-6 pr-6 -mx-6 overflow-x-auto gap-x-yeat auto-cols-custom md:auto-cols-auto sm:mx-0 sm:px-0">
         <ImageLayout src={shopify} alt="" logoAlt="Shopify logo"  logo="/images/logos/shopify.png" />
         <ImageLayout src={uber_team}  alt="" logoAlt="Uber logo" logo="/images/logos/uber.png" />
         <ImageLayout src={delta} alt="" logoAlt="Delta Hotels logo"  logo="/images/logos/delta.png" className="brightness-0 invert" />
