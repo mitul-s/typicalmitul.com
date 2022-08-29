@@ -1,4 +1,6 @@
-yo
+yo yo this my photography portfolio website. there's a bunch of stuff i'm working on and still adding, so not everything is tip-top but check it out and let me know what ya think!!
+
+--- 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
