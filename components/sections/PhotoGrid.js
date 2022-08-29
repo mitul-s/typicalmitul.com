@@ -12,7 +12,7 @@ import { Dialog, DialogTrigger, DialogContent, DialogOverlay, DialogPortal } fro
 import NextImage from "next/image";
 import NextFutureImage from "next/future/image";
 import React from "react";
-import { AnimatePresence, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { cx } from "class-variance-authority"
 
 const images = [
@@ -62,22 +62,20 @@ const images = [
 ];
 
 
-const Image2 = React.forwardRef(({ src, alt, ...props }, forwardRef) => (
+const Image2 = ({ src, alt, ...props }) => (
     <NextImage
       src={src}
       alt={alt}
-      ref={forwardRef}
       layout="fill"
       objectFit="cover"
       className={"transition duration-500 betterhover:hover:scale-[1.03]"}
       {...props}
     />
-));
+);
 
-  Image2.displayName = "Image2"
+Image2.displayName = "Image2"
 
 const PhotoGrid = () => {
-  const [open, setOpen] = React.useState(false);
   return (
     <>
       <div className="grid h-auto grid-cols-2 sm:grid-cols-6 gap-yeat sm-g">
