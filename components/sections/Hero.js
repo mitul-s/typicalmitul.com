@@ -33,6 +33,8 @@ const Hero = () => {
         >
           <NextImage
             src={nyc_lookdown}
+            layout="fill"
+            objectFit="cover"
             priority
             alt="Looking down on the streets in NYC"
           />
