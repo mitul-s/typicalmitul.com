@@ -43,6 +43,7 @@ const images = [
   {
     key: 7,
     src: tower_clouds,
+    position: "top",
     alt: "The CN Tower appearing above the clouds",
   },
   {
@@ -62,6 +63,7 @@ const PhotoGrid = () => {
             className="photo-grid-item"
             key={image.key}
             alt={image.alt}
+            objectPosition={image.position}
             quality={50}
             priority
             // placeholder="blur"
