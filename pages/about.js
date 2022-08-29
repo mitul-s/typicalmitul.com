@@ -125,6 +125,8 @@ export default function About() {
                     key={index}
                     href={notable.href}
                     asAnchor
+                    target="_blank"
+                    rel="noreferrer noopener"
                     className="bg-eggshell normal-case border-stone px-1 py-1.5 "
                   >
                     {notable.title}
