@@ -83,23 +83,27 @@ const PhotoGrid = () => {
       <div className="grid h-auto grid-cols-2 sm:grid-cols-6 gap-yeat sm-g">
         {images.map((image) => {
           return (
-          <Dialog key={image.key}>
-            <DialogTrigger
-              className="relative w-full overflow-hidden transition-all duration-500 border rounded-lg shadow betterhover:hover:shadow-xl betterhover:hover:shadow-yolk/50 betterhover:hover:border-yolk border-stone photo-grid-item"
-              onClick={() => setOpen(true)}
-            >
-              <Image2
-                src={image.src}
-                alt={image.alt}
-                objectPosition={image.position}
-                quality={50}
-                priority
-                placeholder="blur"
-              />
-            </DialogTrigger>
-            
+            <Dialog key={image.key}>
+              <DialogTrigger className="relative w-full overflow-hidden transition-all duration-500 border rounded-lg shadow betterhover:hover:shadow-xl betterhover:hover:shadow-yolk/50 betterhover:hover:border-yolk border-stone photo-grid-item">
+                <Image2
+                  src={image.src}
+                  alt={image.alt}
+                  objectPosition={image.position}
+                  quality={50}
+                  priority
+                  placeholder="blur"
+                />
+              </DialogTrigger>
+
               <DialogPortal>
-                <DialogOverlay className="fixed inset-0 bg-black/75 backdrop-blur-md">
+                <DialogOverlay asChild>
+                  <motion.div
+                    className="fixed inset-0 bg-black/75 backdrop-blur-md"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.35 }}
+                  />
                 </DialogOverlay>
                 <DialogContent className="fixed inset-0 mx-auto my-auto rounded shadow outline-none h-fit w-fit">
                   <motion.div
@@ -125,9 +129,8 @@ const PhotoGrid = () => {
                   </motion.div>
                 </DialogContent>
               </DialogPortal>
-            
-          </Dialog>
-        )})}
+            </Dialog>
+          );})}
       </div>
       <div className="mt-yeat"></div>
       {/* To do */}
