@@ -55,11 +55,16 @@ const Navigation = () => {
           className="fixed p-1 leading-none border rounded-full shadow-md bg-eggshell bottom-6 md:bottom-12 border-dark w-fit"
         >
           <ul className="flex gap-x-0.5 text-base leading-none">
-            {navLinks.map(link => (
+            {navLinks.map((link) => (
               <li key={link.id} className="grid">
                 <NextLink href={link.href} passHref>
                   <motion.a
-                    onClick={() => splitbee.track("Navigate", { destination: link.title })}
+                    onClick={() =>
+                      splitbee.track("Navigate", {
+                        destination: link.title,
+                        locationFrom: router.pathname,
+                      })
+                    }
                     whileTap={{
                       scale: 0.95,
                       transition: {
@@ -95,7 +100,13 @@ const Navigation = () => {
             ))}
             <li className="grid">
               <motion.button
-                onClick={() => {setOpen(true); splitbee.track("Navigate", { destination: "Contact Dialog" })}}
+                onClick={() => {
+                  setOpen(true);
+                  splitbee.track("Navigate", {
+                    destination: "Contact Dialog",
+                    locationFrom: router.pathname,
+                  });
+                }}
                 whileTap={{
                   scale: 0.95,
                   transition: {
