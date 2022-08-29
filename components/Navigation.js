@@ -5,6 +5,7 @@ import NextLink from "next/link";
 import { motion, useScroll } from "framer-motion";
 import { ContactDialog } from "@/sections/Contact";
 import { SheetContext } from "@/components/Sheet";
+import splitbee from "@splitbee/web";
 
 const navLinks = [
   { id: 1, title: "Home", href: "/" },
@@ -55,7 +56,7 @@ const Navigation = () => {
           <ul className="flex gap-x-0.5 text-base leading-none">
             {navLinks.map(link => (
               <li key={link.id} className="grid">
-                <NextLink href={link.href} passHref as={link.as}>
+                <NextLink href={link.href} passHref>
                   <motion.a
                     whileTap={{
                       scale: 0.95,
