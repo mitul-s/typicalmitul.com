@@ -14,15 +14,15 @@ const ColumnOne = () => {
 
   
   return (
-    <div className="w-full pt-6 pb-6 md:pr-8 max-w-prose grow">
+    <div className="w-full pt-6 pb-6 max-w-prose xl:max-w-screen-lg md:pr-8 grow">
       <div className="flex flex-col justify-between h-full">
         <div>
-          <Text>
+          <Text className="text-2xl xl:text-5xl">
             At the centre of everything I do rests the power of storytelling.
             Through the years, I have been lucky to work alongside countless
             brands and companies to craft an impactful story through my photos.
           </Text>
-          <p className="w-full mt-2 sm:w-2/3 text-md text-dark/50">
+          <p className="w-full mt-2 text-md xl:text-2xl sm:w-2/3 text-dark/50">
             Photography revolves around my trips and adventures. From brand
             shoots to licensing, I would be honoured to provide creative pieces
             that work for you.
