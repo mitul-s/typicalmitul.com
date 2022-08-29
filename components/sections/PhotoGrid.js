@@ -103,7 +103,10 @@ const PhotoGrid = () => {
                     transition={{ duration: 0.35 }}
                   />
                 </DialogOverlay>
-                <DialogContent className="fixed inset-0 mx-auto my-auto rounded shadow outline-none h-fit w-fit">
+                <DialogContent
+                  className="fixed inset-0 mx-auto my-auto rounded shadow outline-none h-fit w-fit"
+                  onCloseAutoFocus={e => e.preventDefault()}
+                >
                   <motion.div
                     className={cx(
                       "relative w-auto sm:h-[800px]",
