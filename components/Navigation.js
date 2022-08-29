@@ -6,6 +6,7 @@ import { motion, useScroll } from "framer-motion";
 import { ContactDialog } from "@/sections/Contact";
 import { SheetContext } from "@/components/Sheet";
 import splitbee from "@splitbee/web";
+import { LinuxLogo } from "phosphor-react";
 
 const navLinks = [
   { id: 1, title: "Home", href: "/" },
@@ -58,6 +59,7 @@ const Navigation = () => {
               <li key={link.id} className="grid">
                 <NextLink href={link.href} passHref>
                   <motion.a
+                    onClick={() => splitbee.track("Navigate", { destination: link.title })}
                     whileTap={{
                       scale: 0.95,
                       transition: {
@@ -93,7 +95,7 @@ const Navigation = () => {
             ))}
             <li className="grid">
               <motion.button
-                onClick={() => setOpen(true)}
+                onClick={() => {setOpen(true); splitbee.track("Navigate", { destination: "Contact Dialog" })}}
                 whileTap={{
                   scale: 0.95,
                   transition: {
