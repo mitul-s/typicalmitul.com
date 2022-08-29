@@ -37,6 +37,7 @@ export const Image = ({
         {...props}
         src={src}
         alt={alt}
+        quality={25}
         layout="fill"
         objectFit="cover"
         className={clsx({

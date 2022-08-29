@@ -37,6 +37,7 @@ const Hero = () => {
             objectFit="cover"
             priority
             alt="Looking down on the streets in NYC"
+            quality={25}
           />
         </motion.div>
       </div>

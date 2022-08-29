@@ -87,7 +87,7 @@ const PhotoGrid = () => {
                   src={image.src}
                   alt={image.alt}
                   objectPosition={image.position}
-                  quality={50}
+                  quality={25}
                   priority
                   placeholder="blur"
                 />
@@ -123,6 +123,8 @@ const PhotoGrid = () => {
                       alt={image.alt}
                       className="w-auto h-full rounded shadow-md"
                       placeholder="blur"
+                      priority
+                      quality={25}
                     />
                   </motion.div>
                 </DialogContent>
