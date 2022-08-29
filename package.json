@@ -14,7 +14,7 @@
     "@splitbee/web": "^0.3.0",
     "class-variance-authority": "^0.2.3",
     "clsx": "^1.1.1",
-    "framer-motion": "^6.2.8",
+    "framer-motion": "^7.2.1",
     "next": "12",
     "next-seo": "^5.5.0",
     "phosphor-react": "^1.4.1",
