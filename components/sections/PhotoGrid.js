@@ -12,7 +12,7 @@ import { Dialog, DialogTrigger, DialogContent, DialogOverlay, DialogPortal } fro
 import NextImage from "next/image";
 import NextFutureImage from "next/future/image";
 import React from "react";
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import { cx } from "class-variance-authority"
 
 const images = [
@@ -76,13 +76,20 @@ const Image2 = ({ src, alt, ...props }) => (
 Image2.displayName = "Image2"
 
 const PhotoGrid = () => {
+
+  const [selected, setSelected] = React.useState();
+
   return (
     <>
       <div className="grid h-auto grid-cols-2 sm:grid-cols-6 gap-yeat sm-g">
-        {images.map((image) => {
-          return (
-            <Dialog key={image.key}>
-              <DialogTrigger className="relative w-full overflow-hidden transition-all duration-500 border rounded-lg shadow betterhover:hover:shadow-xl betterhover:hover:shadow-yolk/50 betterhover:hover:border-yolk border-stone photo-grid-item">
+        <Dialog>
+          {images.map((image) => {
+            return (
+              <DialogTrigger
+                key={image.key}
+                className="relative w-full overflow-hidden transition-all duration-500 border rounded-lg shadow betterhover:hover:shadow-xl betterhover:hover:shadow-yolk/50 betterhover:hover:border-yolk border-stone photo-grid-item"
+                onClick={() => setSelected(image.key)}
+              >
                 <Image2
                   src={image.src}
                   alt={image.alt}
@@ -92,48 +99,47 @@ const PhotoGrid = () => {
                   placeholder="blur"
                 />
               </DialogTrigger>
-
-              <DialogPortal>
-                <DialogOverlay asChild>
-                  <motion.div
-                    className="fixed inset-0 bg-black/75 backdrop-blur-md"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.35 }}
-                  />
-                </DialogOverlay>
-                <DialogContent
-                  className="fixed inset-0 mx-auto my-auto rounded shadow outline-none h-fit w-fit"
-                  onCloseAutoFocus={e => e.preventDefault()}
-                >
-                  <motion.div
-                    className={cx(
-                      "relative w-auto sm:h-[800px]",
-                      image.vertical ? "h-[500px]" : "h-[250px]"
-                    )}
-                    initial={{ y: 10, opacity: 0 }}
-                    animate={{
-                      opacity: 1,
-                      y: 0,
-                    }}
-                    transition={{
-                      duration: 0.4,
-                    }}
-                  >
-                    <NextFutureImage
-                      src={image.src}
-                      alt={image.alt}
-                      className="w-auto h-full rounded shadow-md"
-                      placeholder="blur"
-                      priority
-                      quality={25}
-                    />
-                  </motion.div>
-                </DialogContent>
-              </DialogPortal>
-            </Dialog>
-          );})}
+            );
+          })}
+          <DialogPortal>
+            <DialogOverlay className="fixed inset-0 bg-black/75 backdrop-blur-md rdx-state-open:overlay-fade-in rdx-state-closed:overlay-fade-out" />
+            <DialogContent
+              className="fixed inset-0 mx-auto my-auto rounded shadow outline-none h-fit w-fit rdx-state-open:dialog-item-open rdx-state-closed:dialog-item-close"
+              onCloseAutoFocus={(e) => e.preventDefault()}
+            >
+              {images.map((i) => {
+                if (i.key === selected) {
+                  return (
+                    <motion.div
+                      key={i.key}
+                      className={cx(
+                        "relative w-auto sm:h-[800px]",
+                        i.vertical ? "h-[500px]" : "h-[250px]"
+                      )}
+                      initial={{ y: 10, opacity: 0 }}
+                      animate={{
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      transition={{
+                        duration: 0.4,
+                      }}
+                    >
+                      <NextFutureImage
+                        src={i.src}
+                        alt={i.alt}
+                        className="w-auto h-full rounded shadow-md"
+                        placeholder="blur"
+                        priority
+                        quality={25}
+                      />
+                    </motion.div>
+                  );
+                }
+              })}
+            </DialogContent>
+          </DialogPortal>
+        </Dialog>
       </div>
       <div className="mt-yeat"></div>
       {/* To do */}
