@@ -87,7 +87,60 @@ body {
   .auto-cols-custom {
     grid-auto-columns: calc(100% - 10rem);
   }
+  .overlay-fade-in {
+    animation: fade-in 0.55s cubic-bezier(0.12, 0.23, 0.5, 1);
+  }
+  .overlay-fade-out {
+    animation: fade-out 0.1s cubic-bezier(0.5, 0, 0.88, 0.77);
+  }
+  .dialog-item-open {
+    animation: dialog-item-open 0.4s cubic-bezier(0.12, 0.23, 0.5, 1);
+  }
+  .dialog-item-close {
+    animation: dialog-item-close 0.2s cubic-bezier(0.12, 0.23, 0.5, 1);
+  }
 }
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes dialog-item-open {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+    
+  }
+  to { 
+  transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes dialog-item-close {
+  from {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  to { 
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
+
 
 .better-underline {
   transition: all 0.2s ease-out 0s;
