@@ -1,3 +1,5 @@
+import splitbee from "@splitbee/web";
+
 const Footer = () => {
 
   const footerLinks = [
@@ -28,14 +30,33 @@ const Footer = () => {
   );
   
   return (
-    <footer className="grid-cols-2 px-6 py-6 text-sm border-t md:text-lg border-stone md:px-4 md:grid">
-      <ul className="flex justify-start gap-x-2">
+    <footer className="flex flex-col px-6 py-6 text-sm border-t md:text-lg border-stone md:px-4">
+      <ul className="flex gap-x-2">
         {footerLinks.map((link, index) => (
           <Item key={index} href={link.href}>
             {link.text}
           </Item>
         ))}
       </ul>
+      <div className="mt-4 text-xs max-w-prose">
+        This website was designed and built by myself, lots of water and Playboi
+        Carti on repeat. <br /> If you have any feedback, I{"'"}d appreciate it!
+        You can also visit the Github repo{" "}
+        <a
+          href="https://github.com/mitul-s/typicalmitul.com"
+          onClick={() =>
+            splitbee.track("Social Click", {
+              location: "Github"
+            })
+          }
+          target="_blank"
+          rel="noreferrer"
+          className="underline underline-offset-2"
+        >
+          here
+        </a>
+        .
+      </div>
     </footer>
   );
 }
