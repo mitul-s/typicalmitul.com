@@ -15,6 +15,7 @@ const CallToAction = () => {
               src="/images/logos/uber.png"
               objectFit="contain"
               layout="fill"
+              alt="Uber Logo"
             />
           </div>
           <blockquote className="text-xl sm:text-2xl sm:!leading-tight md:text-5xl">

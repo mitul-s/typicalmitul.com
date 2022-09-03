@@ -41,19 +41,19 @@ const Footer = () => {
       <div className="mt-4 text-xs max-w-prose">
         This website was designed and built by myself, lots of water and Playboi
         Carti on repeat. <br /> If you have any feedback, I{"'"}d appreciate it!
-        You can also visit the Github repo{" "}
+        You can also visit the{" "}
         <a
           href="https://github.com/mitul-s/typicalmitul.com"
           onClick={() =>
             splitbee.track("Social Click", {
-              location: "Github"
+              location: "Github",
             })
           }
           target="_blank"
           rel="noreferrer"
           className="underline underline-offset-2"
         >
-          here
+          GitHub repo
         </a>
         .
       </div>
