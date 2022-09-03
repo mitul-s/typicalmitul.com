@@ -1,7 +1,7 @@
 import NextImage from "next/image";
 import { motion } from "framer-motion";
 import { useIsSmall } from "@/hooks/useBreakpoint";
-import nyc_lookdown from "../../public/images/nyc_lookdown.jpg";
+import nyc_lookdown from "../../public/images/new-york-city-lookdown.jpg";
 
 const Hero = () => {
   
@@ -29,14 +29,14 @@ const Hero = () => {
           className="relative flex items-center justify-center w-full h-full overflow-hidden content brightness-50"
           layout
           animate={{ borderRadius: "8px" }}
-          transition={{ delay: 1.2, duration: 0.7 }} 
+          transition={{ delay: 1.2, duration: 0.7 }}
         >
           <NextImage
             src={nyc_lookdown}
             layout="fill"
             objectFit="cover"
             priority
-            alt="Looking down on the streets in NYC"
+            alt="Photo of New York City streets filled with yellow taxi cabs, taken from on top of a building with a reflection of the streets."
             quality={15}
           />
         </motion.div>

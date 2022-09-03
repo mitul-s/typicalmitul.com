@@ -1,63 +1,61 @@
-import { Button, Image } from "@components";
-import lookup from "../../public/images/lookup.jpg";
-import tower_clouds from "../../public/images/tower_clouds.jpg";
-import la from "../../public/images/la.jpg";
-import karen from "../../public/images/karen.jpg";
-import nyc_ts from "../../public/images/nyc_ts.jpg";
-import grid_light from "../../public/images/grid_light.jpg"
-import cn_shangri from "../../public/images/cn_shangri.jpg";
-import jay_lookup from "../../public/images/jay_lookup.jpg";
-import walker from "../../public/images/walker.jpg";
+import lookup from "../../public/images/golden-lights-toronto-lookup.jpg";
+import tower_clouds from "../../public/images/cn-tower-in-the-clouds.jpg";
+import la from "../../public/images/old-school-cadillac.jpg";
+import karen from "../../public/images/female-model-dark-room-highlighted.jpg";
+import nyc_ts from "../../public/images/new-york-city-times-square.jpg";
+import grid_light from "../../public/images/sunlight-through-skyscrapers.jpg";
+import jay_lookup from "../../public/images/blue-jays-hat-lookup.jpg";
+import walker from "../../public/images/crossing-the-road.jpg";
 import { Dialog, DialogTrigger, DialogContent, DialogOverlay, DialogPortal } from "@radix-ui/react-dialog";
 import NextImage from "next/image";
 import NextFutureImage from "next/future/image";
 import React from "react";
-import { AnimatePresence, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { cx } from "class-variance-authority"
 
 const images = [
   {
     key: 1,
     src: la,
-    alt: "Old school Cadillac parked on a sunny LA day",
+    alt: "An old school Cadillac parked in front of a driveway in Los Angeles with blue skies and a tree in the background",
   },
   {
     key: 2,
     src: jay_lookup,
-    alt: "me",
+    alt: "A man wearing a Blue Jays hat looking up at a golden coloured skyscraper in Toronto, Canada with a camera in his hand",
   },
   {
     key: 3,
     src: lookup,
-    alt: "Looking up at golden lights in Toronto's financial district",
+    alt: "Looking up at the skyscrapers in Toronto, Canada's financial district. Corner of a building with golden ceiling lights.",
     vertical: true,
   },
   {
     key: 4,
     src: nyc_ts,
-    alt: "me",
+    alt: "A man sitting on top of a building looking down and taking a photo of New York City's Times Square at night",
   },
   {
     key: 5,
     src: grid_light,
-    alt: "me",
+    alt: "Patterned skyscrapers in Toronto, Canada standing close together with the sunlight shining through the middle of them",
   },
   {
     key: 6,
     src: karen,
-    alt: "me",
+    alt: "Female model standing in a dark room being highlighted from sunshine coming through the window. Extreme juxtaposition.",
   },
   {
     key: 7,
     src: tower_clouds,
     position: "top",
-    alt: "The CN Tower appearing above the clouds",
+    alt: "A photo of the top of half of the CN Tower in Toronto, Canada, standing tall above the clouds with a blue sky",
     vertical: true,
   },
   {
     key: 8,
     src: walker,
-    alt: "me",
+    alt: "A long exposure of a man crossing the road in Toronto's financial district with two transit streetcars passing in the background",
   },
 ];
 
