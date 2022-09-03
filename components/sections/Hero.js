@@ -29,7 +29,7 @@ const Hero = () => {
           className="relative flex items-center justify-center w-full h-full overflow-hidden content brightness-50"
           layout
           animate={{ borderRadius: "8px" }}
-          transition={{ delay: 1.2, duration: 0.7 }}
+          transition={{ delay: 1.2, duration: 0.7 }} 
         >
           <NextImage
             src={nyc_lookdown}
