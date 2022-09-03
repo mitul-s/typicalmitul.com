@@ -12,49 +12,58 @@ import NextFutureImage from "next/future/image";
 import React from "react";
 import { motion } from "framer-motion"
 import { cx } from "class-variance-authority"
+import splitbee from "@splitbee/web";
 
 const images = [
   {
     key: 1,
     src: la,
+    title: "Old School Cadillac",
     alt: "An old school Cadillac parked in front of a driveway in Los Angeles with blue skies and a tree in the background",
   },
   {
     key: 2,
     src: jay_lookup,
+    title: "Blue Jays Lookup",
     alt: "A man wearing a Blue Jays hat looking up at a golden coloured skyscraper in Toronto, Canada with a camera in his hand",
   },
   {
     key: 3,
     src: lookup,
+    title: "Toronto Classic Lookup",
     alt: "Looking up at the skyscrapers in Toronto, Canada's financial district. Corner of a building with golden ceiling lights.",
     vertical: true,
   },
   {
     key: 4,
     src: nyc_ts,
+    title: "Above Times Square",
     alt: "A man sitting on top of a building looking down and taking a photo of New York City's Times Square at night",
   },
   {
     key: 5,
     src: grid_light,
+    title: "Grid Light",
     alt: "Patterned skyscrapers in Toronto, Canada standing close together with the sunlight shining through the middle of them",
   },
   {
     key: 6,
     src: karen,
+    title: "Karen's Contrast",
     alt: "Female model standing in a dark room being highlighted from sunshine coming through the window. Extreme juxtaposition.",
   },
   {
     key: 7,
     src: tower_clouds,
     position: "top",
+    title: "Above the Clouds",
     alt: "A photo of the top of half of the CN Tower in Toronto, Canada, standing tall above the clouds with a blue sky",
     vertical: true,
   },
   {
     key: 8,
     src: walker,
+    title: "Slow Walker",
     alt: "A long exposure of a man crossing the road in Toronto's financial district with two transit streetcars passing in the background",
   },
 ];
@@ -86,7 +95,7 @@ const PhotoGrid = () => {
               <DialogTrigger
                 key={image.key}
                 className="relative w-full overflow-hidden transition-all duration-500 border rounded-lg shadow betterhover:hover:shadow-xl betterhover:hover:shadow-yolk/50 betterhover:hover:border-yolk border-stone photo-grid-item"
-                onClick={() => setSelected(image.key)}
+                onClick={() => {setSelected(image.key); splitbee.track("Open Photo", { title: image.title })}}
               >
                 <Image2
                   src={image.src}
