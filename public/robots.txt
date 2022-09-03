@@ -1,0 +1,6 @@
+Sitemap: https://typicalmitul.com/sitemap.xml
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
