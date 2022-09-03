@@ -16,6 +16,7 @@ const PlusIcon = () => {
         },
       }}
       className="w-6 h-6 rounded-full sm:w-8 sm:h-8 bg-eggshell last:absolute last:top-0 last:-right-6 sm:last:-right-8 even:invisible md:even:visible"
+      aria-hidden="true"
     />
   );
 };
