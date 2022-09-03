@@ -1,6 +1,7 @@
 import { Button, Tooltip, Marquee, Image } from "@components";
 import { ArrowRight } from "phosphor-react";
 import NextLink from "next/link";
+import idx_me from "../../public/images/man-standing-in-montreal-metro.jpg";
 
 const About = () => {
   return (
@@ -9,8 +10,8 @@ const About = () => {
         <div className="flex flex-col gap-y-2 md:order-last">
           <Marquee />
           <Image
-            src="/images/idx_me.jpg"
-            alt="Photo of myself"
+            src={idx_me}
+            alt="A futuristic, cinematic photo of myself standing in front of blue tinted lights in the Montreal metro, wearing a red jacket"
             height="md:order-first aspect-square md:h-img"
           />
         </div>
