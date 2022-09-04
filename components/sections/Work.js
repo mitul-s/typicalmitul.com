@@ -42,7 +42,7 @@ const ImageLayout = ({ logo, src, logoAlt, alt, className }) => {
   return (
     <div className="grid overflow-hidden border rounded h-fit border-stone sm:first:ml-0 sm:last:mr-0 isolate">
       <div className="z-10 flex flex-col items-center justify-center text-white gap-y-4 -mt-yeat overlay">
-        <div className={`relative w-28 h-28 sm:w-40 sm:h-40 overflow-hidden ${className}`}>
+        <div className={`relative w-20 h-20 sm:w-40 sm:h-40 overflow-hidden ${className}`}>
           <NextImage layout="fill" objectFit="contain" src={logo} alt={logoAlt} />
         </div>
       </div>
