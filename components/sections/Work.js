@@ -66,9 +66,9 @@ const Work = () => {
         <h2 className="text-dark">Work</h2>
       </div>
       <div className="grid grid-flow-col pl-6 pr-6 -mx-6 overflow-x-auto gap-x-yeat auto-cols-custom md:auto-cols-auto sm:mx-0 sm:px-0">
-        <ImageLayout src={shopify} alt="" logoAlt="Shopify logo"  logo="/images/logos/shopify.png" />
-        <ImageLayout src={uber_team}  alt="" logoAlt="Uber logo" logo="/images/logos/uber.png" />
-        <ImageLayout src={delta} alt="" logoAlt="Delta Hotels logo"  logo="/images/logos/delta.png" className="brightness-0 invert" />
+        <ImageLayout src={shopify} alt="" logoAlt="Shopify logo"  logo="/images/logos/shopify-logo.png" />
+        <ImageLayout src={uber_team}  alt="" logoAlt="Uber logo" logo="/images/logos/uber-logo.png" />
+        <ImageLayout src={delta} alt="" logoAlt="Delta Hotels logo"  logo="/images/logos/delta-hotels-logo.png" className="brightness-0 invert" />
       </div>
       <ColumnOne />
     </div>
