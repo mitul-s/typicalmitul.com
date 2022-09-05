@@ -107,7 +107,11 @@ export default function About() {
           <h1 className="text-5xl uppercase">About</h1>
         </div>
         <div className="grid px-6 gap-x-12 gap-y-4 md:px-4 md:grid-cols-2">
-          <Image src="/images/idx_me.jpg" alt="Photo of myself" priority />
+          <Image
+            src="/images/man-standing-in-montreal-metro.jpg"
+            alt="Photo of myself"
+            priority
+          />
           <section className="flex flex-col gap-y-4">
             <AboutText />
             <hr className="-mb-1" />
