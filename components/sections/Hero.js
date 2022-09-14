@@ -37,7 +37,7 @@ const Hero = () => {
             objectFit="cover"
             priority
             alt="Photo of New York City streets filled with yellow taxi cabs, taken from on top of a building with a reflection of the streets."
-            quality={15}
+            quality={5}
           />
         </motion.div>
       </div>
