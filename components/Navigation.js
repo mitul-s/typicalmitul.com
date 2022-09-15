@@ -20,8 +20,6 @@ const Navigation = () => {
   return (
     <>
       <ContactDialog open={open} onOpenChange={setOpen} />
-
-      
         <nav className="fixed z-40 p-1 leading-none -translate-x-1/2 border rounded shadow-md bg-eggshell left-1/2 bottom-6 md:bottom-12 border-dark w-fit">
           <ul className="flex gap-x-0.5 text-base leading-none">
             {navLinks.map((link) => (
@@ -36,7 +34,7 @@ const Navigation = () => {
                       },
                     }}
                     className={clsx(
-                      "inline-block px-5 py-3 border border-transparent rounded content text-dark transition-colors duration-250",
+                      "inline-block px-5 py-2.5 border border-transparent rounded content text-dark transition-colors duration-250",
                       {
                         "betterhover:hover:border-dark/50":
                           router.pathname !== link.href,
@@ -49,7 +47,7 @@ const Navigation = () => {
                 {router.pathname === link.href && (
                   <motion.div
                     layoutId="navItem"
-                    className="inline-block px-5 py-3 border border-transparent rounded shadow bg-dark overlay invert mix-blend-difference"
+                    className="inline-block px-5 py-2.5 border border-transparent rounded shadow bg-dark overlay invert mix-blend-difference"
                     animate
                   />
                 )}
@@ -65,14 +63,14 @@ const Navigation = () => {
                     duration: 0.15,
                   },
                 }}
-                className="inline-block px-5 py-3 transition-colors border border-transparent rounded content text-dark duration-250 betterhover:hover:border-dark/50"
+                className="inline-block px-5 py-2.5 transition-colors border border-transparent rounded content text-dark duration-250 betterhover:hover:border-dark/50"
               >
                 Contact
               </motion.button>
               {open && (
                 <motion.div
                   layoutId="navItem"
-                  className="inline-block px-5 py-3 border border-transparent rounded shadow bg-dark overlay invert mix-blend-difference"
+                  className="inline-block px-5 py-2.5 border border-transparent rounded shadow bg-dark overlay invert mix-blend-difference"
                   animate
                 />
               )}
