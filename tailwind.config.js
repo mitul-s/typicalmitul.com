@@ -38,10 +38,14 @@ module.exports = {
       colors: {
         // yolk: "#CCFF00",
         yolk: "#0EFC5F",
-        eggshell: "#F8F8F8",
+        // eggshell: "#F8F8F8",
+        // eggshell: "#F5F7FA",
+
+        eggshell: "#f6fafd",
         stone: {
           DEFAULT: "#A4A4A4",
           light: "#cbd6e0",
+          blue: "#5f6486",
         },
         dark: "#030303",
       },
