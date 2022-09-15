@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import clsx from "clsx";
 import NextLink from "next/link";
-import { motion, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
 import { ContactDialog } from "@/sections/Contact";
 import { SheetContext } from "@/components/Sheet";
 
@@ -14,7 +14,6 @@ const navLinks = [
 
 const Navigation = () => {
   const router = useRouter();
-
   const { open, setOpen } = React.useContext(SheetContext);
 
   return (
