@@ -9,17 +9,10 @@ const gear_data = [
     }
 ]
 
-const Gear = () => {
+const GearItem = () => {
+
     return (
-      <>
-        <NextSeo title="Gear" canonical="https://typicalmitul.com/gear" />
-        <main className="relative h-screen pb-20">
-          <div className="flex items-center px-6 md:px-4 gap-x-yeat">
-            <span className="w-6 h-6 border rounded-full bg-yolk border-dark shrink-0"></span>
-            <h1 className="text-5xl uppercase">Gear</h1>
-          </div>
-          <section className="px-4">
-            <div className="grid grid-cols-2 gap-x-4">
+        <div className="grid grid-cols-2 gap-x-12">
               <div className="w-full h-full bg-white rounded">c</div>
               <div className="flex flex-col gap-y-9">
                 <div className="max-w-screen-sm text-4xl">
@@ -38,6 +31,23 @@ const Gear = () => {
                 <button className="p-4 bg-yolk">Buy now</button>
               </div>
             </div>
+    )
+}
+
+
+const Gear = () => {
+    return (
+      <>
+        <NextSeo title="Gear" canonical="https://typicalmitul.com/gear" />
+        <main className="relative h-full pb-20">
+          <div className="flex items-center px-6 py-12 md:px-4 gap-x-yeat">
+            <span className="w-6 h-6 border rounded-full bg-yolk border-dark shrink-0"></span>
+            <h1 className="text-5xl uppercase">Gear</h1>
+          </div>
+          <section className="flex flex-col gap-12 px-4">
+            <GearItem />
+            <GearItem />
+            <GearItem />
           </section>
         </main>
       </>
