@@ -12,7 +12,7 @@ const gear_data = [
 const GearItem = () => {
 
     return (
-        <div className="grid grid-cols-2 gap-x-12">
+        <div className="grid grid-cols-2 py-6 gap-x-12">
               <div className="w-full h-full bg-white rounded">c</div>
               <div className="flex flex-col gap-y-9">
                 <div className="max-w-screen-sm text-4xl">
@@ -28,7 +28,7 @@ const GearItem = () => {
                   inspired design, and although the viewfinder is on the smaller
                   side, I’ve never had an issue with it.
                 </p>
-                <button className="p-4 bg-yolk">Buy now</button>
+                <button className="p-4 rounded bg-yolk">Buy now</button>
               </div>
             </div>
     )
@@ -44,8 +44,7 @@ const Gear = () => {
             <span className="w-6 h-6 border rounded-full bg-yolk border-dark shrink-0"></span>
             <h1 className="text-5xl uppercase">Gear</h1>
           </div>
-          <section className="flex flex-col gap-12 px-4">
-            <GearItem />
+          <section className="flex flex-col px-4">
             <GearItem />
             <GearItem />
           </section>
