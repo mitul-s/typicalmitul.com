@@ -39,9 +39,8 @@ module.exports = {
         // yolk: "#CCFF00",
         yolk: "#0EFC5F",
         // eggshell: "#F8F8F8",
-        // eggshell: "#F5F7FA",
-
-        eggshell: "#f6fafd",
+        eggshell: "#F5F7FA",
+        // eggshell: "#f6fafd",
         stone: {
           DEFAULT: "#A4A4A4",
           light: "#cbd6e0",

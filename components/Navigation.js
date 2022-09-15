@@ -19,7 +19,7 @@ const Navigation = () => {
   return (
     <>
       <ContactDialog open={open} onOpenChange={setOpen} />
-        <nav className="fixed z-40 p-1 leading-none -translate-x-1/2 border rounded shadow-md bg-eggshell left-1/2 bottom-6 md:bottom-12 border-dark w-fit">
+        <nav className="fixed z-40 p-1 leading-none -translate-x-1/2 bg-white border rounded shadow-md left-1/2 bottom-6 md:bottom-12 border-dark w-fit">
           <ul className="flex gap-x-0.5 text-base leading-none">
             {navLinks.map((link) => (
               <li key={link.id} className="grid">
