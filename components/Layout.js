@@ -9,7 +9,7 @@ export default function Layout({ children }) {
 
   // There's a weird bug on about page where height of guiding lines doesn't become full due to translate?
   return (
-    <div className="relative min-h-full">
+    <div className="relative h-full">
       <Navigation />
       <div
         className={cx(
