@@ -35,21 +35,26 @@ const notables = [
 const AboutText = () => (
   <div className="flex rounded">
     <div className="flex flex-col gap-4 max-w-prose">
-      <p className="text-lg sm:text-2xl">
-        {`Photography has been part of my daily life for the past 6 years. With a natural instinct to explore the world around me, I’ve built the skill to capture cityscapes, architecture, and urban environments in a new light.`}
-      </p>
+      <div>
+        <h2 className="text-2xl sm:text-4xl font-mtl-bold">
+          A photographer and then some.
+        </h2>
+        <p className="text-2xl sm:text-4xl">
+          {`With a natural instinct to explore the world around me, I’ve built the skill to capture cityscapes, architecture, and urban environments in a new light.`}
+        </p>
+      </div>
 
-      <p className="text-lg sm:text-2xl">
+      <p className="text-lg sm:text-xl">
         I try to use photography to prove that life is worth chasing. By working
         with various brands, large and small, I’ve built the versatility to tell
         a story through a variety of photography styles ranging from lifestyle,
         concerts, to corporate events.
       </p>
-      <p className="text-lg sm:text-2xl">
+      <p className="text-lg sm:text-xl">
         I’m always excited to continue pushing myself and seeing what stories I
         can tell with my camera.
       </p>
-      <p className="text-lg sm:text-2xl">
+      <p className="text-lg sm:text-xl">
         Thank you for taking the time to visit my portfolio. If you’re
         interested in working together,{" "}
         <a
@@ -84,7 +89,7 @@ const ClientHistory = ({ setOpen }) => (
       <li>
         <Button
           fullWidth
-          className="text-lg normal-case h-max bg-eggshell border-stone"
+          className="text-lg normal-case h-max !bg-transparent !border-stone"
           onClick={() => setOpen(true)}
         >
           + you next?
@@ -102,7 +107,7 @@ export default function About() {
       <NextSeo title="About" canonical="https://typicalmitul.com/about" />
       <ContactDialog open={open} onOpenChange={setOpen} />
       <main className="relative pb-20">
-        <div className="flex items-center px-6 md:px-4 gap-x-yeat">
+        <div className="flex items-center px-6 py-6 md:px-4 gap-x-yeat">
           <span className="w-6 h-6 border rounded-full bg-yolk border-dark shrink-0"></span>
           <h1 className="text-5xl uppercase">About</h1>
         </div>
@@ -130,7 +135,7 @@ export default function About() {
                     asAnchor
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="bg-eggshell normal-case border-stone px-1 py-1.5 "
+                    className="!bg-transparent normal-case !border-stone px-2 text-base py-1.5 "
                   >
                     {notable.title}
                     <ArrowUpRight />
@@ -138,7 +143,7 @@ export default function About() {
                 ))}
               </div>
               <ClientHistory setOpen={setOpen} />
-            </div>
+            </div>{" "}
           </section>
         </div>
       </main>
