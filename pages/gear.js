@@ -1,5 +1,7 @@
+import Break from "@/components/sections/Break";
 import { NextSeo } from "next-seo";
 import NextImage from "next/future/image"
+import { Heading } from "../components";
 import sonyA7C from "../public/images/gear/sony-alpha-7c-full-frame-camera.png";
 
 const gear_data = [
@@ -30,7 +32,7 @@ const GearItem = ({ heading, image, title, subtitle, href, description, imageAlt
         </div>
         <div className="flex flex-col gap-y-9">
           <div className="max-w-screen-sm text-4xl">
-            <h2 className="font-mtl-bold">{title}</h2>
+            <h3 className="font-mtl-bold">{title}</h3>
             <p>{subtitle}</p>
           </div>
           <p className="max-w-screen-sm text-xl text-stone-blue">
@@ -47,6 +49,20 @@ const GearItem = ({ heading, image, title, subtitle, href, description, imageAlt
         </div>
       </div>
     );
+}
+
+const GearItemSmall = ({ children }) => {
+  return (
+    <div>
+      {/* <span className="text-xs uppercase text-stone">Camera Body</span> */}
+      <div className="bg-white border rounded aspect-square border-stone-light"></div>
+      <h3 className="font-mtl-bold">Sony Alpha 7C</h3>
+      <p className="text-xl text-stone-blue">SOmething something</p>
+      <a className="inline-block w-full p-4 text-center rounded bg-yolk">
+        Buy now
+      </a>
+    </div>
+  );
 }
 
 
@@ -72,8 +88,15 @@ const Gear = () => {
                   href={item.href}
                   description={item.description}
                 />
-              )
+              );
             })}
+            <Break />
+            <div className="grid grid-cols-3 gap-x-6">
+            <Heading className="col-span-full">Lenses</Heading>
+              <GearItemSmall />
+              <GearItemSmall />
+              <GearItemSmall />
+            </div>
           </section>
         </main>
       </>
