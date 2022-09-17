@@ -23,7 +23,7 @@ const PlusIcon = () => {
 
 const Break = () => (
   <div className="grid w-full px-4 py-6">
-    <hr className="self-center content border-stone"></hr>
+    <hr className="self-center content bg-stone-light"></hr>
     <div className="relative grid w-full h-full max-w-full grid-cols-4 grid-rows-1 pl-px my-0 -mx-3 sm:-mx-4 overlay">
       <PlusIcon />
       <PlusIcon />

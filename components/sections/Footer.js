@@ -30,7 +30,7 @@ const Footer = () => {
   );
   
   return (
-    <footer className="flex flex-col px-6 py-6 text-sm border-t md:text-lg border-stone md:px-4">
+    <footer className="flex flex-col px-6 py-6 text-sm border-t md:text-lg border-stone-light md:px-4">
       <ul className="flex gap-x-2">
         {footerLinks.map((link, index) => (
           <Item key={index} href={link.href}>
