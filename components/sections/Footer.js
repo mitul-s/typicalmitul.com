@@ -38,7 +38,7 @@ const Footer = () => {
           </Item>
         ))}
       </ul>
-      <div className="mt-4 text-xs max-w-prose">
+      <div className="mt-4 text-xs max-w-prose text-stone-blue">
         This website was designed and built by myself, lots of water and Playboi
         Carti on repeat. <br /> If you have any feedback, I{"'"}d appreciate it!
         You can also visit the{" "}
