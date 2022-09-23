@@ -205,7 +205,7 @@ const Gear = () => {
                   />
                 );
               })}
-              <GearItemSmall 
+              <GearItemSmall
                 image={gear_data.drone.image}
                 imageAlt={gear_data.drone.imageAlt}
                 title={gear_data.drone.title}
@@ -220,9 +220,23 @@ const Gear = () => {
                   />
                 </div>
                 <span className="inline-block w-full p-1 text-sm text-center border rounded text-stone">
-                  Photo taken on my <Link isExternal className="underline transition duration-200 cursor-pointer underline-offset-2 hover:bg-yolk/50 hover:text-dark">DJI Mavic Mini</Link>
+                  Photo taken on my{" "}
+                  <Link
+                    isExternal
+                    className="underline transition duration-200 cursor-pointer underline-offset-2 hover:bg-yolk/50 hover:text-dark"
+                  >
+                    DJI Mavic Mini
+                  </Link>
                 </span>
               </div>
+            </div>
+            <Break />
+            <div className="grid grid-cols-4 gap-x-4">
+              <Heading className="col-span-full">Accessories</Heading>
+              <GearItemSmall />
+              <GearItemSmall />
+              <GearItemSmall />
+              <GearItemSmall />
             </div>
           </section>
           <Break />
