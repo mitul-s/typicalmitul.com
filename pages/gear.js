@@ -1,7 +1,7 @@
 import Break from "@/components/sections/Break";
 import { NextSeo } from "next-seo";
 import NextImage from "next/future/image"
-import { Heading } from "../components";
+import { Heading, Link } from "../components";
 import sonyA7C from "../public/images/gear/sony-alpha-7c-full-frame-camera.png";
 import canon1635 from "../public/images/gear/Canon-EF-16-35mm-f4L-IS-USM.png";
 import jay_lookup from "../public/images/blue-jays-hat-lookup.jpg";
@@ -48,30 +48,31 @@ const gear_data = {
       imageAlt: "",
       tags: ["Sony", "Full-Frame", "Mirrorless", "Interchangeable-Lens"],
     },
-    // {
-    //   heading: "Lens",
-    //   title: "Sigma 35mm f/1.4",
-    //   longTitle: "Sigma 35mm f/1.4 DG DN Art Lens for Sony E-Mount Cameras",
-    //   shortDesc:
-    //     "I’ve never been one for prime lenses, but having a 35mm has been essential for street photography or for when I’m trying to pack light. The depth of field from the f/1.8 is absolutely beautiful.",
-    //   href: "",
-    //   image: sonyA7C,
-    //   imageAlt: "",
-    //   tags: ["Sony", "Full-Frame", "Mirrorless", "Interchangeable-Lens"],
-    // },
+    {
+      heading: "Lens",
+      title: "Sigma 35mm f/1.4",
+      longTitle: "Sigma 35mm f/1.4 DG DN Art Lens for Sony E-Mount Cameras",
+      shortDesc:
+        "I’ve never been one for prime lenses, but having a 35mm has been essential for street photography or for when I’m trying to pack light. The depth of field from the f/1.8 is absolutely beautiful.",
+      href: "",
+      image: sonyA7C,
+      imageAlt: "",
+      tags: ["Sony", "Full-Frame", "Mirrorless", "Interchangeable-Lens"],
+    },
   ],
   drone: {
     heading: "Drone",
     title: "DJI Mavic Air 2",
     longTitle: "DJI Mavic Air 2",
     subtitle: "The best drone for the price.",
-    shortDesc: "The best drone for the price.",
+    shortDesc:
+      "The best beginner drone available, simply because it frees you from worrying about drone restrictions. It’s affordable, takes sharp photos and allows you gain new perspectives as a photographer.",
     description:
-      "The DJI Mavic Air 2 is the best drone for the price. It has a 48MP camera, 34 minutes of flight time, and a 4K video recording capability. It’s also super easy to fly and has a great range.",
+      "The DJI Mavic Mini 2 is the best drone for the price. It has a 48MP camera, 34 minutes of flight time, and a 4K video recording capability. It’s also super easy to fly and has a great range.",
     href: "https://amzn.to/3Sb9Z9M",
     image: sonyA7C,
     imageAlt: "",
-    tags: ["DJI", "Mavic", "Air", "2"],
+    tags: ["DJI", "Mavic", "Mini", "2"],
   },
 };
 
@@ -147,7 +148,7 @@ const GearItemSmall = ({ image, imageAlt, shortDesc, title, }) => {
         </div>
       </div>
       <h3 className="mt-4 text-sm md:text-xl font-mtl-bold">{title}</h3>
-      <p className="mt-0.5 mb-4 text-sm md:text-xl max-w-prose text-stone-blue">
+      <p className="mt-3 mb-4 text-sm md:text-xl max-w-prose text-stone-blue">
         {shortDesc}
       </p>
       <a className="inline-block w-full p-4 mt-auto text-center rounded bg-yolk">
@@ -188,7 +189,7 @@ const Gear = () => {
               );
             })}
             <Break />
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-yeat md:gap-x-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-yeat md:gap-y-6 md:gap-x-6">
               <Heading className="col-span-full">Lenses</Heading>
               {gear_data.lenses.map((item) => {
                 return (
@@ -204,12 +205,23 @@ const Gear = () => {
                   />
                 );
               })}
-              {/* <GearItemSmall /> */}
-              <div className="overflow-hidden bg-white border rounded">
-                <NextImage src={jay_lookup} 
-                  className="rounded"
-                  style={{ objectFit: "cover", height: "100%" }}
-                />
+              <GearItemSmall 
+                image={gear_data.drone.image}
+                imageAlt={gear_data.drone.imageAlt}
+                title={gear_data.drone.title}
+                shortDesc={gear_data.drone.shortDesc}
+              />
+              <div className="w-full col-span-2">
+                <div className="overflow-hidden bg-white border border-stone-light rounded max-h-[780px] mb-2">
+                  <NextImage
+                    src={jay_lookup}
+                    className="rounded"
+                    style={{ objectFit: "cover", height: "100%" }}
+                  />
+                </div>
+                <span className="inline-block w-full p-1 text-sm text-center border rounded text-stone">
+                  Photo taken on my <Link isExternal className="underline transition duration-200 cursor-pointer underline-offset-2 hover:bg-yolk/50 hover:text-dark">DJI Mavic Mini</Link>
+                </span>
               </div>
             </div>
           </section>
