@@ -30,6 +30,13 @@ const MyApp = ({ Component, pageProps }) => {
               site: "@typicalmitul",
               cardType: "summary",
             }}
+            openGraph={{
+              type: "website",
+              locale: "en_CA",
+              url: "https://typicalmitul.com",
+              title: "Typical Mitul | Toronto Photographer for Hire",
+              description: "Photographer based in Toronto, Canada specializing in cityscapes, architecture and portraits.",
+            }}
           />
           <Component {...pageProps} />
         </Layout>
