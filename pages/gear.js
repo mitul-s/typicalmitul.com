@@ -2,10 +2,18 @@ import Break from "@/components/sections/Break";
 import { NextSeo } from "next-seo";
 import NextImage from "next/future/image"
 import { Heading, Link } from "../components";
-import sonyA7C from "../public/images/gear/sony-alpha-7c-full-frame-camera.png";
-import canon1635 from "../public/images/gear/Canon-EF-16-35mm-f4L-IS-USM.png";
+import sonyA7C from "@/images/gear/sony-alpha-7c-full-frame-camera.png";
+import canon1635 from "@/images/gear/Canon-EF-16-35mm-f4L-IS-USM.png";
+import dji_mini from "@/images/gear/dji-mavic-mini.png";
+import sigma2470 from "@/images/gear/sigma-24-70mm-f2.8-lens.png";
+import wandrd from "@/images/gear/wandrd-prvke-backpack.png";
+import capture_clip from "@/images/gear/peak-design-capture-clip.png";
+import hoya from "@/images/gear/hoya-circular-polarizer-filter.png";
+import harddrive from "@/images/gear/easystore-desktop-hero.png";
 import jay_lookup from "../public/images/blue-jays-hat-lookup.jpg";
 import Footer from "@/components/sections/Footer";
+import { ArrowRight } from "phosphor-react";
+import { cx } from "class-variance-authority"
 
 const gear_data = {
   camera: [
@@ -33,7 +41,7 @@ const gear_data = {
       shortDesc:
         "This lens stays on my camera 90% of the time. It's has the best performance and offers high resolution throughout the entire zoom range.",
       href: "https://amzn.to/3SadLv7",
-      image: sonyA7C,
+      image: sigma2470,
       imageAlt: "",
       tags: ["Sony", "Full-Frame", "Mirrorless", "Interchangeable-Lens"],
     },
@@ -47,13 +55,14 @@ const gear_data = {
       image: canon1635,
       imageAlt: "",
       tags: ["Sony", "Full-Frame", "Mirrorless", "Interchangeable-Lens"],
+      scale: "scale-[1.7]",
     },
     {
       heading: "Lens",
       title: "Sigma 35mm f/1.4",
       longTitle: "Sigma 35mm f/1.4 DG DN Art Lens for Sony E-Mount Cameras",
       shortDesc:
-        "I’ve never been one for prime lenses, but having a 35mm has been essential for street photography or for when I’m trying to pack light. The depth of field from the f/1.8 is absolutely beautiful.",
+        "I’ve never been one for prime lenses, but having a 35mm has been essential for street photography or for when I’m trying to pack light. The bokeh from the f/1.8 is absolutely beautiful.",
       href: "",
       image: sonyA7C,
       imageAlt: "",
@@ -62,39 +71,72 @@ const gear_data = {
   ],
   drone: {
     heading: "Drone",
-    title: "DJI Mavic Air 2",
-    longTitle: "DJI Mavic Air 2",
+    title: "DJI Mavic Mini",
+    longTitle: "DJI Mavic Mini",
     subtitle: "The best drone for the price.",
     shortDesc:
       "The best beginner drone available, simply because it frees you from worrying about drone restrictions. It’s affordable, takes sharp photos and allows you gain new perspectives as a photographer.",
     description:
-      "The DJI Mavic Mini 2 is the best drone for the price. It has a 48MP camera, 34 minutes of flight time, and a 4K video recording capability. It’s also super easy to fly and has a great range.",
+      "The DJI Mavic Mini is the best drone for the price. It has a 48MP camera, 34 minutes of flight time, and a 4K video recording capability. It’s also super easy to fly and has a great range.",
     href: "https://amzn.to/3Sb9Z9M",
-    image: sonyA7C,
+    image: dji_mini,
     imageAlt: "",
     tags: ["DJI", "Mavic", "Mini", "2"],
   },
+  accessories: [
+    {
+      heading: "Accessory",
+      title: "Peak Design Capture Clip",
+      subtitle: "",
+      shortDesc:
+        "The Peak Design Capture Clip is a must-have for any photographer. It allows you to quickly attach your camera to a belt, backpack or bag strap.",
+      description:
+        "The Peak Design Capture Clip is a must-have for any photographer. It allows you to quickly attach your camera to a belt, backpack or bag strap. It’s also incredibly durable and has a great design.",
+      href: "",
+      image: capture_clip,
+      imageAlt: "",
+      scale: "scale-125",
+      tags: ["Peak", "Design", "Capture", "Clip"],
+    },
+    {
+      heading: "Camera Filter",
+      title: "Hoya Polarizing Filter",
+      subtitle: "",
+      shortDesc: "This filter is essential for removing reflections and boosting colors. Anytime I'm shooting a landscape with water or a car, I have this filter on.",
+      description: "",
+      href: "",
+      image: hoya,
+      imageAlt: "",
+      tags: ["Hoya", "Circular", "Polarizing", "Filter"],
+      scale: "scale-[1.7]",
+    },
+    {
+      heading: "Backpack",
+      title: "Wandrd PRVKE 31L Backpack",
+      subtitle: "",
+      shortDesc: "A little heavy, but it's the best camera backpack I've had. I love that can easily seperate my gear from my clothes while travelling.",
+      description: "",
+      href: "",
+      image: wandrd,
+      imageAlt: "",
+      tags: ["Peak", "Design", "Everyday", "Backpack"],
+      scale: "scale-150",
+    },
+    {
+      heading: "Storage",
+      title: "WD EasyStore External Hard Drive",
+      subtitle: "",
+      shortDesc: "Every photo I take is backed up onto this hard drive and it never leaves my house. Backups of your backups are important!",
+      description: "",
+      href: "",
+      image: harddrive,
+      imageAlt: "",
+      tags: ["Samsung", "T7", "SSD"],
+      scale: "scale-150",
+    },
+  ],
 };
 
-
-// content to add: 
-// - Sony A7C - Camera Body
-// - Lenses 
-// 	- 24-70mm f 2.8
-// 	- 16-35mm
-// 	- 35mm 1.8
-// - Drone
-// 	- DJI Mavic Mini
-// 	- DJI Fly More Kit
-
-// - Accessories
-// - SD Card
-// - Peak Design Clip
-// - Neewer Batteries and Charger
-// - Backpack
-// - Hoya Polarizer Filter
-// - Multi Port adapter
-// - SSD
 
 
 
@@ -134,7 +176,7 @@ const GearItem = ({ heading, image, title, subtitle, href, description, imageAlt
     );
 }
 
-const GearItemSmall = ({ image, imageAlt, shortDesc, title, }) => {
+const GearItemSmall = ({ image, imageAlt, scale, shortDesc, title, }) => {
   return (
     <div className="flex flex-col">
       {/* <span className="text-xs uppercase text-stone">Camera Body</span> */}
@@ -142,13 +184,13 @@ const GearItemSmall = ({ image, imageAlt, shortDesc, title, }) => {
         <div className="w-fit">
           <NextImage
             src={image}
-            className="w-1/2 mx-auto drop-shadow-md"
+            className={cx("w-1/2 mx-auto drop-shadow-md", scale)}
             alt={imageAlt}
           />
         </div>
       </div>
-      <h3 className="mt-4 text-sm md:text-xl font-mtl-bold">{title}</h3>
-      <p className="mt-3 mb-4 text-sm md:text-xl max-w-prose text-stone-blue">
+      <h3 className="mt-4 text-md md:text-xl font-mtl-bold">{title}</h3>
+      <p className="mt-1.5 mb-2 md:mt-3 md:mb-4 text-md md:text-xl max-w-prose text-stone-blue">
         {shortDesc}
       </p>
       <a className="inline-block w-full p-4 mt-auto text-center rounded bg-yolk">
@@ -188,6 +230,25 @@ const Gear = () => {
                 />
               );
             })}
+
+            <div className="relative w-full col-span-2 px-4 md:px-0">
+              <div className="mb-2 overflow-hidden bg-white border rounded h-96 border-stone-light">
+                <NextImage
+                  src={jay_lookup}
+                  className="rounded"
+                  style={{ objectFit: "cover", height: "100%" }}
+                />
+              </div>
+              <span className="inline-block w-full p-1 text-sm text-center border rounded text-stone-blue">
+                Photo taken on my{" "}
+                <Link
+                  isExternal
+                  className="underline transition duration-200 cursor-pointer underline-offset-2 hover:bg-yolk/50 hover:text-dark"
+                >
+                  DJI Mavic Mini
+                </Link>
+              </span>
+            </div>
             <Break />
             <div className="grid grid-cols-2 md:grid-cols-3 gap-yeat md:gap-y-6 md:gap-x-6">
               <Heading className="col-span-full">Lenses</Heading>
@@ -202,6 +263,7 @@ const Gear = () => {
                     subtitle={item.subtitle}
                     href={item.href}
                     shortDesc={item.shortDesc}
+                    scale={item.scale}
                   />
                 );
               })}
@@ -210,9 +272,10 @@ const Gear = () => {
                 imageAlt={gear_data.drone.imageAlt}
                 title={gear_data.drone.title}
                 shortDesc={gear_data.drone.shortDesc}
+                scale={gear_data.drone.scale}
               />
-              <div className="w-full col-span-2">
-                <div className="overflow-hidden bg-white border border-stone-light rounded max-h-[780px] mb-2">
+              <div className="relative w-full col-span-2 px-4 md:px-0">
+                <div className="h-[calc(100%-38px)] mb-2 overflow-hidden bg-white border rounded border-stone-light">
                   <NextImage
                     src={jay_lookup}
                     className="rounded"
@@ -231,18 +294,32 @@ const Gear = () => {
               </div>
             </div>
             <Break />
-            <div className="grid grid-cols-4 gap-x-4">
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
               <Heading className="col-span-full">Accessories</Heading>
-              <GearItemSmall />
-              <GearItemSmall />
-              <GearItemSmall />
-              <GearItemSmall />
+              {gear_data.accessories.map((item) => {
+                return (
+                  <GearItemSmall
+                    key={item.key}
+                    heading={item.heading}
+                    image={item.image}
+                    imageAlt={item.imageAlt}
+                    title={item.title}
+                    subtitle={item.subtitle}
+                    href={item.href}
+                    shortDesc={item.shortDesc}
+                    scale={item.scale}
+                  />
+                );
+              })}
             </div>
           </section>
-          <Break />
-          <section>
-            <div className="grid mx-4 mt-12 border rounded bg-yolk/10 h-96 border-yolk place-content-center">
-              See the photos I&apos;ve taken with this equipment
+          {/* <Break /> */}
+          <section className="grid w-full h-32 grid-cols-4 col-span-1 px-4 mt-16 gap-x-4">
+            <div className="grid h-full col-span-3 border rounded border-stone-light place-content-center">
+              <p>Visit my amazon store for more</p>
+            </div>
+            <div className="grid col-span-1 rounded bg-yolk place-content-center">
+                <ArrowRight size={64} />
             </div>
           </section>
         </main>
