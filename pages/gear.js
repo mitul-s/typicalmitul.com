@@ -172,19 +172,19 @@ const GearItem = ({ heading, image, title, subtitle, href, description, imageAlt
             rel="noreferrer noopener"
             className="p-4 text-center border rounded bg-yolk border-yolk"
           >
-            Buy now
+            Buy
           </a>
         </div>
       </div>
     );
 }
 
-const GearItemSmall = ({ image, imageAlt, scale, shortDesc, title, }) => {
+const GearItemSmall = ({ image, href, imageAlt, scale, shortDesc, title, }) => {
   return (
-    <div className="flex flex-col">
+    <a href={href} className="flex flex-col group">
       {/* <span className="text-xs uppercase text-stone">Camera Body</span> */}
-      <div className="grid bg-white border rounded aspect-square border-stone-light place-content-center">
-        <div className="w-fit">
+      <div className="grid transition-all duration-300 bg-white border rounded aspect-square border-stone-light place-content-center group-hover:shadow group-hover:shadow-yolk group-hover:border-yolk">
+        <div className="transition duration-300 w-fit group-hover:scale-110">
           <NextImage
             src={image}
             className={cx("w-1/2 mx-auto drop-shadow-md", scale)}
@@ -192,14 +192,14 @@ const GearItemSmall = ({ image, imageAlt, scale, shortDesc, title, }) => {
           />
         </div>
       </div>
-      <h3 className="mt-4 text-md md:text-xl font-mtl-bold">{title}</h3>
-      <p className="mt-1.5 mb-2 md:mt-3 md:mb-4 text-md md:text-xl max-w-prose text-stone-blue">
+      <h3 className="mt-4 text-md font-mtl-bold">{title}</h3>
+      <p className="mt-0 mb-1 md:mb-8 text-md max-w-prose text-stone-blue">
         {shortDesc}
       </p>
-      <a className="inline-block w-full p-4 mt-auto text-center rounded bg-yolk">
-        Buy now
-      </a>
-    </div>
+      {/* <a href={href} className="inline-block w-full p-4 mt-auto text-center rounded bg-yolk">
+        Buy
+      </a> */}
+    </a>
   );
 }
 
@@ -276,6 +276,7 @@ const Gear = () => {
                 title={gear_data.drone.title}
                 shortDesc={gear_data.drone.shortDesc}
                 scale={gear_data.drone.scale}
+                href={gear_data.drone.href}
               />
               <div className="relative w-full col-span-2 px-4 md:px-0">
                 <div className="h-[calc(100%-38px)] mb-2 overflow-hidden bg-white border rounded border-stone-light">
@@ -317,8 +318,8 @@ const Gear = () => {
             </div>
           </section>
           {/* <Break /> */}
-          <section className="grid w-full h-32 grid-cols-4 col-span-1 px-4 mt-16 gap-x-4">
-            <div className="grid h-full col-span-3 border rounded border-stone-light place-content-center">
+          <section className="grid w-full grid-cols-2 col-span-1 px-4 mt-16 md:grid-cols-4 h-96 gap-x-4">
+            <div className="grid h-full bg-white border rounded md:col-span-3 border-stone-light place-content-center">
               <p>Visit my amazon store for more</p>
             </div>
             <div className="grid col-span-1 rounded bg-yolk place-content-center">
