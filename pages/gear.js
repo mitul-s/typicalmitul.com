@@ -26,7 +26,7 @@ const gear_data = {
       shortDesc: "Something something something something something something",
       description:
         "The Sony A7C has incredible autofocus so you never miss a shot, and as with any Sony camera, you can shoot the ISO through the roof without a sweat. It has a great rangefinder inspired design, and although the viewfinder is on the smaller side, I’ve never had an issue with it.",
-      href: "https://amzn.to/3SczhyS",
+      href: "https://amzn.to/3LSzKUY",
       image: sonyA7C,
       imageAlt: "",
       tags: ["Sony", "Full-Frame", "Mirrorless", "Interchangeable-Lens"],
@@ -40,7 +40,7 @@ const gear_data = {
       subtitle: "Versatile, sharp and fast. What more can you ask for?",
       shortDesc:
         "This lens stays on my camera 90% of the time. It's has the best performance and offers high resolution throughout the entire zoom range.",
-      href: "https://amzn.to/3SadLv7",
+      href: "https://amzn.to/3DWAqGU",
       image: sigma2470,
       imageAlt: "",
       tags: ["Sony", "Full-Frame", "Mirrorless", "Interchangeable-Lens"],
@@ -51,7 +51,7 @@ const gear_data = {
       longTitle: "Canon EF 16-35mm f/4L IS USM Lens",
       shortDesc:
         "A wide angle lens is a must-have when shooting architecture or landscapes. I've taken my most popular photos with this lens.",
-      href: "https://amzn.to/3dm7s8m",
+      href: "https://amzn.to/3r7OV35",
       image: canon1635,
       imageAlt: "",
       tags: ["Sony", "Full-Frame", "Mirrorless", "Interchangeable-Lens"],
@@ -63,7 +63,7 @@ const gear_data = {
       longTitle: "Sigma 35mm f/1.4 DG DN Art Lens for Sony E-Mount Cameras",
       shortDesc:
         "I’ve never been one for prime lenses, but having a 35mm has been essential for street photography or for when I’m trying to pack light. The bokeh from the f/1.8 is absolutely beautiful.",
-      href: "",
+      href: "https://amzn.to/3dLQaSk",
       image: sonyA7C,
       imageAlt: "",
       tags: ["Sony", "Full-Frame", "Mirrorless", "Interchangeable-Lens"],
@@ -78,7 +78,7 @@ const gear_data = {
       "The best beginner drone available, simply because it frees you from worrying about drone restrictions. It’s affordable, takes sharp photos and allows you gain new perspectives as a photographer.",
     description:
       "The DJI Mavic Mini is the best drone for the price. It has a 48MP camera, 34 minutes of flight time, and a 4K video recording capability. It’s also super easy to fly and has a great range.",
-    href: "https://amzn.to/3Sb9Z9M",
+    href: "https://amzn.to/3LILERf",
     image: dji_mini,
     imageAlt: "",
     tags: ["DJI", "Mavic", "Mini", "2"],
@@ -92,7 +92,7 @@ const gear_data = {
         "The Peak Design Capture Clip is a must-have for any photographer. It allows you to quickly attach your camera to a belt, backpack or bag strap.",
       description:
         "The Peak Design Capture Clip is a must-have for any photographer. It allows you to quickly attach your camera to a belt, backpack or bag strap. It’s also incredibly durable and has a great design.",
-      href: "",
+      href: "https://amzn.to/3LILERf",
       image: capture_clip,
       imageAlt: "",
       scale: "scale-125",
@@ -102,9 +102,10 @@ const gear_data = {
       heading: "Camera Filter",
       title: "Hoya Polarizing Filter",
       subtitle: "",
-      shortDesc: "This filter is essential for removing reflections and boosting colors. Anytime I'm shooting a landscape with water or a car, I have this filter on.",
+      shortDesc:
+        "This filter is essential for removing reflections and boosting colors. Anytime I'm shooting a landscape with water or a car, I have this filter on.",
       description: "",
-      href: "",
+      href: "https://amzn.to/3Cdnew4",
       image: hoya,
       imageAlt: "",
       tags: ["Hoya", "Circular", "Polarizing", "Filter"],
@@ -114,9 +115,10 @@ const gear_data = {
       heading: "Backpack",
       title: "Wandrd PRVKE 31L Backpack",
       subtitle: "",
-      shortDesc: "A little heavy, but it's the best camera backpack I've had. I love that can easily seperate my gear from my clothes while travelling.",
+      shortDesc:
+        "A little heavy, but it's the best camera backpack I've had. I love that can easily seperate my gear from my clothes while travelling.",
       description: "",
-      href: "",
+      href: "https://amzn.to/3UHSHgX",
       image: wandrd,
       imageAlt: "",
       tags: ["Peak", "Design", "Everyday", "Backpack"],
@@ -126,9 +128,10 @@ const gear_data = {
       heading: "Storage",
       title: "WD EasyStore External Hard Drive",
       subtitle: "",
-      shortDesc: "Every photo I take is backed up onto this hard drive and it never leaves my house. Backups of your backups are important!",
+      shortDesc:
+        "Every photo I take is backed up onto this hard drive and it never leaves my house. Backups of your backups are important!",
       description: "",
-      href: "",
+      href: "https://amzn.to/3ULfhFI",
       image: harddrive,
       imageAlt: "",
       tags: ["Samsung", "T7", "SSD"],
