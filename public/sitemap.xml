@@ -4,6 +4,10 @@
     <changefreq>hourly</changefreq>
   </url>
   <url>
+    <loc>https://typicalmitul.com/gear</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
     <loc>https://typicalmitul.com</loc>
     <changefreq>hourly</changefreq>
   </url>
