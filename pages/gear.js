@@ -1,6 +1,6 @@
 import Break from "@/components/sections/Break";
 import { NextSeo } from "next-seo";
-import NextImage from "next/future/image"
+import NextImage from "next/future/image";
 import { Heading, Link } from "../components";
 import sonyA7C from "@/images/gear/sony-alpha-7c-full-frame-camera.png";
 import canon1635 from "@/images/gear/Canon-EF-16-35mm-f4L-IS-USM.png";
@@ -14,7 +14,7 @@ import jay_lookup from "../public/images/blue-jays-hat-lookup.jpg";
 import heart_lake from "@/images/gear/drone-photo-of-heart-lake.jpg";
 import Footer from "@/components/sections/Footer";
 import { ArrowRight } from "phosphor-react";
-import { cx } from "class-variance-authority"
+import { cx } from "class-variance-authority";
 
 const gear_data = {
   camera: [
@@ -141,46 +141,51 @@ const gear_data = {
   ],
 };
 
-
-
-
-const GearItem = ({ heading, image, title, subtitle, href, description, imageAlt }) => {
-    return (
-      <div className="grid py-6 md:grid-cols-2 gap-x-12">
-        <span className="text-xs uppercase col-span-full text-stone">
-          {heading}
-        </span>
-        <div className="grid w-full bg-white border rounded border-stone-light place-content-center h-96 md:h-auto">
-          <div className="w-fit">
-            <NextImage
-              src={image}
-              className="w-1/3 mx-auto drop-shadow-md"
-              alt={imageAlt}
-            />
-          </div>
-        </div>
-        <div className="flex flex-col mt-9 md:mt-0 gap-y-9">
-          <div className="max-w-screen-sm text-4xl">
-            <h3 className="font-mtl-bold">{title}</h3>
-            <p>{subtitle}</p>
-          </div>
-          <p className="max-w-screen-sm text-xl md:mb-12 text-stone-blue">
-            {description}
-          </p>
-          <a
-            href={href}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="p-4 text-center border rounded bg-yolk border-yolk"
-          >
-            Buy
-          </a>
+const GearItem = ({
+  heading,
+  image,
+  title,
+  subtitle,
+  href,
+  description,
+  imageAlt,
+}) => {
+  return (
+    <div className="grid py-6 md:grid-cols-2 gap-x-12">
+      <span className="text-xs uppercase col-span-full text-stone">
+        {heading}
+      </span>
+      <div className="grid w-full bg-white border rounded border-stone-light place-content-center h-96 md:h-auto">
+        <div className="w-fit">
+          <NextImage
+            src={image}
+            className="w-1/3 mx-auto drop-shadow-md"
+            alt={imageAlt}
+          />
         </div>
       </div>
-    );
-}
+      <div className="flex flex-col mt-9 md:mt-0 gap-y-9">
+        <div className="max-w-screen-sm text-4xl">
+          <h3 className="font-mtl-bold">{title}</h3>
+          <p>{subtitle}</p>
+        </div>
+        <p className="max-w-screen-sm text-xl md:mb-12 text-stone-blue">
+          {description}
+        </p>
+        <a
+          href={href}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="p-4 text-center border rounded bg-yolk border-yolk"
+        >
+          Buy
+        </a>
+      </div>
+    </div>
+  );
+};
 
-const GearItemSmall = ({ image, href, imageAlt, scale, shortDesc, title, }) => {
+const GearItemSmall = ({ image, href, imageAlt, scale, shortDesc, title }) => {
   return (
     <a href={href} className="flex flex-col group">
       {/* <span className="text-xs uppercase text-stone">Camera Body</span> */}
@@ -202,30 +207,73 @@ const GearItemSmall = ({ image, href, imageAlt, scale, shortDesc, title, }) => {
       </a> */}
     </a>
   );
-}
-
+};
 
 const Gear = () => {
-    return (
-      <>
-        <NextSeo title="Gear" canonical="https://typicalmitul.com/gear" />
-        <main className="relative h-full pb-20">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center px-6 py-12 md:px-4 gap-x-yeat">
-              <span className="w-6 h-6 border rounded-full bg-yolk border-dark shrink-0"></span>
-              <h1 className="text-5xl uppercase">Gear</h1>
-            </div>
-            <div className="p-1 mx-4 text-xs border rounded text-stone-blue border-stone-light max-w-prose">
-              These are affiliate links, which I earn a small commission from. I
-              only recommend products I use and love. Thank you for your
-              support!
-            </div>
+  return (
+    <>
+      <NextSeo title="Gear" canonical="https://typicalmitul.com/gear" />
+      <main className="relative h-full pb-20">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center px-6 py-12 md:px-4 gap-x-yeat">
+            <span className="w-6 h-6 border rounded-full bg-yolk border-dark shrink-0"></span>
+            <h1 className="text-5xl uppercase">Gear</h1>
           </div>
+          <div className="p-1 mx-4 text-xs border rounded text-stone-blue border-stone-light max-w-prose">
+            These are affiliate links, which I earn a small commission from. I
+            only recommend products I use and love. Thank you for your support!
+          </div>
+        </div>
 
-          <section className="flex flex-col px-6 md:px-4">
-            {gear_data.camera.map((item) => {
+        <section className="flex flex-col px-6 md:px-4">
+          {gear_data.camera.map((item) => {
+            return (
+              <GearItem
+                key={item.key}
+                heading={item.heading}
+                image={item.image}
+                imageAlt={item.imageAlt}
+                title={item.title}
+                subtitle={item.subtitle}
+                href={item.href}
+                description={item.description}
+              />
+            );
+          })}
+
+          <div className="relative w-full col-span-2 px-4 md:px-0">
+            <div className="mb-2 overflow-hidden bg-white border rounded h-96 border-stone-light">
+              <NextImage
+                src={jay_lookup}
+                className="rounded"
+                style={{ objectFit: "cover", height: "100%" }}
+              />
+            </div>
+            <span className="inline-block w-full p-1 text-sm text-center border rounded text-stone-blue">
+              Photo taken on my{" "}
+              <Link
+                isExternal
+                href="https://amzn.to/3LSzKUY"
+                className="underline transition duration-200 cursor-pointer underline-offset-2 hover:bg-yolk/50 hover:text-dark"
+              >
+                Sony A7C
+              </Link> 
+              with the 
+              <Link
+                href="https://amzn.to/3DWAqGU"
+                isExternal
+                className="underline transition duration-200 cursor-pointer underline-offset-2 hover:bg-yolk/50 hover:text-dark"
+              >
+                Sigma 24-70mm f/2.8
+              </Link>
+            </span>
+          </div>
+          <Break />
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-yeat md:gap-y-6 md:gap-x-6">
+            <Heading className="col-span-full">Lenses</Heading>
+            {gear_data.lenses.map((item) => {
               return (
-                <GearItem
+                <GearItemSmall
                   key={item.key}
                   heading={item.heading}
                   image={item.image}
@@ -233,15 +281,23 @@ const Gear = () => {
                   title={item.title}
                   subtitle={item.subtitle}
                   href={item.href}
-                  description={item.description}
+                  shortDesc={item.shortDesc}
+                  scale={item.scale}
                 />
               );
             })}
-
+            <GearItemSmall
+              image={gear_data.drone.image}
+              imageAlt={gear_data.drone.imageAlt}
+              title={gear_data.drone.title}
+              shortDesc={gear_data.drone.shortDesc}
+              scale={gear_data.drone.scale}
+              href={gear_data.drone.href}
+            />
             <div className="relative w-full col-span-2 px-4 md:px-0">
-              <div className="mb-2 overflow-hidden bg-white border rounded h-96 border-stone-light">
+              <div className="h-[calc(100%-38px)] mb-2 overflow-hidden bg-white border rounded border-stone-light">
                 <NextImage
-                  src={jay_lookup}
+                  src={heart_lake}
                   className="rounded"
                   style={{ objectFit: "cover", height: "100%" }}
                 />
@@ -250,89 +306,36 @@ const Gear = () => {
                 Photo taken on my{" "}
                 <Link
                   isExternal
-                  href="https://amzn.to/3LSzKUY"
+                  href="https://amzn.to/3LILERf"
                   className="underline transition duration-200 cursor-pointer underline-offset-2 hover:bg-yolk/50 hover:text-dark"
                 >
-                  Sony A7C
-                </Link>
-                with the
-                <Link
-                  href="https://amzn.to/3DWAqGU"
-                  isExternal
-                  className="underline transition duration-200 cursor-pointer underline-offset-2 hover:bg-yolk/50 hover:text-dark"
-                >
-                  Sigma 24-70mm f/2.8
+                  DJI Mavic Mini
                 </Link>
               </span>
             </div>
-            <Break />
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-yeat md:gap-y-6 md:gap-x-6">
-              <Heading className="col-span-full">Lenses</Heading>
-              {gear_data.lenses.map((item) => {
-                return (
-                  <GearItemSmall
-                    key={item.key}
-                    heading={item.heading}
-                    image={item.image}
-                    imageAlt={item.imageAlt}
-                    title={item.title}
-                    subtitle={item.subtitle}
-                    href={item.href}
-                    shortDesc={item.shortDesc}
-                    scale={item.scale}
-                  />
-                );
-              })}
-              <GearItemSmall
-                image={gear_data.drone.image}
-                imageAlt={gear_data.drone.imageAlt}
-                title={gear_data.drone.title}
-                shortDesc={gear_data.drone.shortDesc}
-                scale={gear_data.drone.scale}
-                href={gear_data.drone.href}
-              />
-              <div className="relative w-full col-span-2 px-4 md:px-0">
-                <div className="h-[calc(100%-38px)] mb-2 overflow-hidden bg-white border rounded border-stone-light">
-                  <NextImage
-                    src={heart_lake}
-                    className="rounded"
-                    style={{ objectFit: "cover", height: "100%" }}
-                  />
-                </div>
-                <span className="inline-block w-full p-1 text-sm text-center border rounded text-stone-blue">
-                  Photo taken on my{" "}
-                  <Link
-                    isExternal
-                    href="https://amzn.to/3LILERf"
-                    className="underline transition duration-200 cursor-pointer underline-offset-2 hover:bg-yolk/50 hover:text-dark"
-                  >
-                    DJI Mavic Mini
-                  </Link>
-                </span>
-              </div>
-            </div>
-            <Break />
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-              <Heading className="col-span-full">Accessories</Heading>
-              {gear_data.accessories.map((item) => {
-                return (
-                  <GearItemSmall
-                    key={item.key}
-                    heading={item.heading}
-                    image={item.image}
-                    imageAlt={item.imageAlt}
-                    title={item.title}
-                    subtitle={item.subtitle}
-                    href={item.href}
-                    shortDesc={item.shortDesc}
-                    scale={item.scale}
-                  />
-                );
-              })}
-            </div>
-          </section>
-          {/* <Break /> */}
-          {/* <section className="grid w-full grid-cols-2 col-span-1 px-4 mt-16 md:grid-cols-4 h-96 gap-x-4">
+          </div>
+          <Break />
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            <Heading className="col-span-full">Accessories</Heading>
+            {gear_data.accessories.map((item) => {
+              return (
+                <GearItemSmall
+                  key={item.key}
+                  heading={item.heading}
+                  image={item.image}
+                  imageAlt={item.imageAlt}
+                  title={item.title}
+                  subtitle={item.subtitle}
+                  href={item.href}
+                  shortDesc={item.shortDesc}
+                  scale={item.scale}
+                />
+              );
+            })}
+          </div>
+        </section>
+        {/* <Break /> */}
+        {/* <section className="grid w-full grid-cols-2 col-span-1 px-4 mt-16 md:grid-cols-4 h-96 gap-x-4">
             <div className="grid h-full bg-white border rounded md:col-span-3 border-stone-light place-content-center">
               <p>Visit my amazon store for more</p>
             </div>
@@ -340,10 +343,10 @@ const Gear = () => {
                 <ArrowRight size={64} />
             </div>
           </section> */}
-        </main>
-        <Footer />
-      </>
-    );
-}
+      </main>
+      <Footer />
+    </>
+  );
+};
 
 export default Gear;
