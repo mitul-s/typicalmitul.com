@@ -11,6 +11,7 @@ import capture_clip from "@/images/gear/peak-design-capture-clip.png";
 import hoya from "@/images/gear/hoya-circular-polarizer-filter.png";
 import harddrive from "@/images/gear/easystore-desktop-hero.png";
 import jay_lookup from "../public/images/blue-jays-hat-lookup.jpg";
+import heart_lake from "@/images/gear/drone-photo-of-heart-lake.jpg";
 import Footer from "@/components/sections/Footer";
 import { ArrowRight } from "phosphor-react";
 import { cx } from "class-variance-authority"
@@ -55,7 +56,7 @@ const gear_data = {
       image: canon1635,
       imageAlt: "",
       tags: ["Sony", "Full-Frame", "Mirrorless", "Interchangeable-Lens"],
-      scale: "scale-[1.7]",
+      scale: "sm:scale-[1.7]",
     },
     {
       heading: "Lens",
@@ -109,7 +110,7 @@ const gear_data = {
       image: hoya,
       imageAlt: "",
       tags: ["Hoya", "Circular", "Polarizing", "Filter"],
-      scale: "scale-[1.7]",
+      scale: "sm:scale-[1.7]",
     },
     {
       heading: "Backpack",
@@ -149,7 +150,7 @@ const GearItem = ({ heading, image, title, subtitle, href, description, imageAlt
         <span className="text-xs uppercase col-span-full text-stone">
           {heading}
         </span>
-        <div className="grid w-full bg-white border rounded border-stone-light place-content-center">
+        <div className="grid w-full bg-white border rounded border-stone-light place-content-center h-96 md:h-auto">
           <div className="w-fit">
             <NextImage
               src={image}
@@ -158,12 +159,12 @@ const GearItem = ({ heading, image, title, subtitle, href, description, imageAlt
             />
           </div>
         </div>
-        <div className="flex flex-col gap-y-9">
+        <div className="flex flex-col mt-9 md:mt-0 gap-y-9">
           <div className="max-w-screen-sm text-4xl">
             <h3 className="font-mtl-bold">{title}</h3>
             <p>{subtitle}</p>
           </div>
-          <p className="max-w-screen-sm mb-12 text-xl text-stone-blue">
+          <p className="max-w-screen-sm text-xl md:mb-12 text-stone-blue">
             {description}
           </p>
           <a
@@ -209,16 +210,19 @@ const Gear = () => {
       <>
         <NextSeo title="Gear" canonical="https://typicalmitul.com/gear" />
         <main className="relative h-full pb-20">
-          <div className="flex items-center px-6 py-12 md:px-4 gap-x-yeat">
-            <span className="w-6 h-6 border rounded-full bg-yolk border-dark shrink-0"></span>
-            <h1 className="text-5xl uppercase">Gear</h1>
-          </div>
-          <section className="px-4">
-            <div className="text-xs text-stone">
-              Disclaimer: these are affiliate links
+          <div className="flex items-center justify-between">
+            <div className="flex items-center px-6 py-12 md:px-4 gap-x-yeat">
+              <span className="w-6 h-6 border rounded-full bg-yolk border-dark shrink-0"></span>
+              <h1 className="text-5xl uppercase">Gear</h1>
             </div>
-          </section>
-          <section className="flex flex-col px-4">
+            <div className="p-1 mx-4 text-xs border rounded text-stone-blue border-stone-light max-w-prose">
+              These are affiliate links, which I earn a small commission from. I
+              only recommend products I use and love. Thank you for your
+              support!
+            </div>
+          </div>
+
+          <section className="flex flex-col px-6 md:px-4">
             {gear_data.camera.map((item) => {
               return (
                 <GearItem
@@ -281,15 +285,16 @@ const Gear = () => {
               <div className="relative w-full col-span-2 px-4 md:px-0">
                 <div className="h-[calc(100%-38px)] mb-2 overflow-hidden bg-white border rounded border-stone-light">
                   <NextImage
-                    src={jay_lookup}
+                    src={heart_lake}
                     className="rounded"
                     style={{ objectFit: "cover", height: "100%" }}
                   />
                 </div>
-                <span className="inline-block w-full p-1 text-sm text-center border rounded text-stone">
+                <span className="inline-block w-full p-1 text-sm text-center border rounded text-stone-blue">
                   Photo taken on my{" "}
                   <Link
                     isExternal
+                    href="https://amzn.to/3LILERf"
                     className="underline transition duration-200 cursor-pointer underline-offset-2 hover:bg-yolk/50 hover:text-dark"
                   >
                     DJI Mavic Mini
@@ -318,14 +323,14 @@ const Gear = () => {
             </div>
           </section>
           {/* <Break /> */}
-          <section className="grid w-full grid-cols-2 col-span-1 px-4 mt-16 md:grid-cols-4 h-96 gap-x-4">
+          {/* <section className="grid w-full grid-cols-2 col-span-1 px-4 mt-16 md:grid-cols-4 h-96 gap-x-4">
             <div className="grid h-full bg-white border rounded md:col-span-3 border-stone-light place-content-center">
               <p>Visit my amazon store for more</p>
             </div>
             <div className="grid col-span-1 rounded bg-yolk place-content-center">
                 <ArrowRight size={64} />
             </div>
-          </section>
+          </section> */}
         </main>
         <Footer />
       </>
