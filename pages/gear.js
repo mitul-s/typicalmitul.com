@@ -255,7 +255,7 @@ const Gear = () => {
                 >
                   Sony A7C
                 </Link>
-                with the
+                {" "}with the{" "}
                 <Link
                   href="https://amzn.to/3DWAqGU"
                   isExternal
