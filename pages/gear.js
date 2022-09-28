@@ -250,9 +250,18 @@ const Gear = () => {
                 Photo taken on my{" "}
                 <Link
                   isExternal
+                  href="https://amzn.to/3LSzKUY"
                   className="underline transition duration-200 cursor-pointer underline-offset-2 hover:bg-yolk/50 hover:text-dark"
                 >
-                  DJI Mavic Mini
+                  Sony A7C
+                </Link>
+                with the
+                <Link
+                  href="https://amzn.to/3DWAqGU"
+                  isExternal
+                  className="underline transition duration-200 cursor-pointer underline-offset-2 hover:bg-yolk/50 hover:text-dark"
+                >
+                  Sigma 24-70mm f/2.8
                 </Link>
               </span>
             </div>
