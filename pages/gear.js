@@ -12,8 +12,8 @@ import hoya from "@/images/gear/hoya-circular-polarizer-filter.png";
 import harddrive from "@/images/gear/easystore-desktop-hero.png";
 import jay_lookup from "../public/images/blue-jays-hat-lookup.jpg";
 import heart_lake from "@/images/gear/drone-photo-of-heart-lake.jpg";
+import sony35 from "@/images/gear/sony-35mm-gm.png";
 import Footer from "@/components/sections/Footer";
-import { ArrowRight } from "phosphor-react";
 import { cx } from "class-variance-authority";
 
 const gear_data = {
@@ -60,12 +60,12 @@ const gear_data = {
     },
     {
       heading: "Lens",
-      title: "Sigma 35mm f/1.4",
-      longTitle: "Sigma 35mm f/1.4 DG DN Art Lens for Sony E-Mount Cameras",
+      title: "Sony 35mm f/1.4 GM",
+      longTitle: "Sony FE 35mm f/1.4 GM Lens",
       shortDesc:
         "I’ve never been one for prime lenses, but having a 35mm has been essential for street photography or for when I’m trying to pack light. The bokeh from the f/1.8 is absolutely beautiful.",
-      href: "https://amzn.to/3dLQaSk",
-      image: sonyA7C,
+      href: "https://amzn.to/3E3h5nw",
+      image: sony35,
       imageAlt: "",
       tags: ["Sony", "Full-Frame", "Mirrorless", "Interchangeable-Lens"],
     },
@@ -178,7 +178,7 @@ const GearItem = ({
           rel="noreferrer noopener"
           className="p-4 text-center border rounded bg-yolk border-yolk"
         >
-          Buy
+          Learn more
         </a>
       </div>
     </div>
@@ -241,8 +241,8 @@ const Gear = () => {
             );
           })}
 
-          <div className="relative w-full col-span-2 px-4 md:px-0">
-            <div className="mb-2 overflow-hidden bg-white border rounded h-96 border-stone-light">
+          <div className="relative w-full col-span-2 md:px-0">
+            <div className="mb-2 overflow-hidden bg-white border rounded h-[48rem] border-stone-light">
               <NextImage
                 src={jay_lookup}
                 className="rounded"
@@ -258,7 +258,7 @@ const Gear = () => {
               >
                 Sony A7C
               </Link> 
-              with the 
+              {" "}with the{" "}  
               <Link
                 href="https://amzn.to/3DWAqGU"
                 isExternal
@@ -294,7 +294,7 @@ const Gear = () => {
               scale={gear_data.drone.scale}
               href={gear_data.drone.href}
             />
-            <div className="relative w-full col-span-2 px-4 md:px-0">
+            <div className="relative w-full col-span-2 md:px-0">
               <div className="h-[calc(100%-38px)] mb-2 overflow-hidden bg-white border rounded border-stone-light">
                 <NextImage
                   src={heart_lake}
