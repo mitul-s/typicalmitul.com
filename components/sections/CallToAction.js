@@ -1,4 +1,5 @@
 import NextImage from "next/image"
+import uber from "@/images/logos/uber-logo.png";
 
 const CallToAction = () => {
   return (
@@ -12,7 +13,7 @@ const CallToAction = () => {
         <div className="flex flex-col max-w-6xl gap-y-6 md:gap-y-12">
           <div className={`relative w-12 sm:w-20 h-8 overflow-hidden`}>
             <NextImage
-              src="/images/logos/uber.png"
+              src={uber}
               objectFit="contain"
               layout="fill"
               alt="Uber Logo"
