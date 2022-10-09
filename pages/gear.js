@@ -155,7 +155,7 @@ const GearItem = ({
       <span className="text-xs uppercase col-span-full text-stone">
         {heading}
       </span>
-      <div className="grid w-full bg-white border rounded border-stone-light place-content-center h-96 md:h-auto">
+      <div className="grid w-full bg-white border rounded border-stone-light place-content-center h-72 md:h-auto">
         <div className="w-fit">
           <NextImage
             src={image}
@@ -214,34 +214,36 @@ const Gear = () => {
     <>
       <NextSeo title="Gear" canonical="https://typicalmitul.com/gear" />
       <main className="relative h-full pb-20">
-        <div className="flex items-center justify-between">
+        <div className="items-center justify-between md:flex">
           <div className="flex items-center px-6 py-12 md:px-4 gap-x-yeat">
             <span className="w-6 h-6 border rounded-full bg-yolk border-dark shrink-0"></span>
             <h1 className="text-5xl uppercase">Gear</h1>
           </div>
-          <div className="p-1 mx-4 text-xs border rounded text-stone-blue border-stone-light max-w-prose">
+          <div className="p-1 mx-6 text-xs border rounded md:mx-4 text-stone-blue border-stone-light md:max-w-prose">
             These are affiliate links, which I earn a small commission from. I
             only recommend products I use and love. Thank you for your support!
           </div>
         </div>
 
-        <section className="flex flex-col px-6 md:px-4">
-          {gear_data.camera.map((item) => {
-            return (
-              <GearItem
-                key={item.key}
-                heading={item.heading}
-                image={item.image}
-                imageAlt={item.imageAlt}
-                title={item.title}
-                subtitle={item.subtitle}
-                href={item.href}
-                description={item.description}
-              />
-            );
-          })}
+        <section className="flex flex-col">
+          <div className="px-6 md:px-4">
+            {gear_data.camera.map((item) => {
+              return (
+                <GearItem
+                  key={item.key}
+                  heading={item.heading}
+                  image={item.image}
+                  imageAlt={item.imageAlt}
+                  title={item.title}
+                  subtitle={item.subtitle}
+                  href={item.href}
+                  description={item.description}
+                />
+              );
+            })}
+          </div>
 
-          <div className="relative w-full col-span-2 md:px-0">
+          <div className="relative w-full col-span-2 px-6 md:px-4">
             <div className="mb-2 overflow-hidden bg-white border rounded h-[48rem] border-stone-light">
               <NextImage
                 src={jay_lookup}
@@ -257,8 +259,8 @@ const Gear = () => {
                 className="underline transition duration-200 cursor-pointer underline-offset-2 hover:bg-yolk/50 hover:text-dark"
               >
                 Sony A7C
-              </Link> 
-              {" "}with the{" "}  
+              </Link>{" "}
+              with the{" "}
               <Link
                 href="https://amzn.to/3DWAqGU"
                 isExternal
@@ -269,7 +271,7 @@ const Gear = () => {
             </span>
           </div>
           <Break />
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-yeat md:gap-y-6 md:gap-x-6">
+          <div className="grid grid-cols-2 px-6 md:grid-cols-3 gap-yeat md:gap-y-6 md:gap-x-6 md:px-4">
             <Heading className="col-span-full">Lenses</Heading>
             {gear_data.lenses.map((item) => {
               return (
@@ -315,7 +317,7 @@ const Gear = () => {
             </div>
           </div>
           <Break />
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 px-6 md:grid-cols-4 md:px-4">
             <Heading className="col-span-full">Accessories</Heading>
             {gear_data.accessories.map((item) => {
               return (
