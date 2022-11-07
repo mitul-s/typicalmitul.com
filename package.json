@@ -16,6 +16,7 @@
     "clsx": "^1.1.1",
     "framer-motion": "^7.2.1",
     "next": "12",
+    "next-sanity": "^1.0.8",
     "next-seo": "^5.5.0",
     "phosphor-react": "^1.4.1",
     "react": "^18.1.0",
