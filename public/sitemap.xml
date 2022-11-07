@@ -11,4 +11,8 @@
     <loc>https://typicalmitul.com</loc>
     <changefreq>hourly</changefreq>
   </url>
+  <url>
+    <loc>https://typicalmitul.com/blog/index</loc>
+    <changefreq>hourly</changefreq>
+  </url>
 </urlset>
