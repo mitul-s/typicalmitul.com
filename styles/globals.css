@@ -142,6 +142,28 @@ body {
 }
 
 
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -8px; /* gutter size offset */
+  width: auto;
+  padding: 8px;
+
+}
+.my-masonry-grid_column {
+  padding-left: 8px; /* gutter size */
+  padding-bottom: 8px;
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column > a { /* change div to reference your elements you put in <Masonry> */
+  background: grey;
+  margin-bottom: 8px;
+  display: block;
+}
+
 .better-underline {
   transition: all 0.2s ease-out 0s;
 }
