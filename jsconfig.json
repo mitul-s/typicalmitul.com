@@ -17,6 +17,9 @@
             "@/images/*": [
                 "public/images/*"
             ],
+            "@/utils/*": [
+                "utils/*"
+            ],
         }
     }
 }
