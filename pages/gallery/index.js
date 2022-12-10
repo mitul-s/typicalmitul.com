@@ -1,14 +1,16 @@
-import { useRouter } from "next/router";
-import cloudinary from "utils/cloudinary";
 import { useState } from "react";
+import { useRouter } from "next/router";
+import NextFutureImage from "next/future/image";
 import Link from "next/link";
-import Image from "next/future/image";
-import getBase64ImageUrl from "utils/generateBlurPlaceholder";
+import cloudinary from "@/utils/cloudinary";
+import getBase64ImageUrl from "@/utils/generateBlurPlaceholder";
 import Masonry from "react-masonry-css";
+import { X } from "phosphor-react";
 import {
   Dialog,
   DialogOverlay,
   DialogContent,
+  DialogClose,
   DialogPortal,
 } from "@radix-ui/react-dialog";
 
@@ -39,13 +41,21 @@ const Gallery = ({ images }) => {
               onEscapeKeyDown={() => router.push("/gallery")}
               onPointerDownOutside={() => router.push("/gallery")}
             >
-              <div className="relative w-auto sm:h-[800px]">
-                <Image
+              <div className="w-auto sm:h-[800px]">
+                <NextFutureImage
                   alt=""
                   src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_1440/${selectedImage.public_id}.${selectedImage.format}`}
+                  placeholder="blur"
+                  blurDataURL={selectedImage.blurDataURL}
                   fill
                   className="w-auto h-full rounded shadow-md !relative"
                 />
+              </div>
+              <div className="flex gap-x-2 absolute top-4 right-4">
+                {/* <button>Share</button> */}
+                <DialogClose className="rounded-full bg-white/10 text-white p-2.5 leading-none hover:bg-black transition">
+                  <X />
+                </DialogClose>
               </div>
             </DialogContent>
           </DialogPortal>
@@ -63,7 +73,7 @@ const Gallery = ({ images }) => {
             as={`/gallery/${id}`}
             shallow
           >
-            <Image
+            <NextFutureImage
               onClick={() => {
                 setSelectedImage({
                   public_id: public_id,
