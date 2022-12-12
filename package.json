@@ -10,6 +10,7 @@
   "dependencies": {
     "@formspree/react": "^2.3.0",
     "@radix-ui/react-dialog": "^1.0.0",
+    "@radix-ui/react-navigation-menu": "^1.1.1",
     "@radix-ui/react-tooltip": "^0.1.7",
     "@splitbee/web": "^0.3.0",
     "class-variance-authority": "^0.2.3",
