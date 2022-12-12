@@ -13,6 +13,7 @@ import {
   DialogClose,
   DialogPortal,
 } from "@radix-ui/react-dialog";
+import Heading from "@/components/Heading";
 
 const Gallery = ({ images }) => {
   const router = useRouter();
@@ -22,6 +23,8 @@ const Gallery = ({ images }) => {
     public_id: "",
     format: "",
   });
+  const [filter, setFilter] = useState("typicalmitul");
+  const newImages = images.filter((image) => image.public_id.includes(filter));
 
   const breakpointColumnsObj = {
     default: 4,
@@ -66,33 +69,51 @@ const Gallery = ({ images }) => {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {images.map(({ id, public_id, format, width, height, blurDataUrl }) => (
-          <Link
-            key={id}
-            href={`/gallery/?photoId=${id}`}
-            as={`/gallery/${id}`}
-            shallow
-          >
-            <NextFutureImage
-              onClick={() => {
-                setSelectedImage({
-                  public_id: public_id,
-                  format: format,
-                  alt: "",
-                  blurDataURL: blurDataUrl,
-                });
-                setOpen(true);
-              }}
-              className="block overflow-hidden transition-all duration-500 border rounded-lg shadow betterhover:hover:shadow-xl betterhover:hover:shadow-yolk/50 betterhover:hover:border-yolk border-stone"
-              alt=""
-              placeholder="blur"
-              blurDataURL={blurDataUrl}
-              src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_720/${public_id}.${format}`}
-              width={width}
-              height={height}
-            />
-          </Link>
-        ))}
+        <div className="h-96 border border-black rounded px-4 pt-2 pb-5 flex flex-col justify-between">
+          <Heading>Gallery</Heading>
+          <p className="text-sm">
+            Welcome to my portfolio! Here you'll find a selection of my best
+            work, from corporate to concert scenes. Explore and enjoy! Thank you
+            for visiting.
+          </p>
+          <div>
+            <Link href={`/gallery`} as={"/gallery"}>
+              <a onClick={() => setFilter("typicalmitul")}>All</a>
+            </Link>
+            <Link href={`/gallery?type=concerts`} as={`/gallery/concerts`}>
+              <a onClick={() => setFilter("concerts")}>Concerts</a>
+            </Link>
+          </div>
+        </div>
+        {newImages.map(
+          ({ id, public_id, format, width, height, blurDataUrl }) => (
+            <Link
+              key={id}
+              href={`/gallery/?photoId=${id}`}
+              as={`/gallery/${id}`}
+              shallow
+            >
+              <NextFutureImage
+                onClick={() => {
+                  setSelectedImage({
+                    public_id: public_id,
+                    format: format,
+                    alt: "",
+                    blurDataURL: blurDataUrl,
+                  });
+                  setOpen(true);
+                }}
+                className="cursor-pointer block overflow-hidden transition-all duration-500 border rounded-lg shadow betterhover:hover:shadow-xl betterhover:hover:shadow-yolk/50 betterhover:hover:border-yolk border-stone"
+                alt=""
+                placeholder="blur"
+                blurDataURL={blurDataUrl}
+                src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_720/${public_id}.${format}`}
+                width={width}
+                height={height}
+              />
+            </Link>
+          )
+        )}
       </Masonry>
     </main>
   );
@@ -105,7 +126,6 @@ export async function getStaticProps() {
     .max_results(400)
     .execute();
   let reducedResults = [];
-
   let i = 0;
   for (let result of results.resources) {
     reducedResults.push({

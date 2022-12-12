@@ -158,11 +158,11 @@ body {
 }
 
 /* Style your items */
-.my-masonry-grid_column > img { /* change div to reference your elements you put in <Masonry> */
-  background: grey;
+.my-masonry-grid_column > * { /* change div to reference your elements you put in <Masonry> */
+  /* background: grey; */
   margin-bottom: 8px;
-  display: block;
-  cursor: pointer;
+  /* display: block; */
+  /* cursor: pointer; */
 }
 
 .better-underline {
