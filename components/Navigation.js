@@ -5,69 +5,109 @@ import NextLink from "next/link";
 import { motion } from "framer-motion";
 import { ContactDialog } from "@/sections/Contact";
 import { SheetContext } from "@/components/Sheet";
+import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+import { cva } from "class-variance-authority";
 
 const navLinks = [
-  { id: 1, title: "Home", href: "/" },
+  // { id: 1, title: "Home", href: "/" },
   { id: 2, title: "About", href: "/about" },
   { id: 3, title: "Gear", href: "/gear" },
   { id: 4, title: "Gallery", href: "/gallery" },
 ];
 
+const navigationLink = cva([], {
+  variants: {
+    intent: {
+      desktop: [
+        "hidden",
+        "sm:block",
+        "cursor-pointer",
+        "py-0.5",
+        "px-2",
+        "transition",
+        "rounded",
+        "hover:bg-black/10",
+        "font-medium",
+        "focus:bg-black/10",
+      ],
+    },
+  },
+});
+
+const NavigationLink = ({ href, children }) => {
+  return (
+    <NavigationMenu.Item>
+      <NextLink href={href}>
+        <NavigationMenu.Link className={navigationLink({ intent: "desktop" })}>
+          {children}
+        </NavigationMenu.Link>
+      </NextLink>
+    </NavigationMenu.Item>
+  );
+};
+
 const Navigation = () => {
+  const { open, setOpen } = React.useContext(SheetContext);
+  return (
+    <>
+      <ContactDialog open={open} onOpenChange={setOpen} />
+      <NavigationMenu.Root>
+        <NavigationMenu.List className="pt-4 pb-4 px-4 flex items-center justify-center w-full mx-auto text-md gap-x-4">
+          <NavigationMenu.Item className="mr-auto">
+            <NextLink href="/" passHref>
+              <NavigationMenu.Link>Typical Mitul</NavigationMenu.Link>
+            </NextLink>
+          </NavigationMenu.Item>
+          {navLinks.map((link) => {
+            return (
+              <NavigationLink key={link.id} href={link.href}>
+                {link.title}
+              </NavigationLink>
+            );
+          })}
+          <NavigationMenu.Item>
+            <NavigationMenu.Trigger onClick={() => setOpen(true)}>
+              Contact
+            </NavigationMenu.Trigger>
+          </NavigationMenu.Item>
+        </NavigationMenu.List>
+      </NavigationMenu.Root>
+    </>
+  );
+};
+
+const Navigation2 = () => {
   const router = useRouter();
   const { open, setOpen } = React.useContext(SheetContext);
 
   return (
     <>
       <ContactDialog open={open} onOpenChange={setOpen} />
-        <nav className="fixed z-40 p-1 leading-none -translate-x-1/2 bg-white border rounded shadow-md left-1/2 bottom-6 md:bottom-12 border-dark w-fit">
-          <ul className="flex gap-x-0.5 text-base leading-none">
-            {navLinks.map((link) => (
-              <li key={link.id} className="grid">
-                <NextLink href={link.href} passHref>
-                  <motion.a
-                    whileTap={{
-                      scale: 0.95,
-                      transition: {
-                        type: "spring",
-                        duration: 0.15,
-                      },
-                    }}
-                    className={clsx(
-                      "inline-block px-5 py-2.5 border border-transparent rounded content text-dark transition-colors duration-250",
-                      {
-                        "betterhover:hover:border-dark/50":
-                          router.pathname !== link.href,
-                      }
-                    )}
-                  >
-                    {link.title}
-                  </motion.a>
-                </NextLink>
-                {router.pathname === link.href && (
-                  <motion.div
-                    layoutId="navItem"
-                    className="inline-block px-5 py-2.5 border border-transparent rounded shadow bg-dark overlay invert mix-blend-difference"
-                    animate
-                  />
-                )}
-              </li>
-            ))}
-            <li className="grid">
-              <motion.button
-                onClick={() => setOpen(true)}
-                whileTap={{
-                  scale: 0.95,
-                  transition: {
-                    type: "spring",
-                    duration: 0.15,
-                  },
-                }}
-                className="inline-block px-5 py-2.5 transition-colors border border-transparent rounded content text-dark duration-250 betterhover:hover:border-dark/50"
-              >
-                Contact
-              </motion.button>
-              {open && (
+      <nav className="fixed z-40 p-1 leading-none -translate-x-1/2 bg-white border rounded shadow-md left-1/2 bottom-6 md:bottom-12 border-dark w-fit">
+        <ul className="flex gap-x-0.5 text-base leading-none">
+          {navLinks.map((link) => (
+            <li key={link.id} className="grid">
+              <NextLink href={link.href} passHref>
+                <motion.a
+                  whileTap={{
+                    scale: 0.95,
+                    transition: {
+                      type: "spring",
+                      duration: 0.15,
+                    },
+                  }}
+                  className={clsx(
+                    "inline-block px-5 py-2.5 border border-transparent rounded content text-dark transition-colors duration-250",
+                    {
+                      "betterhover:hover:border-dark/50":
+                        router.pathname !== link.href,
+                    }
+                  )}
+                >
+                  {link.title}
+                </motion.a>
+              </NextLink>
+              {router.pathname === link.href && (
                 <motion.div
                   layoutId="navItem"
                   className="inline-block px-5 py-2.5 border border-transparent rounded shadow bg-dark overlay invert mix-blend-difference"
@@ -75,8 +115,31 @@ const Navigation = () => {
                 />
               )}
             </li>
-          </ul>
-        </nav>
+          ))}
+          <li className="grid">
+            <motion.button
+              onClick={() => setOpen(true)}
+              whileTap={{
+                scale: 0.95,
+                transition: {
+                  type: "spring",
+                  duration: 0.15,
+                },
+              }}
+              className="inline-block px-5 py-2.5 transition-colors border border-transparent rounded content text-dark duration-250 betterhover:hover:border-dark/50"
+            >
+              Contact
+            </motion.button>
+            {open && (
+              <motion.div
+                layoutId="navItem"
+                className="inline-block px-5 py-2.5 border border-transparent rounded shadow bg-dark overlay invert mix-blend-difference"
+                animate
+              />
+            )}
+          </li>
+        </ul>
+      </nav>
     </>
   );
 };
