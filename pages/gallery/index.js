@@ -14,6 +14,47 @@ import {
   DialogPortal,
 } from "@radix-ui/react-dialog";
 import Heading from "@/components/Heading";
+import { AnimatePresence, motion } from "framer-motion";
+import { cx } from "class-variance-authority";
+
+const FILTERS = [
+  {
+    title: "All",
+    type: "all",
+    filter: "typicalmitul",
+  },
+  {
+    title: "Concerts",
+    type: "concerts",
+    filter: "concerts",
+  },
+  {
+    title: "Cityscapes",
+    type: "cityscapes",
+    filter: "cityscapes",
+  },
+];
+
+const FilterTag = ({ filter, onClick, children }) => {
+  const router = useRouter();
+  const { type } = router.query;
+
+  return (
+    <Link href={`/gallery?type=${filter}`} as={`/gallery/${filter}`}>
+      <a
+        className={cx(
+          filter === type || (!type && filter === "all")
+            ? "bg-yolk text-dark"
+            : "bg-white text-dark",
+          "border rounded px-2 py-0.5 border-dark text-sm"
+        )}
+        onClick={onClick}
+      >
+        {children}
+      </a>
+    </Link>
+  );
+};
 
 const Gallery = ({ images }) => {
   const router = useRouter();
@@ -23,6 +64,7 @@ const Gallery = ({ images }) => {
     public_id: "",
     format: "",
   });
+
   const [filter, setFilter] = useState("typicalmitul");
   const newImages = images.filter((image) => image.public_id.includes(filter));
 
@@ -32,6 +74,8 @@ const Gallery = ({ images }) => {
     700: 2,
     500: 1,
   };
+
+  const MotionImage = motion(NextFutureImage);
 
   return (
     <main className="relative">
@@ -56,7 +100,10 @@ const Gallery = ({ images }) => {
               </div>
               <div className="flex gap-x-2 absolute top-4 right-4">
                 {/* <button>Share</button> */}
-                <DialogClose className="rounded-full bg-white/10 text-white p-2.5 leading-none hover:bg-black transition">
+                <DialogClose
+                  className="rounded-full bg-white/10 text-white p-2.5 leading-none hover:bg-black transition"
+                  onClick={() => router.push("/gallery")}
+                >
                   <X />
                 </DialogClose>
               </div>
@@ -71,47 +118,61 @@ const Gallery = ({ images }) => {
       >
         <div className="h-96 border border-black rounded px-4 pt-2 pb-5 flex flex-col justify-between">
           <Heading>Gallery</Heading>
-          <p className="text-sm">
-            Welcome to my portfolio! Here you'll find a selection of my best
-            work, from corporate to concert scenes. Explore and enjoy! Thank you
-            for visiting.
-          </p>
           <div>
-            <Link href={`/gallery`} as={"/gallery"}>
-              <a onClick={() => setFilter("typicalmitul")}>All</a>
-            </Link>
-            <Link href={`/gallery?type=concerts`} as={`/gallery/concerts`}>
-              <a onClick={() => setFilter("concerts")}>Concerts</a>
-            </Link>
+            <p className="text-sm mb-2">
+              Welcome to my portfolio! Here you'll find a selection of my best
+              work, from corporate to concert scenes. You can filter through the
+              buttons below. Explore and enjoy! Thank you for visiting.
+            </p>
+            <div className="flex gap-x-0.5">
+              {FILTERS.map(({ filter, type, title }) => (
+                <FilterTag filter={type} onClick={() => setFilter(filter)}>
+                  {title}
+                </FilterTag>
+              ))}
+            </div>
           </div>
         </div>
+
         {newImages.map(
           ({ id, public_id, format, width, height, blurDataUrl }) => (
-            <Link
-              key={id}
-              href={`/gallery/?photoId=${id}`}
-              as={`/gallery/${id}`}
-              shallow
-            >
-              <NextFutureImage
-                onClick={() => {
-                  setSelectedImage({
-                    public_id: public_id,
-                    format: format,
-                    alt: "",
-                    blurDataURL: blurDataUrl,
-                  });
-                  setOpen(true);
-                }}
-                className="cursor-pointer block overflow-hidden transition-all duration-500 border rounded-lg shadow betterhover:hover:shadow-xl betterhover:hover:shadow-yolk/50 betterhover:hover:border-yolk border-stone"
-                alt=""
-                placeholder="blur"
-                blurDataURL={blurDataUrl}
-                src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_720/${public_id}.${format}`}
-                width={width}
-                height={height}
-              />
-            </Link>
+            <AnimatePresence>
+              <Link
+                key={id}
+                href={`/gallery/?photoId=${id}`}
+                as={`/gallery/${id}`}
+                shallow
+              >
+                <MotionImage
+                  // initial={{ scale: 0, opacity: 0 }}
+                  // animate={{
+                  //   scale: 1,
+                  //   opacity: 1,
+                  // }}
+                  // exit={{
+                  //   scale: 0.8,
+                  //   opacity: 0,
+                  // }}
+                  layout
+                  onClick={() => {
+                    setSelectedImage({
+                      public_id: public_id,
+                      format: format,
+                      alt: "",
+                      blurDataURL: blurDataUrl,
+                    });
+                    setOpen(true);
+                  }}
+                  className="cursor-pointer block overflow-hidden transition-all duration-500 border rounded-lg shadow betterhover:hover:shadow-xl betterhover:hover:shadow-yolk/50 betterhover:hover:border-yolk border-stone"
+                  alt=""
+                  placeholder="blur"
+                  blurDataURL={blurDataUrl}
+                  src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_720/${public_id}.${format}`}
+                  width={width}
+                  height={height}
+                />
+              </Link>
+            </AnimatePresence>
           )
         )}
       </Masonry>
