@@ -40,19 +40,25 @@ const FilterTag = ({ filter, onClick, children }) => {
   const { type } = router.query;
 
   return (
-    <Link href={`/gallery?type=${filter}`} as={`/gallery/${filter}`}>
-      <a
-        className={cx(
-          filter === type || (!type && filter === "all")
-            ? "bg-yolk text-dark"
-            : "bg-white text-dark",
-          "border rounded px-2 py-0.5 border-dark text-sm"
-        )}
-        onClick={onClick}
-      >
-        {children}
-      </a>
-    </Link>
+    <div className="grid">
+      <Link href={`/gallery?type=${filter}`} as={`/gallery/${filter}`}>
+        <a
+          className={cx(
+            "border rounded px-2 py-0.5 border-dark text-sm content text-dark z-10"
+          )}
+          onClick={onClick}
+        >
+          {children}
+        </a>
+      </Link>
+      {filter === type || (!type && filter === "all") ? (
+        <motion.div
+          layoutId="categoryItem"
+          className="inline-block px-2 py-0.5 rounded shadow bg-yolk overlay"
+          animate
+        />
+      ) : null}
+    </div>
   );
 };
 
@@ -85,8 +91,8 @@ const Gallery = ({ images }) => {
             <DialogOverlay className="fixed inset-0 bg-black/75 backdrop-blur-md rdx-state-open:overlay-fade-in rdx-state-closed:overlay-fade-out" />
             <DialogContent
               className="fixed inset-0 mx-auto my-auto rounded shadow outline-none h-fit w-fit rdx-state-open:dialog-item-open rdx-state-closed:dialog-item-close"
-              onEscapeKeyDown={() => router.push("/gallery")}
-              onPointerDownOutside={() => router.push("/gallery")}
+              onEscapeKeyDown={() => router.back()}
+              onPointerDownOutside={() => router.back()}
             >
               <div className="w-auto sm:h-[800px]">
                 <NextFutureImage
@@ -102,7 +108,7 @@ const Gallery = ({ images }) => {
                 {/* <button>Share</button> */}
                 <DialogClose
                   className="rounded-full bg-white/10 text-white p-2.5 leading-none hover:bg-black transition"
-                  onClick={() => router.push("/gallery")}
+                  onClick={() => router.back()}
                 >
                   <X />
                 </DialogClose>
@@ -122,7 +128,7 @@ const Gallery = ({ images }) => {
             <p className="text-sm mb-2">
               Welcome to my portfolio! Here you'll find a selection of my best
               work, from corporate to concert scenes. You can filter through the
-              buttons below. Explore and enjoy! Thank you for visiting.
+              buttons below. Explore and enjoy!
             </p>
             <div className="flex gap-x-0.5">
               {FILTERS.map(({ filter, type, title }) => (
