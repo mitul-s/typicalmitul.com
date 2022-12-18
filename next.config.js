@@ -8,13 +8,6 @@ module.exports = {
       "www.dpreview.com",
     ],
   },
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      require("./scripts/generate-sitemap");
-    }
-
-    return config;
-  },
   experimental: { images: { allowFutureImage: true } },
   async rewrites() {
     return [
