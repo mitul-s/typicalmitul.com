@@ -16,4 +16,12 @@ module.exports = {
     return config;
   },
   experimental: { images: { allowFutureImage: true } },
+  async rewrites() {
+    return [
+      {
+        source: "/gallery/concerts",
+        destination: "/gallery",
+      },
+    ];
+  },
 };
