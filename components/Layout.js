@@ -9,7 +9,9 @@ export default function Layout({ children }) {
 
   return (
     <div className="relative h-full">
-      <Navigation />
+      <header className="isolate z-20 w-full mx-auto relative">
+        <Navigation />
+      </header>
       <div
         className={cx(
           "min-h-full will-change-transform transition-all duration-1000 sm:translate-x-0",
