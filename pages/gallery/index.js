@@ -126,13 +126,17 @@ const Gallery = ({ images }) => {
           <Heading>Gallery</Heading>
           <div>
             <p className="text-sm mb-2">
-              Welcome to my portfolio! Here you'll find a selection of my best
-              work, from corporate to concert scenes. You can filter through the
-              buttons below. Explore and enjoy!
+              Welcome to my portfolio! Here you&apos;ll find a selection of my
+              best work, from corporate to concert scenes. You can filter
+              through the buttons below. Explore and enjoy!
             </p>
             <div className="flex gap-x-0.5">
               {FILTERS.map(({ filter, type, title }) => (
-                <FilterTag filter={type} onClick={() => setFilter(filter)}>
+                <FilterTag
+                  key={type}
+                  filter={type}
+                  onClick={() => setFilter(filter)}
+                >
                   {title}
                 </FilterTag>
               ))}
@@ -142,9 +146,8 @@ const Gallery = ({ images }) => {
 
         {newImages.map(
           ({ id, public_id, format, width, height, blurDataUrl }) => (
-            <AnimatePresence>
+            <AnimatePresence key={id}>
               <Link
-                key={id}
                 href={`/gallery/?photoId=${id}`}
                 as={`/gallery/${id}`}
                 shallow
