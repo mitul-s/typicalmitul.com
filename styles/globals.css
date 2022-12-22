@@ -69,7 +69,7 @@ body {
 @layer utilities {
   .hero {
     height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
-    height: calc(var(--vh, 1vh) * 100);
+    height: calc((var(--vh, 1vh) * 100) - 8vh);
   }
   .h-real-screen {
     height: calc(100vh - theme("spacing.8")));
@@ -148,7 +148,6 @@ body {
   display: flex;
   margin-left: -8px; /* gutter size offset */
   width: auto;
-  padding: 8px;
 
 }
 .my-masonry-grid_column {

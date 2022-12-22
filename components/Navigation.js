@@ -23,6 +23,7 @@ const navigationLink = cva(["cursor-pointer"], {
       desktop: [
         "hidden",
         "sm:block",
+        "cursor-pointer",
         "py-0.5",
         "px-2",
         "transition",
@@ -44,6 +45,7 @@ const navigationLink = cva(["cursor-pointer"], {
         "text-left",
         "border-b",
         "border-stone-light",
+        "data-[active='true']:bg-yolk",
       ],
     },
   },

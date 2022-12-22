@@ -119,7 +119,7 @@ const Gallery = ({ images }) => {
       </Dialog>
       <Masonry
         breakpointCols={breakpointColumnsObj}
-        className="my-masonry-grid"
+        className="my-masonry-grid py-4 px-8 sm:px-4"
         columnClassName="my-masonry-grid_column"
       >
         <div className="h-96 border border-black rounded px-4 pt-2 pb-5 flex flex-col justify-between">
@@ -130,7 +130,7 @@ const Gallery = ({ images }) => {
               best work, from corporate to concert scenes. You can filter
               through the buttons below. Explore and enjoy!
             </p>
-            <div className="flex gap-x-0.5">
+            <div className="flex gap-0.5 flex-wrap">
               {FILTERS.map(({ filter, type, title }) => (
                 <FilterTag
                   key={type}
