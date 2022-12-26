@@ -33,6 +33,16 @@ const FILTERS = [
     type: "cityscapes",
     filter: "cityscapes",
   },
+  {
+    title: "Urban",
+    type: "urban",
+    filter: "urban",
+  },
+  {
+    title: "Nature",
+    type: "nature",
+    filter: "nature",
+  },
 ];
 
 const FilterTag = ({ filter, onClick, children }) => {
@@ -73,6 +83,7 @@ const Gallery = ({ images }) => {
 
   const [filter, setFilter] = useState("typicalmitul");
   const newImages = images.filter((image) => image.public_id.includes(filter));
+  // const newImages = filteredImages.sort(() => 0.5 - Math.random());
 
   const breakpointColumnsObj = {
     default: 4,
