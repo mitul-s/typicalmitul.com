@@ -72,29 +72,44 @@ const FilterTag = ({ filter, onClick, children }) => {
   );
 };
 
+const MotionImage = motion(NextFutureImage);
+
 const Gallery = ({ images }) => {
   const router = useRouter();
   const { photoId, type } = router.query;
   const [open, setOpen] = useState(false);
+  const [shuffled, setShuffled] = useState(false);
+  const [gridImages, setGridImages] = useState(images);
   const [selectedImage, setSelectedImage] = useState({
     public_id: "",
     format: "",
     blurDataURL: "",
+    width: 0,
+    height: 0,
   });
+  const [filter, setFilter] = useState("typicalmitul");
+  const newImages = images.filter((image) => image.public_id.includes(filter));
 
   useEffect(() => {
     if (!router.isReady) return;
-    if (type) {
+    if (type && type !== "all") {
       setFilter(type);
     } else {
       setFilter("typicalmitul");
     }
   }, [router.isReady]);
 
-  const [filter, setFilter] = useState("typicalmitul");
-  const newImages = images
-    .filter((image) => image.public_id.includes(filter))
-    .sort(() => 0.5 - Math.random());
+  useEffect(() => {
+    const shuffledImages = newImages.sort(() => 0.5 - Math.random());
+    setGridImages(shuffledImages);
+  }, [filter]);
+
+  useEffect(() => {
+    if (shuffled) return;
+    const shuffledImages = newImages.sort(() => 0.5 - Math.random());
+    setShuffled(true);
+    setGridImages(shuffledImages);
+  }, [shuffled]);
 
   const breakpointColumnsObj = {
     default: 4,
@@ -103,7 +118,7 @@ const Gallery = ({ images }) => {
     500: 1,
   };
 
-  const MotionImage = motion(NextFutureImage);
+  console.log(type);
 
   return (
     <main className="relative">
@@ -116,7 +131,14 @@ const Gallery = ({ images }) => {
               onEscapeKeyDown={() => router.back()}
               onPointerDownOutside={() => router.back()}
             >
-              <div className="w-auto sm:h-[800px] h-[250px]">
+              <div
+                className={cx(
+                  "relative w-auto sm:h-[800px]",
+                  selectedImage.width < selectedImage.height
+                    ? "h-[500px]"
+                    : "h-[250px]"
+                )}
+              >
                 <NextFutureImage
                   alt=""
                   src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_1440/${selectedImage.public_id}.${selectedImage.format}`}
@@ -166,7 +188,7 @@ const Gallery = ({ images }) => {
           </div>
         </div>
 
-        {newImages.map(
+        {gridImages.map(
           ({ id, public_id, format, width, height, blurDataUrl }) => (
             <AnimatePresence key={id}>
               <Link
@@ -175,7 +197,7 @@ const Gallery = ({ images }) => {
                 shallow
               >
                 <MotionImage
-                  // initial={{ scale: 0, opacity: 0 }}
+                  // initial={{ scale: 0.8, opacity: 0 }}
                   // animate={{
                   //   scale: 1,
                   //   opacity: 1,
@@ -184,15 +206,20 @@ const Gallery = ({ images }) => {
                   //   scale: 0.8,
                   //   opacity: 0,
                   // }}
-                  layout
+                  // layout
                   onClick={() => {
                     setSelectedImage({
                       public_id: public_id,
                       format: format,
                       alt: "",
                       blurDataURL: blurDataUrl,
+                      width: width,
+                      height: height,
                     });
                     setOpen(true);
+                    // splitbee.track("Open Photo", {
+                    //   title: selectedImage.public_id,
+                    // });
                   }}
                   className="cursor-pointer block overflow-hidden transition-all duration-500 border rounded-lg shadow betterhover:hover:shadow-xl betterhover:hover:shadow-yolk/50 betterhover:hover:border-yolk border-stone"
                   alt=""
