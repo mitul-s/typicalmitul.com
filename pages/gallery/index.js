@@ -29,7 +29,7 @@ const FILTERS = [
     filter: "concerts",
   },
   {
-    title: "Cityscapes",
+    title: "Cityscapes & Architecture",
     type: "cityscapes",
     filter: "cityscapes",
   },
@@ -39,7 +39,7 @@ const FILTERS = [
     filter: "street",
   },
   {
-    title: "Nature",
+    title: "The Outdoors",
     type: "nature",
     filter: "nature",
   },
@@ -95,7 +95,6 @@ const Gallery = ({ images }) => {
   const newImages = images
     .filter((image) => image.public_id.includes(filter))
     .sort(() => 0.5 - Math.random());
-  // const newImages = filteredImages;
 
   const breakpointColumnsObj = {
     default: 4,
@@ -117,7 +116,7 @@ const Gallery = ({ images }) => {
               onEscapeKeyDown={() => router.back()}
               onPointerDownOutside={() => router.back()}
             >
-              <div className="w-auto sm:h-[800px]">
+              <div className="w-auto sm:h-[800px] h-[250px]">
                 <NextFutureImage
                   alt=""
                   src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_1440/${selectedImage.public_id}.${selectedImage.format}`}
