@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import NextFutureImage from "next/future/image";
 import Link from "next/link";
@@ -34,9 +34,9 @@ const FILTERS = [
     filter: "cityscapes",
   },
   {
-    title: "Urban",
-    type: "urban",
-    filter: "urban",
+    title: "Street",
+    type: "street",
+    filter: "street",
   },
   {
     title: "Nature",
@@ -74,16 +74,28 @@ const FilterTag = ({ filter, onClick, children }) => {
 
 const Gallery = ({ images }) => {
   const router = useRouter();
-  const { photoId } = router.query;
+  const { photoId, type } = router.query;
   const [open, setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState({
     public_id: "",
     format: "",
+    blurDataURL: "",
   });
 
+  useEffect(() => {
+    if (!router.isReady) return;
+    if (type) {
+      setFilter(type);
+    } else {
+      setFilter("typicalmitul");
+    }
+  }, [router.isReady]);
+
   const [filter, setFilter] = useState("typicalmitul");
-  const newImages = images.filter((image) => image.public_id.includes(filter));
-  // const newImages = filteredImages.sort(() => 0.5 - Math.random());
+  const newImages = images
+    .filter((image) => image.public_id.includes(filter))
+    .sort(() => 0.5 - Math.random());
+  // const newImages = filteredImages;
 
   const breakpointColumnsObj = {
     default: 4,
@@ -112,13 +124,13 @@ const Gallery = ({ images }) => {
                   placeholder="blur"
                   blurDataURL={selectedImage.blurDataURL}
                   fill
-                  className="w-auto h-full rounded shadow-md !relative"
+                  className="rounded shadow-md !relative"
                 />
               </div>
               <div className="flex gap-x-2 absolute top-4 right-4">
                 {/* <button>Share</button> */}
                 <DialogClose
-                  className="rounded-full bg-white/10 text-white p-2.5 leading-none hover:bg-black transition"
+                  className="rounded-full bg-white/10 text-white p-2.5 leading-none hover:bg-black transition shrink-0"
                   onClick={() => router.back()}
                 >
                   <X />

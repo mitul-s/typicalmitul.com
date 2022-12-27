@@ -13,7 +13,7 @@ module.exports = {
     return [
       {
         source: "/gallery/concerts",
-        destination: "/gallery",
+        destination: "/gallery?type=concerts",
       },
     ];
   },
