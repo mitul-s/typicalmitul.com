@@ -30,8 +30,8 @@ const FILTERS = [
   },
   {
     title: "Cityscapes & Architecture",
-    type: "cityscapes",
-    filter: "cityscapes",
+    type: "architecture",
+    filter: "architecture",
   },
   {
     title: "Street",
@@ -40,8 +40,8 @@ const FILTERS = [
   },
   {
     title: "The Outdoors",
-    type: "nature",
-    filter: "nature",
+    type: "outdoors",
+    filter: "outdoors",
   },
 ];
 
