@@ -16,6 +16,7 @@ import {
 import Heading from "@/components/Heading";
 import { AnimatePresence, motion } from "framer-motion";
 import { cx } from "class-variance-authority";
+import splitbee from "@splitbee/web";
 
 const FILTERS = [
   {
@@ -79,6 +80,8 @@ const Gallery = ({ images }) => {
   const { photoId, type } = router.query;
   const [open, setOpen] = useState(false);
   const [shuffled, setShuffled] = useState(false);
+  const [filter, setFilter] = useState("typicalmitul");
+  const newImages = images.filter((image) => image.public_id.includes(filter));
   const [gridImages, setGridImages] = useState(images);
   const [selectedImage, setSelectedImage] = useState({
     public_id: "",
@@ -87,8 +90,6 @@ const Gallery = ({ images }) => {
     width: 0,
     height: 0,
   });
-  const [filter, setFilter] = useState("typicalmitul");
-  const newImages = images.filter((image) => image.public_id.includes(filter));
 
   useEffect(() => {
     if (!router.isReady) return;
@@ -109,7 +110,7 @@ const Gallery = ({ images }) => {
     const shuffledImages = newImages.sort(() => 0.5 - Math.random());
     setShuffled(true);
     setGridImages(shuffledImages);
-  }, [shuffled]);
+  }, []);
 
   const breakpointColumnsObj = {
     default: 4,
@@ -144,6 +145,8 @@ const Gallery = ({ images }) => {
                   src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_1440/${selectedImage.public_id}.${selectedImage.format}`}
                   placeholder="blur"
                   blurDataURL={selectedImage.blurDataURL}
+                  // width={selectedImage.width}
+                  // height={selectedImage.height}
                   fill
                   className="rounded shadow-md !relative"
                 />
@@ -217,9 +220,9 @@ const Gallery = ({ images }) => {
                       height: height,
                     });
                     setOpen(true);
-                    // splitbee.track("Open Photo", {
-                    //   title: selectedImage.public_id,
-                    // });
+                    splitbee.track("Open Photo", {
+                      title: selectedImage.public_id,
+                    });
                   }}
                   className="cursor-pointer block overflow-hidden transition-all duration-500 border rounded-lg shadow betterhover:hover:shadow-xl betterhover:hover:shadow-yolk/50 betterhover:hover:border-yolk border-stone"
                   alt=""
