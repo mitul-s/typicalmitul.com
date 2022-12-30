@@ -6,13 +6,21 @@ import nyc_ts from "../../public/images/new-york-city-times-square.jpg";
 import grid_light from "../../public/images/sunlight-through-skyscrapers.jpg";
 import jay_lookup from "../../public/images/blue-jays-hat-lookup.jpg";
 import walker from "../../public/images/crossing-the-road.jpg";
-import { Dialog, DialogTrigger, DialogContent, DialogOverlay, DialogPortal } from "@radix-ui/react-dialog";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogOverlay,
+  DialogPortal,
+} from "@radix-ui/react-dialog";
 import NextImage from "next/image";
 import NextFutureImage from "next/future/image";
 import React from "react";
-import { motion } from "framer-motion"
-import { cx } from "class-variance-authority"
+import { motion } from "framer-motion";
+import { cx } from "class-variance-authority";
 import splitbee from "@splitbee/web";
+import Button from "@/components/Button";
+import { ArrowRight } from "phosphor-react";
 
 const images = [
   {
@@ -68,22 +76,20 @@ const images = [
   },
 ];
 
-
 const Image2 = ({ src, alt, ...props }) => (
-    <NextImage
-      src={src}
-      alt={alt}
-      layout="fill"
-      objectFit="cover"
-      className={"transition duration-500 betterhover:hover:scale-[1.03]"}
-      {...props}
-    />
+  <NextImage
+    src={src}
+    alt={alt}
+    layout="fill"
+    objectFit="cover"
+    className={"transition duration-500 betterhover:hover:scale-[1.03]"}
+    {...props}
+  />
 );
 
-Image2.displayName = "Image2"
+Image2.displayName = "Image2";
 
 const PhotoGrid = () => {
-
   const [selected, setSelected] = React.useState();
 
   return (
@@ -95,7 +101,10 @@ const PhotoGrid = () => {
               <DialogTrigger
                 key={image.key}
                 className="relative w-full overflow-hidden transition-all duration-500 border rounded-lg shadow betterhover:hover:shadow-xl betterhover:hover:shadow-yolk/50 betterhover:hover:border-yolk border-stone photo-grid-item"
-                onClick={() => {setSelected(image.key); splitbee.track("Open Photo", { title: image.title })}}
+                onClick={() => {
+                  setSelected(image.key);
+                  splitbee.track("Open Photo", { title: image.title });
+                }}
               >
                 <Image2
                   src={image.src}
@@ -149,11 +158,10 @@ const PhotoGrid = () => {
         </Dialog>
       </div>
       <div className="mt-yeat"></div>
-      {/* To do */}
-      {/* <Button fullWidth asAnchor>
+      <Button fullWidth asAnchor href="/gallery">
         See More
         <ArrowRight weight="bold" />
-      </Button> */}
+      </Button>
     </>
   );
 };

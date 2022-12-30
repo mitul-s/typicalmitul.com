@@ -8,12 +8,33 @@ module.exports = {
       "www.dpreview.com",
     ],
   },
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      require("./scripts/generate-sitemap");
-    }
-
-    return config;
-  },
   experimental: { images: { allowFutureImage: true } },
+  async rewrites() {
+    return [
+      {
+        source: "/gallery/concerts",
+        destination: "/gallery?type=concerts",
+      },
+      {
+        source: "/gallery/architecture",
+        destination: "/gallery?type=architecture",
+      },
+      {
+        source: "/gallery/street",
+        destination: "/gallery?type=street",
+      },
+      {
+        source: "/gallery/nature",
+        destination: "/gallery?type=nature",
+      },
+      {
+        source: "/gallery/outdoors",
+        destination: "/gallery?type=outdoors",
+      },
+      {
+        source: "/gallery/all",
+        destination: "/gallery?type=all",
+      },
+    ];
+  },
 };

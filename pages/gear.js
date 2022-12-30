@@ -215,7 +215,7 @@ const Gear = () => {
       <NextSeo title="Gear" canonical="https://typicalmitul.com/gear" />
       <main className="relative h-full pb-20">
         <div className="items-center justify-between md:flex">
-          <div className="flex items-center px-6 py-12 md:px-4 gap-x-yeat">
+          <div className="flex items-center px-6 py-6 md:px-4 gap-x-yeat">
             <span className="w-6 h-6 border rounded-full bg-yolk border-dark shrink-0"></span>
             <h1 className="text-5xl uppercase">Gear</h1>
           </div>

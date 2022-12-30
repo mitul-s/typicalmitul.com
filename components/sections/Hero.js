@@ -4,7 +4,6 @@ import { useIsSmall } from "@/hooks/useBreakpoint";
 import nyc_lookdown from "../../public/images/new-york-city-lookdown.jpg";
 
 const Hero = () => {
-  
   const isSmall = useIsSmall();
 
   return (
@@ -14,7 +13,7 @@ const Hero = () => {
       animate={{ padding: isSmall ? 24 : `16px 24px` }}
       transition={{ delay: 1.2, duration: 1.2 }}
     >
-      <div className="grid h-full rounded isolate md:ring-2 ring-offset-4 ring-yolk md:shadow shadow-yolk">
+      <div className="grid h-full isolate shadow-md shadow-yolk rounded-[8px]">
         <div className="z-10 flex items-center justify-center overlay">
           <motion.h1
             className="-mt-4 text-3xl text-center text-white md:text-6xl font-mtl-bold"
@@ -29,7 +28,7 @@ const Hero = () => {
           className="relative flex items-center justify-center w-full h-full overflow-hidden content brightness-50"
           layout
           animate={{ borderRadius: "8px" }}
-          transition={{ delay: 1.2, duration: 0.7 }}
+          transition={{ delay: 1.4, duration: 0.7 }}
         >
           <NextImage
             src={nyc_lookdown}
