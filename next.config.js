@@ -9,6 +9,20 @@ module.exports = {
     ],
   },
   experimental: { images: { allowFutureImage: true } },
+  async redirects() {
+    return [
+      {
+        source: "/concerts",
+        destination: "/gallery/concerts",
+        permanent: true,
+      },
+      {
+        source: "/architecture",
+        destination: "/gallery/architecture",
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     return [
       {
