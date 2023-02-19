@@ -28,7 +28,7 @@ const MyApp = ({ Component, pageProps }) => {
             twitter={{
               handle: "@typicalmitul",
               site: "@typicalmitul",
-              cardType: "summary",
+              cardType: "summary_large_image",
             }}
             openGraph={{
               type: "website",
@@ -36,6 +36,15 @@ const MyApp = ({ Component, pageProps }) => {
               url: "https://typicalmitul.com",
               title: "Typical Mitul | Toronto Photographer for Hire",
               description: "Photographer based in Toronto, Canada specializing in cityscapes, architecture and portraits.",
+              images: [
+                {
+                  url: "https://typicalmitul.com/images/og.png",
+                  width: 1200,
+                  height: 630,
+                  alt: "Typical Mitul | Toronto Photographer for Hire",
+                  type: "image/png",
+                }
+              ]
             }}
           />
           <Component {...pageProps} />
