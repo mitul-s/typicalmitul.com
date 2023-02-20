@@ -8,6 +8,7 @@ import Work from "@/sections/Work";
 import CallToAction from "@/sections/CallToAction";
 
 import Script from "next/script";
+import { SocialProfileJsonLd, WebPageJsonLd } from "next-seo";
 
 const Section = ({ className, children }) => {
   return <section className={`px-6 md:px-4 ${className}`}>{children}</section>;
@@ -16,6 +17,17 @@ const Section = ({ className, children }) => {
 export default function Home() {
   return (
     <>
+      <WebPageJsonLd name="Typical Mitul" url="https://www.typicalmitul.com" />
+      <SocialProfileJsonLd
+        type="Person"
+        name="Typical Mitul"
+        url="http://www.typicalmitul.com"
+        sameAs={[
+          "http://www.facebook.com/typicalmitul",
+          "http://instagram.com/typicalmitul",
+          "http://www.twitter.com/typicalmitul",
+        ]}
+      />
       <Script src="/getHeight.js"></Script>
       <main className="relative">
         <Hero />
