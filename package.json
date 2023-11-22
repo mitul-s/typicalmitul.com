@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@formspree/react": "^2.3.0",
+    "@next/font": "^14.0.3",
     "@radix-ui/react-dialog": "^1.0.0",
     "@radix-ui/react-navigation-menu": "^1.1.1",
     "@radix-ui/react-toggle": "^1.0.1",
