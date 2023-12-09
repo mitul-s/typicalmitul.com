@@ -12,8 +12,8 @@ import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
 import { useRouter } from "next/router";
-import "@splidejs/react-splide/css";
 import { InstagramLogo, TwitterLogo } from "phosphor-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const range = (start, end) => {
   let output = [];
@@ -27,65 +27,33 @@ export const range = (start, end) => {
   return output;
 };
 
-const Modal = ({ images, open, setOpen, children }) => {
+const Page = ({ images }) => {
   const router = useRouter();
   const { slug } = router.query;
+  const [open, setOpen] = React.useState(false);
   const photoId = images.find((img) => img.filename === String(slug))?.id;
-  console.log(photoId);
-
+  // console.log(photoId);
   let index = Number(photoId);
+  console.log(index, photoId);
+  const [curIndex, setCurIndex] = React.useState(Number(photoId));
+  console.log(images);
 
-  const [curIndex, setCurIndex] = React.useState(index);
-  let filteredImages = images?.filter((img) =>
-    range(index - 3, index + 3).includes(img.id)
-  );
+  // let filteredImages = images?.filter((img) =>
+  //   range(index - 3, index + 3).includes(img.id)
+  // );
+  // console.log("filtered", filteredImages);
 
   function handleClose() {
-    router.push("/metro", undefined, { shallow: true });
+    // router.push("/metro", undefined, { shallow: true });
     // onClose();
   }
 
-  console.log("filtered", filteredImages);
-
-  return (
-    <Dialog
-      open={open}
-      onOpenChange={() => {
-        setOpen();
-        handleClose();
-      }}
-    >
-      <DialogPortal>
-        <DialogOverlay className="fixed top-0 left-0 w-screen h-screen bg-black/80" />
-        <DialogContent className="fixed overflow-hidden -translate-x-1/2 -translate-y-1/2 bg-white border rounded top-1/2 w-fit h-fit left-1/2">
-          <>
-            <Image
-              src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_1020/${images[curIndex].public_id}.${images[curIndex].format}`}
-              alt=""
-              className="block border border-black shadow-sm"
-              width={images[curIndex].width}
-              height={images[curIndex].height}
-              draggable={false}
-            />
-            <DialogClose>Close</DialogClose>
-          </>
-        </DialogContent>
-      </DialogPortal>
-    </Dialog>
-  );
-};
-
-const Page = ({ images }) => {
   const filteredImages = images.filter((image) => {
     if (image.width > image.height) {
       return true;
     }
     return false;
   });
-
-  const router = useRouter();
-  const { slug } = router.query;
-  const [open, setOpen] = React.useState(false);
 
   return (
     <main className="p-12">
@@ -113,15 +81,15 @@ const Page = ({ images }) => {
               was under lockdown and curfew.
             </p>
             <div className="space-x-4">
-              <button className="min-w-[8rem] mt-6 text-sm metro-button text-white bg-[#1A4328] active:shadow-none">
+              <button className="min-w-[8rem] mt-6 text-sm metro-button text-white bg-[#00704F] active:shadow-none hover:bg-[#00704F]/90">
                 Share
               </button>
-              <button className="min-w-[8rem] mt-6 text-sm metro-button text-white bg-[#1A4328] active:shadow-none">
+              <button className="font-semibold min-w-[8rem] mt-6 text-sm metro-button text-white bg-[#00704F] active:shadow-none">
                 Learn more
               </button>
             </div>
           </div>
-          <div className="py-4 bg-[#1a4328] border-black border-x w-full" />
+          <div className="py-4 bg-[#00704F] w-full" />
         </div>
         <div className="flex flex-col justify-between w-1/3 bg-white border border-black">
           <div className="flex flex-col px-6 py-12 gap-y-4">
@@ -149,12 +117,43 @@ const Page = ({ images }) => {
         </div>
       </header>
 
-      {slug && <Modal open={open} setOpen={setOpen} images={images} />}
-      <div className="grid grid-cols-3 px-4 py-8 bg-white border border-black gap-x-4 gap-y-6">
+      <Dialog
+        open={open}
+        onOpenChange={() => {
+          setOpen();
+          handleClose();
+        }}
+      >
+        {slug && (
+          <DialogPortal>
+            <DialogOverlay className="fixed top-0 left-0 w-screen h-screen bg-black/80 backdrop-blur-sm transition-all data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+            <DialogContent
+              className="fixed overflow-hidden -translate-x-1/2 -translate-y-1/2 bg-white border rounded top-1/2 w-fit h-fit left-1/2 backdrop-blur-sm transition-all data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
+              asChild
+            >
+              <motion.div>
+                <>
+                  <Image
+                    src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_1020/${images[curIndex].public_id}.${images[curIndex].format}`}
+                    alt=""
+                    className="block border border-black shadow-sm"
+                    width={images[curIndex].width}
+                    height={images[curIndex].height}
+                    draggable={false}
+                  />
+                  <DialogClose>Close</DialogClose>
+                </>
+              </motion.div>
+            </DialogContent>
+          </DialogPortal>
+        )}
+      </Dialog>
+
+      <div className="grid grid-cols-3 border border-black">
         {filteredImages.map(
           ({ id, public_id, format, width, height, filename, blurDataUrl }) => {
             return (
-              <div className="flex flex-col gap-y-2" key={id}>
+              <div className="flex flex-col p-4 bg-white" key={id}>
                 <Link
                   href={`/metro/?slug=${filename}`}
                   as={`/metro/${filename}`}
@@ -162,18 +161,21 @@ const Page = ({ images }) => {
                   passHref
                 >
                   <a
-                    className="relative flex flex-col w-full h-full overflow-hidden border border-[#1A4328] cursor-pointer group"
+                    className="relative flex flex-col w-full h-full overflow-hidden border border-black cursor-pointer group"
                     style={{
-                      boxShadow: "3px 3px #bbb",
+                      boxShadow: "3px 3px #aaa",
                     }}
-                    onClick={() => setOpen(true)}
+                    onClick={() => {
+                      setOpen(true);
+                      setCurIndex(id);
+                    }}
                   >
                     <Image
                       src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_1020/${public_id}.${format}`}
                       alt=""
                       blurDataURL={blurDataUrl}
                       placeholder="blur"
-                      className="block border border-black shadow-sm"
+                      className=""
                       width={width}
                       height={height}
                       draggable={false}
