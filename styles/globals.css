@@ -198,6 +198,16 @@ body {
   .button {
     @apply flex items-center transition rounded sm:p-4 sm:text-lg text-sm p-2.5 justify-between border uppercase;
   }
+
+ .metro-button {
+    @apply inline-flex cursor-pointer select-none whitespace-nowrap items-center justify-center transition outline-none px-2 py-2;
+    box-shadow: 2px 2px #aaa;
+    border: .09rem solid #000;
+ }
+ .metro-button:hover {
+  box-shadow: 3px 3px #aaa;
+ }
+
 }
 
 .photo-grid-item {
@@ -320,3 +330,4 @@ body {
     transform: translate3d(var(--move-final), 0, 0);
   }
 }
+

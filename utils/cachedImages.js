@@ -15,3 +15,17 @@ export default async function getResults() {
 
   return cachedResults;
 }
+
+export async function getMetroResults() {
+  if (!cachedResults) {
+    const fetchedResults = await cloudinary.v2.search
+      .expression(`folder:metro/*`)
+      .sort_by("public_id", "desc")
+      .max_results(400)
+      .execute();
+
+    cachedResults = fetchedResults;
+  }
+
+  return cachedResults;
+}
