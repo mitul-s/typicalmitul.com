@@ -99,6 +99,18 @@ body {
   .dialog-item-close {
     animation: dialog-item-close 0.2s cubic-bezier(0.12, 0.23, 0.5, 1);
   }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
 }
 
 @keyframes fade-in {
