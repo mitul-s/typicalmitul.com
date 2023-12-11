@@ -3,8 +3,9 @@ import getBase64ImageUrl from "@/utils/generateBlurPlaceholder";
 import { cva, cx } from "class-variance-authority";
 import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
 import Image from "next/image";
-import { Rows, SquaresFour } from "phosphor-react";
+import { ArrowRight, Rows, SquaresFour } from "phosphor-react";
 import React from "react";
+import Link from "next/link";
 
 const face = cva([], {
   variants: {
@@ -54,18 +55,25 @@ const Page = ({ images }) => {
     return (
       <>
         <div
+          aria-hidden="true"
           className="fixed inset-0 pointer-events-none -z-1 isolate opacity-30"
           style={{
             background: "url(/images/noise.svg)",
           }}
         />
         <div className="flex flex-col items-center max-w-screen-xl mx-auto text-metro">
-          <div className="relative flex flex-col w-full mt-12 bg-white border-2 border-metro">
-            <div className="flex items-end w-full px-12 py-12 gap-x-8">
-              <h1 className="font-bold tracking-tight text-9xl whitespace-nowrap ">
+          <div className="w-full mt-6 bg-white border-2 md:mt-12 border-metro">
+            <div
+              className="md:grid items-end w-full p-6 md:p-12 gap-x-8 gap-y-2.5"
+              style={{
+                gridTemplateColumns: "min-content auto",
+              }}
+            >
+              <h1 className="font-bold tracking-tight text-8xl md:text-9xl whitespace-nowrap">
                 Montreal <br />
                 in Motion
               </h1>
+
               <p
                 className="block max-w-prose mb-2.5 text-xl md:text-2xl text-metro"
                 style={{
@@ -76,24 +84,16 @@ const Page = ({ images }) => {
                 captured between December 2021 and January 2022, while the city
                 was under lockdown and curfew.
               </p>
-            </div>
-            <div className="w-full px-12 py-2 text-white bg-metro">
-              <div className="">Learn More</div>
-            </div>
-          </div>
-          <div className="w-full px-12 py-12 mt-4 bg-white border-2 border-metro">
-            <div className="grid grid-cols-2 gap-y-12">
-              <h2 className="text-2xl font-semibold">About the photographer</h2>
-              <p className="max-w-prose">
-                Lorem quis exercitation Lorem aliquip consequat aute excepteur
-                occaecat ut sit nulla velit. Ad dolore nostrud non elit. Velit
-                anim anim aute dolor aliquip ex magna nostrud reprehenderit nisi
-                dolor culpa.
-              </p>
+
+              <Link href="metro/about" passHref>
+                <a className="col-start-2 flex items-center gap-x-1.5 leading-none bg-metro text-white h-full py-3 px-4 w-fit">
+                  Learn More <ArrowRight weight="bold" />
+                </a>
+              </Link>
             </div>
           </div>
 
-          <div className="flex justify-between w-full px-4 py-2 mt-6 mb-2 font-semibold uppercase bg-white border-2 border-metro">
+          <div className="flex justify-between w-full px-4 py-2 mt-12 mb-2 font-semibold uppercase bg-white border-2 border-metro">
             <span>Layout</span>
             <div className="flex gap-x-2">
               <button
@@ -178,7 +178,7 @@ const Page = ({ images }) => {
           <div
             className="fixed w-screen h-screen"
             style={{
-              perspective: "3000px",
+              perspective: "2000px",
             }}
           >
             <div
