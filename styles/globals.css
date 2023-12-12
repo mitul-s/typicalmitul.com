@@ -111,6 +111,36 @@ body {
     scrollbar-width: none;  /* Firefox */
   }
 
+  .perspective-2000 {
+    perspective: 2000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+
+  .cube-main {
+    transform: rotateY(0deg) translateZ(-50vh);
+  }
+
+  .cube-top {
+    transform: rotateX(-90deg) translateZ(-50vh);
+  }
+  
+  .cube-bottom {
+    transform: rotateX(90deg) translateZ(-50vh);
+  }
+
+  .cube-left {
+    transform: rotateY(-90deg) translateZ(-50vw);
+  }
+
+  .cube-right {
+    transform: rotateY(-90deg) translateZ(50vw);
+  }
+  
+
 }
 
 @keyframes fade-in {
@@ -153,6 +183,37 @@ body {
   }
 }
 
+@keyframes animate-cube-in {
+  0% {
+    perspective: 6000px;
+  }
+  100% {
+    perspective: 2000px;
+  }
+}
+
+@keyframes animate-content-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.animate-content-in {
+  animation: animate-content-in 0.4s cubic-bezier(0.12, 0.23, 0.5, 1);
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+
+.animate-cube-in {
+  animation: animate-cube-in 0.5s cubic-bezier(0.12, 0.23, 0.5, 1);
+}
 
 .my-masonry-grid {
   display: -webkit-box; /* Not needed if autoprefixing */
