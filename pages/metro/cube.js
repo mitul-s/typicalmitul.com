@@ -1,45 +1,100 @@
+import React from "react";
+import Link from "next/link";
 import cloudinary from "@/utils/cloudinary";
 import getBase64ImageUrl from "@/utils/generateBlurPlaceholder";
-import { cx } from "class-variance-authority";
 import Image from "next/image";
 import {
-  ArrowRight,
   InstagramLogo,
   Rows,
+  EnvelopeSimple,
   SquaresFour,
   TwitterLogo,
 } from "phosphor-react";
-import React from "react";
-import Link from "next/link";
-
-import { CubeContainer, Face } from "@/components/metro/components";
+import { cva, cx } from "class-variance-authority";
+import * as Face from "@/components/metro/Face";
+import { CubeContainer } from "@/components/metro/components";
+import { Dialog, DialogOverlay, DialogContent } from "@radix-ui/react-dialog";
+import { NextSeo } from "next-seo";
 
 const LAYOUTS = {
   LIST: "LIST",
   GRID: "GRID",
 };
 
+const button = cva(
+  [
+    "inline-flex",
+    "items-center",
+    "justify-center",
+    "p-1",
+    "px-2",
+    "font-medium",
+    "text-white",
+    "transition",
+    "whitespace-nowrap",
+    "focus-visible:outline-none",
+    "focus-visible:ring-2",
+    "focus-visible:ring-ring",
+    "focus-visible:ring-offset-2",
+    "bg-metro",
+    "gap-x-2",
+  ],
+  {
+    variants: {
+      variant: { primary: "", secondary: "" },
+    },
+  }
+);
+
+export const Modal = ({ open, setOpen }) => {
+  return (
+    <Dialog open={open} onOpenChange={setOpen} modal={false}>
+      <Face.Front id="front">
+        <DialogOverlay className="fixed inset-0 w-screen h-screen" />
+        <DialogContent className="fixed left-[50%] top-[50%] w-full max-w-[840px] h-full z-50 grid translate-x-[-50%] translate-y-[-50%] duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] overflow-auto">
+          <div className="h-full px-12 py-12 mt-40 bg-white border-2 shadow-xl border-metro text-metro">
+            <h2 className="font-bold text-7xl">About the project</h2>
+            <div className="mt-6 space-y-3 max-w-prose">
+              <p>
+                Culpa quis aute ipsum sunt tempor nostrud officia esse. Do Lorem
+                amet nulla in sit id ipsum ex et nisi. Dolor enim nostrud amet
+                cupidatat. Non ea aute eu pariatur proident consequat dolor.
+              </p>
+              <p>
+                Culpa quis aute ipsum sunt tempor nostrud officia esse. Do Lorem
+                amet nulla in sit id ipsum ex et nisi. Dolor enim nostrud amet
+                cupidatat. Non ea aute eu pariatur proident consequat dolor.
+              </p>
+              <p>
+                Culpa quis aute ipsum sunt tempor nostrud officia esse. Do Lorem
+                amet nulla in sit id ipsum ex et nisi. Dolor enim nostrud amet
+                cupidatat. Non ea aute eu pariatur proident consequat dolor.
+              </p>
+            </div>
+          </div>
+        </DialogContent>
+      </Face.Front>
+    </Dialog>
+  );
+};
+
 const Page = ({ images }) => {
   const [layout, setLayout] = React.useState(LAYOUTS.LIST);
+  const { dialogOpen, setDialogOpen } = React.useContext(Face.Context);
 
   const Content = () => {
     return (
       <>
-        <div className="flex flex-col items-center max-w-screen-xl mx-auto text-metro">
+        <div className="flex flex-col items-center mx-auto max-w-screen-2xl text-metro">
           <div className="w-full mt-6 bg-white border-2 md:mt-12 border-metro">
-            <div
-              className="items-end w-full p-6 md:grid md:px-12 md:pt-12 md:pb-14 gap-x-8 gap-y-1"
-              style={{
-                gridTemplateColumns: "min-content auto",
-              }}
-            >
+            <div className="items-end w-full p-6 md:grid md:px-12 md:pt-12 md:pb-14 gap-x-8 gap-y-1 grid-cols-[min-content_auto]">
               <h1 className="font-bold tracking-tight text-8xl md:text-9xl whitespace-nowrap">
                 Montreal <br />
                 in Motion
               </h1>
 
               <p
-                className="block max-w-prose mb-2.5 text-xl md:text-2xl text-metro"
+                className="block max-w-prose mb-2.5 text-xl md:text-3xl text-metro"
                 style={{
                   textWrap: "balance",
                 }}
@@ -50,30 +105,37 @@ const Page = ({ images }) => {
               </p>
 
               <span className="col-start-2 text-xl">
-                Captured by Mitul Shah
-              </span>
-
-              {/* <Link href="about" passHref>
-                <a className="col-start-2 flex items-center gap-x-1.5 leading-none bg-metro text-white h-full py-3 px-4 w-fit">
-                  Learn More <ArrowRight weight="bold" />
+                Captured by{" "}
+                <a
+                  href="https://twitter.com/typicalmitul"
+                  target="_blank"
+                  className="hover:underline underline-offset-4"
+                >
+                  Mitul Shah
                 </a>
-              </Link> */}
+              </span>
             </div>
           </div>
 
-          <div className="z-50 flex items-start w-full gap-2 p-2 bg-white border-2 shadow-md left-24 top-12 text-metro border-metro">
-            <Link href="about" passHref>
-              <a className="p-1 px-2 text-white bg-metro">About the project</a>
-            </Link>
-            <button className="p-1 px-2 text-white bg-metro">
-              Get in touch
+          <div className="flex items-start w-full gap-2 p-2 bg-white border-2 border-t-0 text-metro border-metro">
+            <button
+              className={button()}
+              onClick={() => {
+                setDialogOpen(true);
+              }}
+            >
+              About the project
             </button>
+            <Link href="/" passHref>
+              <a target="_blank" className={button()}>
+                See the portfolio
+              </a>
+            </Link>
 
             <a
               href="https://twitter.com/typicalmitul"
               target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center p-1 px-2 ml-auto text-white gap-x-2 bg-metro"
+              className={cx(button(), "ml-auto")}
             >
               Twitter
               <TwitterLogo />
@@ -81,12 +143,14 @@ const Page = ({ images }) => {
             <a
               href="https://instagram.com/typicalmitul"
               target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center p-1 px-2 text-white gap-x-2 bg-metro"
-              style={{}}
+              className={button()}
             >
               Instagram
               <InstagramLogo />
+            </a>
+            <a href="mailto:typicalmitul@gmail.com" className={button()}>
+              Get in touch
+              <EnvelopeSimple />
             </a>
           </div>
 
@@ -144,7 +208,6 @@ const Page = ({ images }) => {
                       width={width}
                       height={height}
                       draggable={false}
-                      quality={100}
                     />
                   </div>
                 );
@@ -158,23 +221,33 @@ const Page = ({ images }) => {
 
   return (
     <>
-      <Face id="main">
+      <NextSeo
+        title="Montreal in Motion"
+        description=""
+        canonical="https://typicalmitul.com/montreal-in-motion"
+      />
+      <Face.Scroll id="main">
         <Content />
-      </Face>
-      <Face id="top">
+      </Face.Scroll>
+      <Face.Scroll id="top">
         <Content />
-      </Face>
-      <Face id="bottom">
+      </Face.Scroll>
+      <Face.Scroll id="bottom">
         <Content />
-      </Face>
-      <Face id="left" />
-      <Face id="right" />
+      </Face.Scroll>
+      <Face.Side side="left" />
+      <Face.Side side="right" />
+      <Modal open={dialogOpen} setOpen={setDialogOpen} />
     </>
   );
 };
 
 Page.getLayout = function getLayout(page) {
-  return <CubeContainer>{page}</CubeContainer>;
+  return (
+    <Face.Provider>
+      <CubeContainer>{page}</CubeContainer>
+    </Face.Provider>
+  );
 };
 
 export default Page;
