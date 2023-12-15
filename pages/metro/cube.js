@@ -51,24 +51,45 @@ export const Modal = ({ open, setOpen }) => {
     <Dialog open={open} onOpenChange={setOpen} modal={false}>
       <Face.Front id="front">
         <DialogOverlay className="fixed inset-0 w-screen h-screen" />
-        <DialogContent className="fixed left-[50%] top-[50%] w-full max-w-[840px] h-full z-50 grid translate-x-[-50%] translate-y-[-50%] duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] overflow-auto">
-          <div className="h-full px-12 py-12 mt-40 bg-white border-2 shadow-xl border-metro text-metro">
-            <h2 className="font-bold text-7xl">About the project</h2>
-            <div className="mt-6 space-y-3 max-w-prose">
+        <DialogContent className="fixed left-[50%] top-[50%] w-full max-w-[840px] py-12 h-full z-50 grid translate-x-[-50%] translate-y-[-50%] duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] overflow-auto">
+          <div className="h-full px-12 py-12 bg-white border-2 shadow-xl border-metro text-metro">
+            <h2 className="text-5xl font-bold">About the project</h2>
+            <div className="flex flex-col mt-6 text-xl gap-y-3 max-w-prose">
               <p>
-                Culpa quis aute ipsum sunt tempor nostrud officia esse. Do Lorem
-                amet nulla in sit id ipsum ex et nisi. Dolor enim nostrud amet
-                cupidatat. Non ea aute eu pariatur proident consequat dolor.
+                Montreal has forever been one of my favourite cities, for it’s
+                food, arts and most notably, the Metro system. Since my first
+                visit, I’ve been fascinated by distinct architectural
+                differences and art installations in each station.
               </p>
               <p>
-                Culpa quis aute ipsum sunt tempor nostrud officia esse. Do Lorem
-                amet nulla in sit id ipsum ex et nisi. Dolor enim nostrud amet
-                cupidatat. Non ea aute eu pariatur proident consequat dolor.
+                At the end of 2021, I made the decisions to spend 30 days
+                through the new year to capture the essence of both the city
+                itself and my favourite metro stations.
               </p>
               <p>
-                Culpa quis aute ipsum sunt tempor nostrud officia esse. Do Lorem
-                amet nulla in sit id ipsum ex et nisi. Dolor enim nostrud amet
-                cupidatat. Non ea aute eu pariatur proident consequat dolor.
+                This project captures the stations from my perspective, from a
+                time where the city was quieter and the streets were less
+                crowded. Each station tells a unique story through its designs
+                and artwork, mirroring the rich cultural diversity of Montreal.
+              </p>
+              <h3 className="mt-4 text-2xl font-bold">About me</h3>
+              <p>
+                My name is Mitul Shah, I am a photographer based out of Toronto,
+                Canada. Spei
+              </p>
+              <h3 className="mt-4 text-2xl font-bold">Informational</h3>
+              <p>
+                All photos were taken on a Sony A7C with a Sigma 24-70m f/2.8
+                lens. Any long exposure was hand-held.
+              </p>
+              <p>
+                This website was designed and built by myself, I attempted to
+                keep it in line with the theme of Montreal&apos;s brutalist
+                stations.
+              </p>
+              <p>
+                You can visit my portfolio at https://typicalmitul.com, and feel
+                free to contact me if you have any questions about the project.
               </p>
             </div>
           </div>
@@ -85,16 +106,16 @@ const Page = ({ images }) => {
   const Content = () => {
     return (
       <>
-        <div className="flex flex-col items-center mx-auto max-w-screen-2xl text-metro">
+        <div className="flex flex-col items-center px-6 mx-auto xl:px-0 max-w-screen-2xl text-metro">
           <div className="w-full mt-6 bg-white border-2 md:mt-12 border-metro">
-            <div className="items-end w-full p-6 md:grid md:px-12 md:pt-12 md:pb-14 gap-x-8 gap-y-1 grid-cols-[min-content_auto]">
-              <h1 className="font-bold tracking-tight text-8xl md:text-9xl whitespace-nowrap">
+            <div className="items-end w-full p-6 lg:grid md:px-12 md:pt-12 md:pb-14 gap-x-8 gap-y-1 grid-cols-[min-content_auto]">
+              <h1 className="text-6xl font-bold tracking-tight sm:text-8xl md:text-9xl whitespace-nowrap">
                 Montreal <br />
                 in Motion
               </h1>
 
               <p
-                className="block max-w-prose mb-2.5 text-xl md:text-3xl text-metro"
+                className="block max-w-prose mb-2.5 text-lg sm:text-xl md:text-3xl text-metro"
                 style={{
                   textWrap: "balance",
                 }}
@@ -104,7 +125,7 @@ const Page = ({ images }) => {
                 was under lockdown and curfew.
               </p>
 
-              <span className="col-start-2 text-xl">
+              <span className="col-start-2 md:text-xl">
                 Captured by{" "}
                 <a
                   href="https://twitter.com/typicalmitul"
@@ -117,7 +138,7 @@ const Page = ({ images }) => {
             </div>
           </div>
 
-          <div className="flex items-start w-full gap-2 p-2 bg-white border-2 border-t-0 text-metro border-metro">
+          <div className="flex flex-wrap items-start w-full gap-2 p-2 bg-white border-2 border-t-0 text-metro border-metro">
             <button
               className={button()}
               onClick={() => {
@@ -135,7 +156,7 @@ const Page = ({ images }) => {
             <a
               href="https://twitter.com/typicalmitul"
               target="_blank"
-              className={cx(button(), "ml-auto")}
+              className={cx(button(), "md:ml-auto")}
             >
               Twitter
               <TwitterLogo />
@@ -180,8 +201,10 @@ const Page = ({ images }) => {
 
           <div
             className={cx(
-              "gap-12 mx-auto bg-white p-12 border-2 border-metro",
-              layout === LAYOUTS.LIST ? "flex flex-col" : "grid grid-cols-3"
+              "gap-6 lg:gap-12 mx-auto bg-white p-6 lg:p-12 border-2 border-metro grid",
+              layout === LAYOUTS.LIST
+                ? "grid-cols-1"
+                : " grid-cols-2 lg:grid-cols-3"
             )}
           >
             {images.map(
