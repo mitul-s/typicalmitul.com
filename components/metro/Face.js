@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Noise } from "@/components/metro/components";
 import { ScrollSyncPane } from "react-scroll-sync";
 import { useMeasure } from "@uidotdev/usehooks";
+import useTouchScreen from "@/hooks/useHasTouchScreen";
 
 const face = cva(["absolute", "w-screen", "h-screen", "overflow-hidden"], {
   variants: {
@@ -96,6 +97,7 @@ const SideFace = ({ side }) => {
 const ScrollFace = ({ id, children }) => {
   const [mainRef, { height: mainHeight }] = useMeasure();
   const [sectionRef, { height: sectionHeight }] = useMeasure();
+  const hasTouchScreen = useTouchScreen();
 
   const { calculatedHeight, setCalculatedHeight } =
     React.useContext(FaceContext);
@@ -111,8 +113,9 @@ const ScrollFace = ({ id, children }) => {
       <ScrollSyncPane>
         <div
           className={cx(
-            "h-screen overflow-auto no-scrollbar animate-content-in delay-1000",
-            !isTopFace ? "pb-[var(--cube-bottom)]" : ""
+            "overflow-auto no-scrollbar animate-content-in delay-1000",
+            !isTopFace ? "pb-[var(--cube-bottom)]" : "",
+            hasTouchScreen ? "h-[100svh]" : "h-screen"
           )}
         >
           <div

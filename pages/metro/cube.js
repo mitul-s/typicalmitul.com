@@ -15,6 +15,7 @@ import * as Face from "@/components/metro/Face";
 import { CubeContainer } from "@/components/metro/components";
 import { Dialog, DialogOverlay, DialogContent } from "@radix-ui/react-dialog";
 import { NextSeo } from "next-seo";
+import useTouchScreen from "@/hooks/useHasTouchScreen";
 
 const LAYOUTS = {
   LIST: "LIST",
@@ -102,20 +103,21 @@ export const Modal = ({ open, setOpen }) => {
 const Page = ({ images }) => {
   const [layout, setLayout] = React.useState(LAYOUTS.LIST);
   const { dialogOpen, setDialogOpen } = React.useContext(Face.Context);
+  const hasTouchScreen = useTouchScreen();
 
   const Content = () => {
     return (
       <>
-        <div className="flex flex-col items-center px-6 mx-auto xl:px-0 max-w-screen-2xl text-metro">
+        <div className="flex flex-col items-center px-2 mx-auto md:px-6 xl:px-0 max-w-screen-2xl text-metro">
           <div className="w-full mt-6 bg-white border-2 md:mt-12 border-metro">
-            <div className="items-end w-full p-6 lg:grid md:px-12 md:pt-12 md:pb-14 gap-x-8 gap-y-1 grid-cols-[min-content_auto]">
-              <h1 className="text-6xl font-bold tracking-tight sm:text-8xl md:text-9xl whitespace-nowrap">
+            <div className="items-end w-full py-6 px-4 sm:p-6 lg:grid md:px-12 md:pt-12 md:pb-14 gap-x-8 gap-y-1 grid-cols-[min-content_auto]">
+              <h1 className="text-4xl font-bold tracking-tighter sm:tracking-tight sm:text-8xl md:text-9xl whitespace-nowrap">
                 Montreal <br />
                 in Motion
               </h1>
 
               <p
-                className="block max-w-prose mb-2.5 text-lg sm:text-xl md:text-3xl text-metro"
+                className="block max-w-prose mb-2.5 mt-4 sm:mt-0 text-lg sm:text-xl md:text-3xl text-metro"
                 style={{
                   textWrap: "balance",
                 }}
@@ -138,7 +140,7 @@ const Page = ({ images }) => {
             </div>
           </div>
 
-          <div className="flex flex-wrap items-start w-full gap-2 p-2 bg-white border-2 border-t-0 text-metro border-metro">
+          <div className="flex flex-wrap items-start w-full gap-2 p-4 bg-white border-2 border-t-0 text-md text-metro border-metro">
             <button
               className={button()}
               onClick={() => {
@@ -220,14 +222,14 @@ const Page = ({ images }) => {
                 return (
                   <div
                     key={id}
-                    className="relative flex flex-col w-full h-full mx-auto overflow-hidden border-2 cursor-pointer border-metro group"
+                    className="relative flex flex-col w-full h-full mx-auto overflow-hidden border-2 cursor-pointer border-metro group aspect-[5/3]"
                   >
                     <Image
                       src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_2040/${public_id}.${format}`}
                       alt=""
                       blurDataURL={blurDataUrl}
                       placeholder="blur"
-                      className=""
+                      className="object-cover w-full h-full"
                       width={width}
                       height={height}
                       draggable={false}
@@ -252,14 +254,18 @@ const Page = ({ images }) => {
       <Face.Scroll id="main">
         <Content />
       </Face.Scroll>
-      <Face.Scroll id="top">
-        <Content />
-      </Face.Scroll>
-      <Face.Scroll id="bottom">
-        <Content />
-      </Face.Scroll>
-      <Face.Side side="left" />
-      <Face.Side side="right" />
+      {!hasTouchScreen && (
+        <>
+          <Face.Scroll id="top">
+            <Content />
+          </Face.Scroll>
+          <Face.Scroll id="bottom">
+            <Content />
+          </Face.Scroll>
+          <Face.Side side="left" />
+          <Face.Side side="right" />
+        </>
+      )}
       <Modal open={dialogOpen} setOpen={setDialogOpen} />
     </>
   );

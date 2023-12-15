@@ -1,7 +1,7 @@
 import React from "react";
 import { SheetContext } from "@/components/Sheet";
-import { Text, Button, Image, Heading } from "@components";
-import { ArrowUp, ArrowUpRight } from "phosphor-react";
+import { Button, Image, Heading } from "@components";
+import { ArrowUpRight } from "phosphor-react";
 import { ContactDialog } from "@/components/sections/Contact";
 import { NextSeo } from "next-seo";
 

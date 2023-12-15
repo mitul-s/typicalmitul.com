@@ -24,6 +24,9 @@ body,
 body {
   @apply bg-eggshell text-dark;
   font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
 }
 
 ::selection {
@@ -55,6 +58,11 @@ body {
   a {
     color: inherit;
     text-decoration: none;
+  }
+
+  a,
+  button {
+    touch-action: manipulation;
   }
 
   img,
@@ -113,10 +121,14 @@ body {
   }
 
   .perspective-2000 {
+    -webkit-perspective: 2000px;
+    -moz-perspective: 2000px;
     perspective: 2000px;
   }
 
   .preserve-3d {
+    -moz-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
 
