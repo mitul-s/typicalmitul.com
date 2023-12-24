@@ -31,7 +31,8 @@
     "react-remove-scroll": "^2.5.5",
     "react-scroll-sync": "^0.11.2",
     "react-swipeable": "^7.0.1",
-    "tailwindcss-radix": "^2.5.0"
+    "tailwindcss-radix": "^2.5.0",
+    "vaul": "^0.8.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",

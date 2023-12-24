@@ -10,6 +10,7 @@ import {
   SquaresFour,
   TwitterLogo,
   X,
+  TiktokLogo,
 } from "phosphor-react";
 import { cva, cx } from "class-variance-authority";
 import * as Face from "@/components/metro/Face";
@@ -20,6 +21,7 @@ import {
   DialogContent,
   DialogClose,
 } from "@radix-ui/react-dialog";
+import { Drawer } from "vaul";
 import { NextSeo } from "next-seo";
 import useTouchScreen from "@/hooks/useHasTouchScreen";
 
@@ -49,112 +51,137 @@ const button = cva(
   ],
   {
     variants: {
-      variant: { primary: "", secondary: "" },
+      variant: { primary: "", secondary: "min-w-8 min-h-8 h-8 w-8" },
     },
   }
 );
 
-const ModalHeading = ({ children }) => {
-  return <h2 className="text-6xl font-bold">{children}</h2>;
+const Sheet = ({ open, setDialogOpen, children }) => {
+  return (
+    <Drawer.Root open={open} onOpenChange={setDialogOpen} shouldScaleBackground>
+      <Drawer.Portal>
+        <Drawer.Overlay className="fixed inset-0 bg-metro/20 backdrop-blur-sm" />
+        <Drawer.Content className="bg-zinc-100 flex flex-col h-[94%] mt-24 fixed bottom-0 left-0 right-0 rounded-t-[10px] border-2 border-metro">
+          <div className="relative flex flex-col w-full max-w-md mx-auto overflow-auto rounded-t-[10px]">
+            <div className="fixed w-12 h-1 -translate-x-1/2 rounded-full top-2 bg-metro/80 left-1/2"></div>
+            {children}
+          </div>
+        </Drawer.Content>
+      </Drawer.Portal>
+    </Drawer.Root>
+  );
 };
 
-export const Modal = ({ open, setOpen }) => {
+const ModalHeading = ({ children }) => {
+  return (
+    <h2 className="text-3xl font-bold tracking-tight xs:tracking-normal xs:text-6xl">
+      {children}
+    </h2>
+  );
+};
+
+const AboutContent = () => {
+  const containerStyle =
+    "py-12 bg-white shadow-xl xs:border-2 xs:border-metro text-metro";
+  return (
+    <>
+      <div className={cx(containerStyle, "px-4 h-full md:w-2/3 md:px-12")}>
+        <ModalHeading>
+          About <span className="hidden xs:inline-block">the project</span>
+        </ModalHeading>
+        <div className="flex flex-col mt-4 text-md xs:text-xl xs:mt-6 gap-y-3 max-w-prose">
+          <p className="text-2xl ">
+            Ad labore aute cupidatat eiusmod mollit nisi ea quis minim in
+            tempor.
+          </p>
+          <div className="w-full h-px my-2 bg-metro" role="separator" />
+          <p>
+            Montreal has forever been one of my favourite cities, for it&apos;s
+            food, arts and most notably, the Metro system. Since my first visit,
+            I&apos;ve been fascinated by distinct architectural differences and
+            art installations in each station.
+          </p>
+          <p>
+            At the end of 2021, I made the decisions to spend 30 days through
+            the new year to capture the essence of both the city itself and my
+            favourite metro stations.
+          </p>
+          <p>
+            This project captures the stations from my perspective, from a time
+            where the city was quieter and the streets were less crowded. Each
+            station tells a unique story through its designs and artwork,
+            mirroring the rich cultural diversity of Montreal.
+          </p>
+          <h3 className="mt-4 text-2xl font-bold">Informational</h3>
+          <p>
+            All photos were taken on a Sony A7C with a Sigma 24-70m f/2.8 lens.
+            Any long exposure was hand-held.
+          </p>
+          <p>
+            This website was designed and built by myself, I attempted to keep
+            it in line with the theme of Montreal&apos;s brutalist stations.
+          </p>
+        </div>
+      </div>
+      <div className={cx(containerStyle, "px-6 space-y-4  border-2 md:w-1/3")}>
+        <div className="w-40 h-40 bg-gray-400"></div>
+        <h3 className="text-2xl font-bold">About me</h3>
+        <p>
+          My name is Mitul Shah, I am a photographer based out of Toronto,
+          Canada dedicated to defining thoughtful and memorable experiences
+          through every capture.
+        </p>
+
+        <ul className="fixed bottom-0 left-0 flex w-full px-4 py-2 text-sm bg-white border-t xs:text-lg xs:px-0 xs:border-none xs:relative xs:block border-metro gap-x-6">
+          <li>
+            <a
+              href="https://twitter.com/typicalmitul"
+              target="_blank"
+              className="hover:underline underline-offset-4"
+            >
+              Twitter
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://instagram.com/typicalmitul"
+              target="_blank"
+              className="hover:underline underline-offset-4"
+            >
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://tiktok.com/@typicalmitul"
+              target="_blank"
+              className="hover:underline underline-offset-4"
+            >
+              TikTok
+            </a>
+          </li>
+          <li>
+            <a
+              href="mailto:typicalmitul@gmail.com"
+              target="_blank"
+              className="hover:underline underline-offset-4"
+            >
+              Email
+            </a>
+          </li>
+        </ul>
+      </div>
+    </>
+  );
+};
+
+export const Modal = ({ open, setOpen, children }) => {
   return (
     <Dialog open={open} onOpenChange={setOpen} modal={false}>
       <Face.Front id="front">
         <DialogOverlay className="fixed inset-0 w-screen h-screen" />
-        <DialogContent className="fixed left-[50%] top-[50%] w-full max-w-7xl gap-6 h-[90%] z-50 flex translate-x-[-50%] translate-y-[-50%] duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] overflow-auto">
-          <div className="w-2/3 h-full px-12 py-12 bg-white border-2 shadow-xl border-metro text-metro">
-            <ModalHeading>About the project</ModalHeading>
-            <div className="flex flex-col mt-6 text-xl gap-y-3 max-w-prose">
-              <p>
-                Montreal has forever been one of my favourite cities, for
-                it&apos;s food, arts and most notably, the Metro system. Since
-                my first visit, I&apos;ve been fascinated by distinct
-                architectural differences and art installations in each station.
-              </p>
-              <p>
-                At the end of 2021, I made the decisions to spend 30 days
-                through the new year to capture the essence of both the city
-                itself and my favourite metro stations.
-              </p>
-              <p>
-                This project captures the stations from my perspective, from a
-                time where the city was quieter and the streets were less
-                crowded. Each station tells a unique story through its designs
-                and artwork, mirroring the rich cultural diversity of Montreal.
-              </p>
-              <h3 className="mt-4 text-2xl font-bold">Informational</h3>
-              <p>
-                All photos were taken on a Sony A7C with a Sigma 24-70m f/2.8
-                lens. Any long exposure was hand-held.
-              </p>
-              <p>
-                This website was designed and built by myself, I attempted to
-                keep it in line with the theme of Montreal&apos;s brutalist
-                stations.
-              </p>
-            </div>
-          </div>
-          <div className="w-1/3 px-6 py-12 space-y-4 bg-white border-2 border-metro text-metro">
-            <div className="w-40 h-40 bg-gray-400"></div>
-            <h3 className="text-2xl font-bold">About me</h3>
-            <p>
-              My name is Mitul Shah, I am a photographer based out of Toronto,
-              Canada dedicated to defining thoughtful and memorable experiences
-              through every capture.
-            </p>
-            <p>
-              You can visit my portfolio at{" "}
-              <Link href="/" passHref>
-                <a className="hover:underline underline-offset-4">
-                  https://typicalmitul.com
-                </a>
-              </Link>
-              , and feel free to contact me if you have any questions about the
-              project.
-            </p>
-            <div className="mt-12">
-              <ul>
-                <li>
-                  <a
-                    href="https://twitter.com/typicalmitul"
-                    target="_blank"
-                    className="hover:underline underline-offset-4"
-                  >
-                    Twitter
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://instagram.com/typicalmitul"
-                    target="_blank"
-                    className="hover:underline underline-offset-4"
-                  >
-                    Instagram
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://tiktok.com/typicalmitul"
-                    target="_blank"
-                    className="hover:underline underline-offset-4"
-                  >
-                    TikTok
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="mailto:typicalmitul@gmail.com"
-                    target="_blank"
-                    className="hover:underline underline-offset-4"
-                  >
-                    typicalmitul@gmail.com
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+        <DialogContent className="fixed left-[50%] top-[50%] w-full max-w-7xl gap-6 h-[90%] z-50 md:flex translate-x-[-50%] translate-y-[-50%] duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] overflow-auto">
+          {children}
           <DialogClose className="absolute top-0 right-0 p-2 text-white bg-metro">
             <X className="shrink-0" aria-label="Close modal" />
           </DialogClose>
@@ -204,36 +231,46 @@ const Page = ({ images }) => {
             </div>
           </div>
 
-          <div className="flex flex-wrap items-start w-full gap-2 p-4 bg-white border-2 border-t-0 lg:p-2 text-md text-metro border-metro">
+          <div className="flex flex-wrap items-start w-full gap-2 px-4 py-3 bg-white border-2 border-t-0 lg:py-2 text-md lg:p-2 text-metro border-metro">
             <button
               className={button()}
               onClick={() => {
                 setDialogOpen(true);
               }}
             >
-              About the project
+              About the Project
             </button>
             <Link href="/" passHref>
               <a target="_blank" className={button()}>
-                See the portfolio
+                Portfolio
               </a>
             </Link>
 
             <a
               href="https://twitter.com/typicalmitul"
               target="_blank"
-              className={cx(button(), "md:ml-auto")}
+              className={cx(button({ variant: "secondary" }), "md:ml-auto")}
             >
               <TwitterLogo />
             </a>
             <a
               href="https://instagram.com/typicalmitul"
               target="_blank"
-              className={button()}
+              className={button({ variant: "secondary" })}
             >
               <InstagramLogo />
             </a>
-            <a href="mailto:typicalmitul@gmail.com" className={button()}>
+            <a
+              href="https://tiktok.com/@typicalmitul"
+              target="_blank"
+              className={button({ variant: "secondary" })}
+            >
+              <TiktokLogo />
+            </a>
+            <a
+              href="mailto:typicalmitul@gmail.com"
+              className={button({ variant: "secondary" })}
+            >
               <EnvelopeSimple />
             </a>
           </div>
@@ -309,7 +346,7 @@ const Page = ({ images }) => {
     <>
       <NextSeo
         title="Montreal in Motion"
-        description=""
+        description="A documentation of the brutalist and distinctly designed Montreal metro stations. Captured by photographer Mitul Shah."
         canonical="https://typicalmitul.com/montreal-in-motion"
       />
       <Face.Scroll id="main">
@@ -327,7 +364,16 @@ const Page = ({ images }) => {
           <Face.Side side="right" />
         </>
       )}
-      <Modal open={dialogOpen} setOpen={setDialogOpen} />
+      {!hasTouchScreen && (
+        <Modal open={dialogOpen} setOpen={setDialogOpen}>
+          <AboutContent />
+        </Modal>
+      )}
+      {hasTouchScreen && (
+        <Sheet open={dialogOpen} setDialogOpen={setDialogOpen}>
+          <AboutContent />
+        </Sheet>
+      )}
     </>
   );
 };

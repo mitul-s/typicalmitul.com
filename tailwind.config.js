@@ -16,6 +16,7 @@ module.exports = {
     },
     extend: {
       screens: {
+        xs: "420px",
         betterhover: { raw: "(hover: hover)" },
       },
       fontFamily: {
