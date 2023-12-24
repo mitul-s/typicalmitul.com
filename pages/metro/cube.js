@@ -10,6 +10,7 @@ import {
   SquaresFour,
   TwitterLogo,
   X,
+  TiktokLogo,
 } from "phosphor-react";
 import { cva, cx } from "class-variance-authority";
 import * as Face from "@/components/metro/Face";
@@ -22,6 +23,7 @@ import {
 } from "@radix-ui/react-dialog";
 import { NextSeo } from "next-seo";
 import useTouchScreen from "@/hooks/useHasTouchScreen";
+import useEmblaCarousel from "embla-carousel-react";
 
 const LAYOUTS = {
   LIST: "LIST",
@@ -45,6 +47,7 @@ const button = cva(
     "focus-visible:ring-offset-2",
     "bg-metro",
     "gap-x-2",
+    "self-stretch",
   ],
   {
     variants: {
@@ -53,107 +56,59 @@ const button = cva(
   }
 );
 
-const ModalHeading = ({ children }) => {
-  return <h2 className="text-6xl font-bold">{children}</h2>;
+const Carousel = ({ images }) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel();
+  const scrollPrev = React.useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = React.useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+  return (
+    <div className="overflow-hidden">
+      <div id="viewport" className="relative h-full" ref={emblaRef}>
+        <div className="flex h-full">
+          {images.map((image) => {
+            return (
+              <div
+                key={image.id}
+                className="flex w-full h-[92%] min-w-0 min-h-0 basis-full shrink-0 grow-0"
+              >
+                <Image
+                  src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_2040/${image.public_id}.${image.format}`}
+                  alt=""
+                  blurDataURL={image.blurDataUrl}
+                  placeholder="blur"
+                  className="object-cover w-full h-full"
+                  width={image.width}
+                  height={image.height}
+                  draggable={false}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div className="absolute bottom-0 left-0 z-50 flex rounded gap-x-6 isolate">
+        <button className="text-white bg-black rounded " onClick={scrollPrev}>
+          Prev
+        </button>
+        <button className="text-white bg-black rounded " onClick={scrollNext}>
+          Next
+        </button>
+      </div>
+    </div>
+  );
 };
 
-export const Modal = ({ open, setOpen }) => {
+export const Modal = ({ open, setOpen, children }) => {
   return (
     <Dialog open={open} onOpenChange={setOpen} modal={false}>
       <Face.Front id="front">
         <DialogOverlay className="fixed inset-0 w-screen h-screen" />
         <DialogContent className="fixed left-[50%] top-[50%] w-full max-w-7xl gap-6 h-[90%] z-50 flex translate-x-[-50%] translate-y-[-50%] duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] overflow-auto">
-          <div className="w-2/3 h-full px-12 py-12 bg-white border-2 shadow-xl border-metro text-metro">
-            <ModalHeading>About the project</ModalHeading>
-            <div className="flex flex-col mt-6 text-xl gap-y-3 max-w-prose">
-              <p>
-                Montreal has forever been one of my favourite cities, for
-                it&apos;s food, arts and most notably, the Metro system. Since
-                my first visit, I&apos;ve been fascinated by distinct
-                architectural differences and art installations in each station.
-              </p>
-              <p>
-                At the end of 2021, I made the decisions to spend 30 days
-                through the new year to capture the essence of both the city
-                itself and my favourite metro stations.
-              </p>
-              <p>
-                This project captures the stations from my perspective, from a
-                time where the city was quieter and the streets were less
-                crowded. Each station tells a unique story through its designs
-                and artwork, mirroring the rich cultural diversity of Montreal.
-              </p>
-              <h3 className="mt-4 text-2xl font-bold">Informational</h3>
-              <p>
-                All photos were taken on a Sony A7C with a Sigma 24-70m f/2.8
-                lens. Any long exposure was hand-held.
-              </p>
-              <p>
-                This website was designed and built by myself, I attempted to
-                keep it in line with the theme of Montreal&apos;s brutalist
-                stations.
-              </p>
-            </div>
-          </div>
-          <div className="w-1/3 px-6 py-12 space-y-4 bg-white border-2 border-metro text-metro">
-            <div className="w-40 h-40 bg-gray-400"></div>
-            <h3 className="text-2xl font-bold">About me</h3>
-            <p>
-              My name is Mitul Shah, I am a photographer based out of Toronto,
-              Canada dedicated to defining thoughtful and memorable experiences
-              through every capture.
-            </p>
-            <p>
-              You can visit my portfolio at{" "}
-              <Link href="/" passHref>
-                <a className="hover:underline underline-offset-4">
-                  https://typicalmitul.com
-                </a>
-              </Link>
-              , and feel free to contact me if you have any questions about the
-              project.
-            </p>
-            <div className="mt-12">
-              <ul>
-                <li>
-                  <a
-                    href="https://twitter.com/typicalmitul"
-                    target="_blank"
-                    className="hover:underline underline-offset-4"
-                  >
-                    Twitter
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://instagram.com/typicalmitul"
-                    target="_blank"
-                    className="hover:underline underline-offset-4"
-                  >
-                    Instagram
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://tiktok.com/typicalmitul"
-                    target="_blank"
-                    className="hover:underline underline-offset-4"
-                  >
-                    TikTok
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="mailto:typicalmitul@gmail.com"
-                    target="_blank"
-                    className="hover:underline underline-offset-4"
-                  >
-                    typicalmitul@gmail.com
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+          {children}
           <DialogClose className="absolute top-0 right-0 p-2 text-white bg-metro">
             <X className="shrink-0" aria-label="Close modal" />
           </DialogClose>
@@ -223,7 +178,6 @@ const Page = ({ images }) => {
               target="_blank"
               className={cx(button(), "md:ml-auto")}
             >
-              Twitter
               <TwitterLogo />
             </a>
             <a
@@ -231,11 +185,16 @@ const Page = ({ images }) => {
               target="_blank"
               className={button()}
             >
-              Instagram
               <InstagramLogo />
             </a>
+            <a
+              href="https://tiktok.com/typicalmitul"
+              target="_blank"
+              className={button()}
+            >
+              <TiktokLogo />
+            </a>
             <a href="mailto:typicalmitul@gmail.com" className={button()}>
-              Get in touch
               <EnvelopeSimple />
             </a>
           </div>
@@ -285,7 +244,7 @@ const Page = ({ images }) => {
                 return (
                   <div
                     key={id}
-                    className="relative flex flex-col w-full h-full mx-auto overflow-hidden border-2 cursor-pointer border-metro group aspect-[5/3]"
+                    className="relative flex flex-col w-full h-full mx-auto overflow-hidden border-2 border-metro group aspect-[5/3]"
                   >
                     <Image
                       src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_2040/${public_id}.${format}`}
@@ -329,7 +288,9 @@ const Page = ({ images }) => {
           <Face.Side side="right" />
         </>
       )}
-      <Modal open={dialogOpen} setOpen={setDialogOpen} />
+      <Modal open={dialogOpen} setOpen={setDialogOpen}>
+        <Carousel images={images} />
+      </Modal>
     </>
   );
 };

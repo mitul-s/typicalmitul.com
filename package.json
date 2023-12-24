@@ -20,6 +20,7 @@
     "class-variance-authority": "^0.2.3",
     "cloudinary": "^1.32.0",
     "clsx": "^1.1.1",
+    "embla-carousel-react": "^8.0.0-rc17",
     "framer-motion": "^7.2.1",
     "next": "12",
     "next-seo": "^5.5.0",
