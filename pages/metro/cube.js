@@ -45,6 +45,7 @@ const button = cva(
     "focus-visible:ring-offset-2",
     "bg-metro",
     "gap-x-2",
+    "self-stretch",
   ],
   {
     variants: {
@@ -223,7 +224,6 @@ const Page = ({ images }) => {
               target="_blank"
               className={cx(button(), "md:ml-auto")}
             >
-              Twitter
               <TwitterLogo />
             </a>
             <a
@@ -231,11 +231,9 @@ const Page = ({ images }) => {
               target="_blank"
               className={button()}
             >
-              Instagram
               <InstagramLogo />
             </a>
             <a href="mailto:typicalmitul@gmail.com" className={button()}>
-              Get in touch
               <EnvelopeSimple />
             </a>
           </div>
