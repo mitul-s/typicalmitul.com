@@ -24,6 +24,7 @@ import {
 import { Drawer } from "vaul";
 import { NextSeo } from "next-seo";
 import useTouchScreen from "@/hooks/useHasTouchScreen";
+import { Analytics } from "@vercel/analytics/react";
 
 const LAYOUTS = {
   LIST: "LIST",
@@ -209,156 +210,164 @@ export const Modal = ({ open, setOpen, children }) => {
   );
 };
 
-const Page = ({ images }) => {
+const Content = ({ images }) => {
   const [layout, setLayout] = React.useState(LAYOUTS.LIST);
-  const { dialogOpen, setDialogOpen } = React.useContext(Face.Context);
-  const hasTouchScreen = useTouchScreen();
 
-  const Content = () => {
-    return (
-      <>
-        <div className="flex flex-col items-center max-w-[95%] mx-auto 2xl:max-w-screen-2xl text-metro">
-          <div className="w-full mt-6 bg-white border-2 md:mt-12 border-metro">
-            <div className="items-end w-full py-6 px-4 sm:p-6 lg:grid md:px-12 md:pt-12 md:pb-14 gap-x-8 gap-y-1 grid-cols-[min-content_auto]">
-              <h1 className="text-4xl font-bold tracking-tighter sm:tracking-tight sm:text-8xl md:text-9xl whitespace-nowrap">
-                Montreal <br />
-                in Motion
-              </h1>
+  return (
+    <>
+      <div className="flex flex-col items-center max-w-[95%] mx-auto 2xl:max-w-screen-2xl text-metro">
+        <div className="w-full mt-6 bg-white border-2 md:mt-12 border-metro">
+          <div className="items-end w-full py-6 px-4 sm:p-6 lg:grid md:px-12 md:pt-12 md:pb-14 gap-x-8 gap-y-1 grid-cols-[min-content_auto]">
+            <h1 className="text-4xl font-bold tracking-tighter sm:tracking-tight sm:text-8xl md:text-9xl whitespace-nowrap">
+              Montreal <br />
+              in Motion
+            </h1>
 
-              <p
-                className="block max-w-prose mb-2.5 mt-4 sm:mt-0 text-lg sm:text-xl md:text-3xl text-metro"
-                style={{
-                  textWrap: "balance",
-                }}
-              >
-                A documentation of the Montreal metro system. All photos were
-                captured between December 2021 and January 2022, while the city
-                was under lockdown and curfew.
-              </p>
-
-              <span className="col-start-2 md:text-xl">
-                Captured by{" "}
-                <a
-                  href="https://twitter.com/typicalmitul"
-                  target="_blank"
-                  className="hover:underline underline-offset-4"
-                >
-                  Mitul Shah
-                </a>
-              </span>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap items-start w-full gap-2 px-4 py-3 bg-white border-2 border-t-0 lg:py-2 text-md lg:p-2 text-metro border-metro">
-            <button
-              className={button()}
-              onClick={() => {
-                setDialogOpen(true);
+            <p
+              className="block max-w-prose mb-2.5 mt-4 sm:mt-0 text-lg sm:text-xl md:text-3xl text-metro"
+              style={{
+                textWrap: "balance",
               }}
             >
-              About the Project
-            </button>
-            <Link href="/" passHref>
-              <a target="_blank" className={button()}>
-                Portfolio
+              A documentation of the Montreal metro system. All photos were
+              captured between December 2021 and January 2022, while the city
+              was under lockdown and curfew.
+            </p>
+
+            <span className="col-start-2 md:text-xl">
+              Captured by{" "}
+              <a
+                href="https://twitter.com/typicalmitul"
+                target="_blank"
+                className="hover:underline underline-offset-4"
+              >
+                Mitul Shah
               </a>
-            </Link>
-
-            <a
-              href="https://twitter.com/typicalmitul"
-              target="_blank"
-              className={cx(button({ variant: "secondary" }), "md:ml-auto")}
-            >
-              <TwitterLogo />
-            </a>
-            <a
-              href="https://instagram.com/typicalmitul"
-              target="_blank"
-              className={button({ variant: "secondary" })}
-            >
-              <InstagramLogo />
-            </a>
-            <a
-              href="https://tiktok.com/@typicalmitul"
-              target="_blank"
-              className={button({ variant: "secondary" })}
-            >
-              <TiktokLogo />
-            </a>
-            <a
-              href="mailto:typicalmitul@gmail.com"
-              className={button({ variant: "secondary" })}
-            >
-              <EnvelopeSimple />
-            </a>
-          </div>
-
-          <div className="flex justify-between w-full px-4 py-2 mt-12 mb-2 font-semibold uppercase bg-white border-2 border-metro">
-            <span>Layout</span>
-            <div className="flex gap-x-2">
-              <button
-                className="flex items-center uppercase gap-x-1"
-                onClick={() => {
-                  setLayout(LAYOUTS.LIST);
-                }}
-              >
-                <Rows />
-                List
-              </button>
-              <button
-                className="flex items-center uppercase gap-x-1"
-                onClick={() => {
-                  setLayout(LAYOUTS.GRID);
-                }}
-              >
-                <SquaresFour />
-                Grid
-              </button>
-            </div>
-          </div>
-
-          <div
-            className={cx(
-              "gap-4 lg:gap-12 mx-auto bg-white p-4 lg:p-12 border-2 border-metro grid",
-              layout === LAYOUTS.LIST
-                ? "grid-cols-1"
-                : " grid-cols-2 lg:grid-cols-3"
-            )}
-          >
-            {images.map(
-              ({
-                id,
-                public_id,
-                format,
-                width,
-                height,
-                filename,
-                blurDataUrl,
-              }) => {
-                return (
-                  <div
-                    key={id}
-                    className="relative flex flex-col w-full h-full mx-auto overflow-hidden border-2 cursor-pointer border-metro group aspect-[5/3]"
-                  >
-                    <Image
-                      src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_2040/${public_id}.${format}`}
-                      alt=""
-                      blurDataURL={blurDataUrl}
-                      placeholder="blur"
-                      className="object-cover w-full h-full"
-                      width={width}
-                      height={height}
-                      draggable={false}
-                    />
-                  </div>
-                );
-              }
-            )}
+            </span>
           </div>
         </div>
-      </>
-    );
-  };
+
+        <div className="flex flex-wrap items-start w-full gap-2 px-4 py-3 bg-white border-2 border-t-0 lg:py-2 text-md lg:p-2 text-metro border-metro">
+          <button
+            className={button()}
+            onClick={() => {
+              setDialogOpen(true);
+            }}
+          >
+            About the Project
+          </button>
+          <Link href="/" passHref>
+            <a target="_blank" className={button()}>
+              Portfolio
+            </a>
+          </Link>
+
+          <a
+            href="https://twitter.com/typicalmitul"
+            target="_blank"
+            className={cx(button({ variant: "secondary" }), "md:ml-auto")}
+          >
+            <TwitterLogo />
+          </a>
+          <a
+            href="https://instagram.com/typicalmitul"
+            target="_blank"
+            className={button({ variant: "secondary" })}
+          >
+            <InstagramLogo />
+          </a>
+          <a
+            href="https://tiktok.com/@typicalmitul"
+            target="_blank"
+            className={button({ variant: "secondary" })}
+          >
+            <TiktokLogo />
+          </a>
+          <a
+            href="mailto:typicalmitul@gmail.com"
+            className={button({ variant: "secondary" })}
+          >
+            <EnvelopeSimple />
+          </a>
+        </div>
+
+        <div className="flex justify-between w-full px-4 py-2 mt-12 mb-2 font-semibold uppercase bg-white border-2 border-metro">
+          <span>Layout</span>
+          <div className="flex gap-x-2">
+            <button
+              className="flex items-center uppercase gap-x-1"
+              onClick={() => {
+                setLayout(LAYOUTS.LIST);
+              }}
+            >
+              <Rows />
+              List
+            </button>
+            <button
+              className="flex items-center uppercase gap-x-1"
+              onClick={() => {
+                setLayout(LAYOUTS.GRID);
+              }}
+            >
+              <SquaresFour />
+              Grid
+            </button>
+          </div>
+        </div>
+
+        <div
+          className={cx(
+            "gap-4 lg:gap-12 mx-auto bg-white p-4 lg:p-12 border-2 border-metro grid",
+            layout === LAYOUTS.LIST
+              ? "grid-cols-1"
+              : " grid-cols-2 lg:grid-cols-3"
+          )}
+        >
+          {images.map(
+            ({
+              id,
+              public_id,
+              format,
+              width,
+              height,
+              blurDataUrl,
+              title,
+              alt,
+            }) => {
+              return (
+                <div
+                  key={id}
+                  className="relative flex flex-col w-full h-full mx-auto overflow-hidden border-2 border-metro group aspect-[5/3] group "
+                >
+                  <Image
+                    src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_2040/${public_id}.${format}`}
+                    alt={alt}
+                    blurDataURL={blurDataUrl}
+                    placeholder="blur"
+                    className="object-cover w-full h-full"
+                    width={width}
+                    height={height}
+                    draggable={false}
+                  />
+                  {title && (
+                    <div className="absolute top-0 left-0 flex items-start justify-start w-full h-full transition-all opacity-0 group-hover:opacity-100">
+                      <div className="px-4 py-1 my-4 ml-4 text-sm font-bold text-gray-100 bg-black/20 backdrop-blur-sm">
+                        {title}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+          )}
+        </div>
+      </div>
+    </>
+  );
+};
+const Page = ({ images }) => {
+  const { dialogOpen, setDialogOpen } = React.useContext(Face.Context);
+  const hasTouchScreen = useTouchScreen();
 
   return (
     <>
@@ -368,26 +377,25 @@ const Page = ({ images }) => {
         canonical="https://typicalmitul.com/montreal-in-motion"
       />
       <Face.Scroll id="main">
-        <Content />
+        <Content images={images} />
       </Face.Scroll>
       {!hasTouchScreen && (
         <>
           <Face.Scroll id="top">
-            <Content />
+            <Content images={images} />
           </Face.Scroll>
           <Face.Scroll id="bottom">
-            <Content />
+            <Content images={images} />
           </Face.Scroll>
           <Face.Side side="left" />
           <Face.Side side="right" />
         </>
       )}
-      {!hasTouchScreen && (
+      {!hasTouchScreen ? (
         <Modal open={dialogOpen} setOpen={setDialogOpen}>
           <AboutContent />
         </Modal>
-      )}
-      {hasTouchScreen && (
+      ) : (
         <Sheet open={dialogOpen} setDialogOpen={setDialogOpen}>
           <AboutContent />
         </Sheet>
@@ -400,6 +408,7 @@ Page.getLayout = function getLayout(page) {
   return (
     <Face.Provider>
       <CubeContainer>{page}</CubeContainer>
+      <Analytics />
     </Face.Provider>
   );
 };
@@ -409,9 +418,11 @@ export default Page;
 export async function getStaticProps() {
   const results = await cloudinary.v2.search
     .expression(`folder:metro/*`)
+    .with_field("context")
     .sort_by("public_id", "desc")
     .max_results(400)
     .execute();
+
   let reducedResults = [];
 
   let i = 0;
@@ -423,6 +434,8 @@ export async function getStaticProps() {
       width: result.width,
       public_id: result.public_id,
       format: result.format,
+      alt: result.context?.alt ?? "",
+      title: result.context?.caption ?? "",
     });
     i++;
   }
