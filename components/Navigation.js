@@ -79,10 +79,10 @@ const Navigation = () => {
     <>
       <ContactDialog open={open} onOpenChange={setOpen} />
       <NavigationMenu.Root>
-        <NavigationMenu.List className="pt-4 pb-4 px-4 mx-auto flex items-center justify-center w-full text-md gap-x-2 border-b border-stone-light">
+        <NavigationMenu.List className="flex items-center justify-center w-full px-4 pt-4 pb-4 mx-auto border-b text-md gap-x-2 border-stone-light">
           <NavigationMenu.Item className="mr-auto">
             <NextLink href="/" passHref>
-              <NavigationMenu.Link className="font-mtl-bold text-xl">
+              <NavigationMenu.Link className="text-xl font-mtl-bold">
                 Typical Mitul
               </NavigationMenu.Link>
             </NextLink>
