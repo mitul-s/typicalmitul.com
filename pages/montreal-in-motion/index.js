@@ -63,7 +63,10 @@ const Sheet = ({ open, setDialogOpen, children }) => {
         <Drawer.Overlay className="fixed inset-0 bg-metro/20 backdrop-blur-sm" />
         <Drawer.Content className="bg-zinc-100 flex flex-col h-[94%] mt-24 fixed bottom-0 left-0 right-0 rounded-t-[10px] border-2 border-metro">
           <div className="relative flex flex-col w-full max-w-md mx-auto overflow-auto rounded-t-[10px]">
-            <div className="fixed w-12 h-1 -translate-x-1/2 rounded-full top-2 bg-metro/80 left-1/2"></div>
+            <div
+              className="fixed w-12 h-1 -translate-x-1/2 rounded-full top-2 bg-metro/80 left-1/2"
+              role="separator"
+            />
             {children}
           </div>
         </Drawer.Content>
@@ -85,14 +88,15 @@ const AboutContent = () => {
     "py-12 bg-white shadow-xl xs:border-2 xs:border-metro text-metro";
   return (
     <>
-      <div className={cx(containerStyle, "px-4 h-full md:w-2/3 md:px-12")}>
+      <div className={cx(containerStyle, "px-4 md:w-2/3 md:px-12")}>
         <ModalHeading>
-          About <span className="hidden xs:inline-block">the project</span>
+          About <span className="hidden sm:inline-block">the project</span>
         </ModalHeading>
         <div className="flex flex-col mt-4 text-md xs:text-xl xs:mt-6 gap-y-3 max-w-prose">
-          <p className="text-2xl ">
-            Ad labore aute cupidatat eiusmod mollit nisi ea quis minim in
-            tempor.
+          <p className="text-2xl">
+            Montreal in Motion is a documentation of the metro, and an
+            invitation to discover beauty within the architectural designs of
+            each station.
           </p>
           <div className="w-full h-px my-2 bg-metro" role="separator" />
           <p>
@@ -130,6 +134,20 @@ const AboutContent = () => {
           My name is Mitul Shah, I am a photographer based out of Toronto,
           Canada dedicated to defining thoughtful and memorable experiences
           through every capture.
+        </p>
+        <p>
+          My work has consistently drawn inspiration from our ever-changing
+          environments, aiming to preserve them in a manner that will be
+          remembered for years to come.
+        </p>
+        <p>
+          Thank you for visiting. You can explore more of my work on my
+          portfolio →{" "}
+          <Link href="/" passHref>
+            <a target="_blank" className="hover:underline underline-offset-4">
+              typicalmitul.com
+            </a>
+          </Link>
         </p>
 
         <ul className="fixed bottom-0 left-0 flex w-full px-4 py-2 text-sm bg-white border-t xs:text-lg xs:px-0 xs:border-none xs:relative xs:block border-metro gap-x-6">
@@ -180,7 +198,7 @@ export const Modal = ({ open, setOpen, children }) => {
     <Dialog open={open} onOpenChange={setOpen} modal={false}>
       <Face.Front id="front">
         <DialogOverlay className="fixed inset-0 w-screen h-screen" />
-        <DialogContent className="fixed left-[50%] top-[50%] w-full max-w-7xl gap-6 h-[90%] z-50 md:flex translate-x-[-50%] translate-y-[-50%] duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] overflow-auto">
+        <DialogContent className="fixed left-[50%] top-[50%] w-full max-w-7xl gap-6 h-full sm:h-[90%] z-50 md:flex translate-x-[-50%] translate-y-[-50%] duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] overflow-auto">
           {children}
           <DialogClose className="absolute top-0 right-0 p-2 text-white bg-metro">
             <X className="shrink-0" aria-label="Close modal" />
