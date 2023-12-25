@@ -8,6 +8,7 @@ import { DefaultSeo } from "next-seo";
 import Layout from "@/components/Layout";
 
 import splitbee from "@splitbee/web";
+import { Analytics } from "@vercel/analytics/react";
 
 const MyApp = ({ Component, pageProps }) => {
   useEffect(() => {
@@ -50,6 +51,7 @@ const MyApp = ({ Component, pageProps }) => {
               }}
             />
             {page}
+            <Analytics />
           </Layout>
         </SheetProvider>
       </TooltipProvider>

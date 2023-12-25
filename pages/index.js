@@ -44,7 +44,7 @@ export default function Home() {
         </Section>
         <CallToAction />
         <Break />
-        <section className="min-h-full">
+        <section className="h-full">
           <Contact />
         </section>
         <Footer />

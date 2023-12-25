@@ -35,7 +35,7 @@ const NotSure = () => {
       </div>
     </div>
   );
-}
+};
 
 const Form = () => {
   const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORM);
@@ -115,12 +115,11 @@ const ContactDialog = ({ open, onOpenChange, children, ...props }) => {
 };
 
 const Contact = () => {
-  
   const [value, copy] = useCopyToClipboard("typicalmitul@gmail.com");
 
   return (
     <>
-      <div style={{ height: "85vh" }}>
+      <div style={{ height: "85vh", maxHeight: "900px" }}>
         <div className="grid w-full h-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8">
           <div className="flex flex-col px-6 md:px-4 gap-y-6">
             <div className="flex items-center leading-none uppercase gap-x-2">

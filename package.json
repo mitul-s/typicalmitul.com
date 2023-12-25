@@ -17,6 +17,7 @@
     "@radix-ui/react-tooltip": "^0.1.7",
     "@splitbee/web": "^0.3.0",
     "@uidotdev/usehooks": "^2.4.1",
+    "@vercel/analytics": "^1.1.1",
     "class-variance-authority": "^0.2.3",
     "cloudinary": "^1.32.0",
     "clsx": "^1.1.1",

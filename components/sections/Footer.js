@@ -1,7 +1,6 @@
 import splitbee from "@splitbee/web";
 
 const Footer = () => {
-
   const footerLinks = [
     {
       href: "https://www.twitter.com/typicalmitul",
@@ -19,29 +18,37 @@ const Footer = () => {
       href: "mailto:typicalmitul@gmail.com",
       text: "Mail",
     },
-  ]
+  ];
 
-  const Item = ({ href, children }) => (
+  const Item = ({ href, text, children }) => (
     <li className="underline underline-offset-2">
-      <a href={href} target="_blank" rel="noreferrer noopener">
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer noopener"
+        onClick={() =>
+          splitbee.track("Social Click", {
+            location: text,
+          })
+        }
+      >
         {children}
       </a>
     </li>
   );
-  
+
   return (
     <footer className="flex flex-col px-6 py-6 text-sm border-t md:text-lg border-stone-light md:px-4">
       <ul className="flex gap-x-2">
         {footerLinks.map((link, index) => (
-          <Item key={index} href={link.href}>
+          <Item key={index} href={link.href} text={link.text}>
             {link.text}
           </Item>
         ))}
       </ul>
       <div className="mt-4 text-xs max-w-prose text-stone-blue">
-        This website was designed and built by myself, lots of water and Playboi
-        Carti on repeat. <br /> If you have any feedback, I{"'"}d appreciate it!
-        You can also visit the{" "}
+        This website was designed and built by myself, lots of water and good
+        vibes. <br /> You can also visit the{" "}
         <a
           href="https://github.com/mitul-s/typicalmitul.com"
           onClick={() =>
@@ -59,6 +66,6 @@ const Footer = () => {
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;
