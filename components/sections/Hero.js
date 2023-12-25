@@ -8,9 +8,14 @@ const Hero = () => {
 
   return (
     <motion.section
-      className="w-screen hero"
+      className="w-screen max-w-[1792px] hero"
       layout
-      animate={{ padding: isSmall ? 24 : `16px 24px` }}
+      animate={{
+        paddingLeft: 22,
+        paddingRight: 22,
+        paddingTop: isSmall ? 24 : 16,
+        paddingBottom: isSmall ? 24 : 16,
+      }}
       transition={{ delay: 1.2, duration: 1.2 }}
     >
       <div className="grid h-full isolate shadow-md shadow-yolk rounded-[8px]">

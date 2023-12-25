@@ -12,7 +12,7 @@ const About = () => {
           <Image
             src={idx_me}
             alt="A futuristic, cinematic photo of myself standing in front of blue tinted lights in the Montreal metro, wearing a red jacket"
-            height="md:order-first aspect-square md:h-img"
+            height="md:order-first aspect-square md:h-img max-h-[900px]"
           />
         </div>
         <div className="flex flex-col justify-end">
