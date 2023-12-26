@@ -197,7 +197,7 @@ const Page = ({ images }) => {
   const { dialogOpen, setDialogOpen } = React.useContext(Face.Context);
   const hasTouchScreen = useTouchScreen();
 
-  const Content = () => {
+  const Content = ({ isMainFace }) => {
     return (
       <>
         <div className="flex flex-col items-center max-w-[95%] mx-auto 2xl:max-w-screen-2xl text-metro">
@@ -224,7 +224,8 @@ const Page = ({ images }) => {
                 <a
                   href="https://twitter.com/typicalmitul"
                   target="_blank"
-                  className="hover:underline underline-offset-4"
+                  className="hover:underline underline-offset-4 metro-focus-states"
+                  tabIndex={!isMainFace && -1}
                 >
                   Mitul Shah (@typicalmitul)
                 </a>
@@ -242,11 +243,16 @@ const Page = ({ images }) => {
                     location: "Montreal in Motion",
                   });
                 }}
+                tabIndex={!isMainFace && -1}
               >
                 About the Project
               </button>
               <Link href="/" passHref>
-                <a target="_blank" className={button()}>
+                <a
+                  target="_blank"
+                  className={button()}
+                  tabIndex={!isMainFace && -1}
+                >
                   Portfolio
                   <ArrowUpRight className="shrink-0" weight="bold" />
                 </a>
@@ -263,6 +269,7 @@ const Page = ({ images }) => {
                   location: "Twitter",
                 })
               }
+              tabIndex={!isMainFace && -1}
             >
               <TwitterLogo />
             </a>
@@ -276,6 +283,7 @@ const Page = ({ images }) => {
                   location: "Instagram",
                 })
               }
+              tabIndex={!isMainFace && -1}
             >
               <InstagramLogo />
             </a>
@@ -289,6 +297,7 @@ const Page = ({ images }) => {
                   location: "TikTok",
                 })
               }
+              tabIndex={!isMainFace && -1}
             >
               <TiktokLogo />
             </a>
@@ -301,6 +310,7 @@ const Page = ({ images }) => {
                   location: "Email",
                 })
               }
+              tabIndex={!isMainFace && -1}
             >
               <EnvelopeSimple />
             </a>
@@ -310,19 +320,21 @@ const Page = ({ images }) => {
             <span>Layout</span>
             <div className="flex gap-x-2">
               <button
-                className="flex items-center uppercase gap-x-1"
+                className="flex items-center uppercase gap-x-1 metro-focus-states"
                 onClick={() => {
                   setLayout(LAYOUTS.LIST);
                 }}
+                tabIndex={!isMainFace && -1}
               >
                 <Rows />
                 List
               </button>
               <button
-                className="flex items-center uppercase gap-x-1"
+                className="flex items-center uppercase gap-x-1 metro-focus-states"
                 onClick={() => {
                   setLayout(LAYOUTS.GRID);
                 }}
+                tabIndex={!isMainFace && -1}
               >
                 <SquaresFour />
                 Grid
@@ -365,7 +377,7 @@ const Page = ({ images }) => {
                       draggable={false}
                     />
                     {title && (
-                      <div className="absolute top-0 left-0 flex items-start justify-start w-full h-full transition-all opacity-0 group-hover:opacity-100">
+                      <div className="absolute top-0 left-0 flex items-end justify-center w-full h-full transition-all opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 duration-200">
                         <div className="px-2 py-1 my-2 ml-2 text-sm text-gray-100 sm:ml-4 sm:my-4 sm:px-4 sm:font-bold bg-black/20 backdrop-blur-sm">
                           {title}
                         </div>
@@ -412,7 +424,7 @@ const Page = ({ images }) => {
       />
 
       <Face.Scroll id="main">
-        <Content />
+        <Content isMainFace />
       </Face.Scroll>
       {!hasTouchScreen && (
         <>

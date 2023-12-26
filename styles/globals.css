@@ -156,7 +156,10 @@ body {
   .bg-noise {
     background: url(/images/noise.svg);
   }
-  
+
+  .metro-focus-states {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
 
 }
 
@@ -214,8 +217,9 @@ body {
 
 
 .cube-front {
-    @apply border-2 border-metro z-10 backdrop-blur-sm;
-  }
+  @apply border-2 border-metro z-10 backdrop-blur-sm;
+}
+
 
 
 .animate-content-in {
@@ -402,6 +406,8 @@ body {
 .marquee span {
   @apply w-full mx-2 tracking-tight uppercase whitespace-nowrap will-change-transform;
 }
+
+
 
 /* .marquee:hover .marquee__inner {
     animation-play-state: running;
