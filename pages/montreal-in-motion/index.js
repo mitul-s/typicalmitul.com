@@ -80,7 +80,7 @@ const Sheet = ({ open, setDialogOpen, children }) => {
 
 const AboutContent = () => {
   const containerStyle =
-    "py-12 bg-white shadow-xl xs:border-2 xs:border-metro text-metro overflow-auto";
+    "py-12 bg-white shadow-xl xs:border-2 xs:border-metro text-metro xs:overflow-auto";
   return (
     <>
       <div className={cx(containerStyle, "px-4 md:w-2/3 md:px-12")}>
