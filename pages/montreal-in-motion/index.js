@@ -25,6 +25,7 @@ import { Drawer } from "vaul";
 import { NextSeo } from "next-seo";
 import useTouchScreen from "@/hooks/useHasTouchScreen";
 import { Analytics } from "@vercel/analytics/react";
+import splitbee from "@splitbee/web";
 
 const LAYOUTS = {
   LIST: "LIST",
@@ -66,7 +67,7 @@ const Sheet = ({ open, setDialogOpen, children }) => {
           <div className="relative flex flex-col w-full max-w-md mx-auto overflow-auto rounded-t-[10px]">
             <div
               className="fixed w-12 h-1 -translate-x-1/2 rounded-full top-2 bg-metro/80 left-1/2"
-              role="separator"
+              aria-hidden={true}
             />
             {children}
           </div>
@@ -76,23 +77,15 @@ const Sheet = ({ open, setDialogOpen, children }) => {
   );
 };
 
-const ModalHeading = ({ children }) => {
-  return (
-    <h2 className="text-3xl font-bold tracking-tight xs:tracking-normal xs:text-6xl">
-      {children}
-    </h2>
-  );
-};
-
 const AboutContent = () => {
   const containerStyle =
-    "py-12 bg-white shadow-xl xs:border-2 xs:border-metro text-metro";
+    "py-12 bg-white shadow-xl xs:border-2 xs:border-metro text-metro overflow-auto";
   return (
     <>
       <div className={cx(containerStyle, "px-4 md:w-2/3 md:px-12")}>
-        <ModalHeading>
+        <h2 className="text-3xl font-bold tracking-tight xs:tracking-normal xs:text-6xl">
           About <span className="hidden sm:inline-block">the project</span>
-        </ModalHeading>
+        </h2>
         <div className="flex flex-col mt-4 text-md xs:text-xl xs:mt-6 gap-y-3 max-w-prose">
           <p className="text-2xl">
             Montreal in Motion is a documentation of the metro, and an
@@ -123,8 +116,8 @@ const AboutContent = () => {
             Any long exposure was hand-held.
           </p>
           <p>
-            This website was designed and built by myself, I attempted to keep
-            it in line with the theme of Montreal&apos;s brutalist stations.
+            This website was designed and built by myself, with the intention to
+            stay with the theme of Montreal&apos;s brutalist stations.
           </p>
         </div>
       </div>
@@ -167,6 +160,11 @@ const AboutContent = () => {
               href="https://twitter.com/typicalmitul"
               target="_blank"
               className="hover:underline underline-offset-4"
+              onClick={() =>
+                splitbee.track("Social Click", {
+                  location: "Twitter",
+                })
+              }
             >
               Twitter
             </a>
@@ -176,6 +174,11 @@ const AboutContent = () => {
               href="https://instagram.com/typicalmitul"
               target="_blank"
               className="hover:underline underline-offset-4"
+              onClick={() =>
+                splitbee.track("Social Click", {
+                  location: "Instagram",
+                })
+              }
             >
               Instagram
             </a>
@@ -185,6 +188,11 @@ const AboutContent = () => {
               href="https://tiktok.com/@typicalmitul"
               target="_blank"
               className="hover:underline underline-offset-4"
+              onClick={() =>
+                splitbee.track("Social Click", {
+                  location: "TikTok",
+                })
+              }
             >
               TikTok
             </a>
@@ -194,6 +202,11 @@ const AboutContent = () => {
               href="mailto:typicalmitul@gmail.com"
               target="_blank"
               className="hover:underline underline-offset-4"
+              onClick={() =>
+                splitbee.track("Social Click", {
+                  location: "Email",
+                })
+              }
             >
               Email
             </a>
@@ -209,7 +222,7 @@ export const Modal = ({ open, setOpen, children }) => {
     <Dialog open={open} onOpenChange={setOpen} modal={false}>
       <Face.Front id="front">
         <DialogOverlay className="fixed inset-0 w-screen h-screen" />
-        <DialogContent className="fixed left-[50%] top-[50%] w-full max-w-7xl gap-6 h-full sm:h-[90%] z-50 md:flex translate-x-[-50%] translate-y-[-50%] duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] overflow-auto">
+        <DialogContent className="fixed left-[50%] top-[50%] w-full max-w-7xl gap-6 h-full sm:h-[90%] z-50 md:flex -translate-x-1/2 -translate-y-1/2 duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] overflow-auto">
           {children}
           <DialogClose className="absolute top-0 right-0 p-2 text-white bg-metro">
             <X className="shrink-0" aria-label="Close modal" />
@@ -252,31 +265,42 @@ const Content = ({ images }) => {
                 target="_blank"
                 className="hover:underline underline-offset-4"
               >
-                Mitul Shah
+                Mitul Shah (@typicalmitul)
               </a>
             </span>
           </div>
         </div>
 
         <div className="flex flex-wrap items-start w-full gap-2 px-4 py-3 bg-white border-2 border-t-0 lg:py-2 text-md lg:p-2 text-metro border-metro">
-          <button
-            className={button()}
-            onClick={() => {
-              setDialogOpen(true);
-            }}
-          >
-            About the Project
-          </button>
-          <Link href="/" passHref>
-            <a target="_blank" className={button()}>
-              Portfolio
-            </a>
-          </Link>
+          <div className="flex w-full gap-2 sm:w-fit">
+            <button
+              className={button()}
+              onClick={() => {
+                setDialogOpen(true);
+                splitbee.track("About Modal", {
+                  location: "Montreal in Motion",
+                });
+              }}
+            >
+              About the Project
+            </button>
+            <Link href="/" passHref>
+              <a target="_blank" className={button()}>
+                Portfolio
+              </a>
+            </Link>
+          </div>
 
           <a
             href="https://twitter.com/typicalmitul"
             target="_blank"
             className={cx(button({ variant: "secondary" }), "md:ml-auto")}
+            aria-label="Twitter profile"
+            onClick={() =>
+              splitbee.track("Social Click", {
+                location: "Twitter",
+              })
+            }
           >
             <TwitterLogo />
           </a>
@@ -284,6 +308,12 @@ const Content = ({ images }) => {
             href="https://instagram.com/typicalmitul"
             target="_blank"
             className={button({ variant: "secondary" })}
+            aria-label="Instagram profile"
+            onClick={() =>
+              splitbee.track("Social Click", {
+                location: "Instagram",
+              })
+            }
           >
             <InstagramLogo />
           </a>
@@ -291,12 +321,24 @@ const Content = ({ images }) => {
             href="https://tiktok.com/@typicalmitul"
             target="_blank"
             className={button({ variant: "secondary" })}
+            aria-label="TiKTok profile"
+            onClick={() =>
+              splitbee.track("Social Click", {
+                location: "TikTok",
+              })
+            }
           >
             <TiktokLogo />
           </a>
           <a
             href="mailto:typicalmitul@gmail.com"
             className={button({ variant: "secondary" })}
+            aria-label="Email me"
+            onClick={() =>
+              splitbee.track("Social Click", {
+                location: "Email",
+              })
+            }
           >
             <EnvelopeSimple />
           </a>
@@ -328,7 +370,7 @@ const Content = ({ images }) => {
 
         <div
           className={cx(
-            "gap-4 lg:gap-12 mx-auto bg-white p-4 lg:p-12 border-2 border-metro grid",
+            "gap-4 lg:gap-12 mx-auto bg-white p-4 lg:p-12 border-2 border-metro grid w-full",
             layout === LAYOUTS.LIST
               ? "grid-cols-1"
               : " grid-cols-2 lg:grid-cols-3"
@@ -348,7 +390,7 @@ const Content = ({ images }) => {
               return (
                 <div
                   key={id}
-                  className="relative flex flex-col w-full h-full mx-auto overflow-hidden border-2 border-metro group aspect-[5/3] group "
+                  className="relative flex flex-col mx-auto overflow-hidden border-2 border-metro group aspect-[5/3] group"
                 >
                   <Image
                     src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_2040/${public_id}.${format}`}
@@ -362,7 +404,7 @@ const Content = ({ images }) => {
                   />
                   {title && (
                     <div className="absolute top-0 left-0 flex items-start justify-start w-full h-full transition-all opacity-0 group-hover:opacity-100">
-                      <div className="px-4 py-1 my-4 ml-4 text-sm font-bold text-gray-100 bg-black/20 backdrop-blur-sm">
+                      <div className="px-2 py-1 my-2 ml-2 text-sm text-gray-100 sm:ml-4 sm:my-4 sm:px-4 sm:font-bold bg-black/20 backdrop-blur-sm">
                         {title}
                       </div>
                     </div>

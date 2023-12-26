@@ -6,16 +6,15 @@ import { ScrollSyncPane } from "react-scroll-sync";
 import { useMeasure } from "@uidotdev/usehooks";
 import useTouchScreen from "@/hooks/useHasTouchScreen";
 
-const face = cva(["absolute", "w-screen", "h-screen", "overflow-hidden"], {
+const face = cva(["w-screen", "h-screen", "overflow-hidden"], {
   variants: {
     face: {
-      front: "cube-front",
-      main: "cube-main border-2 border-metro",
-      top: "cube-top border-2 border-metro",
-      bottom: "cube-bottom border-2 border-metro",
-      left: "cube-left",
-      right: "cube-right",
-      front: "cube-front",
+      front: "relative cube-front",
+      main: "absolute cube-main border-2 border-metro",
+      top: "absolute cube-top border-2 border-metro",
+      bottom: "absolute cube-bottom border-2 border-metro",
+      left: "absolute cube-left",
+      right: "absolute cube-right",
     },
   },
 });

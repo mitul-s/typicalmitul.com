@@ -24,10 +24,7 @@ export const CubeContainer = ({ children }) => {
       >
         <AnimatePresence>
           <motion.div
-            className={cx(
-              "fixed w-full h-full",
-              hasTouchScreen ? "" : "preserve-3d"
-            )}
+            className={cx("fixed", hasTouchScreen ? "" : "preserve-3d")}
             initial={{
               translateZ: hasTouchScreen ? 0 : -400,
             }}
