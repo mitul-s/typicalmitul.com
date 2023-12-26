@@ -11,6 +11,7 @@ import {
   TwitterLogo,
   X,
   TiktokLogo,
+  ArrowUpRight,
 } from "phosphor-react";
 import { cva, cx } from "class-variance-authority";
 import * as Face from "@/components/metro/Face";
@@ -38,7 +39,7 @@ const button = cva(
     "inline-flex",
     "items-center",
     "justify-center",
-    "p-1",
+    "py-1",
     "px-2",
     "font-medium",
     "text-white",
@@ -49,7 +50,7 @@ const button = cva(
     "focus-visible:ring-ring",
     "focus-visible:ring-offset-2",
     "bg-metro",
-    "gap-x-2",
+    "gap-x-1",
     "self-stretch",
   ],
   {
@@ -288,6 +289,7 @@ const Content = ({ images }) => {
             <Link href="/" passHref>
               <a target="_blank" className={button()}>
                 Portfolio
+                <ArrowUpRight className="shrink-0" weight="bold" />
               </a>
             </Link>
           </div>
