@@ -9,20 +9,12 @@ import {
   EnvelopeSimple,
   SquaresFour,
   TwitterLogo,
-  X,
   TiktokLogo,
   ArrowUpRight,
 } from "phosphor-react";
 import { cva, cx } from "class-variance-authority";
 import * as Face from "@/components/metro/Face";
-import { CubeContainer } from "@/components/metro/components";
-import {
-  Dialog,
-  DialogOverlay,
-  DialogContent,
-  DialogClose,
-} from "@radix-ui/react-dialog";
-import { Drawer } from "vaul";
+import { CubeContainer, Sheet, Modal } from "@/components/metro/components";
 import { NextSeo } from "next-seo";
 import useTouchScreen from "@/hooks/useHasTouchScreen";
 import { Analytics } from "@vercel/analytics/react";
@@ -59,25 +51,6 @@ const button = cva(
     },
   }
 );
-
-const Sheet = ({ open, setDialogOpen, children }) => {
-  return (
-    <Drawer.Root open={open} onOpenChange={setDialogOpen} shouldScaleBackground>
-      <Drawer.Portal>
-        <Drawer.Overlay className="fixed inset-0 bg-metro/20 backdrop-blur-sm" />
-        <Drawer.Content className="bg-zinc-100 flex flex-col h-[94%] mt-24 fixed bottom-0 left-0 right-0 rounded-t-[10px] border-2 border-metro">
-          <div className="relative flex flex-col w-full max-w-md mx-auto overflow-auto rounded-t-[10px]">
-            <div
-              className="fixed w-12 h-1 -translate-x-1/2 rounded-full top-2 bg-metro/80 left-1/2"
-              aria-hidden={true}
-            />
-            {children}
-          </div>
-        </Drawer.Content>
-      </Drawer.Portal>
-    </Drawer.Root>
-  );
-};
 
 const AboutContent = () => {
   const containerStyle =
@@ -219,211 +192,194 @@ const AboutContent = () => {
   );
 };
 
-export const Modal = ({ open, setOpen, children }) => {
-  return (
-    <Dialog open={open} onOpenChange={setOpen} modal={false}>
-      <Face.Front id="front">
-        <DialogOverlay className="fixed inset-0 w-screen h-screen" />
-        <DialogContent className="fixed left-[50%] top-[50%] w-full max-w-7xl gap-6 h-full sm:h-[90%] z-50 md:flex -translate-x-1/2 -translate-y-1/2 duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] overflow-auto">
-          {children}
-          <DialogClose className="absolute top-0 right-0 p-2 text-white bg-metro">
-            <X className="shrink-0" aria-label="Close modal" />
-          </DialogClose>
-        </DialogContent>
-      </Face.Front>
-    </Dialog>
-  );
-};
-
-const Content = ({ images }) => {
-  const [layout, setLayout] = React.useState(LAYOUTS.LIST);
-  const { setDialogOpen } = React.useContext(Face.Context);
-
-  return (
-    <>
-      <div className="flex flex-col items-center max-w-[95%] mx-auto 2xl:max-w-screen-2xl text-metro">
-        <div className="w-full mt-6 bg-white border-2 md:mt-12 border-metro">
-          <div className="items-end w-full py-6 px-4 sm:p-6 lg:grid md:px-12 md:pt-12 md:pb-14 gap-x-8 gap-y-1 grid-cols-[min-content_auto]">
-            <h1 className="text-4xl font-bold tracking-tighter sm:tracking-tight sm:text-8xl md:text-9xl whitespace-nowrap">
-              Montreal <br />
-              in Motion
-            </h1>
-
-            <p
-              className="block max-w-prose mb-2.5 mt-4 sm:mt-0 text-lg sm:text-xl md:text-3xl text-metro"
-              style={{
-                textWrap: "balance",
-              }}
-            >
-              A documentation of the Montreal metro system. All photos were
-              captured between December 2021 and January 2022, while the city
-              was under lockdown and curfew.
-            </p>
-
-            <span className="col-start-2 md:text-xl">
-              Captured by{" "}
-              <a
-                href="https://twitter.com/typicalmitul"
-                target="_blank"
-                className="hover:underline underline-offset-4"
-              >
-                Mitul Shah (@typicalmitul)
-              </a>
-            </span>
-          </div>
-        </div>
-
-        <div className="flex flex-wrap items-start w-full gap-2 px-4 py-3 bg-white border-2 border-t-0 lg:py-2 text-md lg:p-2 text-metro border-metro">
-          <div className="flex w-full gap-2 sm:w-fit">
-            <button
-              className={button()}
-              onClick={() => {
-                setDialogOpen(true);
-                splitbee.track("About Modal", {
-                  location: "Montreal in Motion",
-                });
-              }}
-            >
-              About the Project
-            </button>
-            <Link href="/" passHref>
-              <a target="_blank" className={button()}>
-                Portfolio
-                <ArrowUpRight className="shrink-0" weight="bold" />
-              </a>
-            </Link>
-          </div>
-
-          <a
-            href="https://twitter.com/typicalmitul"
-            target="_blank"
-            className={cx(button({ variant: "secondary" }), "md:ml-auto")}
-            aria-label="Twitter profile"
-            onClick={() =>
-              splitbee.track("Social Click", {
-                location: "Twitter",
-              })
-            }
-          >
-            <TwitterLogo />
-          </a>
-          <a
-            href="https://instagram.com/typicalmitul"
-            target="_blank"
-            className={button({ variant: "secondary" })}
-            aria-label="Instagram profile"
-            onClick={() =>
-              splitbee.track("Social Click", {
-                location: "Instagram",
-              })
-            }
-          >
-            <InstagramLogo />
-          </a>
-          <a
-            href="https://tiktok.com/@typicalmitul"
-            target="_blank"
-            className={button({ variant: "secondary" })}
-            aria-label="TiKTok profile"
-            onClick={() =>
-              splitbee.track("Social Click", {
-                location: "TikTok",
-              })
-            }
-          >
-            <TiktokLogo />
-          </a>
-          <a
-            href="mailto:typicalmitul@gmail.com"
-            className={button({ variant: "secondary" })}
-            aria-label="Email me"
-            onClick={() =>
-              splitbee.track("Social Click", {
-                location: "Email",
-              })
-            }
-          >
-            <EnvelopeSimple />
-          </a>
-        </div>
-
-        <div className="flex justify-between w-full px-4 py-2 mt-12 mb-2 font-semibold uppercase bg-white border-2 border-metro">
-          <span>Layout</span>
-          <div className="flex gap-x-2">
-            <button
-              className="flex items-center uppercase gap-x-1"
-              onClick={() => {
-                setLayout(LAYOUTS.LIST);
-              }}
-            >
-              <Rows />
-              List
-            </button>
-            <button
-              className="flex items-center uppercase gap-x-1"
-              onClick={() => {
-                setLayout(LAYOUTS.GRID);
-              }}
-            >
-              <SquaresFour />
-              Grid
-            </button>
-          </div>
-        </div>
-
-        <div
-          className={cx(
-            "gap-4 lg:gap-12 mx-auto bg-white p-4 lg:p-12 border-2 border-metro grid w-full",
-            layout === LAYOUTS.LIST
-              ? "grid-cols-1"
-              : " grid-cols-2 lg:grid-cols-3"
-          )}
-        >
-          {images.map(
-            ({
-              id,
-              public_id,
-              format,
-              width,
-              height,
-              blurDataUrl,
-              title,
-              alt,
-            }) => {
-              return (
-                <div
-                  key={id}
-                  className="relative flex flex-col mx-auto overflow-hidden border-2 border-metro group aspect-[5/3] group"
-                >
-                  <Image
-                    src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_2040/${public_id}.${format}`}
-                    alt={alt}
-                    blurDataURL={blurDataUrl}
-                    placeholder="blur"
-                    className="object-cover w-full h-full"
-                    width={width}
-                    height={height}
-                    draggable={false}
-                  />
-                  {title && (
-                    <div className="absolute top-0 left-0 flex items-start justify-start w-full h-full transition-all opacity-0 group-hover:opacity-100">
-                      <div className="px-2 py-1 my-2 ml-2 text-sm text-gray-100 sm:ml-4 sm:my-4 sm:px-4 sm:font-bold bg-black/20 backdrop-blur-sm">
-                        {title}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              );
-            }
-          )}
-        </div>
-      </div>
-    </>
-  );
-};
 const Page = ({ images }) => {
+  const [layout, setLayout] = React.useState(LAYOUTS.LIST);
   const { dialogOpen, setDialogOpen } = React.useContext(Face.Context);
   const hasTouchScreen = useTouchScreen();
+
+  const Content = () => {
+    return (
+      <>
+        <div className="flex flex-col items-center max-w-[95%] mx-auto 2xl:max-w-screen-2xl text-metro">
+          <div className="w-full mt-6 bg-white border-2 md:mt-12 border-metro">
+            <div className="items-end w-full py-6 px-4 sm:p-6 lg:grid md:px-12 md:pt-12 md:pb-14 gap-x-8 gap-y-1 grid-cols-[min-content_auto]">
+              <h1 className="text-4xl font-bold tracking-tighter sm:tracking-tight sm:text-8xl md:text-9xl whitespace-nowrap">
+                Montreal <br />
+                in Motion
+              </h1>
+
+              <p
+                className="block max-w-prose mb-2.5 mt-4 sm:mt-0 text-lg sm:text-xl md:text-3xl text-metro"
+                style={{
+                  textWrap: "balance",
+                }}
+              >
+                A documentation of the Montreal metro system. All photos were
+                captured between December 2021 and January 2022, while the city
+                was under lockdown and curfew.
+              </p>
+
+              <span className="col-start-2 md:text-xl">
+                Captured by{" "}
+                <a
+                  href="https://twitter.com/typicalmitul"
+                  target="_blank"
+                  className="hover:underline underline-offset-4"
+                >
+                  Mitul Shah (@typicalmitul)
+                </a>
+              </span>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-start w-full gap-2 px-4 py-3 bg-white border-2 border-t-0 lg:py-2 text-md lg:p-2 text-metro border-metro">
+            <div className="flex w-full gap-2 sm:w-fit">
+              <button
+                className={button()}
+                onClick={() => {
+                  setDialogOpen(true);
+                  splitbee.track("About Modal", {
+                    location: "Montreal in Motion",
+                  });
+                }}
+              >
+                About the Project
+              </button>
+              <Link href="/" passHref>
+                <a target="_blank" className={button()}>
+                  Portfolio
+                  <ArrowUpRight className="shrink-0" weight="bold" />
+                </a>
+              </Link>
+            </div>
+
+            <a
+              href="https://twitter.com/typicalmitul"
+              target="_blank"
+              className={cx(button({ variant: "secondary" }), "md:ml-auto")}
+              aria-label="Twitter profile"
+              onClick={() =>
+                splitbee.track("Social Click", {
+                  location: "Twitter",
+                })
+              }
+            >
+              <TwitterLogo />
+            </a>
+            <a
+              href="https://instagram.com/typicalmitul"
+              target="_blank"
+              className={button({ variant: "secondary" })}
+              aria-label="Instagram profile"
+              onClick={() =>
+                splitbee.track("Social Click", {
+                  location: "Instagram",
+                })
+              }
+            >
+              <InstagramLogo />
+            </a>
+            <a
+              href="https://tiktok.com/@typicalmitul"
+              target="_blank"
+              className={button({ variant: "secondary" })}
+              aria-label="TiKTok profile"
+              onClick={() =>
+                splitbee.track("Social Click", {
+                  location: "TikTok",
+                })
+              }
+            >
+              <TiktokLogo />
+            </a>
+            <a
+              href="mailto:typicalmitul@gmail.com"
+              className={button({ variant: "secondary" })}
+              aria-label="Email me"
+              onClick={() =>
+                splitbee.track("Social Click", {
+                  location: "Email",
+                })
+              }
+            >
+              <EnvelopeSimple />
+            </a>
+          </div>
+
+          <div className="flex justify-between w-full px-4 py-2 mt-12 mb-2 font-semibold uppercase bg-white border-2 border-metro">
+            <span>Layout</span>
+            <div className="flex gap-x-2">
+              <button
+                className="flex items-center uppercase gap-x-1"
+                onClick={() => {
+                  setLayout(LAYOUTS.LIST);
+                }}
+              >
+                <Rows />
+                List
+              </button>
+              <button
+                className="flex items-center uppercase gap-x-1"
+                onClick={() => {
+                  setLayout(LAYOUTS.GRID);
+                }}
+              >
+                <SquaresFour />
+                Grid
+              </button>
+            </div>
+          </div>
+
+          <div
+            className={cx(
+              "gap-4 lg:gap-12 mx-auto bg-white p-4 lg:p-12 border-2 border-metro grid w-full",
+              layout === LAYOUTS.LIST
+                ? "grid-cols-1"
+                : " grid-cols-2 lg:grid-cols-3"
+            )}
+          >
+            {images.map(
+              ({
+                id,
+                public_id,
+                format,
+                width,
+                height,
+                blurDataUrl,
+                title,
+                alt,
+              }) => {
+                return (
+                  <div
+                    key={id}
+                    className="relative flex flex-col mx-auto overflow-hidden border-2 border-metro group aspect-[5/3] group"
+                  >
+                    <Image
+                      src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_2040/${public_id}.${format}`}
+                      alt={alt}
+                      blurDataURL={blurDataUrl}
+                      placeholder="blur"
+                      className="object-cover w-full h-full"
+                      width={width}
+                      height={height}
+                      draggable={false}
+                    />
+                    {title && (
+                      <div className="absolute top-0 left-0 flex items-start justify-start w-full h-full transition-all opacity-0 group-hover:opacity-100">
+                        <div className="px-2 py-1 my-2 ml-2 text-sm text-gray-100 sm:ml-4 sm:my-4 sm:px-4 sm:font-bold bg-black/20 backdrop-blur-sm">
+                          {title}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+            )}
+          </div>
+        </div>
+      </>
+    );
+  };
 
   return (
     <>
@@ -456,15 +412,15 @@ const Page = ({ images }) => {
       />
 
       <Face.Scroll id="main">
-        <Content images={images} />
+        <Content />
       </Face.Scroll>
       {!hasTouchScreen && (
         <>
           <Face.Scroll id="top">
-            <Content images={images} />
+            <Content />
           </Face.Scroll>
           <Face.Scroll id="bottom">
-            <Content images={images} />
+            <Content />
           </Face.Scroll>
           <Face.Side side="left" />
           <Face.Side side="right" />
