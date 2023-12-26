@@ -26,6 +26,7 @@ import { NextSeo } from "next-seo";
 import useTouchScreen from "@/hooks/useHasTouchScreen";
 import { Analytics } from "@vercel/analytics/react";
 import splitbee from "@splitbee/web";
+import Head from "next/head";
 
 const LAYOUTS = {
   LIST: "LIST",
@@ -424,11 +425,18 @@ const Page = ({ images }) => {
 
   return (
     <>
+      <Head>
+        <link
+          rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚇</text></svg>"
+        />
+      </Head>
       <NextSeo
         title="Montreal in Motion"
         description="A documentation of the brutalist and distinctly designed Montreal metro stations. Captured by photographer Mitul Shah."
         canonical="https://typicalmitul.com/montreal-in-motion"
       />
+
       <Face.Scroll id="main">
         <Content images={images} />
       </Face.Scroll>
