@@ -435,6 +435,22 @@ const Page = ({ images }) => {
         title="Montreal in Motion"
         description="A documentation of the brutalist and distinctly designed Montreal metro stations. Captured by photographer Mitul Shah."
         canonical="https://typicalmitul.com/montreal-in-motion"
+        openGraph={{
+          type: "website",
+          url: "https://typicalmitul.com/montreal-in-motion",
+          title: "Montreal in Motion by Mitul Shah",
+          description:
+            "A documentation of the brutalist and distinctly designed Montreal metro stations. Captured by photographer Mitul Shah.",
+          images: [
+            {
+              url: "https://typicalmitul.com/images/og-mtl.png",
+              width: 1200,
+              height: 630,
+              alt: "Montreal in Motion by Mitul Shah",
+              type: "image/png",
+            },
+          ],
+        }}
       />
 
       <Face.Scroll id="main">
