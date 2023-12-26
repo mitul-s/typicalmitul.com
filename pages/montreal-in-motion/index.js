@@ -129,7 +129,17 @@ const AboutContent = () => {
         </div>
       </div>
       <div className={cx(containerStyle, "px-6 space-y-4  border-2 md:w-1/3")}>
-        <div className="w-40 h-40 bg-gray-400"></div>
+        <div className="w-40 h-40 overflow-hidden border-2 border-metro">
+          <Image
+            src={"/images/me.jpeg"}
+            alt="Me"
+            className="object-cover w-full h-full object-[0%_35%]"
+            width={160}
+            height={160}
+            quality={25}
+            draggable={false}
+          />
+        </div>
         <h3 className="text-2xl font-bold">About me</h3>
         <p>
           My name is Mitul Shah, I am a photographer based out of Toronto,
@@ -212,7 +222,7 @@ export const Modal = ({ open, setOpen, children }) => {
 
 const Content = ({ images }) => {
   const [layout, setLayout] = React.useState(LAYOUTS.LIST);
-  const { dialogOpen, setDialogOpen } = React.useContext(Face.Context);
+  const { setDialogOpen } = React.useContext(Face.Context);
 
   return (
     <>
