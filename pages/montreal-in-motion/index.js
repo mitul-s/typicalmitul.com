@@ -212,6 +212,7 @@ export const Modal = ({ open, setOpen, children }) => {
 
 const Content = ({ images }) => {
   const [layout, setLayout] = React.useState(LAYOUTS.LIST);
+  const { dialogOpen, setDialogOpen } = React.useContext(Face.Context);
 
   return (
     <>
