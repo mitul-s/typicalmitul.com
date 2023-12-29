@@ -198,6 +198,7 @@ const Page = ({ images }) => {
   const hasTouchScreen = useTouchScreen();
 
   const Content = ({ isMainFace }) => {
+    const disabledTabIndex = !isMainFace ? -1 : undefined;
     return (
       <>
         <div className="flex flex-col items-center max-w-[95%] mx-auto 2xl:max-w-screen-2xl text-metro">
@@ -225,7 +226,7 @@ const Page = ({ images }) => {
                   href="https://twitter.com/typicalmitul"
                   target="_blank"
                   className="hover:underline underline-offset-4 metro-focus-states"
-                  tabIndex={!isMainFace && -1}
+                  tabIndex={disabledTabIndex}
                 >
                   Mitul Shah (@typicalmitul)
                 </a>
@@ -243,7 +244,7 @@ const Page = ({ images }) => {
                     location: "Montreal in Motion",
                   });
                 }}
-                tabIndex={!isMainFace && -1}
+                tabIndex={disabledTabIndex}
               >
                 About the Project
               </button>
@@ -251,7 +252,7 @@ const Page = ({ images }) => {
                 <a
                   target="_blank"
                   className={button()}
-                  tabIndex={!isMainFace && -1}
+                  tabIndex={disabledTabIndex}
                 >
                   Portfolio
                   <ArrowUpRight className="shrink-0" weight="bold" />
@@ -269,7 +270,7 @@ const Page = ({ images }) => {
                   location: "Twitter",
                 })
               }
-              tabIndex={!isMainFace && -1}
+              tabIndex={disabledTabIndex}
             >
               <TwitterLogo />
             </a>
@@ -283,7 +284,7 @@ const Page = ({ images }) => {
                   location: "Instagram",
                 })
               }
-              tabIndex={!isMainFace && -1}
+              tabIndex={disabledTabIndex}
             >
               <InstagramLogo />
             </a>
@@ -297,7 +298,7 @@ const Page = ({ images }) => {
                   location: "TikTok",
                 })
               }
-              tabIndex={!isMainFace && -1}
+              tabIndex={disabledTabIndex}
             >
               <TiktokLogo />
             </a>
@@ -310,7 +311,7 @@ const Page = ({ images }) => {
                   location: "Email",
                 })
               }
-              tabIndex={!isMainFace && -1}
+              tabIndex={disabledTabIndex}
             >
               <EnvelopeSimple />
             </a>
@@ -324,7 +325,7 @@ const Page = ({ images }) => {
                 onClick={() => {
                   setLayout(LAYOUTS.LIST);
                 }}
-                tabIndex={!isMainFace && -1}
+                tabIndex={disabledTabIndex}
               >
                 <Rows />
                 List
@@ -334,7 +335,7 @@ const Page = ({ images }) => {
                 onClick={() => {
                   setLayout(LAYOUTS.GRID);
                 }}
-                tabIndex={!isMainFace && -1}
+                tabIndex={disabledTabIndex}
               >
                 <SquaresFour />
                 Grid
@@ -364,7 +365,7 @@ const Page = ({ images }) => {
                 return (
                   <div
                     key={id}
-                    className="relative flex flex-col mx-auto overflow-hidden border-2 border-metro group aspect-[5/3] group"
+                    className="relative flex flex-col mx-auto overflow-hidden border-2 border-metro group aspect-[3/2]"
                   >
                     <Image
                       src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_2040/${public_id}.${format}`}
@@ -464,7 +465,7 @@ export default Page;
 
 export async function getStaticProps() {
   const results = await cloudinary.v2.search
-    .expression(`folder:metro/*`)
+    .expression(`folder:metroo/*`)
     .with_field("context")
     .sort_by("public_id", "desc")
     .max_results(400)
