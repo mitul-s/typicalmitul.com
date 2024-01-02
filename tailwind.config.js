@@ -16,6 +16,7 @@ module.exports = {
     },
     extend: {
       screens: {
+        xs: "420px",
         betterhover: { raw: "(hover: hover)" },
       },
       fontFamily: {
@@ -41,6 +42,7 @@ module.exports = {
         // eggshell: "#F8F8F8",
         eggshell: "#F5F7FA",
         // eggshell: "#f6fafd",
+        metro: "#00704F",
         stone: {
           DEFAULT: "#A4A4A4",
           light: "#cbd6e0",
@@ -54,5 +56,7 @@ module.exports = {
     require("tailwindcss-radix")({
       variantPrefix: "rdx",
     }),
+    require("tailwindcss-animate"),
+    require("tailwindcss-3d")({ legacy: true }),
   ],
 };
