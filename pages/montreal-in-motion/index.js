@@ -488,6 +488,8 @@ export async function getStaticProps() {
     i++;
   }
 
+  reducedResults = reducedResults.reverse();
+
   const blurImagePromises = results.resources.map((image) => {
     return getBase64ImageUrl(image);
   });
