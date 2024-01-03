@@ -351,46 +351,44 @@ const Page = ({ images }) => {
                 : " grid-cols-2 lg:grid-cols-3"
             )}
           >
-            {images
-              ?.reverse()
-              .map(
-                ({
-                  id,
-                  public_id,
-                  format,
-                  width,
-                  height,
-                  blurDataUrl,
-                  title,
-                  alt,
-                }) => {
-                  return (
-                    <div
-                      key={id}
-                      className="relative flex flex-col mx-auto overflow-hidden border-2 border-metro group aspect-[3/2]"
-                    >
-                      <Image
-                        src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/q_auto,c_scale,w_1080/${public_id}.${format}`}
-                        alt={alt}
-                        blurDataURL={blurDataUrl}
-                        placeholder="blur"
-                        className="object-cover w-full h-full select-none"
-                        width={width}
-                        height={height}
-                        loading="lazy"
-                        draggable={false}
-                      />
-                      {title && (
-                        <div className="absolute top-0 left-0 flex items-end justify-start w-full h-full transition-all opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 duration-200">
-                          <div className="px-2 py-1 my-2 ml-2 text-sm text-gray-100 sm:ml-4 sm:my-4 sm:px-4 sm:font-bold bg-black/20 backdrop-blur-sm">
-                            {title}
-                          </div>
+            {images.map(
+              ({
+                id,
+                public_id,
+                format,
+                width,
+                height,
+                blurDataUrl,
+                title,
+                alt,
+              }) => {
+                return (
+                  <div
+                    key={id}
+                    className="relative flex flex-col mx-auto overflow-hidden border-2 border-metro group aspect-[3/2]"
+                  >
+                    <Image
+                      src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/q_auto,c_scale,w_1080/${public_id}.${format}`}
+                      alt={alt}
+                      blurDataURL={blurDataUrl}
+                      placeholder="blur"
+                      className="object-cover w-full h-full select-none"
+                      width={width}
+                      height={height}
+                      loading="lazy"
+                      draggable={false}
+                    />
+                    {title && (
+                      <div className="absolute top-0 left-0 flex items-end justify-start w-full h-full transition-all opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 duration-200">
+                        <div className="px-2 py-1 my-2 ml-2 text-sm text-gray-100 sm:ml-4 sm:my-4 sm:px-4 sm:font-bold bg-black/20 backdrop-blur-sm">
+                          {title}
                         </div>
-                      )}
-                    </div>
-                  );
-                }
-              )}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+            )}
           </div>
         </div>
       </>
