@@ -197,6 +197,28 @@ const Page = ({ images }) => {
   const { dialogOpen, setDialogOpen } = React.useContext(Face.Context);
   const hasTouchScreen = useTouchScreen();
 
+  const [displayedImages, setDisplayedImages] = React.useState(images);
+
+  // is this the best way to do this? absolutely not...
+  // open to suggestions if u read this
+  // issue is dialog flickers if there's too many images
+  React.useEffect(() => {
+    let timeoutId;
+    if (dialogOpen) {
+      setDisplayedImages(images.slice(0, 4));
+    } else {
+      timeoutId = setTimeout(() => {
+        setDisplayedImages(images);
+      }, 500);
+    }
+
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [dialogOpen, images]);
+
   const Content = ({ isMainFace }) => {
     const disabledTabIndex = !isMainFace ? -1 : undefined;
     return (
@@ -351,7 +373,7 @@ const Page = ({ images }) => {
                 : " grid-cols-2 lg:grid-cols-3"
             )}
           >
-            {images.map(
+            {displayedImages.map(
               ({
                 id,
                 public_id,
@@ -376,7 +398,6 @@ const Page = ({ images }) => {
                       width={width}
                       height={height}
                       loading="lazy"
-                      draggable={false}
                     />
                     {title && (
                       <div className="absolute top-0 left-0 flex items-end justify-start w-full h-full transition-all opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 duration-200">
