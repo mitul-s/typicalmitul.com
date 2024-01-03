@@ -378,7 +378,7 @@ const Page = ({ images }) => {
                       draggable={false}
                     />
                     {title && (
-                      <div className="absolute top-0 left-0 flex items-end justify-center w-full h-full transition-all opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 duration-200">
+                      <div className="absolute top-0 left-0 flex items-end justify-start w-full h-full transition-all opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 duration-200">
                         <div className="px-2 py-1 my-2 ml-2 text-sm text-gray-100 sm:ml-4 sm:my-4 sm:px-4 sm:font-bold bg-black/20 backdrop-blur-sm">
                           {title}
                         </div>

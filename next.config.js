@@ -21,6 +21,11 @@ module.exports = {
         destination: "/gallery/architecture",
         permanent: true,
       },
+      {
+        source: "/montreal-metro",
+        destination: "/montreal-in-motion",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
