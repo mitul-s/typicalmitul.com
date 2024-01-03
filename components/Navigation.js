@@ -56,7 +56,7 @@ const NavigationLink = ({ intent, href, onClick, children }) => {
   const isActive = router.pathname === href;
   return (
     <NavigationMenu.Item>
-      <NextLink href={href}>
+      <NextLink href={href} passHref>
         <NavigationMenu.Link
           data-active={isActive}
           onClick={onClick}
@@ -94,6 +94,18 @@ const Navigation = () => {
               </NavigationLink>
             );
           })}
+          <NavigationMenu.Item>
+            <NextLink href="/montreal-in-motion" passHref>
+              <NavigationMenu.Link
+                className={cx(
+                  navigationLink({ intent: "desktop" }),
+                  "relative sm:!flex after:content-['New!'] after:ml-1 items-center after:h-fit after:bg-yolk after:text-xs after:p-0.5 after:rounded-sm after:shadow-sm"
+                )}
+              >
+                Montreal Metro
+              </NavigationMenu.Link>
+            </NextLink>
+          </NavigationMenu.Item>
           <NavigationMenu.Item>
             <NavigationMenu.Trigger
               className={navigationLink({ intent: "desktop" })}
@@ -142,6 +154,18 @@ const Navigation = () => {
                 </NavigationLink>
               );
             })}
+            <NavigationMenu.Item>
+              <NextLink href="/montreal-in-motion" passHref>
+                <NavigationMenu.Link
+                  className={cx(
+                    navigationLink({ intent: "mobile" }),
+                    "relative sm:!flex after:content-['New!'] after:ml-1 items-center after:h-fit after:bg-yolk after:text-xs after:p-0.5 after:rounded-sm after:shadow-sm"
+                  )}
+                >
+                  Montreal Metro
+                </NavigationMenu.Link>
+              </NextLink>
+            </NavigationMenu.Item>
             <NavigationMenu.Item>
               <NavigationMenu.Trigger
                 className={navigationLink({ intent: "mobile" })}
