@@ -370,7 +370,7 @@ const Page = ({ images }) => {
                       className="relative flex flex-col mx-auto overflow-hidden border-2 border-metro group aspect-[3/2]"
                     >
                       <Image
-                        src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/q_30,c_scale,w_1080/${public_id}.${format}`}
+                        src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/q_auto,c_scale,w_1080/${public_id}.${format}`}
                         alt={alt}
                         blurDataURL={blurDataUrl}
                         placeholder="blur"
