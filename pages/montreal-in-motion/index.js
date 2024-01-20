@@ -8,7 +8,6 @@ import {
   Rows,
   EnvelopeSimple,
   SquaresFour,
-  TwitterLogo,
   TiktokLogo,
   ArrowUpRight,
 } from "phosphor-react";
@@ -21,6 +20,7 @@ import { Analytics } from "@vercel/analytics/react";
 import splitbee from "@splitbee/web";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
+import { useRouter } from "next/router";
 
 const LAYOUTS = {
   LIST: "LIST",
@@ -57,7 +57,7 @@ const AboutContent = () => {
   const containerStyle =
     "py-12 bg-white shadow-xl xs:border-2 xs:border-metro text-metro xs:overflow-auto";
 
-  const { t, lang } = useTranslation("montreal-in-motion");
+  const { t } = useTranslation("montreal-in-motion");
 
   const modal = {
     title: t("modal-title"),
@@ -182,7 +182,19 @@ const Page = ({ images }) => {
   const { dialogOpen, setDialogOpen } = React.useContext(Face.Context);
   const hasTouchScreen = useTouchScreen();
 
-  const { t } = useTranslation("montreal-in-motion");
+  const router = useRouter();
+  const locales = router.locales ?? [currentLanguage];
+  const { t, lang } = useTranslation("montreal-in-motion");
+
+  const switchToLocale = React.useCallback(
+    (locale) => {
+      const path = router.asPath;
+
+      return router.push(path, path, { locale });
+    },
+    [router]
+  );
+
   const tx = {
     about: t("hero-about"),
     capture: t("captured-by"),
@@ -220,7 +232,27 @@ const Page = ({ images }) => {
     return (
       <>
         <div className="flex flex-col items-center max-w-[95%] mx-auto 2xl:max-w-screen-2xl text-metro">
-          <div className="w-full mt-6 bg-white border-2 md:mt-12 border-metro">
+          <div className="relative w-full mt-6 bg-white border-2 md:mt-12 border-metro">
+            <div className="absolute flex items-center justify-center border top-4 right-4 border-metro">
+              {locales.map((locale) => {
+                const currentLanguage = locale === "en-ca" ? "en" : locale;
+                return (
+                  <button
+                    key={locale}
+                    className={cx(
+                      "min-w-[32px] px-2 py-1 text-xs font-semibold uppercase flex items-center justify-center metro-focus-states",
+                      locale === lang
+                        ? "text-white bg-metro"
+                        : "text-metro bg-white"
+                    )}
+                    onClick={() => switchToLocale(locale)}
+                    tabIndex={disabledTabIndex}
+                  >
+                    {currentLanguage}
+                  </button>
+                );
+              })}
+            </div>
             <div className="items-end w-full py-6 px-4 sm:p-6 lg:grid md:px-12 md:pt-12 md:pb-14 gap-x-8 gap-y-1 grid-cols-[min-content_auto]">
               <h1 className="text-4xl font-bold tracking-tighter sm:tracking-tight sm:text-8xl md:text-9xl whitespace-nowrap">
                 Montreal <br />
