@@ -183,7 +183,7 @@ const Page = ({ images }) => {
   const hasTouchScreen = useTouchScreen();
 
   const router = useRouter();
-  const locales = router.locales ?? [currentLanguage];
+  const locales = router.locales;
   const { t, lang } = useTranslation("montreal-in-motion");
 
   const switchToLocale = React.useCallback(
