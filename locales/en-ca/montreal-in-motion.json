@@ -1,4 +1,6 @@
 {
+  "mtl": "Montreal",
+  "hero-title": "in Motion",
   "hero-about": "A documentation of the Montreal metro system. All photos were captured between December 2021 and January 2022, while the city was under lockdown and curfew.",
   "captured-by": "Captured by",
   "about-btn": "About the project",
@@ -6,7 +8,7 @@
   "layout-txt": "Layout",
   "layout-list": "List",
   "layout-grid": "Grid",
-  "modal-title": "About the project",
+  "modal-title": "the project",
   "modal-caption": "Montreal in Motion is a documentation of the metro, and an invitation to discover beauty within the architectural designs of each station.",
   "modal-description1": "Montreal has forever been one of my favourite cities, for it's food, arts and most notably, the Metro system. Since my first visit, I've been fascinated by distinct architectural differences and art installations in each station.",
   "modal-description2": "At the end of 2021, I made the decisions to spend 30 days through the new year to capture the essence of both the city itself and my favourite metro stations.",

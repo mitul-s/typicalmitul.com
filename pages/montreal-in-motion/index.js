@@ -73,11 +73,19 @@ const AboutContent = () => {
     meDescription2: t("modal-me-description2"),
     meDescription3: t("modal-me-description3"),
   };
+
+  const router = useRouter();
+
   return (
     <>
       <div className={cx(containerStyle, "px-4 md:w-2/3 md:px-12")}>
         <h2 className="text-3xl font-bold tracking-tight xs:tracking-normal xs:text-6xl">
-          About <span className="hidden sm:inline-block">the project</span>
+          {router.locale === "en-ca" ? (
+            "About "
+          ) : (
+            <span className="sm:hidden">Le projet</span>
+          )}
+          <span className="hidden sm:inline-block">{modal.title}</span>
         </h2>
         <div className="flex flex-col mt-4 text-md xs:text-xl xs:mt-6 gap-y-3 max-w-prose">
           <p className="text-2xl">{modal.caption}</p>
@@ -85,7 +93,7 @@ const AboutContent = () => {
           <p>{modal.description1}</p>
           <p>{modal.description2}</p>
           <p>{modal.description3}</p>
-          <h3 className="mt-4 text-2xl font-bold">Informational</h3>
+          <h3 className="mt-4 text-2xl font-bold">{modal.infoTitle}</h3>
           <p>{modal.infoDescription}</p>
           <p>{modal.infoDescription2}</p>
         </div>
@@ -184,7 +192,7 @@ const Page = ({ images }) => {
 
   const router = useRouter();
   const { t, lang } = useTranslation("montreal-in-motion");
-  const locales = router.locales ?? ["en-ca"];
+  const locales = router.locales;
 
   const switchToLocale = React.useCallback(
     (locale) => {
@@ -196,6 +204,8 @@ const Page = ({ images }) => {
   );
 
   const tx = {
+    mtl: t("mtl"),
+    title: t("hero-title"),
     about: t("hero-about"),
     capture: t("captured-by"),
     aboutBtn: t("about-btn"),
@@ -254,10 +264,18 @@ const Page = ({ images }) => {
               })}
             </div>
             <div className="items-end w-full py-6 px-4 sm:p-6 lg:grid md:px-12 md:pt-12 md:pb-14 gap-x-8 gap-y-1 grid-cols-[min-content_auto]">
-              <h1 className="text-4xl font-bold tracking-tighter sm:tracking-tight sm:text-8xl md:text-9xl whitespace-nowrap">
-                Montreal <br />
-                in Motion
-              </h1>
+              {router.locale === "en-ca" ? (
+                <h1 className="text-4xl font-bold tracking-tighter sm:tracking-tight sm:text-8xl md:text-9xl whitespace-nowrap">
+                  Montreal <br />
+                  in Motion
+                </h1>
+              ) : (
+                <h1 className="text-4xl font-bold tracking-tighter sm:tracking-tight sm:text-8xl whitespace-nowrap">
+                  Montréal en
+                  <br />
+                  mouvement
+                </h1>
+              )}
 
               <p
                 className="block max-w-prose mb-2.5 mt-4 sm:mt-0 text-lg sm:text-xl md:text-3xl text-metro"
