@@ -1,0 +1,7 @@
+{
+  "locales": ["en-ca", "fr"],
+  "defaultLocale": "en-ca",
+  "pages": {
+    "/montreal-in-motion": ["montreal-in-motion"]
+  }
+}

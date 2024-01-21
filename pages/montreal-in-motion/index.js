@@ -8,7 +8,6 @@ import {
   Rows,
   EnvelopeSimple,
   SquaresFour,
-  TwitterLogo,
   TiktokLogo,
   ArrowUpRight,
 } from "phosphor-react";
@@ -20,6 +19,8 @@ import useTouchScreen from "@/hooks/useHasTouchScreen";
 import { Analytics } from "@vercel/analytics/react";
 import splitbee from "@splitbee/web";
 import Head from "next/head";
+import useTranslation from "next-translate/useTranslation";
+import { useRouter } from "next/router";
 
 const LAYOUTS = {
   LIST: "LIST",
@@ -55,45 +56,46 @@ const button = cva(
 const AboutContent = () => {
   const containerStyle =
     "py-12 bg-white shadow-xl xs:border-2 xs:border-metro text-metro xs:overflow-auto";
+
+  const { t } = useTranslation("montreal-in-motion");
+
+  const modal = {
+    title: t("modal-title"),
+    caption: t("modal-caption"),
+    description1: t("modal-description1"),
+    description2: t("modal-description2"),
+    description3: t("modal-description3"),
+    infoTitle: t("modal-info-title"),
+    infoDescription: t("modal-info-description"),
+    infoDescription2: t("modal-info-description2"),
+    meTitle: t("modal-me-title"),
+    meDescription: t("modal-me-description"),
+    meDescription2: t("modal-me-description2"),
+    meDescription3: t("modal-me-description3"),
+  };
+
+  const router = useRouter();
+
   return (
     <>
       <div className={cx(containerStyle, "px-4 md:w-2/3 md:px-12")}>
         <h2 className="text-3xl font-bold tracking-tight xs:tracking-normal xs:text-6xl">
-          About <span className="hidden sm:inline-block">the project</span>
+          {router.locale === "en-ca" ? (
+            "About "
+          ) : (
+            <span className="sm:hidden">Le projet</span>
+          )}
+          <span className="hidden sm:inline-block">{modal.title}</span>
         </h2>
         <div className="flex flex-col mt-4 text-md xs:text-xl xs:mt-6 gap-y-3 max-w-prose">
-          <p className="text-2xl">
-            Montreal in Motion is a documentation of the metro, and an
-            invitation to discover beauty within the architectural designs of
-            each station.
-          </p>
+          <p className="text-2xl">{modal.caption}</p>
           <div className="w-full h-px my-2 bg-metro" role="separator" />
-          <p>
-            Montreal has forever been one of my favourite cities, for it&apos;s
-            food, arts and most notably, the Metro system. Since my first visit,
-            I&apos;ve been fascinated by distinct architectural differences and
-            art installations in each station.
-          </p>
-          <p>
-            At the end of 2021, I made the decisions to spend 30 days through
-            the new year to capture the essence of both the city itself and my
-            favourite metro stations.
-          </p>
-          <p>
-            This project captures the stations from my perspective, from a time
-            where the city was quieter and the streets were less crowded. Each
-            station tells a unique story through its designs and artwork,
-            mirroring the rich cultural diversity of Montreal.
-          </p>
-          <h3 className="mt-4 text-2xl font-bold">Informational</h3>
-          <p>
-            All photos were taken on a Sony A7C with a Sigma 24-70m f/2.8 lens.
-            Any long exposure was hand-held.
-          </p>
-          <p>
-            This website was designed and built by myself, with the intention to
-            stay with the theme of Montreal&apos;s brutalist stations.
-          </p>
+          <p>{modal.description1}</p>
+          <p>{modal.description2}</p>
+          <p>{modal.description3}</p>
+          <h3 className="mt-4 text-2xl font-bold">{modal.infoTitle}</h3>
+          <p>{modal.infoDescription}</p>
+          <p>{modal.infoDescription2}</p>
         </div>
       </div>
       <div className={cx(containerStyle, "px-6 space-y-4  border-2 md:w-1/3")}>
@@ -108,20 +110,11 @@ const AboutContent = () => {
             draggable={false}
           />
         </div>
-        <h3 className="text-2xl font-bold">About me</h3>
+        <h3 className="text-2xl font-bold">{modal.meTitle}</h3>
+        <p>{modal.meDescription}</p>
+        <p>{modal.meDescription2}</p>
         <p>
-          My name is Mitul Shah, I am a photographer based out of Toronto,
-          Canada dedicated to defining thoughtful and memorable experiences
-          through every capture.
-        </p>
-        <p>
-          My work has consistently drawn inspiration from our ever-changing
-          environments, aiming to preserve them in a manner that will be
-          remembered for years to come.
-        </p>
-        <p>
-          Thank you for visiting. You can explore more of my work on my
-          portfolio →{" "}
+          {modal.meDescription3} →{" "}
           <Link href="/" passHref>
             <a target="_blank" className="hover:underline underline-offset-4">
               typicalmitul.com
@@ -197,6 +190,31 @@ const Page = ({ images }) => {
   const { dialogOpen, setDialogOpen } = React.useContext(Face.Context);
   const hasTouchScreen = useTouchScreen();
 
+  const router = useRouter();
+  const { t, lang } = useTranslation("montreal-in-motion");
+  const locales = router.locales;
+
+  const switchToLocale = React.useCallback(
+    (locale) => {
+      const path = router.asPath;
+
+      return router.push(path, path, { locale });
+    },
+    [router]
+  );
+
+  const tx = {
+    mtl: t("mtl"),
+    title: t("hero-title"),
+    about: t("hero-about"),
+    capture: t("captured-by"),
+    aboutBtn: t("about-btn"),
+    portfolioBtn: t("portfolio-btn"),
+    layout: t("layout-txt"),
+    list: t("layout-list"),
+    grid: t("layout-grid"),
+  };
+
   const [displayedImages, setDisplayedImages] = React.useState(images);
 
   // is this the best way to do this? absolutely not...
@@ -224,12 +242,40 @@ const Page = ({ images }) => {
     return (
       <>
         <div className="flex flex-col items-center max-w-[95%] mx-auto 2xl:max-w-screen-2xl text-metro">
-          <div className="w-full mt-6 bg-white border-2 md:mt-12 border-metro">
+          <div className="relative w-full mt-6 bg-white border-2 md:mt-12 border-metro">
+            <div className="absolute flex items-center justify-center border top-4 right-4 border-metro">
+              {locales.map((locale) => {
+                const currentLanguage = locale === "en-ca" ? "en" : locale;
+                return (
+                  <button
+                    key={locale}
+                    className={cx(
+                      "min-w-[32px] px-2 py-1 text-xs font-semibold uppercase flex items-center justify-center metro-focus-states",
+                      locale === lang
+                        ? "text-white bg-metro"
+                        : "text-metro bg-white"
+                    )}
+                    onClick={() => switchToLocale(locale)}
+                    tabIndex={disabledTabIndex}
+                  >
+                    {currentLanguage}
+                  </button>
+                );
+              })}
+            </div>
             <div className="items-end w-full py-6 px-4 sm:p-6 lg:grid md:px-12 md:pt-12 md:pb-14 gap-x-8 gap-y-1 grid-cols-[min-content_auto]">
-              <h1 className="text-4xl font-bold tracking-tighter sm:tracking-tight sm:text-8xl md:text-9xl whitespace-nowrap">
-                Montreal <br />
-                in Motion
-              </h1>
+              {router.locale === "en-ca" ? (
+                <h1 className="text-4xl font-bold tracking-tighter sm:tracking-tight sm:text-8xl md:text-9xl whitespace-nowrap">
+                  Montreal <br />
+                  in Motion
+                </h1>
+              ) : (
+                <h1 className="text-4xl font-bold tracking-tighter sm:tracking-tight sm:text-8xl whitespace-nowrap">
+                  Montréal en
+                  <br />
+                  mouvement
+                </h1>
+              )}
 
               <p
                 className="block max-w-prose mb-2.5 mt-4 sm:mt-0 text-lg sm:text-xl md:text-3xl text-metro"
@@ -237,13 +283,11 @@ const Page = ({ images }) => {
                   textWrap: "balance",
                 }}
               >
-                A documentation of the Montreal metro system. All photos were
-                captured between December 2021 and January 2022, while the city
-                was under lockdown and curfew.
+                {tx.about}
               </p>
 
               <span className="col-start-2 md:text-xl">
-                Captured by{" "}
+                {tx.capture}{" "}
                 <a
                   href="https://twitter.com/typicalmitul"
                   target="_blank"
@@ -268,7 +312,7 @@ const Page = ({ images }) => {
                 }}
                 tabIndex={disabledTabIndex}
               >
-                About the Project
+                {tx.aboutBtn}
               </button>
               <Link href="/" passHref>
                 <a
@@ -276,7 +320,7 @@ const Page = ({ images }) => {
                   className={button()}
                   tabIndex={disabledTabIndex}
                 >
-                  Portfolio
+                  {tx.portfolioBtn}
                   <ArrowUpRight className="shrink-0" weight="bold" />
                 </a>
               </Link>
@@ -350,7 +394,7 @@ const Page = ({ images }) => {
           </div>
 
           <div className="flex justify-between w-full px-4 py-2 mt-12 mb-2 font-semibold uppercase bg-white border-2 border-metro">
-            <span>Layout</span>
+            <span>{tx.layout}</span>
             <div className="flex gap-x-2">
               <button
                 className="flex items-center uppercase gap-x-1 metro-focus-states"
@@ -360,7 +404,7 @@ const Page = ({ images }) => {
                 tabIndex={disabledTabIndex}
               >
                 <Rows />
-                List
+                {tx.list}
               </button>
               <button
                 className="flex items-center uppercase gap-x-1 metro-focus-states"
@@ -370,7 +414,7 @@ const Page = ({ images }) => {
                 tabIndex={disabledTabIndex}
               >
                 <SquaresFour />
-                Grid
+                {tx.grid}
               </button>
             </div>
           </div>
