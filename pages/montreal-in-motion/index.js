@@ -8,7 +8,6 @@ import {
   Rows,
   EnvelopeSimple,
   SquaresFour,
-  TiktokLogo,
   ArrowUpRight,
 } from "phosphor-react";
 import { cva, cx } from "class-variance-authority";
@@ -149,20 +148,6 @@ const AboutContent = () => {
               }
             >
               Instagram
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://tiktok.com/@typicalmitul"
-              target="_blank"
-              className="hover:underline underline-offset-4"
-              onClick={() =>
-                splitbee.track("Social Click", {
-                  location: "TikTok",
-                })
-              }
-            >
-              TikTok
             </a>
           </li>
           <li>
@@ -363,20 +348,6 @@ const Page = ({ images }) => {
               tabIndex={disabledTabIndex}
             >
               <InstagramLogo />
-            </a>
-            <a
-              href="https://tiktok.com/@typicalmitul"
-              target="_blank"
-              className={button({ variant: "secondary" })}
-              aria-label="TiKTok profile"
-              onClick={() =>
-                splitbee.track("Social Click", {
-                  location: "TikTok",
-                })
-              }
-              tabIndex={disabledTabIndex}
-            >
-              <TiktokLogo />
             </a>
             <a
               href="mailto:typicalmitul@gmail.com"
