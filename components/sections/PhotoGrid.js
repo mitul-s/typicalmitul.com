@@ -13,14 +13,14 @@ import {
   DialogOverlay,
   DialogPortal,
 } from "@radix-ui/react-dialog";
-import NextImage from "next/image";
-import NextFutureImage from "next/future/image";
+import NextImage from "next/legacy/image";
+import NextFutureImage from "next/image";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { cx } from "class-variance-authority";
 import splitbee from "@splitbee/web";
 import Button from "@/components/Button";
-import { ArrowRight } from "phosphor-react";
+import { ArrowRight } from "@phosphor-icons/react";
 
 const images = [
   {

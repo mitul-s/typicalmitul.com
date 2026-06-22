@@ -1,5 +1,5 @@
 import { Button, Tooltip, Marquee, Image } from "@components";
-import { ArrowRight } from "phosphor-react";
+import { ArrowRight } from "@phosphor-icons/react";
 import NextLink from "next/link";
 import idx_me from "../../public/images/man-standing-in-montreal-metro.jpg";
 
@@ -31,7 +31,7 @@ const About = () => {
             <b className="font-mtl-bold">memorable experiences</b> through every
             capture.
           </p>
-          <NextLink href="/about" passHref>
+          <NextLink href="/about" passHref legacyBehavior>
             <Button asAnchor>
               <span>Get to know me</span>
               <ArrowRight />

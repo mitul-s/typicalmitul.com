@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { Text, Button, Heading } from "@components";
 import useCopyToClipboard from "@/hooks/useCopyToClipboard";
-import { ArrowRight } from "phosphor-react";
+import { ArrowRight } from "@phosphor-icons/react";
 import { Input, TextArea } from "@/components/Field";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/Sheet";
 

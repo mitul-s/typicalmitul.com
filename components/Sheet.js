@@ -1,7 +1,7 @@
 import React from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { AnimatePresence, motion } from "framer-motion";
-import { X } from "phosphor-react";
+import { AnimatePresence, motion } from "motion/react";
+import { X } from "@phosphor-icons/react";
 
 const SheetContext = React.createContext();
 const SheetProvider = (props) => {

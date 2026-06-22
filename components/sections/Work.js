@@ -1,5 +1,5 @@
 import { Text } from "@components";
-import NextImage from "next/image";
+import NextImage from "next/legacy/image";
 import delta from "../../public/images/delta.jpg";
 import uber_team from "../../public/images/uber_team.jpg";
 import shopify from "../../public/images/shopify.jpg";

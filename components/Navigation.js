@@ -2,7 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import clsx from "clsx";
 import NextLink from "next/link";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { ContactDialog } from "@/sections/Contact";
 import { SheetContext } from "@/components/Sheet";
 import { Toggle } from "@radix-ui/react-toggle";
@@ -56,7 +56,7 @@ const NavigationLink = ({ intent, href, onClick, children }) => {
   const isActive = router.pathname === href;
   return (
     <NavigationMenu.Item>
-      <NextLink href={href} passHref>
+      <NextLink href={href} passHref legacyBehavior>
         <NavigationMenu.Link
           data-active={isActive}
           onClick={onClick}
@@ -79,9 +79,9 @@ const Navigation = () => {
     <>
       <ContactDialog open={open} onOpenChange={setOpen} />
       <NavigationMenu.Root>
-        <NavigationMenu.List className="flex items-center justify-center w-full px-4 pt-4 pb-4 mx-auto border-b text-md gap-x-2 border-stone-light">
+        <NavigationMenu.List className="flex items-center justify-center w-full px-4 pt-4 pb-4 mx-auto text-md gap-x-2">
           <NavigationMenu.Item className="mr-auto">
-            <NextLink href="/" passHref>
+            <NextLink href="/" passHref legacyBehavior>
               <NavigationMenu.Link className="text-xl font-mtl-bold">
                 Typical Mitul
               </NavigationMenu.Link>
@@ -95,7 +95,7 @@ const Navigation = () => {
             );
           })}
           <NavigationMenu.Item>
-            <NextLink href="/montreal-in-motion" passHref>
+            <NextLink href="/montreal-in-motion" passHref legacyBehavior>
               <NavigationMenu.Link
                 className={cx(
                   navigationLink({ intent: "desktop" }),
@@ -155,7 +155,7 @@ const Navigation = () => {
               );
             })}
             <NavigationMenu.Item>
-              <NextLink href="/montreal-in-motion" passHref>
+              <NextLink href="/montreal-in-motion" passHref legacyBehavior>
                 <NavigationMenu.Link
                   className={cx(
                     navigationLink({ intent: "mobile" }),
@@ -194,7 +194,7 @@ const Navigation2 = () => {
         <ul className="flex gap-x-0.5 text-base leading-none">
           {navLinks.map((link) => (
             <li key={link.id} className="grid">
-              <NextLink href={link.href} passHref>
+              <NextLink href={link.href} passHref legacyBehavior>
                 <motion.a
                   whileTap={{
                     scale: 0.95,

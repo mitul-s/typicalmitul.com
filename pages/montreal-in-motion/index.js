@@ -9,7 +9,7 @@ import {
   EnvelopeSimple,
   SquaresFour,
   ArrowUpRight,
-} from "phosphor-react";
+} from "@phosphor-icons/react";
 import { cva, cx } from "class-variance-authority";
 import * as Face from "@/components/metro/Face";
 import { CubeContainer, Sheet, Modal } from "@/components/metro/components";
@@ -114,7 +114,7 @@ const AboutContent = () => {
         <p>{modal.meDescription2}</p>
         <p>
           {modal.meDescription3} →{" "}
-          <Link href="/" passHref>
+          <Link href="/" passHref legacyBehavior>
             <a target="_blank" className="hover:underline underline-offset-4">
               typicalmitul.com
             </a>
@@ -299,7 +299,7 @@ const Page = ({ images }) => {
               >
                 {tx.aboutBtn}
               </button>
-              <Link href="/" passHref>
+              <Link href="/" passHref legacyBehavior>
                 <a
                   target="_blank"
                   className={button()}

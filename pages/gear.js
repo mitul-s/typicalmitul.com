@@ -1,6 +1,6 @@
 import Break from "@/components/sections/Break";
 import { NextSeo } from "next-seo";
-import NextImage from "next/future/image";
+import NextImage from "next/image";
 import { Heading, Link } from "../components";
 import sonyA7C from "@/images/gear/sony-alpha-7c-full-frame-camera.png";
 import canon1635 from "@/images/gear/Canon-EF-16-35mm-f4L-IS-USM.png";

@@ -1,5 +1,5 @@
-import NextImage from "next/image";
-import { motion } from "framer-motion";
+import NextImage from "next/legacy/image";
+import { motion } from "motion/react";
 import { useIsSmall } from "@/hooks/useBreakpoint";
 import nyc_lookdown from "../../public/images/new-york-city-lookdown.jpg";
 

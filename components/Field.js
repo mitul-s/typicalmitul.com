@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 import { ValidationError } from "@formspree/react";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);

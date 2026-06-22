@@ -1,5 +1,5 @@
-import { Plus } from "phosphor-react";
-import { motion } from "framer-motion";
+import { Plus } from "@phosphor-icons/react";
+import { motion } from "motion/react";
 import React from "react";
 
 

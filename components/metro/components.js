@@ -1,7 +1,7 @@
 import React from "react";
 import { ScrollSync } from "react-scroll-sync";
 import * as Face from "@/components/metro/Face";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import useTouchScreen from "@/hooks/useHasTouchScreen";
 import { cx } from "class-variance-authority";
 import {
@@ -11,7 +11,7 @@ import {
   DialogClose,
 } from "@radix-ui/react-dialog";
 import { Drawer } from "vaul";
-import { X as Close } from "phosphor-react";
+import { X as Close } from "@phosphor-icons/react";
 
 export const Noise = () => {
   return (

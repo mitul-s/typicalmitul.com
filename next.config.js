@@ -1,17 +1,17 @@
 const nextTranslate = require("next-translate-plugin");
 
 module.exports = {
-  ...nextTranslate(),
+  ...nextTranslate({}, { turbopack: true }),
   reactStrictMode: true,
   images: {
-    domains: [
-      "images.unsplash.com",
-      "res.cloudinary.com",
-      "mitul.ca",
-      "www.dpreview.com",
+    qualities: [25, 75],
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "res.cloudinary.com" },
+      { protocol: "https", hostname: "mitul.ca" },
+      { protocol: "https", hostname: "www.dpreview.com" },
     ],
   },
-  experimental: { images: { allowFutureImage: true } },
   async redirects() {
     return [
       {
