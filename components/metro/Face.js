@@ -1,6 +1,6 @@
 import React from "react";
 import { cva, cx } from "class-variance-authority";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { Noise } from "@/components/metro/components";
 import { ScrollSyncPane } from "react-scroll-sync";
 import { useMeasure } from "@uidotdev/usehooks";

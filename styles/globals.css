@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.js";
 
 :root {
   --gutter: 16px;
@@ -22,7 +21,7 @@ body,
 }
 
 body {
-  @apply bg-eggshell text-dark;
+  @apply bg-white text-dark;
   font-size: 18px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -231,25 +230,20 @@ body {
 
 
 .my-masonry-grid {
-  display: -webkit-box; /* Not needed if autoprefixing */
-  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  margin-left: -8px; /* gutter size offset */
+  margin-left: -4px; /* gutter size offset */
   width: auto;
-
 }
 .my-masonry-grid_column {
-  padding-left: 8px; /* gutter size */
-  padding-bottom: 8px;
+  padding-left: 4px; /* gutter size */
   background-clip: padding-box;
 }
 
 /* Style your items */
-.my-masonry-grid_column > * { /* change div to reference your elements you put in <Masonry> */
-  /* background: grey; */
-  margin-bottom: 8px;
-  /* display: block; */
-  /* cursor: pointer; */
+.my-masonry-grid_column > * {
+  margin-bottom: 4px;
 }
 
 .better-underline {

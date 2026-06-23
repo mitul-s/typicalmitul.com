@@ -57,6 +57,5 @@ module.exports = {
       variantPrefix: "rdx",
     }),
     require("tailwindcss-animate"),
-    require("tailwindcss-3d")({ legacy: true }),
   ],
 };
